@@ -8,7 +8,7 @@ $(() => { // On page load
     const getCampgrounds = () => {
         $.ajax({
             type: "GET",
-            url: baseURL + "pstate=PA" + campgroundApiKey,
+            url: "https://api.amp.active.com/camping/campgrounds/?pstate=PA&Maxpeople=4&api_key=zjntthn8m976q987yp48vzkw",
         }).done((campgroundData) => {
             console.log(campgroundData);
             console.log("Just in case");
