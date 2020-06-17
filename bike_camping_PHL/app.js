@@ -1,11 +1,11 @@
 //Camp Checklist Variables
-const checklistCats = {
-    shelter: ["tent", "sleeping bag", "sleeping pad", "sleeping bag liner", "pillow", "hammock", "hammock rain fly", "hammock bug net"],
-    kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap"],
-    bike: ["bike", "lock", "lights", "spare tubes", "patch kit", "pump/CO2", "multitool", "tire levers"],
-    body: ["cycling shirt", "cycling bottoms", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "camp bottoms", "warm socks", "underwear", "bra", "flip flops", "rain jacket", "pajama pants", "hoodie", "swimsuit", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
-    toiletries: ["first aid kit", "allergy meds", "sunscreen", "bugspray", "body soap/shampoo", "toothbrush", "toothpaste", "contact case & solution", "deodorant", "chamois butter"],
-    custom: [],
+const checklist = {
+    Shelter: ["tent", "sleeping bag", "sleeping pad", "sleeping bag liner", "pillow", "hammock", "hammock rain fly", "hammock bug net"],
+    Kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap"],
+    Bike: ["bike", "lock", "lights", "spare tubes", "patch kit", "pump/CO2", "multitool", "tire levers"],
+    Body: ["cycling shirt", "cycling bottoms", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "camp bottoms", "warm socks", "underwear", "bra", "flip flops", "rain jacket", "pajama pants", "hoodie", "swimsuit", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
+    Toiletries: ["first aid kit", "allergy meds", "sunscreen", "bugspray", "body soap/shampoo", "toothbrush", "toothpaste", "contact case & solution", "deodorant", "chamois butter"],
+    Custom: [],
 };
 
 //Campground API variables
@@ -29,8 +29,21 @@ $(() => { // On page load
             console.log(error);
         }
     }
-    // getCampgrounds();
-    const generateChecklist = () => {
+    
 
+    //Generates the checklist for the page
+    const generateChecklist = () => {
+        for (let category in checklist) {
+            let $category = $("<ul>").text(category);
+            for (let i = 0; i < checklist[category].length; i++) {
+                let $item = $("<li>").addClass(category).text(checklist[category][i]);
+                $category.append($item);
+            }
+            $(".checklist").append($category);
+        }
     }
+
+    //Calls each of these as the page loads in
+    // getCampgrounds();
+    generateChecklist();
 });
