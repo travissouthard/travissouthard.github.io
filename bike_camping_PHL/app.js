@@ -17,6 +17,11 @@ let philaLat = 39.9528;
 let philaLong = -75.1635;
 const coordQuery = `landmarkName=true&landmarkLat=${philaLat}&landmarkLong=${philaLong}`
 
+//Event handlers
+const crossout = (event) => { //For crossing out checked items
+    $(event.currentTarget).toggleClass("checked");
+}
+
 $(() => { // On page load
     const getCampgrounds = () => {
         $.ajax({
@@ -37,6 +42,7 @@ $(() => { // On page load
             let $category = $("<ul>").text(category);
             for (let i = 0; i < checklist[category].length; i++) {
                 let $item = $("<li>").addClass(category).text(checklist[category][i]);
+                $($item).on("click", crossout);
                 $category.append($item);
             }
             $(".checklist").append($category);
