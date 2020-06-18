@@ -8,7 +8,7 @@ const baseChecklist = {
     Custom: [],
 };
 const hotChecklist = {
-    Shelter: ["40 degree sleeping bag"],
+    Shelter: [],
     Kitchen: ["coozies"],
     Bike: [],
     Body: ["flip flops", "swimsuit", "cycling shorts", "camp shorts"],
@@ -50,6 +50,10 @@ const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${curren
 // const zipQuery = `zip=${zipCode},us`;
 const weatherQuery = weatherURL + weatherApiKey;
 
+//Array method callbacks
+const checkLowest = (temp) => temp < 40; //Below 40degF, most people need extra warm gear
+const checkHighest = (temp) => temp > 80; //Above 80degF, most people need lighter gear
+const checkWeatherId = (id) => id < "800"; //IDs with "800" or up are clear or cloudy, all under "800" have some adverse weather, check OpenWeather API documentation for details
 
 //Event handlers
 const crossout = (event) => { //For crossing out checked items
@@ -80,19 +84,34 @@ $(() => { // On page load
         }
     }
 
+    
+    
     //Generates the checklist for the page
     const generateChecklist = () => {
         for (let category in baseChecklist) {
+            //Adds list items from the checklist called
+            const appendList = (list) => {
+                for (let i = 0; i < list[category].length; i++) {
+                    let $item = $("<li>").addClass(category).text(list[category][i]);
+                    $($item).on("click", crossout);
+                    $category.append($item);
+                }
+            }
             let $category = $("<ul>").text(category);
             //If the lowest low-temperature is below 40deg add the cold list
-            //If the highest high-temperature is above 90deg add the hot list
-            //If it is other than clear or cloudy, bring the rain list
-            //Finishes with the base checklist
-            for (let i = 0; i < baseChecklist[category].length; i++) {
-                let $item = $("<li>").addClass(category).text(baseChecklist[category][i]);
-                $($item).on("click", crossout);
-                $category.append($item);
+            if (minList.some(checkLowest)) {
+                appendList(coldChecklist);
             }
+            //If the highest high-temperature is above 90deg add the hot list   
+            if (maxList.some(checkHighest)) {
+                appendList(hotChecklist);
+            }
+            //If it is other than clear or cloudy, bring the rain list
+            if (maxList.some(checkWeatherId)) {
+                appendList(rainChecklist);
+            }
+            //Finishes with the base checklist
+            appendList(baseChecklist);
             $(".checklist").append($category);
         }
     }
@@ -115,11 +134,12 @@ $(() => { // On page load
     }
 
     //Calls each of these as the page loads in
-    // getCampgrounds();
     getWeather();
 
+    //*****************************************************//
     //CODE GRAVEYARD: RIP These ideas, failed though they be.
-    
+    //*****************************************************//
+
     //For retrieving campgrounds local to Philadelphia, but the API only gives back XML, and newer sources only give federal/national campgrounds, and our area only has state and private campgrounds within a day's ride.
     //Campground API variables
     // const campgroundApiKey = "&api_key=zjntthn8m976q987yp48vzkw";
@@ -138,5 +158,5 @@ $(() => { // On page load
     //         console.log(error);
     //     }
     // }
-    
+    // getCampgrounds();
 });
