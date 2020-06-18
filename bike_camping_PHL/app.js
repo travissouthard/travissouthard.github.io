@@ -19,7 +19,7 @@ const coldChecklist = {
     Shelter: ["0 degree sleeping bag", "sleeping bag liner", "hammock underquilt"],
     Kitchen: [],
     Bike: [],
-    Body: ["warm wool socks", "wool underlayers", "camp coat", "warm gloves", "pajama pants"],
+    Body: ["warm wool socks", "wool underlayers", "camp coat", "camp pants", "warm gloves", "pajama pants"],
     Toiletries: [],
     Custom: [],
 }
@@ -39,16 +39,9 @@ let currentLat = philaLat;
 let currentLong = philaLong;
 const dayList = ["Today", "Tomorrow", "The Next Day", "The Day After That"];
 const iconList = [];
+const weatherIdList = [];
 const maxList = [];
 const minList = [];
-
-
-//Campground API variables
-// const campgroundApiKey = "&api_key=zjntthn8m976q987yp48vzkw";
-// const activeApiKey = "&api_key=H8XCTF6FVEGX87PUZXAWQ28Y";
-// const baseURL = "https://api.amp.active.com/camping/campgrounds?";
-// const testURL = "https://api.amp.active.com/camping/campgrounds?pstate=CO&siteType=2001&expwith=1&amenity=4005&pets=3010";
-// const coordQuery = `landmarkName=true&landmarkLat=${philaLat}&landmarkLong=${philaLong}`
 
 //Weather API variables
 const weatherApiKey = "&appid=d175d89ebe6588949bced83b103d7c13";
@@ -64,23 +57,12 @@ const crossout = (event) => { //For crossing out checked items
 }
 
 $(() => { // On page load
-    // const getCampgrounds = () => {
-    //     $.ajax({
-    //         method: "GET",
-    //         url: baseURL + coordQuery + campgroundApiKey,
-    //         dataType: "jsonp",
-    //     }).done((campgroundData) => {
-    //         console.log(campgroundData);
-    //     }), (error) => {
-    //         console.log(error);
-    //     }
-    // }
-    
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
         for (let i = 0; i < 3; i++) {
             //Put data into relevant arrays
             iconList.push(weatherData.daily[i].weather[0].icon);
+            weatherIdList.push(weatherData.daily[i].weather[0].id);
             maxList.push(Math.round(weatherData.daily[i].temp.max));
             minList.push(Math.round(weatherData.daily[i].temp.min));
             //Make elements with data
@@ -95,6 +77,23 @@ $(() => { // On page load
             $weatherCard.append($high);
             $weatherCard.append($low);
             $(".container").append($weatherCard);
+        }
+    }
+
+    //Generates the checklist for the page
+    const generateChecklist = () => {
+        for (let category in baseChecklist) {
+            let $category = $("<ul>").text(category);
+            //If the lowest low-temperature is below 40deg add the cold list
+            //If the highest high-temperature is above 90deg add the hot list
+            //If it is other than clear or cloudy, bring the rain list
+            //Finishes with the base checklist
+            for (let i = 0; i < baseChecklist[category].length; i++) {
+                let $item = $("<li>").addClass(category).text(baseChecklist[category][i]);
+                $($item).on("click", crossout);
+                $category.append($item);
+            }
+            $(".checklist").append($category);
         }
     }
 
@@ -115,20 +114,29 @@ $(() => { // On page load
         }
     }
 
-    //Generates the checklist for the page
-    const generateChecklist = () => {
-        for (let category in baseChecklist) {
-            let $category = $("<ul>").text(category);
-            for (let i = 0; i < baseChecklist[category].length; i++) {
-                let $item = $("<li>").addClass(category).text(baseChecklist[category][i]);
-                $($item).on("click", crossout);
-                $category.append($item);
-            }
-            $(".checklist").append($category);
-        }
-    }
-
     //Calls each of these as the page loads in
     // getCampgrounds();
     getWeather();
+
+    //CODE GRAVEYARD: RIP These ideas, failed though they be.
+    
+    //For retrieving campgrounds local to Philadelphia, but the API only gives back XML, and newer sources only give federal/national campgrounds, and our area only has state and private campgrounds within a day's ride.
+    //Campground API variables
+    // const campgroundApiKey = "&api_key=zjntthn8m976q987yp48vzkw";
+    // const activeApiKey = "&api_key=H8XCTF6FVEGX87PUZXAWQ28Y";
+    // const baseURL = "https://api.amp.active.com/camping/campgrounds?";
+    // const testURL = "https://api.amp.active.com/camping/campgrounds?pstate=CO&siteType=2001&expwith=1&amenity=4005&pets=3010";
+    // const coordQuery = `landmarkName=true&landmarkLat=${philaLat}&landmarkLong=${philaLong}`
+    // const getCampgrounds = () => {
+    //     $.ajax({
+    //         method: "GET",
+    //         url: baseURL + coordQuery + campgroundApiKey,
+    //         dataType: "jsonp",
+    //     }).done((campgroundData) => {
+    //         console.log(campgroundData);
+    //     }), (error) => {
+    //         console.log(error);
+    //     }
+    // }
+    
 });
