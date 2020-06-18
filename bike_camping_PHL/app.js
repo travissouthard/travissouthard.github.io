@@ -54,22 +54,25 @@ $(() => { // On page load
     
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
-        //Put data into relevant arrays
-        iconList.push(weatherData.daily[0].weather[0].icon);
-        maxList.push(weatherData.daily[0].temp.max);
-        minList.push(weatherData.daily[0].temp.min);
-        //Make elements with data
-        let $weatherCard = $("<div>").addClass("weather");
-        let $title = $("<h4>").text(dayList[0]);
-        let $icon = $("<img>").attr("src", `http://openweathermap.org/img/wn/${iconList[0]}@2x.png`);
-        let $high = $("<p>").text("High: " + maxList[0] + " degrees(F)");
-        let $low = $("<p>").text("Low: " + minList[0] + " degrees(F)");
-        //Put elements in place
-        $weatherCard.append($title);
-        $weatherCard.append($icon);
-        $weatherCard.append($high);
-        $weatherCard.append($low);
-        $(".container").append($weatherCard);
+        for (let i = 0; i < 3; i++) {
+            //Put data into relevant arrays
+            iconList.push(weatherData.daily[i].weather[0].icon);
+            maxList.push(Math.round(weatherData.daily[i].temp.max));
+            minList.push(Math.round(weatherData.daily[i].temp.min));
+            //Make elements with data
+            let $weatherCard = $("<div>").addClass("weather");
+            let $title = $("<h4>").text(dayList[i]);
+            let $icon = $("<img>").attr("src", `http://openweathermap.org/img/wn/${iconList[0]}@2x.png`);
+            let $high = $("<p>").text("High: " + maxList[i] + " degrees(F)");
+            let $low = $("<p>").text("Low: " + minList[i] + " degrees(F)");
+            //Put elements in place
+            $weatherCard.append($title);
+            $weatherCard.append($icon);
+            $weatherCard.append($high);
+            $weatherCard.append($low);
+            $(".container").append($weatherCard);
+        }
+        
     }
 
     //Fetches the weather from openweathermap.org
