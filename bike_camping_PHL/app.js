@@ -117,6 +117,7 @@ $(() => { // On page load
     }
 
     //Fetches the weather from openweathermap.org
+        //This also calls buildWeatherCards and generateChecklist, without the weather, this does not really work. A breakproof way to still make a basic list should go in the error catch.
     const getWeather = () => {
         $.ajax({
             method: "GET",
