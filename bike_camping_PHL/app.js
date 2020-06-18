@@ -42,6 +42,7 @@ const iconList = [];
 const weatherIdList = [];
 const maxList = [];
 const minList = [];
+const customItems = [];
 
 //Weather API variables
 const weatherApiKey = "&appid=d175d89ebe6588949bced83b103d7c13";
@@ -59,8 +60,23 @@ const checkWeatherId = (id) => id < "800"; //IDs with "800" or up are clear or c
 const crossout = (event) => { //For crossing out checked items
     $(event.currentTarget).toggleClass("checked");
 }
+const renderCustomItems = () => {
+    console.log(customItems);
+    $("#custom").append("<li>").text(customItems[customItems.length-1]);
+    $("li").on("click", crossout);
+}
 
 $(() => { // On page load
+    //Event listeners
+    $("form").on("submit", (event) => { //Custom item submissions in form
+        event.preventDefault();
+        $(event.currentTarget).trigger('reset');
+
+        const $inputValue = $("#input").val();
+        customItems.push($inputValue);
+        renderCustomItems();
+    })
+
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
         for (let i = 0; i < 3; i++) {
@@ -70,7 +86,7 @@ $(() => { // On page load
             maxList.push(Math.round(weatherData.daily[i].temp.max));
             minList.push(Math.round(weatherData.daily[i].temp.min));
             //Make elements with data
-            let $weatherCard = $("<div>").addClass("weather");
+            let $weatherCard = $("<div>").addClass("weather-card");
             let $title = $("<h4>").text(dayList[i]);
             let $icon = $("<img>").attr("src", `http://openweathermap.org/img/wn/${iconList[0]}@2x.png`);
             let $high = $("<p>").text("High: " + maxList[i] + " degrees(F)");
@@ -97,7 +113,10 @@ $(() => { // On page load
                     $category.append($item);
                 }
             }
-            let $category = $("<ul>").text(category);
+            //Makes a ul to hold each category of the checklists
+            let $category = $("<ul>").text(category).attr("id", category);
+
+            //Conditionals to customize the list with the weather
             //If the lowest low-temperature is below 40deg add the cold list
             if (minList.some(checkLowest)) {
                 appendList(coldChecklist);
