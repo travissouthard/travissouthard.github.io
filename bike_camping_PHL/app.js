@@ -58,13 +58,10 @@ $(() => { // On page load
         iconList.push(weatherData.daily[0].weather[0].icon);
         maxList.push(weatherData.daily[0].temp.max);
         minList.push(weatherData.daily[0].temp.min);
-        console.log(iconList);
-        console.log(maxList);
-        console.log(minList);
         //Make elements with data
         let $weatherCard = $("<div>").addClass("weather");
         let $title = $("<h4>").text(dayList[0]);
-        let $icon = $("<img>").attr["src", `http://openweathermap.org/img/wn/${iconList[0]}@2x.png`]//.css("display", "block");
+        let $icon = $("<img>").attr("src", `http://openweathermap.org/img/wn/${iconList[0]}@2x.png`);
         let $high = $("<p>").text("High: " + maxList[0] + " degrees(F)");
         let $low = $("<p>").text("Low: " + minList[0] + " degrees(F)");
         //Put elements in place
