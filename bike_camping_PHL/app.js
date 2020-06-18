@@ -1,12 +1,36 @@
 //Camp Checklist Variables
-const checklist = {
-    Shelter: ["tent", "sleeping bag", "sleeping pad", "sleeping bag liner", "pillow", "hammock", "hammock rain fly", "hammock bug net"],
-    Kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap"],
+const baseChecklist = {
+    Shelter: ["tent", "sleeping bag", "sleeping pad", "pillow", "hammock", "hammock bug net", "paracord"],
+    Kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap",],
     Bike: ["bike", "lock", "lights", "spare tubes", "patch kit", "pump/CO2", "multitool", "tire levers"],
-    Body: ["cycling shirt", "cycling bottoms", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "camp bottoms", "warm socks", "underwear", "bra", "flip flops", "rain jacket", "pajama pants", "hoodie", "swimsuit", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
-    Toiletries: ["first aid kit", "allergy meds", "sunscreen", "bugspray", "body soap/shampoo", "toothbrush", "toothpaste", "contact case & solution", "deodorant", "chamois butter"],
+    Body: ["cycling shirt", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "underwear", "bra", "hoodie", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
+    Toiletries: ["first aid kit", "allergy meds", "bugspray", "body soap/shampoo", "toothbrush", "toothpaste", "contact case & solution", "chamois butter"],
     Custom: [],
 };
+const hotChecklist = {
+    Shelter: ["40 degree sleeping bag"],
+    Kitchen: ["coozies"],
+    Bike: [],
+    Body: ["flip flops", "swimsuit", "cycling shorts", "camp shorts"],
+    Toiletries: ["sunscreen", "deodorant"],
+    Custom: [],
+}
+const coldChecklist = {
+    Shelter: ["0 degree sleeping bag", "sleeping bag liner", "hammock underquilt"],
+    Kitchen: [],
+    Bike: [],
+    Body: ["warm wool socks", "wool underlayers", "camp coat", "warm gloves", "pajama pants"],
+    Toiletries: [],
+    Custom: [],
+}
+const rainChecklist = {
+    Shelter: ["hammock rain fly", "tarp"],
+    Kitchen: [],
+    Bike: ["fenders"],
+    Body: ["rain jacket", "rain pants", ],
+    Toiletries: [],
+    Custom: [],
+}
 
 //Global variables
 const philaLat = 39.9528;
@@ -72,7 +96,6 @@ $(() => { // On page load
             $weatherCard.append($low);
             $(".container").append($weatherCard);
         }
-        
     }
 
     //Fetches the weather from openweathermap.org
@@ -86,6 +109,7 @@ $(() => { // On page load
             // console.log("Max: ", weatherData.daily[0].temp.max);
             // console.log("Min: ", weatherData.daily[0].temp.min);
             buildWeatherCards(weatherData);
+            generateChecklist();
         }), (error) => {
             console.log(error);
         }
@@ -93,10 +117,10 @@ $(() => { // On page load
 
     //Generates the checklist for the page
     const generateChecklist = () => {
-        for (let category in checklist) {
+        for (let category in baseChecklist) {
             let $category = $("<ul>").text(category);
-            for (let i = 0; i < checklist[category].length; i++) {
-                let $item = $("<li>").addClass(category).text(checklist[category][i]);
+            for (let i = 0; i < baseChecklist[category].length; i++) {
+                let $item = $("<li>").addClass(category).text(baseChecklist[category][i]);
                 $($item).on("click", crossout);
                 $category.append($item);
             }
@@ -107,5 +131,4 @@ $(() => { // On page load
     //Calls each of these as the page loads in
     // getCampgrounds();
     getWeather();
-    generateChecklist();
 });
