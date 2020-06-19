@@ -115,7 +115,11 @@ $(() => { // On page load
                 }
             }
             //Makes a ul to hold each category of the checklists
-            let $category = $("<ul>").text(category).attr("id", category);
+            let $category = $("<ul>").attr("id", category);
+
+            //Adds a title to each category
+            let $title = $("<h4>").text(category);
+            $category.append($title);
 
             //Conditionals to customize the list with the weather
             //If the lowest low-temperature is below 40deg add the cold list
