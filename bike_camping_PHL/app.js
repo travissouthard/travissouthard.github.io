@@ -73,6 +73,7 @@ $(() => { // On page load
         $(event.currentTarget).trigger('reset');
 
         const $inputValue = $("#input").val();
+        console.log($inputValue);
         customItems.push($inputValue);
         renderCustomItems();
     })
