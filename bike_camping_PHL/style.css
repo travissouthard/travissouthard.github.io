@@ -3,20 +3,18 @@ body {
     text-align: center;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    cursor: pointer;
+button {
+    width: 22.5%;
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 footer ul {
     display: flex;
+    padding: 0;
     flex-flow: row wrap;
     justify-content: space-evenly;
     font-size: .75em;
+    list-style: none;
 }
 
 .container {
@@ -25,8 +23,36 @@ footer ul {
     justify-content: space-evenly;
 }
 
+.checklist {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.checklist ul {
+    list-style: none;
+    padding: 0;
+    width: 45%;
+    background-color: gray;
+}
+
+.checklist li {
+    cursor: pointer;
+    width: 80%;
+    margin: 5px auto;
+    background-color: lightgray;
+}
+
+.checklist h4 {
+    width: 80%;
+    margin: 8px auto;
+    background-color: lightgray;
+
+}
+
 .checked {
     text-decoration: line-through;
+    background-color: whitesmoke;
 }
 
 #cursive-span {
