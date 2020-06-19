@@ -61,8 +61,9 @@ const crossout = (event) => { //For crossing out checked items
     $(event.currentTarget).toggleClass("checked");
 }
 const renderCustomItems = () => {
-    console.log(customItems);
-    $("#custom").append("<li>").text(customItems[customItems.length-1]);
+    console.log(customItems[customItems.length-1]);
+    let $customsItem = 
+    $("#Custom").append("<li>").text(customItems[customItems.length-1]);
     $("li").on("click", crossout);
 }
 
@@ -70,12 +71,11 @@ $(() => { // On page load
     //Event listeners
     $("form").on("submit", (event) => { //Custom item submissions in form
         event.preventDefault();
-        $(event.currentTarget).trigger('reset');
-
         const $inputValue = $("#input").val();
         console.log($inputValue);
         customItems.push($inputValue);
         renderCustomItems();
+        $(event.currentTarget).trigger('reset');
     })
 
     //Builds weather cards
