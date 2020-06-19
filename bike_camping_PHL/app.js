@@ -62,9 +62,9 @@ const crossout = (event) => { //For crossing out checked items
 }
 const renderCustomItems = () => {
     console.log(customItems[customItems.length-1]);
-    let $customsItem = 
-    $("#Custom").append("<li>").text(customItems[customItems.length-1]);
+    let $customItem = $("<li>").text(customItems[customItems.length-1]);
     $("li").on("click", crossout);
+    $("#Custom").append($customItem);
 }
 
 $(() => { // On page load
