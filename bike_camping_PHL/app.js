@@ -45,6 +45,8 @@ const minList = [];
 const customItems = [];
 
 //Weather API variables
+const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
+const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
 const weatherApiKey = "&appid=d175d89ebe6588949bced83b103d7c13";
 const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentLat}&lon=${currentLong}&exclude=current,minutely,hourly&units=imperial`;
 // let zipCode = 19145;
@@ -56,18 +58,27 @@ const checkLowest = (temp) => temp < 40; //Below 40degF, most people need extra 
 const checkHighest = (temp) => temp > 80; //Above 80degF, most people need lighter gear
 const checkWeatherId = (id) => id < "800"; //IDs with "800" or up are clear or cloudy, all under "800" have some adverse weather, check OpenWeather API documentation for details
 
-//Event handlers
-const crossout = (event) => { //For crossing out checked items
-    $(event.currentTarget).toggleClass("checked");
-}
-const renderCustomItems = () => {
-    console.log(customItems[customItems.length-1]);
-    let $customItem = $("<li>").text(customItems[customItems.length-1]);
-    $("#Custom").append($customItem);
-    $("li").on("click", crossout);
-}
-
 $(() => { // On page load
+    //Event handlers
+    const crossout = (event) => { //For crossing out checked items
+        $(event.currentTarget).toggleClass("checked");
+    }
+    const renderCustomItems = () => {
+        let $customItem = $("<li>").text(customItems[customItems.length-1]);
+        $("#Custom").append($customItem);
+        $("li").on("click", crossout);
+    }
+    const setCampgroundCoords = (event) => {
+        console.log("Before", currentLat, currentLong);
+        console.log("Before", weatherQuery);
+        let $index = $(event.currentTarget).attr("id"); //Uses id as index to get coordinates
+        currentLat = campgroundLats[$index]; //Sets currentLat to the corresponding latitude
+        currentLong = campgroundLongs[$index]; //Sets currentLong to corresponding longitude
+        console.log("After", currentLat, currentLong); //Are updating
+        console.log("After", weatherQuery); //Not updating
+        getWeather();
+    }
+
     //Event listeners
     $("form").on("submit", (event) => { //Custom item submissions in form
         event.preventDefault();
@@ -77,9 +88,11 @@ $(() => { // On page load
         renderCustomItems();
         $(event.currentTarget).trigger('reset');
     })
+    $("button").on("click", setCampgroundCoords);
 
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
+        $(".container").empty(); //To make room for when a button is pressed
         for (let i = 0; i < 3; i++) {
             //Put data into relevant arrays
             iconList.push(weatherData.daily[i].weather[0].icon);
@@ -105,6 +118,7 @@ $(() => { // On page load
     
     //Generates the checklist for the page
     const generateChecklist = () => {
+        $(".checklist").empty(); //To make room for button presses
         for (let category in baseChecklist) {
             //Adds list items from the checklist called
             const appendList = (list) => {
