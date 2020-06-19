@@ -12,6 +12,13 @@ li {
     cursor: pointer;
 }
 
+footer ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    font-size: .75em;
+}
+
 .container {
     display: flex;
     flex-direction: row;
