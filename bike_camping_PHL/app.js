@@ -89,7 +89,7 @@ $(() => { // On page load
             //Make elements with data
             let $weatherCard = $("<div>").addClass("weather-card");
             let $title = $("<h4>").text(dayList[i]);
-            let $icon = $("<img>").attr("src", `http://openweathermap.org/img/wn/${iconList[0]}@2x.png`);
+            let $icon = $("<img>").attr("src", `http://openweathermap.org/img/wn/${iconList[i]}@2x.png`);
             let $high = $("<p>").text("High: " + maxList[i] + " degrees(F)");
             let $low = $("<p>").text("Low: " + minList[i] + " degrees(F)");
             //Put elements in place
