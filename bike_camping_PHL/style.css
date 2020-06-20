@@ -38,6 +38,7 @@ footer {
 
 button {
     width: 22.5%;
+    height: auto;
     font-family: 'Balsamiq Sans', cursive;
     margin: 2px 0;
 }

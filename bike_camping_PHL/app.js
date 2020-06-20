@@ -37,7 +37,7 @@ const philaLat = 39.9528;
 const philaLong = -75.1635;
 const dayList = ["Today", "Tomorrow", "The Next Day", "The Day After That"];
 const iconList = [];
-const weatherIdList = [];
+let weatherIdList = [];
 const maxList = [];
 const minList = [];
 const customItems = [];
@@ -87,6 +87,7 @@ $(() => { // On page load
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
         $(".container").empty(); //To make room for when a button is pressed
+        weatherIdList = [];
         for (let i = 0; i < 3; i++) {
             //Put data into relevant arrays
             iconList.push(weatherData.daily[i].weather[0].icon);
