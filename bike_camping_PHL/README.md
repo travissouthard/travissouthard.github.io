@@ -18,13 +18,13 @@ On loading the page creates 3 cards with weather for "Today", "Tomorrow", & "The
 There is a base checklist, as well as cold, hot, and rainy checklists. The checklist generator is built in such a way that if all, any, or none of the thresholds are exceeded it will generate appropriately. This way if it is hot during the day and also cold at night, the user will have what they need.
 
 #### Current bugs
-* When the user adds a custom item, the generated li element gets the crossout listener, but all previous li elements lose theirs
-* When the user clicks a campground button, the currentLat and currentLong update with appropriate coordinate values, but weatherQuery's use of those variables does not reflect that upgrade
+* *Fixed* When the user adds a custom item, the generated li element gets the crossout listener, but all previous li elements lose theirs
+* *Fixed, but differences in location don't seem to vary enough* When the user clicks a campground button, the currentLat and currentLong update with appropriate coordinate values, but weatherQuery's use of those variables does not reflect that upgrade
 
 #### Desired upgrades
 For now the thresholds and location are predetermined. I would like to add a control panel to customize the weather and checklist for the user. For this I would like to add:
 * Temperature sliders for the user to set their hot and cold temperatures for themself.
-* Buttons that ask the user where they are camping. The buttons would be set to the geographical coordinates of various local campgrounds.
+* *Done* Buttons that ask the user where they are camping. The buttons would be set to the geographical coordinates of various local campgrounds.
   * I would also love to improve that feature to allow the user to set any geographical location.
 * The ability to save custom checklists, or save what they've packed beyond the current page load.
 
