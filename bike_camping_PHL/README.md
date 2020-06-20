@@ -17,6 +17,14 @@ On loading the page creates 3 cards with weather for "Today", "Tomorrow", & "The
 
 There is a base checklist, as well as cold, hot, and rainy checklists. The checklist generator is built in such a way that if all, any, or none of the thresholds are exceeded it will generate appropriately. This way if it is hot during the day and also cold at night, the user will have what they need.
 
+#### Built with:
+* HTML5
+* CSS3
+* Javascript
+* JQuery
+* JSON
+* [OpenWeather Map API](https://openweathermap.org/api)
+
 #### Current bugs
 * *Fixed* When the user adds a custom item, the generated li element gets the crossout listener, but all previous li elements lose theirs
 * *Fixed, but differences in location don't seem to vary enough* When the user clicks a campground button, the currentLat and currentLong update with appropriate coordinate values, but weatherQuery's use of those variables does not reflect that upgrade
