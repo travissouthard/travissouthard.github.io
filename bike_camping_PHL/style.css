@@ -1,11 +1,45 @@
+/* Color Variables */
+:root {
+    --yellow: #F2D194;
+    --tan: #D9B07E;
+    --brown: #403027;
+    --green: #5A7326;
+    --blue: #3772A6;
+}
+
+/* Base Styling */
+html {
+    background-color: var(--green);
+}
+
 body {
+    width: 80%;
+    margin: 0 auto;
     font-family: 'Balsamiq Sans', cursive;
     text-align: center;
+    background-color: var(--yellow);
+    color: var(--brown);
+    border-radius: 30px 30px 10px 10px;
+}
+
+header, footer {
+    background-color: var(--brown);
+    color: var(--yellow);
+    padding: 10px 0;
+}
+
+header {
+    border-radius: 30px 30px 0 0;
+}
+
+footer {
+    border-radius: 0 0 10px 10px;
 }
 
 button {
     width: 22.5%;
     font-family: 'Balsamiq Sans', cursive;
+    margin: 2px 0;
 }
 
 footer ul {
@@ -17,10 +51,23 @@ footer ul {
     list-style: none;
 }
 
+footer a {
+    color: var(--yellow);
+}
+
+footer a:visited {
+    color: var(--yellow);
+}
+
 .container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.weather-card {
+    background-color: var(--blue);
+    color: white;
 }
 
 .checklist {
@@ -33,30 +80,32 @@ footer ul {
     list-style: none;
     padding: 0;
     width: 45%;
-    background-color: gray;
+    background-color: var(--brown);
 }
 
 .checklist li {
     cursor: pointer;
     width: 80%;
     margin: 5px auto;
-    background-color: lightgray;
+    background-color: var(--yellow);
 }
 
 .checklist h4 {
     width: 80%;
     margin: 8px auto;
-    background-color: lightgray;
+    background-color: var(--tan);
 
 }
 
 .checked {
     text-decoration: line-through;
-    background-color: whitesmoke;
+    background-color: var(--tan);
 }
 
 #cursive-span {
     font-family: 'Vibur', cursive;
+    font-size: 1.5em;
+    margin: 0;
 }
 
 /* For mapbox styling */
