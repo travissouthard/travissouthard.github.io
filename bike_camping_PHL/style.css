@@ -72,8 +72,11 @@ footer a:visited {
 }
 
 .weather-card {
+    width: 30%;
+    max-width: 200px;
     background-color: var(--blue);
     color: white;
+    padding: 0 5px;
 }
 
 .checklist {
@@ -91,21 +94,22 @@ footer a:visited {
 
 .checklist li {
     cursor: pointer;
-    width: 80%;
+    width: 60%;
     margin: 5px auto;
     background-color: var(--yellow);
 }
 
 .checklist h4 {
     width: 80%;
+    /* height: 2em; */
     margin: 8px auto;
     background-color: var(--tan);
-
+    padding: 2% 0;
 }
 
 .checked {
     text-decoration: line-through;
-    background-color: var(--tan);
+    color: var(--tan);
 }
 
 #cursive-span {
@@ -115,9 +119,11 @@ footer a:visited {
 }
 
 #input {
-    width: 80%;
+    width: 60%;
 }
 
+
+/* CODE GRAVEYARD */
 /* For mapbox styling */
 /* #map { 
     width: 100%;
@@ -125,4 +131,3 @@ footer a:visited {
     margin: 0;
     padding: 0;
 } */
-

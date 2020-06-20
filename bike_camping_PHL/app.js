@@ -1,32 +1,32 @@
 //Camp Checklist Variables
 const baseChecklist = {
     Shelter: ["tent", "sleeping bag", "sleeping pad", "pillow", "hammock", "hammock bug net", "paracord"],
-    Kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap",],
     Bike: ["bike", "lock", "lights", "spare tubes", "patch kit", "pump/CO2", "multitool", "tire levers"],
+    Kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap",],
     Body: ["cycling shirt", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "underwear", "bra", "hoodie", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
     Toiletries: ["first aid kit", "allergy meds", "bugspray", "body soap/shampoo", "toothbrush", "toothpaste", "contact case & solution", "chamois butter"],
     Custom: [],
 };
 const hotChecklist = {
     Shelter: [],
-    Kitchen: ["coozies"],
     Bike: [],
+    Kitchen: ["coozies"],
     Body: ["flip flops", "swimsuit", "cycling shorts", "camp shorts"],
     Toiletries: ["sunscreen", "deodorant"],
     Custom: [],
 }
 const coldChecklist = {
     Shelter: ["0 degree sleeping bag", "sleeping bag liner", "hammock underquilt"],
-    Kitchen: [],
     Bike: [],
+    Kitchen: [],
     Body: ["warm wool socks", "wool underlayers", "camp coat", "camp pants", "warm gloves", "pajama pants"],
     Toiletries: [],
     Custom: [],
 }
 const rainChecklist = {
     Shelter: ["hammock rain fly", "tarp"],
-    Kitchen: [],
     Bike: ["fenders"],
+    Kitchen: [],
     Body: ["rain jacket", "rain pants", ],
     Toiletries: [],
     Custom: [],
@@ -45,8 +45,6 @@ const customItems = [];
 //Weather API variables
 const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
 const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
-// let zipCode = 19145;
-// const zipQuery = `zip=${zipCode},us`;
 
 //Array method callbacks
 const checkLowest = (temp) => temp < 40; //Below 40degF, most people need extra warm gear
@@ -198,4 +196,6 @@ $(() => { // On page load
     //     }
     // }
     // getCampgrounds();
+    // let zipCode = 19145;
+    // const zipQuery = `zip=${zipCode},us`;
 });
