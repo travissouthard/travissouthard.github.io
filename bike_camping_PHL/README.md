@@ -3,9 +3,9 @@
 ### By Travis Southard
 
 #### See the app!
-[Use the checklist yourself!](https://travissouthard.github.io)
-Go camping!
-[Check out the bike camping trips I've led in the past!](https://www.instagram.com/explore/tags/cyclescampout/)
+* [Use the checklist yourself!](https://travissouthard.github.io)
+* Go camping!
+* [Check out the bike camping trips I've led in the past!](https://www.instagram.com/explore/tags/cyclescampout/)
 
 #### Premise
 This checklist is an app built to take in weather data and populate a checklist with various weather-dependent gear.
