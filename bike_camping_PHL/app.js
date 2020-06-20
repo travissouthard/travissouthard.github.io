@@ -35,8 +35,6 @@ const rainChecklist = {
 //Global variables
 const philaLat = 39.9528;
 const philaLong = -75.1635;
-let currentLat = philaLat;
-let currentLong = philaLong;
 const dayList = ["Today", "Tomorrow", "The Next Day", "The Day After That"];
 const iconList = [];
 const weatherIdList = [];
@@ -47,11 +45,8 @@ const customItems = [];
 //Weather API variables
 const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
 const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
-const weatherApiKey = "&appid=d175d89ebe6588949bced83b103d7c13";
-const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentLat}&lon=${currentLong}&exclude=current,minutely,hourly&units=imperial`;
 // let zipCode = 19145;
 // const zipQuery = `zip=${zipCode},us`;
-const weatherQuery = weatherURL + weatherApiKey;
 
 //Array method callbacks
 const checkLowest = (temp) => temp < 40; //Below 40degF, most people need extra warm gear
@@ -61,34 +56,33 @@ const checkWeatherId = (id) => id < "800"; //IDs with "800" or up are clear or c
 $(() => { // On page load
     //Event handlers
     const crossout = (event) => { //For crossing out checked items
+        console.log("I clicked the ", event.currentTarget);
+        $(event.currentTarget).toggleClass("unchecked");
         $(event.currentTarget).toggleClass("checked");
     }
     const renderCustomItems = () => {
-        let $customItem = $("<li>").text(customItems[customItems.length-1]);
+        let $customItem = $("<li>").text(customItems[customItems.length-1]).addClass("unchecked");
         $("#Custom").append($customItem);
-        $("li").on("click", crossout);
+        $customItem.on("click", crossout);
     }
     const setCampgroundCoords = (event) => {
-        console.log("Before", currentLat, currentLong);
-        console.log("Before", weatherQuery);
         let $index = $(event.currentTarget).attr("id"); //Uses id as index to get coordinates
-        currentLat = campgroundLats[$index]; //Sets currentLat to the corresponding latitude
-        currentLong = campgroundLongs[$index]; //Sets currentLong to corresponding longitude
-        console.log("After", currentLat, currentLong); //Are updating
-        console.log("After", weatherQuery); //Not updating
-        getWeather();
+        let currentLat = campgroundLats[$index]; //Sets currentLat to the corresponding latitude
+        let currentLong = campgroundLongs[$index]; //Sets currentLong to corresponding longitude
+        getWeather(currentLat, currentLong);
     }
 
     //Event listeners
     $("form").on("submit", (event) => { //Custom item submissions in form
         event.preventDefault();
         const $inputValue = $("#input").val();
-        console.log($inputValue);
+        // console.log($inputValue);
         customItems.push($inputValue);
         renderCustomItems();
         $(event.currentTarget).trigger('reset');
     })
     $("button").on("click", setCampgroundCoords);
+    // $(".unchecked").on("click", crossout);
 
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
@@ -124,7 +118,8 @@ $(() => { // On page load
             const appendList = (list) => {
                 for (let i = 0; i < list[category].length; i++) {
                     let $item = $("<li>").addClass(category).text(list[category][i]);
-                    $($item).on("click", crossout);
+                    $item.addClass("unchecked");
+                    $item.on("click", crossout);
                     $category.append($item);
                 }
             }
@@ -156,7 +151,10 @@ $(() => { // On page load
 
     //Fetches the weather from openweathermap.org
         //This also calls buildWeatherCards and generateChecklist, without the weather, this does not really work. A breakproof way to still make a basic list should go in the error catch.
-    const getWeather = () => {
+    const getWeather = (lat, long) => {
+        const weatherApiKey = "&appid=d175d89ebe6588949bced83b103d7c13";
+        const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current,minutely,hourly&units=imperial`;
+        const weatherQuery = weatherURL + weatherApiKey;
         $.ajax({
             method: "GET",
             url: weatherQuery,
@@ -166,6 +164,7 @@ $(() => { // On page load
             // console.log("Max: ", weatherData.daily[0].temp.max);
             // console.log("Min: ", weatherData.daily[0].temp.min);
             buildWeatherCards(weatherData);
+            console.log(weatherQuery);
             generateChecklist();
         }), (error) => {
             console.log(error);
@@ -173,7 +172,7 @@ $(() => { // On page load
     }
 
     //Calls each of these as the page loads in
-    getWeather();
+    getWeather(philaLat, philaLong);
 
     //*****************************************************//
     //CODE GRAVEYARD: RIP These ideas, failed though they be.
