@@ -4,7 +4,7 @@ const baseChecklist = {
     Bike: ["bike", "lock", "lights", "spare tubes", "patch kit", "pump/CO2", "multitool", "tire levers"],
     Kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap",],
     Body: ["cycling shirt", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "underwear", "bra", "hoodie", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
-    Toiletries: ["first aid kit", "allergy meds", "bugspray", "body soap/shampoo", "toothbrush", "toothpaste", "contact case & solution", "chamois butter"],
+    Toiletries: ["first aid kit", "allergy meds", "bugspray", "body soap", "toothbrush", "toothpaste", "contact case & solution", "chamois butter"],
     Custom: [],
 };
 const hotChecklist = {
@@ -86,6 +86,8 @@ $(() => { // On page load
     const buildWeatherCards = (weatherData) => {
         $(".container").empty(); //To make room for when a button is pressed
         weatherIdList = [];
+        let $weatherHeader = $("<h3>").text("Upcoming Weather");
+        $(".container").append($weatherHeader);
         for (let i = 0; i < 3; i++) {
             //Put data into relevant arrays
             iconList.push(weatherData.daily[i].weather[0].icon);
