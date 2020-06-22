@@ -77,6 +77,7 @@ footer a:visited {
 
 .weather-card {
     width: 30%;
+    min-width: 100px;
     max-width: 200px;
     background-color: var(--blue);
     color: white;
@@ -103,6 +104,12 @@ footer a:visited {
     background-color: var(--yellow);
 }
 
+.checklist li:hover {
+    /* background-color: var(--tan); */
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 2px black;
+}
+
 .checklist h4 {
     width: 80%;
     /* height: 2em; */
@@ -126,7 +133,7 @@ footer a:visited {
     width: 60%;
 }
 
-/* For full size screens */
+/* For tablet and full size screens */
 @media (min-width: 700px) {
     body {
         width: 95%;
@@ -178,15 +185,12 @@ footer a:visited {
         width: 95vw;
     }
 
-    footer ul {
-        flex-direction: column;
-    }
-
     #full-right {
         width: 80%;
     }
 }
 
+/* For full size screens to handle spacing/formatting */
 @media (min-width: 1100px) {
     .container {
         justify-content: space-around;
