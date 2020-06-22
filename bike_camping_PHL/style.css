@@ -65,6 +65,7 @@ footer a:visited {
     color: var(--yellow);
 }
 
+/* Weather card container and children */
 .container {
     display: flex;
     flex-flow: row wrap;
@@ -93,6 +94,7 @@ footer a:visited {
     margin: 2px 0;
 }
 
+/* Checklist container and children */
 .checklist {
     display: flex;
     flex-flow: row wrap;
@@ -135,6 +137,7 @@ footer a:visited {
     color: var(--tan);
 }
 
+/* The ID'd elements */
 #cursive-span {
     font-family: 'Vibur', cursive;
     font-size: 1.5em;

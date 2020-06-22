@@ -1,6 +1,6 @@
 # Philadelphia Bike Camping
 ## Dynamic Gear Checklist
-### By Travis Southard
+### By [Travis Southard](travissouthard.github.io)
 
 #### See the app!
 * [Use the checklist yourself!](https://travissouthard.github.io)
@@ -17,6 +17,8 @@ On loading the page creates 3 cards with weather for "Today", "Tomorrow", & "The
 
 There is a base checklist, as well as cold, hot, and rainy checklists. The checklist generator is built in such a way that if all, any, or none of the thresholds are exceeded it will generate appropriately. This way if it is hot during the day and also cold at night, the user will have what they need.
 
+Clicking on the list items crosses them out to let the user know that this is an item they have packed. The user can also use the form above the checklist to add their own items (e.g. a special permit needed to camp, something they were asked to bring by a camping companion, etc.)
+
 #### Built with:
 * HTML5
 * CSS3
@@ -25,14 +27,16 @@ There is a base checklist, as well as cold, hot, and rainy checklists. The check
 * JSON
 * [OpenWeather Map API](https://openweathermap.org/api)
 
+#### Installing on your system
+If you'd like to download this and play with the code, you'd have to save the files in the `bike_camping_PHL` directory which currently are only the `index.html`, `style.css`, `app.js`, and `images` directory, which is currently only full of the favicon options. Open them in your favorite text editor to test, play, etc. 
+
 #### Current bugs
-* *Fixed* When the user adds a custom item, the generated li element gets the crossout listener, but all previous li elements lose theirs
 * *Fixed, but differences in location don't seem to vary enough* When the user clicks a campground button, the currentLat and currentLong update with appropriate coordinate values, but weatherQuery's use of those variables does not reflect that upgrade
 
 #### Desired upgrades
-For now the thresholds and location are predetermined. I would like to add a control panel to customize the weather and checklist for the user. For this I would like to add:
+For now the weather thresholds and location are predetermined. I would like to add a control panel to customize the weather and checklist for the user. For this I would like to add:
 * Temperature sliders for the user to set their hot and cold temperatures for themself.
-* *Done* Buttons that ask the user where they are camping. The buttons would be set to the geographical coordinates of various local campgrounds.
+* *Done, but differences in location don't seem to vary enough* Buttons that ask the user where they are camping. The buttons would be set to the geographical coordinates of various local campgrounds.
   * I would also love to improve that feature to allow the user to set any geographical location.
 * The ability to save custom checklists, or save what they've packed beyond the current page load.
 
