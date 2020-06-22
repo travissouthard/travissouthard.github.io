@@ -32,17 +32,16 @@ const rainChecklist = {
     Custom: [],
 }
 
-//Global variables
+//Weather API variables
 const philaLat = 39.9528;
 const philaLong = -75.1635;
 const dayList = ["Today", "Tomorrow", "The Next Day", "The Day After That"];
 const iconList = [];
 let weatherIdList = [];
+const descList = [];
 const maxList = [];
 const minList = [];
 const customItems = [];
-
-//Weather API variables
 const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
 const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
 
@@ -54,7 +53,7 @@ const checkWeatherId = (id) => id < "800"; //IDs with "800" or up are clear or c
 $(() => { // On page load
     //Event handlers
     const crossout = (event) => { //For crossing out checked items
-        console.log("I clicked the ", event.currentTarget);
+        // console.log("I clicked the ", event.currentTarget);
         $(event.currentTarget).toggleClass("unchecked");
         $(event.currentTarget).toggleClass("checked");
     }
