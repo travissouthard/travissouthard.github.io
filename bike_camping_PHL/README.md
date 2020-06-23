@@ -36,6 +36,7 @@ If you'd like to download this and play with the code, you'd have to save the fi
 #### Desired upgrades
 For now the weather thresholds and location are predetermined. I would like to add a control panel to customize the weather and checklist for the user. For this I would like to add:
 * Temperature sliders for the user to set their hot and cold temperatures for themself.
+* Sunrise and sunset times and hours of daylight. In the summer we have 13-15 hours of daylight, but in the winter we have much less and it can change plans for long a bike camper can ride.
 * *Done, but differences in location don't seem to vary enough* Buttons that ask the user where they are camping. The buttons would be set to the geographical coordinates of various local campgrounds.
   * I would also love to improve that feature to allow the user to set any geographical location.
 * The ability to save custom checklists, or save what they've packed beyond the current page load.
