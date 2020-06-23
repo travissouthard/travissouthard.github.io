@@ -3,7 +3,7 @@
 ### By [Travis Southard](travissouthard.github.io)
 
 #### See the app!
-* [Use the checklist yourself!](https://travissouthard.github.io)
+* [Use the checklist yourself!](https://travissouthard.github.io/bike_camping_PHL)
 * Go camping!
 * [Check out the bike camping trips I've led in the past!](https://www.instagram.com/explore/tags/cyclescampout/)
 
