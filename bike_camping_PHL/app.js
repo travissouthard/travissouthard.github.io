@@ -27,7 +27,7 @@ const rainChecklist = {
     Shelter: ["hammock rain fly", "tarp"],
     Bike: ["fenders"],
     Kitchen: [],
-    Body: ["rain jacket", "rain pants", ],
+    Body: ["rain jacket", "rain pants", "extra socks"],
     Toiletries: [],
     Custom: [],
 }
