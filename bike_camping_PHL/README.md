@@ -8,9 +8,9 @@
 * [Check out the bike camping trips I've led in the past!](https://www.instagram.com/explore/tags/cyclescampout/)
 
 #### Premise
-This checklist is an app built to take in weather data and populate a checklist with various weather-dependent gear.
-The weather data used is for the day the page is loaded and the following two days. This assumes that the user is taking a one-night camping trip (ride out, sleep, wake up, ride back).
-Before presenting this, I will be asking my bike camping friends to try the checklist and give their input on gear or conditions I may be missing. 
+This app/website is built for people preparing for a one or two-night bike camping trip and helps them prepare. The idea came from my partner and I using the same paper checklist for each trip and highlighting it in a new color each time. This is built to be paper-free, reusable, and react to upcoming weather/seasonal changes.
+
+This checklist is an app built to take in weather data and populate a checklist with various weather-dependent gear. The weather data used is for the day the page is loaded and the following two days. This assumes that the user is taking a one-night camping trip (ride out, sleep, wake up, ride back). Before presenting this, asked my bike camping friends to try the checklist and give their input on gear or conditions I may be missing. 
 
 #### Features
 On loading the page creates 3 cards with weather for "Today", "Tomorrow", & "The Next Day" for Philadelphia specifically. It uses the data in those cards to determine if the next few days might have rain, heat, or cold. If the weather thresholds are exceeded (For example, if any day's low temperature is below 40) it populates the checklist from respective lists.
