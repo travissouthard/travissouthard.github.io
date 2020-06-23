@@ -24,7 +24,7 @@ Clicking on the list items crosses them out to let the user know that this is an
 * CSS3
 * Javascript
 * JQuery
-* JSON
+* AJAX/JSON
 * [OpenWeather Map API](https://openweathermap.org/api)
 
 #### Installing on your system
