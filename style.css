@@ -1,0 +1,95 @@
+:root {
+    --red: #852320;
+    --light-red: #D4534E;
+    --yellow: #E8C76D;
+    --light-blue: #3B92D9;
+    --blue: #215D8F;
+}
+
+html {
+    background-color: var(--yellow);
+}
+
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+    margin: 0 auto;
+}
+
+main {
+    padding: 0 5%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    margin: 0;
+    padding-top: 20px;
+}
+
+ul {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+    padding: 20px 0;
+}
+
+header, nav, footer {
+    background-color: var(--blue);
+    color: white;
+}
+
+header p {
+    text-align: center;
+    font-variant: small-caps;
+    margin: 0;
+}
+
+nav ul, footer ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav li, footer li {
+    width: 25%;
+    margin: 1px;
+    border-radius: 5px;
+    background-color: var(--light-blue);
+    padding: 2% 10%;
+}
+
+nav li:hover, footer li:hover {
+    margin: 0;
+    border: 1px solid white;
+    background-color: var(--blue);
+    color: var(--light-blue);
+}
+
+.skills {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.skills div {
+    width: 45%;
+    max-width: 500px;
+}
