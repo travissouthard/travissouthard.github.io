@@ -27,6 +27,13 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 20px;
 }
 
+img {
+    width: 80%;
+    display: inline-block;
+    margin: 0 auto;
+    border: 1px solid var(--light-blue);
+}
+
 ul {
     margin: 0;
     margin-bottom: 10px;
@@ -81,6 +88,11 @@ nav li:hover, footer li:hover {
     border: 1px solid white;
     background-color: var(--blue);
     color: var(--light-blue);
+}
+
+.projects {
+    margin: 0;
+    width: 50%;
 }
 
 .skills {
