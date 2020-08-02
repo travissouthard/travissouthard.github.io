@@ -98,10 +98,14 @@ nav li:hover, footer li:hover {
 .skills {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-.skills div {
-    width: 45%;
-    max-width: 500px;
+.skills h3 {
+    text-align: left;
+}
+
+.skills ul {
+    list-style-type: disc;
+    padding-left: 30px;
 }
