@@ -17,7 +17,7 @@ Whether building code, a short film, or a bicycle; I develop an appropriate proc
     - [Visit Site](https://crashreportphl.herokuapp.com/)
     - [On Github](https://github.com/travissouthard/project2)
 - Bike Camping PHL
-    - [Visit Site](file:///Users/Travis/Documents/general-assembly/portfolio/bike_camping_PHL/index.html)
+    - [Visit Site](./bike_camping_PHL)
     - [On Github](https://github.com/travissouthard/travissouthard.github.io/tree/master/bike_camping_PHL)
 - Xpense App
     - [Visit Site](https://xpensefrontend.herokuapp.com/)
