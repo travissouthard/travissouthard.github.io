@@ -44,6 +44,7 @@ $(() => {
         let isLeftEdge = id % width === 0
         let isRightEdge = id % width === width - 1
         let neighbors = []
+        let number = ["one", "two", "three", "four", "five", "six", "seven", "eight"]
         // Check neighboring squares for bombs from top clockwise
         if (id > width - 1) { // Top
             if (squareValues[id - width] === "bomb") {bombCount++}
@@ -79,7 +80,7 @@ $(() => {
         }
         //After checking, either reveal the number of bombs found or click all the nieghbors
         if (bombCount > 0) {
-            $("#" + id).text(bombCount).addClass("checked")
+            $("#" + id).text(bombCount).addClass("checked").addClass(number[bombCount - 1])
         } else {
             neighbors.map(neighbor => {
                 $("#" + id).addClass("checked")

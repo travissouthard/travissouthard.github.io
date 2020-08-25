@@ -9,6 +9,23 @@ header {
     margin: 0 auto;
 }
 
+h2 {
+    text-align: center;
+}
+
+footer {
+    width: 400px;
+    margin: 0 auto;
+    border-bottom: 4px solid whitesmoke;
+    border-right: 4px solid whitesmoke;
+    border-top: 4px solid grey;
+    border-left: 4px solid grey;
+}
+
+li {
+    margin: 10px 0;
+}
+
 #control-panel {
     display: flex;
     width: 100%;
@@ -51,7 +68,7 @@ button:active {
     border-left: 4px solid grey;
 }
 
-#board {
+#board, #sample {
     margin: 20px auto;
     width: 400px;
     height: 400px;
@@ -62,6 +79,11 @@ button:active {
     border-left: 4px solid whitesmoke;
     border-bottom: 4px solid grey;
     border-right: 4px solid grey;
+}
+
+#sample {
+    width: 120px;
+    height: 120px;
 }
 
 .square {
@@ -78,4 +100,36 @@ button:active {
 
 .checked {
     border: 4px solid lightgrey;
+}
+
+.one {
+    color: purple;
+}
+
+.two {
+    color: blue;
+}
+
+.three {
+    color: green;
+}
+
+.four {
+    color: yellow;
+}
+
+.five {
+    color: orange;
+}
+
+.six {
+    color: red;
+}
+
+.seven {
+    color: black;
+}
+
+.eight {
+    color: purple;
 }
