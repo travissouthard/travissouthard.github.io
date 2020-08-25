@@ -18,3 +18,7 @@
 .bomb {
     background-color: red;
 }
+
+.checked {
+    border: 1px solid orange;
+}
