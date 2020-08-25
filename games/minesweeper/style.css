@@ -1,5 +1,6 @@
 body {
     background-color: lightgrey;
+    font-family: sans-serif;
 }
 
 header {
@@ -8,7 +9,18 @@ header {
     margin: 0 auto;
 }
 
-button {
+#control-panel {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+button, #flag-count {
+    font-family: sans-serif;
+    font-size: 1em;
+    margin: 0;
+    height: 3em;
     padding: .5em 1em;
     background-color: lightgrey;
     border-top: 4px solid whitesmoke;
@@ -17,17 +29,26 @@ button {
     border-right: 4px solid grey;
 }
 
-button:hover {
-    background-color: whitesmoke;
-    
-
+#flag-count {
+    height: 24px;
+    line-height: 24px;
+    vertical-align: center;
 }
 
-#control-panel {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
+button:hover {
+    background-color: whitesmoke;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background-color: lightgrey;
+    border-bottom: 4px solid whitesmoke;
+    border-right: 4px solid whitesmoke;
+    border-top: 4px solid grey;
+    border-left: 4px solid grey;
 }
 
 #board {

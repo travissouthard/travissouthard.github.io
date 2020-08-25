@@ -4,6 +4,7 @@ let boardSize = width * width
 let bombAmount = Math.floor((boardSize) * .2)
 let validAmount = boardSize - bombAmount
 let flags = 0
+let matches = 0
 let timer = 0
 let isGameOver = false
 // Variables to create bomb and valid classes
@@ -32,6 +33,10 @@ $(() => {
             validArray.push("valid")
         }
         squareValues = shuffle(bombArray.concat(validArray))
+    }
+    const updateFlags = () => {
+        $("#flag-count").empty()
+        $("#flag-count").text("Flags: " + (bombAmount - flags))
     }
     const checkNeighbors = (square) => {
         let bombCount = 0
@@ -90,30 +95,62 @@ $(() => {
         } else {
             $square = $(event.currentTarget)
         }
-        if (!isGameOver && !$square.hasClass("checked")) {
+        if (!isGameOver && !$square.hasClass("checked") && !$square.hasClass("flag")) {
             if ($square.hasClass("bomb")) {
                 $(".bomb").text("💣").addClass("checked")
-                console.log("Game Over!")
+                $("#title").text("Game Over!")
                 isGameOver = true
             } else {
                 checkNeighbors($square)
             }
         }
     }
+    //Check for win
+    const checkWin = () => {
+        console.log("Matches: " + matches)
+        console.log("flags: " + flags)
+        console.log("Bombs: " + bombAmount)
+        if (matches === bombAmount) {
+            $("#title").text("You win!")
+            isGameOver = true
+        }
+    }
+    //Add flags to mark
+    const addFlag = (event) => {
+        let $square = $(event.currentTarget)
+        if (!isGameOver && !$square.hasClass("checked") && flags < bombAmount) {
+            if ($square.hasClass("flag")) {
+                $square.text("")
+                flags--
+            } else {
+                $square.text("🚩")
+                flags++
+                if ($square.hasClass("bomb")) {
+                    matches++
+                }
+                checkWin($square)
+            }
+            $square.toggleClass("flag")
+            updateFlags()
+        }
+        return false
+    }
     // Create game board
     const createGameBoard = () => {
+        $("#title").text("Minesweeper")
         isGameOver = false
         flags = 0
+        matches = 0
         bombArray = []
         validArray = []
         squareValues = []
         $("#board").empty()
+        updateFlags()
         createSquareValues()
-        let flagCount = $("<p>").text("Flags: " + flags)
-        $("#control-panel").append(flagCount)
         for (let i = 0; i < boardSize; i++) {
             let $square = $("<div>").addClass("square").addClass(squareValues[i]).attr("id", i)
             $square.on("click", click)
+            $square.on("contextmenu", addFlag)
             $("#board").append($square)
         }
     }
