@@ -22,6 +22,10 @@ footer {
     border-left: 4px solid grey;
 }
 
+footer p {
+    text-align: center;
+}
+
 li {
     margin: 10px 0;
 }
