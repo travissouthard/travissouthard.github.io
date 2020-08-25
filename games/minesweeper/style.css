@@ -4,6 +4,30 @@ body {
 
 header {
     text-align: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
+button {
+    padding: .5em 1em;
+    background-color: lightgrey;
+    border-top: 4px solid whitesmoke;
+    border-left: 4px solid whitesmoke;
+    border-bottom: 4px solid grey;
+    border-right: 4px solid grey;
+}
+
+button:hover {
+    background-color: whitesmoke;
+    
+
+}
+
+#control-panel {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 #board {

@@ -4,6 +4,7 @@ let boardSize = width * width
 let bombAmount = Math.floor((boardSize) * .2)
 let validAmount = boardSize - bombAmount
 let flags = 0
+let timer = 0
 let isGameOver = false
 // Variables to create bomb and valid classes
 let bombArray = []
@@ -102,11 +103,14 @@ $(() => {
     // Create game board
     const createGameBoard = () => {
         isGameOver = false
+        flags = 0
         bombArray = []
         validArray = []
         squareValues = []
         $("#board").empty()
         createSquareValues()
+        let flagCount = $("<p>").text("Flags: " + flags)
+        $("#control-panel").append(flagCount)
         for (let i = 0; i < boardSize; i++) {
             let $square = $("<div>").addClass("square").addClass(squareValues[i]).attr("id", i)
             $square.on("click", click)
