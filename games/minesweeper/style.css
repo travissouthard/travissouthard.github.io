@@ -1,24 +1,36 @@
+body {
+    background-color: lightgrey;
+}
+
+header {
+    text-align: center;
+}
+
 #board {
+    margin: 20px auto;
     width: 400px;
     height: 400px;
     background-color: lightgrey;
     display: flex;
     flex-flow: row wrap;
+    border-top: 4px solid whitesmoke;
+    border-left: 4px solid whitesmoke;
+    border-bottom: 4px solid grey;
+    border-right: 4px solid grey;
 }
 
 .square {
-    width: 38px;
-    height: 38px;
-    border: 1px solid black;
+    width: 32px;
+    height: 32px;
+    border-top: 4px solid whitesmoke;
+    border-left: 4px solid whitesmoke;
+    border-bottom: 4px solid grey;
+    border-right: 4px solid grey;
     text-align: center;
-    line-height: 38px;
+    line-height: 32px;
     vertical-align: center;
 }
 
-.bomb {
-    background-color: red;
-}
-
 .checked {
-    border: 1px solid orange;
+    border: 4px solid lightgrey;
 }

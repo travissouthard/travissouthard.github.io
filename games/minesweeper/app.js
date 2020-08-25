@@ -91,7 +91,7 @@ $(() => {
         }
         if (!isGameOver && !$square.hasClass("checked")) {
             if ($square.hasClass("bomb")) {
-                $(".bomb").text("X")
+                $(".bomb").text("💣").addClass("checked")
                 console.log("Game Over!")
                 isGameOver = true
             } else {
