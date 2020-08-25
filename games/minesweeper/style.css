@@ -14,3 +14,7 @@
     line-height: 38px;
     vertical-align: center;
 }
+
+.bomb {
+    background-color: red;
+}
