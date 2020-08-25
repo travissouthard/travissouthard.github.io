@@ -108,9 +108,6 @@ $(() => {
     }
     //Check for win
     const checkWin = () => {
-        console.log("Matches: " + matches)
-        console.log("flags: " + flags)
-        console.log("Bombs: " + bombAmount)
         if (matches === bombAmount) {
             $("#title").text("You win!")
             isGameOver = true
