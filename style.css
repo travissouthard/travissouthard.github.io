@@ -127,7 +127,7 @@ nav a:hover, footer a:hover {
 
 .project-card {
     padding: 2.5%;
-    width: 45%;
+    width: 95%;
 }
 
 .project-card p, .project-card a {
@@ -143,4 +143,22 @@ nav a:hover, footer a:hover {
 
 .skills h3 {
     text-align: left;
+}
+
+@media (min-width: 600px) {
+    .project-card {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .project-card {
+        width: 28.33333%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .project-card {
+        width: 20%;
+    }
 }
