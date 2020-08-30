@@ -5,7 +5,8 @@ let bombAmount = Math.floor((boardSize) * .2)
 let validAmount = boardSize - bombAmount
 let flags = 0
 let matches = 0
-let timer = 0
+let wins = 0
+let losses = 0
 let isGameOver = false
 // Variables to create bomb and valid classes
 let bombArray = []
@@ -34,7 +35,11 @@ $(() => {
         }
         squareValues = shuffle(bombArray.concat(validArray))
     }
-    const updateFlags = () => {
+    const updateScoreboard = () => {
+        $("#wins").empty()
+        $("#wins").text("Wins: " + wins)
+        $("#losses").empty()
+        $("#losses").text("Losses: " + losses)
         $("#flag-count").empty()
         $("#flag-count").text("Flags: " + (bombAmount - flags))
     }
@@ -100,6 +105,8 @@ $(() => {
             if ($square.hasClass("bomb")) {
                 $(".bomb").text("💣").addClass("checked")
                 $("#title").text("Game Over!")
+                losses++
+                updateScoreboard()
                 isGameOver = true
             } else {
                 checkNeighbors($square)
@@ -110,6 +117,9 @@ $(() => {
     const checkWin = () => {
         if (matches === bombAmount) {
             $("#title").text("You win!")
+            $(".valid").addClass("checked")
+            wins++
+            updateScoreboard()
             isGameOver = true
         }
     }
@@ -129,7 +139,7 @@ $(() => {
                 checkWin($square)
             }
             $square.toggleClass("flag")
-            updateFlags()
+            updateScoreboard()
         }
         return false
     }
@@ -143,7 +153,7 @@ $(() => {
         validArray = []
         squareValues = []
         $("#board").empty()
-        updateFlags()
+        updateScoreboard()
         createSquareValues()
         for (let i = 0; i < boardSize; i++) {
             let $square = $("<div>").addClass("square").addClass(squareValues[i]).attr("id", i)
