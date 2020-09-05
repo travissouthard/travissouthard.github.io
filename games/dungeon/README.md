@@ -5,7 +5,7 @@
 ### What is it?
 A fun side project that is an exploration-based role-playing game with (what I hope will be) an open world. Imagine a less combat-focused *Legend of Zelda* game.
 
-This will be built with React for the game itself and with a separate backend for players to make accounts to save their games.
+This will be built with React for the game itself and with a separate backend for players to make accounts to save their games. 
 
 ### What's planned for this?
 - Grid-based world with tile-based graphics
