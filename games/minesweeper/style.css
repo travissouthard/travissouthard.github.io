@@ -102,6 +102,14 @@ button:active {
     vertical-align: center;
 }
 
+.square:active {
+    background-color: lightgrey;
+    border-bottom: 4px solid whitesmoke;
+    border-right: 4px solid whitesmoke;
+    border-top: 4px solid grey;
+    border-left: 4px solid grey;
+}
+
 .checked {
     border: 4px solid lightgrey;
 }
