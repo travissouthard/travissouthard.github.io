@@ -135,6 +135,13 @@ nav a:hover, footer a:hover {
     color: black;
 }
 
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+}
+
 .skills {
     display: flex;
     flex-flow: row wrap;
