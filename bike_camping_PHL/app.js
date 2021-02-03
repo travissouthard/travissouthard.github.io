@@ -8,8 +8,8 @@ const descList = [];
 const maxList = [];
 const minList = [];
 const customItems = [];
-const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
-const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
+// const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
+// const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
 
 //Array method callbacks
 const checkLowest = (temp) => temp < 40; //Below 40degF, most people need extra warm gear
@@ -26,12 +26,6 @@ $(() => { // On page load
         $("#Custom").append($customItem);
         $customItem.on("click", crossout);
     }
-    const setCampgroundCoords = (event) => {
-        let $index = $(event.currentTarget).attr("id"); //Uses id as index to get coordinates
-        let currentLat = campgroundLats[$index]; //Sets currentLat to the corresponding latitude
-        let currentLong = campgroundLongs[$index]; //Sets currentLong to corresponding longitude
-        getWeather(currentLat, currentLong);
-    }
 
     //Event listeners
     $("form").on("submit", (event) => { //Custom item submissions in form
@@ -41,7 +35,6 @@ $(() => { // On page load
         renderCustomItems();
         $(event.currentTarget).trigger('reset');
     })
-    $("button").on("click", setCampgroundCoords);
 
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
