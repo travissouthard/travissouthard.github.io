@@ -160,9 +160,6 @@ $(() => { // On page load
             url: weatherQuery,
             datatype: "jsonp"
         }).done((weatherData) => {
-            // console.log("Icon: ", weatherData.daily[0].weather[0].icon);
-            // console.log("Max: ", weatherData.daily[0].temp.max);
-            // console.log("Min: ", weatherData.daily[0].temp.min);
             buildWeatherCards(weatherData);
             console.log(weatherQuery);
             generateChecklist();
@@ -173,30 +170,4 @@ $(() => { // On page load
 
     //Calls each of these as the page loads in
     getWeather(philaLat, philaLong);
-
-    //*****************************************************//
-    //CODE GRAVEYARD: RIP These ideas, failed though they be.
-    //*****************************************************//
-
-    //For retrieving campgrounds local to Philadelphia, but the API only gives back XML, and newer sources only give federal/national campgrounds, and our area only has state and private campgrounds within a day's ride.
-    //Campground API variables
-    // const campgroundApiKey = "&api_key=zjntthn8m976q987yp48vzkw";
-    // const activeApiKey = "&api_key=H8XCTF6FVEGX87PUZXAWQ28Y";
-    // const baseURL = "https://api.amp.active.com/camping/campgrounds?";
-    // const testURL = "https://api.amp.active.com/camping/campgrounds?pstate=CO&siteType=2001&expwith=1&amenity=4005&pets=3010";
-    // const coordQuery = `landmarkName=true&landmarkLat=${philaLat}&landmarkLong=${philaLong}`
-    // const getCampgrounds = () => {
-    //     $.ajax({
-    //         method: "GET",
-    //         url: baseURL + coordQuery + campgroundApiKey,
-    //         dataType: "jsonp",
-    //     }).done((campgroundData) => {
-    //         console.log(campgroundData);
-    //     }), (error) => {
-    //         console.log(error);
-    //     }
-    // }
-    // getCampgrounds();
-    // let zipCode = 19145;
-    // const zipQuery = `zip=${zipCode},us`;
 });
