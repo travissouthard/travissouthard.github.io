@@ -5,8 +5,8 @@ const dayList = ["Today", "Tomorrow", "The Next Day", "The Day After That"];
 const iconList = [];
 let weatherIdList = [];
 const descList = [];
-const maxList = [];
-const minList = [];
+const highs = [];
+const lows = [];
 const customItems = [];
 // const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
 // const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
@@ -46,14 +46,14 @@ $(() => { // On page load
             //Put data into relevant arrays
             iconList.push(weatherData.daily[i].weather[0].icon);
             weatherIdList.push(weatherData.daily[i].weather[0].id);
-            maxList.push(Math.round(weatherData.daily[i].temp.max));
-            minList.push(Math.round(weatherData.daily[i].temp.min));
+            highs.push(Math.round(weatherData.daily[i].temp.max));
+            lows.push(Math.round(weatherData.daily[i].temp.min));
             //Make elements with data
             let $weatherCard = $("<div>").addClass("weather-card");
             let $title = $("<h4>").text(dayList[i]);
             let $icon = $("<img>").attr("src", `https://openweathermap.org/img/wn/${iconList[i]}@2x.png`);
-            let $high = $("<p>").text(`High: ${maxList[i]}°(F)`);
-            let $low = $("<p>").text(`Low: ${minList[i]}°(F)`);
+            let $high = $("<p>").text(`High: ${highs[i]}°(F)`);
+            let $low = $("<p>").text(`Low: ${lows[i]}°(F)`);
             //Put elements in place
             $weatherCard.append($title);
             $weatherCard.append($icon);
@@ -86,15 +86,15 @@ $(() => { // On page load
 
             //Conditionals to customize the list with the weather
             //If the lowest low-temperature is below 40deg add the cold list
-            if (minList.some(checkLowest)) {
+            if (lows.some(checkLowest)) {
                 appendList(checklist.cold);
             }
             //If the highest high-temperature is above 90deg add the hot list   
-            if (maxList.some(checkHighest)) {
+            if (highs.some(checkHighest)) {
                 appendList(checklist.hot);
             }
             //If it is other than clear or cloudy, bring the rain list
-            if (maxList.some(checkWeatherId)) {
+            if (highs.some(checkWeatherId)) {
                 appendList(checklist.rain);
             }
             //Finishes with the base checklist
@@ -115,7 +115,6 @@ $(() => { // On page load
             datatype: "jsonp"
         }).done((weatherData) => {
             buildWeatherCards(weatherData);
-            console.log(weatherQuery);
             generateChecklist();
         }), (error) => {
             console.log(error);
