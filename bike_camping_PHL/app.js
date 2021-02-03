@@ -1,39 +1,3 @@
-//Camp Checklist Variables
-const checklist = {
-    base: {
-        shelter: ["tent", "sleeping bag", "sleeping pad", "pillow", "hammock", "hammock bug net", "paracord"],
-        bike: ["bike", "lock", "lights", "spare tubes", "patch kit", "pump/CO2", "multitool", "tire levers"],
-        kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap",],
-        body: ["cycling shirt", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "underwear", "bra", "hoodie", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
-        toiletries: ["first aid kit", "allergy meds", "bugspray", "body soap", "toothbrush", "toothpaste", "contact case & solution", "chamois butter", "intimacy kit"],
-        custom: [],
-    },
-    hot: {
-        shelter: [],
-        bike: [],
-        kitchen: ["coozies"],
-        body: ["flip flops", "swimsuit", "cycling shorts", "camp shorts"],
-        toiletries: ["sunscreen", "deodorant"],
-        custom: [],
-    },
-    cold: {
-        shelter: ["0 degree sleeping bag", "sleeping bag liner", "hammock underquilt"],
-        bike: [],
-        kitchen: [],
-        body: ["warm wool socks", "wool underlayers", "camp coat", "camp pants", "warm gloves", "pajama pants"],
-        toiletries: [],
-        custom: [],
-    },
-    rain: {
-        shelter: ["hammock rain fly", "tarp"],
-        bike: ["fenders"],
-        kitchen: [],
-        body: ["rain jacket", "rain pants", "extra socks"],
-        toiletries: [],
-        custom: [],
-    }
-}
-
 //Weather API variables
 const philaLat = 39.9528;
 const philaLong = -75.1635;
@@ -54,9 +18,7 @@ const checkWeatherId = (id) => id < "800"; //IDs with "800" or up are clear or c
 
 $(() => { // On page load
     //Event handlers
-    const crossout = (event) => { //For crossing out checked items
-        // console.log("I clicked the ", event.currentTarget);
-        $(event.currentTarget).toggleClass("unchecked");
+    const crossout = (event) => {
         $(event.currentTarget).toggleClass("checked");
     }
     const renderCustomItems = () => {
@@ -75,13 +37,11 @@ $(() => { // On page load
     $("form").on("submit", (event) => { //Custom item submissions in form
         event.preventDefault();
         const $inputValue = $("#input").val();
-        // console.log($inputValue);
         customItems.push($inputValue);
         renderCustomItems();
         $(event.currentTarget).trigger('reset');
     })
     $("button").on("click", setCampgroundCoords);
-    // $(".unchecked").on("click", crossout);
 
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
@@ -120,7 +80,6 @@ $(() => { // On page load
             const appendList = (list) => {
                 for (let i = 0; i < list[category].length; i++) {
                     let $item = $("<li>").addClass(category).text(list[category][i]);
-                    $item.addClass("unchecked");
                     $item.on("click", crossout);
                     $category.append($item);
                 }
