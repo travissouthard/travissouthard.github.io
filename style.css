@@ -152,14 +152,6 @@ nav a:hover, footer a:hover {
     text-align: left;
 }
 
-#about {
-    padding: 10px 10% 10px 10%;
-}
-
-#about ul li {
-    padding-left: 2em;
-}
-
 @media (min-width: 600px) {
     .project-card {
         width: 45%;
