@@ -1,37 +1,3 @@
-//Camp Checklist Variables
-const baseChecklist = {
-    Shelter: ["tent", "sleeping bag", "sleeping pad", "pillow", "hammock", "hammock bug net", "paracord"],
-    Bike: ["bike", "lock", "lights", "spare tubes", "patch kit", "pump/CO2", "multitool", "tire levers"],
-    Kitchen: ["stove", "stove fuel", "pot/pan", "spatula", "plate/bowl", "spork", "mug", "lighter", "plastic bags", "camp snacks", "ride snacks", "coffee/tea", "lunch 1", "dinner", "breakfast", "lunch 2", "sponge", "dish soap",],
-    Body: ["cycling shirt", "cycling socks", "sportsbra", "phone", "wallet", "keys", "camp shirt", "underwear", "bra", "hoodie", "towel", "bandana", "glasses", "sunglasses", "headlamp", "phone charger"],
-    Toiletries: ["first aid kit", "allergy meds", "bugspray", "body soap", "toothbrush", "toothpaste", "contact case & solution", "chamois butter", "intimacy kit"],
-    Custom: [],
-};
-const hotChecklist = {
-    Shelter: [],
-    Bike: [],
-    Kitchen: ["coozies"],
-    Body: ["flip flops", "swimsuit", "cycling shorts", "camp shorts"],
-    Toiletries: ["sunscreen", "deodorant"],
-    Custom: [],
-}
-const coldChecklist = {
-    Shelter: ["0 degree sleeping bag", "sleeping bag liner", "hammock underquilt"],
-    Bike: [],
-    Kitchen: [],
-    Body: ["warm wool socks", "wool underlayers", "camp coat", "camp pants", "warm gloves", "pajama pants"],
-    Toiletries: [],
-    Custom: [],
-}
-const rainChecklist = {
-    Shelter: ["hammock rain fly", "tarp"],
-    Bike: ["fenders"],
-    Kitchen: [],
-    Body: ["rain jacket", "rain pants", "extra socks"],
-    Toiletries: [],
-    Custom: [],
-}
-
 //Weather API variables
 const philaLat = 39.9528;
 const philaLong = -75.1635;
@@ -39,11 +5,11 @@ const dayList = ["Today", "Tomorrow", "The Next Day", "The Day After That"];
 const iconList = [];
 let weatherIdList = [];
 const descList = [];
-const maxList = [];
-const minList = [];
+const highs = [];
+const lows = [];
 const customItems = [];
-const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
-const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
+// const campgroundLats = [40.2148, 40.3372, 40.2100, 39.9512, 40.4362, 39.8910, 39.5584];
+// const campgroundLongs = [-75.7895, -75.4693, -75.3708, -75.4520, -75.0750, -74.5796, -75.7204];
 
 //Array method callbacks
 const checkLowest = (temp) => temp < 40; //Below 40degF, most people need extra warm gear
@@ -52,9 +18,7 @@ const checkWeatherId = (id) => id < "800"; //IDs with "800" or up are clear or c
 
 $(() => { // On page load
     //Event handlers
-    const crossout = (event) => { //For crossing out checked items
-        // console.log("I clicked the ", event.currentTarget);
-        $(event.currentTarget).toggleClass("unchecked");
+    const crossout = (event) => {
         $(event.currentTarget).toggleClass("checked");
     }
     const renderCustomItems = () => {
@@ -62,24 +26,15 @@ $(() => { // On page load
         $("#Custom").append($customItem);
         $customItem.on("click", crossout);
     }
-    const setCampgroundCoords = (event) => {
-        let $index = $(event.currentTarget).attr("id"); //Uses id as index to get coordinates
-        let currentLat = campgroundLats[$index]; //Sets currentLat to the corresponding latitude
-        let currentLong = campgroundLongs[$index]; //Sets currentLong to corresponding longitude
-        getWeather(currentLat, currentLong);
-    }
 
     //Event listeners
     $("form").on("submit", (event) => { //Custom item submissions in form
         event.preventDefault();
         const $inputValue = $("#input").val();
-        // console.log($inputValue);
         customItems.push($inputValue);
         renderCustomItems();
         $(event.currentTarget).trigger('reset');
     })
-    $("button").on("click", setCampgroundCoords);
-    // $(".unchecked").on("click", crossout);
 
     //Builds weather cards
     const buildWeatherCards = (weatherData) => {
@@ -91,14 +46,14 @@ $(() => { // On page load
             //Put data into relevant arrays
             iconList.push(weatherData.daily[i].weather[0].icon);
             weatherIdList.push(weatherData.daily[i].weather[0].id);
-            maxList.push(Math.round(weatherData.daily[i].temp.max));
-            minList.push(Math.round(weatherData.daily[i].temp.min));
+            highs.push(Math.round(weatherData.daily[i].temp.max));
+            lows.push(Math.round(weatherData.daily[i].temp.min));
             //Make elements with data
             let $weatherCard = $("<div>").addClass("weather-card");
             let $title = $("<h4>").text(dayList[i]);
             let $icon = $("<img>").attr("src", `https://openweathermap.org/img/wn/${iconList[i]}@2x.png`);
-            let $high = $("<p>").text(`High: ${maxList[i]}°(F)`);
-            let $low = $("<p>").text(`Low: ${minList[i]}°(F)`);
+            let $high = $("<p>").text(`High: ${highs[i]}°(F)`);
+            let $low = $("<p>").text(`Low: ${lows[i]}°(F)`);
             //Put elements in place
             $weatherCard.append($title);
             $weatherCard.append($icon);
@@ -113,12 +68,11 @@ $(() => { // On page load
     //Generates the checklist for the page
     const generateChecklist = () => {
         $(".checklist").empty(); //To make room for button presses
-        for (let category in baseChecklist) {
+        for (let category in checklist.base) {
             //Adds list items from the checklist called
             const appendList = (list) => {
                 for (let i = 0; i < list[category].length; i++) {
                     let $item = $("<li>").addClass(category).text(list[category][i]);
-                    $item.addClass("unchecked");
                     $item.on("click", crossout);
                     $category.append($item);
                 }
@@ -132,19 +86,19 @@ $(() => { // On page load
 
             //Conditionals to customize the list with the weather
             //If the lowest low-temperature is below 40deg add the cold list
-            if (minList.some(checkLowest)) {
-                appendList(coldChecklist);
+            if (lows.some(checkLowest)) {
+                appendList(checklist.cold);
             }
             //If the highest high-temperature is above 90deg add the hot list   
-            if (maxList.some(checkHighest)) {
-                appendList(hotChecklist);
+            if (highs.some(checkHighest)) {
+                appendList(checklist.hot);
             }
             //If it is other than clear or cloudy, bring the rain list
-            if (maxList.some(checkWeatherId)) {
-                appendList(rainChecklist);
+            if (highs.some(checkWeatherId)) {
+                appendList(checklist.rain);
             }
             //Finishes with the base checklist
-            appendList(baseChecklist);
+            appendList(checklist.base);
             $(".checklist").append($category);
         }
     }
@@ -160,11 +114,7 @@ $(() => { // On page load
             url: weatherQuery,
             datatype: "jsonp"
         }).done((weatherData) => {
-            // console.log("Icon: ", weatherData.daily[0].weather[0].icon);
-            // console.log("Max: ", weatherData.daily[0].temp.max);
-            // console.log("Min: ", weatherData.daily[0].temp.min);
             buildWeatherCards(weatherData);
-            console.log(weatherQuery);
             generateChecklist();
         }), (error) => {
             console.log(error);
@@ -173,30 +123,4 @@ $(() => { // On page load
 
     //Calls each of these as the page loads in
     getWeather(philaLat, philaLong);
-
-    //*****************************************************//
-    //CODE GRAVEYARD: RIP These ideas, failed though they be.
-    //*****************************************************//
-
-    //For retrieving campgrounds local to Philadelphia, but the API only gives back XML, and newer sources only give federal/national campgrounds, and our area only has state and private campgrounds within a day's ride.
-    //Campground API variables
-    // const campgroundApiKey = "&api_key=zjntthn8m976q987yp48vzkw";
-    // const activeApiKey = "&api_key=H8XCTF6FVEGX87PUZXAWQ28Y";
-    // const baseURL = "https://api.amp.active.com/camping/campgrounds?";
-    // const testURL = "https://api.amp.active.com/camping/campgrounds?pstate=CO&siteType=2001&expwith=1&amenity=4005&pets=3010";
-    // const coordQuery = `landmarkName=true&landmarkLat=${philaLat}&landmarkLong=${philaLong}`
-    // const getCampgrounds = () => {
-    //     $.ajax({
-    //         method: "GET",
-    //         url: baseURL + coordQuery + campgroundApiKey,
-    //         dataType: "jsonp",
-    //     }).done((campgroundData) => {
-    //         console.log(campgroundData);
-    //     }), (error) => {
-    //         console.log(error);
-    //     }
-    // }
-    // getCampgrounds();
-    // let zipCode = 19145;
-    // const zipQuery = `zip=${zipCode},us`;
 });
