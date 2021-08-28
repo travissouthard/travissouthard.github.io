@@ -2,25 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 :root {
-    /* Jonk16 palette from Lospec */
-    /* Check it out here: https://lospec.com/palette-list/jonk-16 */
-    /* --darkest-green: #242e36;
-    --dark-green: #455951;
-    --green: #798766;
-    --light-green: #b7bca2;
-    --gray: #d6d6d6;
-    --white: #f4f0ea;
-    --blue: #6988a1;
-    --light-blue: #a1b0be;
-    --purple: #595b7c;
-    --lavender: #95819d;
-    --pink: #c9a5a9;
-    --light-yellow: #f4dec2;
-    --dark-red: #704f4f;
-    --red: #b7635b;
-    --orange: #e39669;
-    --yellow: #ebc790; */
-
     --light-blue: rgb(221, 229, 231);
     --yellow: rgb(161, 120, 70);
     --orange: rgb(223, 68, 56);
@@ -28,10 +9,10 @@
 }
 
 html {
-    background-color: var(--light-blue);
     font-family: "Open Sans", sans-serif;
     padding: 0;
     margin: 0;
+    background-color: var(--dark-blue);
     color: var(--light-blue);
 }
 
@@ -47,11 +28,10 @@ h1, h2 {
 
 body {
     width: 100%;
-    min-width: 200px;
-    /* max-width: 800px; */
+    min-width: 367px;
     margin: 0 auto;
-    background-color: var(--dark-blue);
     padding: 0 0 8px 0;
+    background-color: var(--dark-blue);
 }
 
 header {
@@ -69,8 +49,8 @@ header h1 {
     margin: 0 0 16px 0;
     padding: 4px 0;
     width: 100%;
-    background-color: var(--light-blue);
-    color: var(--orange);
+    background-color: var(--orange);
+    color: var(--light-blue);
     text-align: center;
 }
 
@@ -87,7 +67,6 @@ nav {
 }
 
 nav a, nav a:visited {
-    /* font-family: "Mate", serif; */
     display: inline-block;
     padding: 4px 16px;
     text-align: center;
@@ -104,28 +83,66 @@ section {
     background-color: var(--white);
     width: 95%;
     margin: 8px auto;
-    padding: 8px 4px;
+    padding: 16px 4px;
 }
 
 section h2 {
     text-align: center;
     width: 100%;
+    padding: 0 0 16px 0;
 }
 
 section article {
     border: 1px dashed var(--light-blue);
     margin: 8px 4px;
     padding: 8px;
+    width: 100%;
 }
 
-li, p {
-    padding: 8px 0;
+section article h3 {
+    color: var(--yellow);
+    margin-left: 8px;
+}
+
+ul {
+    margin: 0;
+    padding: 8px 4px;
+    list-style: none;
+}
+
+li, p, em {
+    padding: 16px 8px;
+}
+
+em {
+    font-size: 1.25em;
+    color: var(--yellow);
+}
+
+li {
+    margin: 8px 4px;
 }
 
 span.smallcaps {
     font-variant: small-caps;
 }
 
+#registry p {
+    text-align: center;
+}
+
 #vows p {
     text-align: center;
+}
+
+@media (min-width: 700px) {
+    section {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+
+    #dates article {
+        width: 45%;
+    }
 }
