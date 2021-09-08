@@ -35,9 +35,9 @@ body {
 }
 
 header {
-    background-image: url("assets/banner-bg.jpg");
+    background-image: url("assets/RubyTravisWedding.jpeg");
     background-size: cover;
-    background-position: center 30%;
+    background-position: center 60%;
     width: 100%;
     height: 400px;
     display: flex;
