@@ -41,61 +41,58 @@ $(() => {
         $("#flag-count").text("Flags: " + (bombAmount - flags))
     }
 
-    const checkNeighbors = (square) => {
+    const checkEdges = (id, direction) => {
+        const isTopEdge = id < width
+        const isBottomEdge = id >= boardSize - width
+        const isLeftEdge = id % width === 0
+        const isRightEdge = id % width === width - 1
+        const edges = {
+            top: !isTopEdge,
+            topRight: !isTopEdge && !isRightEdge,
+            right: !isRightEdge,
+            bottomRight: !isBottomEdge && !isRightEdge,
+            bottom: !isBottomEdge,
+            bottomLeft: !isBottomEdge && !isLeftEdge,
+            left: !isLeftEdge,
+            topLeft: !isTopEdge && !isLeftEdge,
+        }
+        return edges[direction]
+    }
+
+    const getNeighborsAndBombs = (id) => {
         let bombCount = 0
-        let id = parseInt(square[0].id)
-        let isLeftEdge = id % width === 0
-        let isRightEdge = id % width === width - 1
-        let neighbors = []
-        let number = ["one", "two", "three", "four", "five", "six", "seven", "eight"]
+        const empties = []
+        const directions = {
+            top: id - width,
+            topRight: id - width + 1,
+            right: id + 1,
+            bottomRight: id + width + 1,
+            bottom: id + width,
+            bottomLeft: id + width - 1,
+            left: id - 1,
+            topLeft: id - width - 1,
+        }
+        
 
-        // Check neighboring squares for bombs from top clockwise
-        // Top
-        if (id > width - 1) { 
-            if (squareValues[id - width] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - width)))}
-        }
-        // Top-right
-        if (id > width - 1 && !isRightEdge) { 
-            if (squareValues[id - width + 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - width + 1)))}
-        }
-        // Right
-        if (!isRightEdge) { 
-            if (squareValues[id + 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + 1)))}
-        }
-        // Bottom right
-        if (id < boardSize - width && !isRightEdge) { 
-            if (squareValues[id + width + 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + width + 1)))}
-        }
-        // Bottom
-        if (id < boardSize - width) { 
-            if (squareValues[id + width] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + width)))}
-        }
-        // Bottom left
-        if (id < boardSize - width && !isLeftEdge) { 
-            if (squareValues[id + width - 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + width - 1)))}
-        }
-        // Left
-        if (!isLeftEdge) { 
-            if (squareValues[id - 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - 1)))}
-        }
-        // Top left
-        if (id > width - 1 && !isLeftEdge) { 
-            if (squareValues[id - width - 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - width - 1)))}
+        for (let direction in directions) {
+            if (checkEdges(id, direction)) { 
+                if (squareValues[directions[direction]] === "bomb") {bombCount++}
+                else {empties.push($("#" + (directions[direction])))}
+            }
         }
 
-        //After checking, either reveal the number of bombs found or click all the nieghbors
+        return [empties, bombCount]
+    }
+
+    const checkNeighbors = (square) => {
+        const id = parseInt(square[0].id)
+        const [emptyNeighbors, bombCount] = getNeighborsAndBombs(id)
+        const numbers = ["one", "two", "three", "four", "five", "six", "seven", "eight"]
+
         if (bombCount > 0) {
-            $("#" + id).text(bombCount).addClass("checked").addClass(number[bombCount - 1])
+            $("#" + id).text(bombCount).addClass("checked").addClass(numbers[bombCount - 1])
         } else {
-            neighbors.map(neighbor => {
+            emptyNeighbors.map(neighbor => {
                 $("#" + id).addClass("checked")
                 click(neighbor)
             })
