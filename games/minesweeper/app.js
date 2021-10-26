@@ -166,6 +166,9 @@ $(() => {
             ) {
             if ($square.hasClass("flag")) {
                 $square.text("")
+                if ($square.hasClass("bomb")) {
+                    matches--
+                }
                 flags--
             } else {
                 $square.text("🚩")
