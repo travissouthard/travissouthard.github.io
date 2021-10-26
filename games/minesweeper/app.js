@@ -25,7 +25,6 @@ const shuffle = (array) => {
 
 // On page load
 $(() => {
-    // Create array of classes to grab 
     const createSquareValues = () => {
         for (let i = 0; i < bombAmount; i++) {
             bombArray.push("bomb")
@@ -35,6 +34,7 @@ $(() => {
         }
         squareValues = shuffle(bombArray.concat(validArray))
     }
+
     const updateScoreboard = () => {
         $("#wins").empty()
         $("#wins").text("Wins: " + wins)
@@ -43,6 +43,7 @@ $(() => {
         $("#flag-count").empty()
         $("#flag-count").text("Flags: " + (bombAmount - flags))
     }
+
     const checkNeighbors = (square) => {
         let bombCount = 0
         let id = parseInt(square[0].id)
@@ -93,7 +94,7 @@ $(() => {
             })
         }
     }
-    //Click event handler
+
     const click = (event) => {
         let $square
         if (event.currentTarget === undefined) {
@@ -113,6 +114,7 @@ $(() => {
             }
         }
     }
+
     const resetGame = () => {
         $("#title").text("Minesweeper")
         isGameOver = false
@@ -123,7 +125,7 @@ $(() => {
         squareValues = []
         $("#board").empty()
     }
-    //Check for win
+
     const checkWin = () => {
         if (matches === bombAmount) {
             $("#title").text("You win!")
@@ -133,7 +135,7 @@ $(() => {
             isGameOver = true
         }
     }
-    //Add flags to mark
+
     const addFlag = (event) => {
         let $square = $(event.currentTarget)
         if (!isGameOver && !$square.hasClass("checked") && flags < bombAmount) {
@@ -153,7 +155,7 @@ $(() => {
         }
         return false
     }
-    // Create game board
+
     const createGameBoard = () => {
         resetGame()
         updateScoreboard()
