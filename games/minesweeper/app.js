@@ -8,92 +8,104 @@ let matches = 0
 let wins = 0
 let losses = 0
 let isGameOver = false
-// Variables to create bomb and valid classes
-let bombArray = []
-let validArray = []
 let squareValues = []
 
 const shuffle = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1)) //Random index
-        let x = array[i] // holds the current array item
-        array[i] = array[j] // put random item in current index
-        array[j] = x // put current item in random index
+        let random = Math.floor(Math.random() * (i + 1))
+        let temp = array[i]
+        array[i] = array[random]
+        array[random] = temp
     }
     return array
 }
 
 // On page load
 $(() => {
-    // Create array of classes to grab 
     const createSquareValues = () => {
         for (let i = 0; i < bombAmount; i++) {
-            bombArray.push("bomb")
+            squareValues.push("bomb")
         }
         for (let i = 0; i < validAmount; i++) {
-            validArray.push("valid")
+            squareValues.push("valid")
         }
-        squareValues = shuffle(bombArray.concat(validArray))
+        squareValues = shuffle(squareValues)
     }
+
     const updateScoreboard = () => {
         $("#wins").empty()
-        $("#wins").text("Wins: " + wins)
         $("#losses").empty()
-        $("#losses").text("Losses: " + losses)
         $("#flag-count").empty()
+        // $("#wins").text("Wins: " + wins)
+        // $("#losses").text("Losses: " + losses)
         $("#flag-count").text("Flags: " + (bombAmount - flags))
     }
-    const checkNeighbors = (square) => {
+
+    const checkEdges = (id, direction) => {
+        const isTopEdge = id < width
+        const isBottomEdge = id >= boardSize - width
+        const isLeftEdge = id % width === 0
+        const isRightEdge = id % width === width - 1
+        const edges = {
+            top: !isTopEdge,
+            topRight: !isTopEdge && !isRightEdge,
+            right: !isRightEdge,
+            bottomRight: !isBottomEdge && !isRightEdge,
+            bottom: !isBottomEdge,
+            bottomLeft: !isBottomEdge && !isLeftEdge,
+            left: !isLeftEdge,
+            topLeft: !isTopEdge && !isLeftEdge,
+        }
+        return edges[direction]
+    }
+
+    const getNeighborsAndBombs = (id) => {
         let bombCount = 0
-        let id = parseInt(square[0].id)
-        let isLeftEdge = id % width === 0
-        let isRightEdge = id % width === width - 1
-        let neighbors = []
-        let number = ["one", "two", "three", "four", "five", "six", "seven", "eight"]
-        // Check neighboring squares for bombs from top clockwise
-        if (id > width - 1) { // Top
-            if (squareValues[id - width] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - width)))}
+        const empties = []
+        const directions = {
+            top: id - width,
+            topRight: id - width + 1,
+            right: id + 1,
+            bottomRight: id + width + 1,
+            bottom: id + width,
+            bottomLeft: id + width - 1,
+            left: id - 1,
+            topLeft: id - width - 1,
         }
-        if (id > width - 1 && !isRightEdge) { // Top-right
-            if (squareValues[id - width + 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - width + 1)))}
+        
+
+        for (let direction in directions) {
+            if (checkEdges(id, direction)) { 
+                if (squareValues[directions[direction]] === "bomb") {
+                    bombCount++
+                }
+                else {empties.push($("#" + (directions[direction])))}
+            }
         }
-        if (!isRightEdge) { // Right
-            if (squareValues[id + 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + 1)))}
-        }
-        if (id < boardSize - width && !isRightEdge) { // Bottom right
-            if (squareValues[id + width + 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + width + 1)))}
-        }
-        if (id < boardSize - width) { // Bottom
-            if (squareValues[id + width] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + width)))}
-        }
-        if (id < boardSize - width && !isLeftEdge) { // Bottom left
-            if (squareValues[id + width - 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id + width - 1)))}
-        }
-        if (!isLeftEdge) { // Left
-            if (squareValues[id - 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - 1)))}
-        }
-        if (id > width - 1 && !isLeftEdge) { // Top left
-            if (squareValues[id - width - 1] === "bomb") {bombCount++}
-            else {neighbors.push($("#" + (id - width - 1)))}
-        }
-        //After checking, either reveal the number of bombs found or click all the nieghbors
+
+        return [empties, bombCount]
+    }
+
+    const checkNeighbors = (square) => {
+        const id = parseInt(square[0].id)
+        const [emptyNeighbors, bombCount] = getNeighborsAndBombs(id)
+        const numbers = [
+            "one", "two", "three", "four",
+            "five", "six", "seven", "eight"
+        ]
+
         if (bombCount > 0) {
-            $("#" + id).text(bombCount).addClass("checked").addClass(number[bombCount - 1])
+            $("#" + id).text(bombCount)
+                .addClass("checked")
+                .addClass(numbers[bombCount - 1])
         } else {
-            neighbors.map(neighbor => {
+            emptyNeighbors.map(neighbor => {
                 $("#" + id).addClass("checked")
                 click(neighbor)
             })
         }
     }
-    //Click event handler
+
     const click = (event) => {
         let $square
         if (event.currentTarget === undefined) {
@@ -101,9 +113,15 @@ $(() => {
         } else {
             $square = $(event.currentTarget)
         }
-        if (!isGameOver && !$square.hasClass("checked") && !$square.hasClass("flag")) {
+        if (
+                !isGameOver && 
+                !$square.hasClass("checked") && 
+                !$square.hasClass("flag")
+            ) {
             if ($square.hasClass("bomb")) {
-                $(".bomb").text("💣").addClass("checked")
+                $(".bomb")
+                    .text("💣")
+                    .addClass("checked")
                 $("#title").text("Game Over!")
                 losses++
                 updateScoreboard()
@@ -112,23 +130,45 @@ $(() => {
                 checkNeighbors($square)
             }
         }
+        checkWin()
     }
-    //Check for win
+
+    const resetGame = () => {
+        $("#title").text("Minesweeper")
+        isGameOver = false
+        flags = 0
+        matches = 0
+        squareValues = []
+        $("#board").empty()
+    }
+
     const checkWin = () => {
-        if (matches === bombAmount) {
+        const uncheckedSquares = boardSize - $(".checked.valid").length - $(".flag.bomb").length
+        if (
+                matches === bombAmount ||
+                20 - flags === uncheckedSquares
+            ) {
             $("#title").text("You win!")
+            $(".bomb").text("🚩")
             $(".valid").addClass("checked")
             wins++
             updateScoreboard()
             isGameOver = true
         }
     }
-    //Add flags to mark
+
     const addFlag = (event) => {
         let $square = $(event.currentTarget)
-        if (!isGameOver && !$square.hasClass("checked") && flags < bombAmount) {
+        if (
+                !isGameOver && 
+                !$square.hasClass("checked") && 
+                flags < bombAmount
+            ) {
             if ($square.hasClass("flag")) {
                 $square.text("")
+                if ($square.hasClass("bomb")) {
+                    matches--
+                }
                 flags--
             } else {
                 $square.text("🚩")
@@ -143,25 +183,23 @@ $(() => {
         }
         return false
     }
-    // Create game board
+
     const createGameBoard = () => {
-        $("#title").text("Minesweeper")
-        isGameOver = false
-        flags = 0
-        matches = 0
-        bombArray = []
-        validArray = []
-        squareValues = []
-        $("#board").empty()
+        resetGame()
         updateScoreboard()
         createSquareValues()
         for (let i = 0; i < boardSize; i++) {
-            let $square = $("<div>").addClass("square").addClass(squareValues[i]).attr("id", i)
+            let $square = $("<div>")
+            .addClass("square")
+            .addClass(squareValues[i])
+            .attr("id", i)
+
             $square.on("click", click)
             $square.on("contextmenu", addFlag)
             $("#board").append($square)
         }
     }
+
     $("#reset").on("click", createGameBoard)
     createGameBoard()
 })
