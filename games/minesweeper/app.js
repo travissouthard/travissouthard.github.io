@@ -8,9 +8,6 @@ let matches = 0
 let wins = 0
 let losses = 0
 let isGameOver = false
-// Variables to create bomb and valid classes
-let bombArray = []
-let validArray = []
 let squareValues = []
 
 const shuffle = (array) => {
@@ -27,12 +24,12 @@ const shuffle = (array) => {
 $(() => {
     const createSquareValues = () => {
         for (let i = 0; i < bombAmount; i++) {
-            bombArray.push("bomb")
+            squareValues.push("bomb")
         }
         for (let i = 0; i < validAmount; i++) {
-            validArray.push("valid")
+            squareValues.push("valid")
         }
-        squareValues = shuffle(bombArray.concat(validArray))
+        squareValues = shuffle(squareValues)
     }
 
     const updateScoreboard = () => {
@@ -120,8 +117,6 @@ $(() => {
         isGameOver = false
         flags = 0
         matches = 0
-        bombArray = []
-        validArray = []
         squareValues = []
         $("#board").empty()
     }
@@ -167,6 +162,7 @@ $(() => {
             $("#board").append($square)
         }
     }
+
     $("#reset").on("click", createGameBoard)
     createGameBoard()
 })
