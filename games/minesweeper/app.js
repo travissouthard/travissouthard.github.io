@@ -113,6 +113,16 @@ $(() => {
             }
         }
     }
+    const resetGame = () => {
+        $("#title").text("Minesweeper")
+        isGameOver = false
+        flags = 0
+        matches = 0
+        bombArray = []
+        validArray = []
+        squareValues = []
+        $("#board").empty()
+    }
     //Check for win
     const checkWin = () => {
         if (matches === bombAmount) {
@@ -145,14 +155,7 @@ $(() => {
     }
     // Create game board
     const createGameBoard = () => {
-        $("#title").text("Minesweeper")
-        isGameOver = false
-        flags = 0
-        matches = 0
-        bombArray = []
-        validArray = []
-        squareValues = []
-        $("#board").empty()
+        resetGame()
         updateScoreboard()
         createSquareValues()
         for (let i = 0; i < boardSize; i++) {
