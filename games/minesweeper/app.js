@@ -12,10 +12,10 @@ let squareValues = []
 
 const shuffle = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1)) //Random index
-        let x = array[i] // holds the current array item
-        array[i] = array[j] // put random item in current index
-        array[j] = x // put current item in random index
+        let random = Math.floor(Math.random() * (i + 1))
+        let temp = array[i]
+        array[i] = array[random]
+        array[random] = temp
     }
     return array
 }
@@ -34,10 +34,10 @@ $(() => {
 
     const updateScoreboard = () => {
         $("#wins").empty()
-        $("#wins").text("Wins: " + wins)
         $("#losses").empty()
-        $("#losses").text("Losses: " + losses)
         $("#flag-count").empty()
+        $("#wins").text("Wins: " + wins)
+        $("#losses").text("Losses: " + losses)
         $("#flag-count").text("Flags: " + (bombAmount - flags))
     }
 
@@ -48,39 +48,49 @@ $(() => {
         let isRightEdge = id % width === width - 1
         let neighbors = []
         let number = ["one", "two", "three", "four", "five", "six", "seven", "eight"]
+
         // Check neighboring squares for bombs from top clockwise
-        if (id > width - 1) { // Top
+        // Top
+        if (id > width - 1) { 
             if (squareValues[id - width] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id - width)))}
         }
-        if (id > width - 1 && !isRightEdge) { // Top-right
+        // Top-right
+        if (id > width - 1 && !isRightEdge) { 
             if (squareValues[id - width + 1] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id - width + 1)))}
         }
-        if (!isRightEdge) { // Right
+        // Right
+        if (!isRightEdge) { 
             if (squareValues[id + 1] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id + 1)))}
         }
-        if (id < boardSize - width && !isRightEdge) { // Bottom right
+        // Bottom right
+        if (id < boardSize - width && !isRightEdge) { 
             if (squareValues[id + width + 1] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id + width + 1)))}
         }
-        if (id < boardSize - width) { // Bottom
+        // Bottom
+        if (id < boardSize - width) { 
             if (squareValues[id + width] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id + width)))}
         }
-        if (id < boardSize - width && !isLeftEdge) { // Bottom left
+        // Bottom left
+        if (id < boardSize - width && !isLeftEdge) { 
             if (squareValues[id + width - 1] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id + width - 1)))}
         }
-        if (!isLeftEdge) { // Left
+        // Left
+        if (!isLeftEdge) { 
             if (squareValues[id - 1] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id - 1)))}
         }
-        if (id > width - 1 && !isLeftEdge) { // Top left
+        // Top left
+        if (id > width - 1 && !isLeftEdge) { 
             if (squareValues[id - width - 1] === "bomb") {bombCount++}
             else {neighbors.push($("#" + (id - width - 1)))}
         }
+
         //After checking, either reveal the number of bombs found or click all the nieghbors
         if (bombCount > 0) {
             $("#" + id).text(bombCount).addClass("checked").addClass(number[bombCount - 1])
