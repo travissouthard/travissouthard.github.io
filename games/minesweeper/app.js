@@ -36,8 +36,8 @@ $(() => {
         $("#wins").empty()
         $("#losses").empty()
         $("#flag-count").empty()
-        $("#wins").text("Wins: " + wins)
-        $("#losses").text("Losses: " + losses)
+        // $("#wins").text("Wins: " + wins)
+        // $("#losses").text("Losses: " + losses)
         $("#flag-count").text("Flags: " + (bombAmount - flags))
     }
 
@@ -130,6 +130,7 @@ $(() => {
                 checkNeighbors($square)
             }
         }
+        checkWin()
     }
 
     const resetGame = () => {
@@ -142,8 +143,13 @@ $(() => {
     }
 
     const checkWin = () => {
-        if (matches === bombAmount) {
+        const uncheckedSquares = boardSize - $(".checked.valid").length - $(".flag.bomb").length
+        if (
+                matches === bombAmount ||
+                20 - flags === uncheckedSquares
+            ) {
             $("#title").text("You win!")
+            $(".bomb").text("🚩")
             $(".valid").addClass("checked")
             wins++
             updateScoreboard()
