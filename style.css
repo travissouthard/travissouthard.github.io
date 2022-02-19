@@ -62,6 +62,10 @@ article {
     padding: 20px 10px;
 }
 
+article a {
+    color: var(--blue);
+}
+
 header, nav, footer {
     background-color: var(--blue);
     color: white;
@@ -117,7 +121,7 @@ nav a:hover, footer a:hover {
     text-decoration: none;
 }
 
-.projects {
+#projects {
     padding: 0;
     display: flex;
     flex-flow: row wrap;
