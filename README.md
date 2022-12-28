@@ -4,7 +4,7 @@
 
 This is the source code for [travissouthard.com](https://travissouthard.com/) and a few small static site projects when appropriate.
 
-Contact Travis for work at [tsouthard88@gmail.com](mailto:tsouthard88@gmail.com).
+Contact Travis for work at [travissouthard@proton.me](mailto:travissouthard@proton.me).
 
 ## Tools
 
