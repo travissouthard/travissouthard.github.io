@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debt Snowball Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
 </head>
 <body>
     <header>
@@ -17,7 +16,11 @@
         </p>
     </header>
     <main>
-        <!-- App, form, graphs, etc. go here -->
+        <form id="debt-form">
+            <div id="row-container"></div>
+            <button id="add-debt">Add debt</button>
+            <button id="submit">Calculate</button>
+        </form>
     </main>
     <footer>
         <p>
@@ -26,5 +29,6 @@
             This is just a tool to help you see what kind of debt payment plan appeals to you.
         </p>
     </footer>
+    <script src="app.js"></script>
 </body>
 </html>
