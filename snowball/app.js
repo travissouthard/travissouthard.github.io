@@ -5,52 +5,6 @@ const formRowItems = [
     {name: "debt-rate", type: "number", placeholder: "Interest rate", label: "Interest:", min: "0", max: "100"},
 ]
 
-class Debt {
-    constructor({name, amount, minimum, rate}) {
-        this.name = name || ""
-        this.amount = amount || 0
-        this.minimum = minimum || 0
-        this.rate = rate || 0
-        this.paydown = this.calculatePayments(amount, minimum, rate, [{x: 1, y: amount}])
-        this.paymentsLeft = this.paydown.length
-    }
-
-    roundCents = (num) => {
-        return parseFloat(num.toFixed(2))
-    }
-
-    calculatePayments = (remaining, min, rate, payments = [], count = 2) => {
-        const interest = remaining * ((rate/100)/12)
-
-        let newRemaining = remaining + interest
-        if (payments.length >= 720 ||
-            newRemaining < min &&
-            newRemaining - min <= 0) {
-            return payments
-        }
-
-        newRemaining = newRemaining - min
-        payments.push({x: count, y: this.roundCents(newRemaining)})
-        return this.calculatePayments(newRemaining, min, rate, payments, count + 1)
-    }
-}
-
-class Paydown {
-    constructor(debts = []) {
-        this.debts = debts.sort((a,b) => a.amount - b.amount)
-        this.total = debts.reduce((sum, debt) => sum + debt.amount, 0)
-        this.remainingPayments = this.getRemainingPayments(debts)
-    }
-
-    getRemainingPayments = (debtsArr) => {
-        const remainingAmounts = []
-        for (let debt of debtsArr) {
-            remainingAmounts.push(debt.paymentsLeft)
-        }
-        return Math.max(...remainingAmounts)
-    }
-}
-
 let rowNum = 0
 const addDebtRow = () => {
     const container = document.getElementById("row-container")
@@ -117,7 +71,7 @@ const makeChart = (paydownObject) => {
     return new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title:{
-            text: "Traditional Paying"
+            text: "Comparing snowball with traditional"
         },
         axisY :{
             prefix: "$",
@@ -129,15 +83,21 @@ const makeChart = (paydownObject) => {
         toolTip: {
             shared: true
         },
-        data: paydownObject.debts.map(debt => {        
+        data: [...paydownObject.debts.map(debt => {        
             return {
                 type: "stackedArea",
                 showInLegend: true,
-                toolTipContent: "<span style=\"color:#4F81BC\"><strong>{name}: </strong></span> ${y}",
+                toolTipContent: "<span style=\"color:#AA3300\"><strong>{name}: </strong></span> ${y}",
                 name: debt.name,
                 dataPoints: debt.paydown
             }
-        })
+        }), {
+            type: "line",
+            showInLegend: true,
+            toolTipContent: "<span style=\"color:#0033AA\"><strong>{name}: </strong></span> ${y}",
+            name: "Traditional Paydown",
+            dataPoints: paydownObject.traditionalPaydown
+        }]
     });
 }
  
