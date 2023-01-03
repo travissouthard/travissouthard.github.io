@@ -83,21 +83,31 @@ const makeChart = (paydownObject) => {
         toolTip: {
             shared: true
         },
-        data: [...paydownObject.debts.map(debt => {        
-            return {
-                type: "stackedArea",
+        data: [
+            ...paydownObject.snowballDebts.map(debt => {        
+                return {
+                    type: "stackedArea",
+                    showInLegend: true,
+                    toolTipContent: "<span style=\"color:#AA3300\"><strong>{name}: </strong></span> ${y}",
+                    name: debt.name,
+                    dataPoints: debt.paydown
+                }
+            }), 
+            {
+                type: "line",
                 showInLegend: true,
-                toolTipContent: "<span style=\"color:#AA3300\"><strong>{name}: </strong></span> ${y}",
-                name: debt.name,
-                dataPoints: debt.paydown
+                toolTipContent: "<span style=\"color:#0033AA\"><strong>{name}: </strong></span> ${y}",
+                name: "Traditional Paydown",
+                dataPoints: paydownObject.traditionalPaydown
+            },
+            {
+                type: "line",
+                showInLegend: true,
+                toolTipContent: "<span style=\"color:#00AA00\"><strong>{name}: </strong></span> ${y}",
+                name: "Snowball Paydown",
+                dataPoints: paydownObject.snowBallPaydown
             }
-        }), {
-            type: "line",
-            showInLegend: true,
-            toolTipContent: "<span style=\"color:#0033AA\"><strong>{name}: </strong></span> ${y}",
-            name: "Traditional Paydown",
-            dataPoints: paydownObject.traditionalPaydown
-        }]
+        ]
     });
 }
  
@@ -107,6 +117,7 @@ submitButton.addEventListener("click", (e) => {
     e.stopPropagation()
     const debtObjects = createDebtObjects(document.getElementById("debt-form").elements)
     const paydown = new Paydown(debtObjects)
+    console.log(paydown)
     const chart = makeChart(paydown)
     chart.render()
 })
