@@ -11,24 +11,43 @@ class Debt {
         this.amount = amount || 0
         this.minimum = minimum || 0
         this.rate = rate || 0
-        this.paydown = this.calculatePayments(amount, minimum, rate, [amount])
-        this.paymentseft = this.paydown.length
+        this.paydown = this.calculatePayments(amount, minimum, rate, [{x: 1, y: amount}])
+        this.paymentsLeft = this.paydown.length
     }
 
     roundCents = (num) => {
         return parseFloat(num.toFixed(2))
     }
 
-    calculatePayments = (remaining, min, rate, payments = []) => {
+    calculatePayments = (remaining, min, rate, payments = [], count = 2) => {
         const interest = remaining * ((rate/100)/12)
+
         let newRemaining = remaining + interest
-        if (newRemaining < min && newRemaining - min <= 0) {
+        if (payments.length >= 720 ||
+            newRemaining < min &&
+            newRemaining - min <= 0) {
             return payments
         }
 
         newRemaining = newRemaining - min
-        payments.push(this.roundCents(newRemaining))
-        return this.calculatePayments(newRemaining, min, rate, payments)
+        payments.push({x: count, y: this.roundCents(newRemaining)})
+        return this.calculatePayments(newRemaining, min, rate, payments, count + 1)
+    }
+}
+
+class Paydown {
+    constructor(debts = []) {
+        this.debts = debts.sort((a,b) => a.amount - b.amount)
+        this.total = debts.reduce((sum, debt) => sum + debt.amount, 0)
+        this.remainingPayments = this.getRemainingPayments(debts)
+    }
+
+    getRemainingPayments = (debtsArr) => {
+        const remainingAmounts = []
+        for (let debt of debtsArr) {
+            remainingAmounts.push(debt.paymentsLeft)
+        }
+        return Math.max(...remainingAmounts)
     }
 }
 
@@ -94,11 +113,42 @@ const createDebtObjects = (elements) => {
     return debts
 }
 
+const makeChart = (paydownObject) => {
+    return new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title:{
+            text: "Traditional Paying"
+        },
+        axisY :{
+            prefix: "$",
+            valueFormatString: "#,###",
+        },
+        axisX: {
+            title: "Months To Pay Down"
+        },
+        toolTip: {
+            shared: true
+        },
+        data: paydownObject.debts.map(debt => {        
+            return {
+                type: "stackedArea",
+                showInLegend: true,
+                toolTipContent: "<span style=\"color:#4F81BC\"><strong>{name}: </strong></span> ${y}",
+                name: debt.name,
+                dataPoints: debt.paydown
+            }
+        })
+    });
+}
+ 
 const submitButton = document.getElementById("submit")
 submitButton.addEventListener("click", (e) => {
     e.preventDefault()
     e.stopPropagation()
-    console.log(createDebtObjects(document.getElementById("debt-form").elements))
+    const debtObjects = createDebtObjects(document.getElementById("debt-form").elements)
+    const paydown = new Paydown(debtObjects)
+    const chart = makeChart(paydown)
+    chart.render()
 })
 
 window.addEventListener("load", (e) => {
