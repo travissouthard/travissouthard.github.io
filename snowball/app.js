@@ -159,27 +159,62 @@ const stringifyMoney = (num) => {
   return `$${groupsOfThree.join()}${cents}`;
 };
 
-const renderPaydown = (paydown) => {
-  const chartContainer = document.getElementById("chartContainer");
-  chartContainer.classList.add("chartRendered");
-
+const renderPaydownInfo = (paydownObject) => {
   const paydownInfoDiv = document.getElementById("paydown-info");
   const paydownInfoP = document.createElement("p");
   const paydownInfo = document.createTextNode(
-    paydown.debts.length > 1
+    paydownObject.debts.length > 1
       ? `Using the debt snowball method, your ${
-          paydown.debts.length
+          paydownObject.debts.length
         } debts could be paid off in ${
-          paydown.snowballSavings.time
+          paydownObject.snowballSavings.time
         } fewer months than a traditional paydown. This could also save you ${stringifyMoney(
-          paydown.snowballSavings.money
+          paydownObject.snowballSavings.money
         )} in total.`
       : "Snowball plans really only work for multiple debts. Or else there is no previous payment to add to the current one."
   );
 
   paydownInfoP.appendChild(paydownInfo);
   paydownInfoDiv.replaceChildren(paydownInfoP);
-  const chart = makeChart(paydown);
+};
+
+renderPaymentsTable = (paydownObject) => {
+  const createCell = (type, text) => {
+    let cell = document.createElement(type);
+    let textNode = document.createTextNode(text);
+    cell.appendChild(textNode);
+    return cell;
+  };
+  const container = document.getElementById("payments-table");
+  const table = document.createElement("table");
+  let thead = document.createElement("tr");
+
+  thead.appendChild(createCell("th", "Month"));
+  table.appendChild(thead);
+  for (let i = 0; i < paydownObject.snowballPaydown.length; i++) {
+    let row = document.createElement("tr");
+    row.appendChild(createCell("td", i + 1));
+
+    for (let debt of paydownObject.snowballDebts) {
+      if (i === 0) {
+        thead.appendChild(createCell("th", debt.name));
+      }
+      row.appendChild(
+        createCell("td", debt.payments[i] ? debt.payments[i] : 0)
+      );
+    }
+    table.appendChild(row);
+  }
+  container.appendChild(table);
+};
+
+const renderPaydown = (paydownObject) => {
+  const chartContainer = document.getElementById("chartContainer");
+  chartContainer.classList.add("chartRendered");
+
+  renderPaydownInfo(paydownObject);
+  renderPaymentsTable(paydownObject);
+  const chart = makeChart(paydownObject);
   chart.render();
 };
 
