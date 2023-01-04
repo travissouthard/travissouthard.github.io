@@ -134,3 +134,19 @@ class Paydown {
     return total;
   };
 }
+
+const createDebtObjects = (elements) => {
+  const debts = [];
+  let count = 0;
+  while (elements[`debt-name-${count}`] !== undefined) {
+    let debtData = {
+      name: elements[`debt-name-${count}`].value,
+      amount: elements[`debt-amount-${count}`].valueAsNumber,
+      minimum: elements[`debt-minimum-${count}`].valueAsNumber,
+      rate: elements[`debt-rate-${count}`].valueAsNumber,
+    };
+    debts.push(new Debt(debtData));
+    count++;
+  }
+  return debts;
+};
