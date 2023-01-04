@@ -205,7 +205,7 @@ renderPaymentsTable = (paydownObject) => {
     }
     table.appendChild(row);
   }
-  container.appendChild(table);
+  container.replaceChildren(table);
 };
 
 const renderPaydown = (paydownObject) => {

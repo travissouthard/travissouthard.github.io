@@ -42,7 +42,7 @@ class Debt {
     if (isSnowball) {
       for (let prev of prevs) {
         payment += prev.minimum;
-        let prevPayment = prev.payments[count - 1] || 0;
+        let prevPayment = prev.payments[count - 2] || 0;
         payment -= prevPayment;
       }
     }
@@ -51,7 +51,7 @@ class Debt {
     if (newRemaining <= payment) payment = newRemaining;
     newRemaining -= payment;
     paydown.push({ x: count, y: this.roundCents(newRemaining) });
-    payments.push(payment);
+    payments.push(this.roundCents(payment));
     if (paydown.length >= 720 || newRemaining <= 0) {
       return [paydown, payments];
     }
