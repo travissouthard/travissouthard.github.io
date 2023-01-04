@@ -144,6 +144,21 @@ const getPaydown = (elements) => {
   return new Paydown(debtObjects);
 };
 
+const stringifyMoney = (num) => {
+  let numString = Math.floor(num).toString();
+  const cents = `.${(num % 1).toFixed(2).slice(2)}`;
+  if (num < 1000) return `$${numString}${cents}`;
+  const groupsOfThree = [];
+  for (let i = numString.length; i >= 0; i -= 3) {
+    if (i < 3) {
+      groupsOfThree.unshift(numString.slice(0, i));
+      break;
+    }
+    groupsOfThree.unshift(numString.slice(i - 3, i));
+  }
+  return `$${groupsOfThree.join()}${cents}`;
+};
+
 const renderPaydown = (paydown) => {
   const chartContainer = document.getElementById("chartContainer");
   chartContainer.classList.add("chartRendered");
@@ -151,15 +166,19 @@ const renderPaydown = (paydown) => {
   const paydownInfoDiv = document.getElementById("paydown-info");
   const paydownInfoP = document.createElement("p");
   const paydownInfo = document.createTextNode(
-    `Using the debt snowball method, your ${
-      paydown.debts.length
-    } debts could be paid off in ${
-      paydown.traditionalPaydown.length - paydown.snowballPaydown.length
-    } fewer months than a traditional paydown. This could also save you [an amount of money] in total.`
+    paydown.debts.length > 1
+      ? `Using the debt snowball method, your ${
+          paydown.debts.length
+        } debts could be paid off in ${
+          paydown.snowballSavings.time
+        } fewer months than a traditional paydown. This could also save you ${stringifyMoney(
+          paydown.snowballSavings.money
+        )} in total.`
+      : "Snowball plans really only work for multiple debts. Or else there is no previous payment to add to the current one."
   );
 
   paydownInfoP.appendChild(paydownInfo);
-  paydownInfoDiv.appendChild(paydownInfoP);
+  paydownInfoDiv.replaceChildren(paydownInfoP);
   const chart = makeChart(paydown);
   chart.render();
 };

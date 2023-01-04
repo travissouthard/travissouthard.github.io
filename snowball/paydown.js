@@ -1,6 +1,6 @@
 class Debt {
   constructor({ name, amount, minimum, rate, prevDebts, snowball }) {
-    this.name = name || "";
+    this.name = name || "Unnamed Debt";
     this.amount = amount || 0;
     this.minimum = minimum || 0;
     this.rate = rate || 0;
@@ -33,6 +33,9 @@ class Debt {
     prevs,
     isSnowball
   ) => {
+    if (isNaN(remaining)) {
+      return [[], []];
+    }
     const interest = remaining * (rate / 100 / 12);
 
     let payment = min;
@@ -45,16 +48,14 @@ class Debt {
     }
 
     let newRemaining = remaining + interest;
-    if (
-      paydown.length >= 720 ||
-      (newRemaining < payment && newRemaining - payment <= 0)
-    ) {
-      return [paydown, payments];
-    }
-
+    if (newRemaining <= payment) payment = newRemaining;
     newRemaining -= payment;
     paydown.push({ x: count, y: this.roundCents(newRemaining) });
     payments.push(payment);
+    if (paydown.length >= 720 || newRemaining <= 0) {
+      return [paydown, payments];
+    }
+
     return this.calculatePayments(
       newRemaining,
       min,
@@ -76,6 +77,11 @@ class Paydown {
     this.traditionalPaydown = this.getPaydown(debts);
     this.snowballDebts = this.getSnowball(this.debts);
     this.snowballPaydown = this.getPaydown(this.snowballDebts);
+    this.snowballSavings = {
+      time: this.traditionalPaydown.length - this.snowballPaydown.length,
+      money:
+        this.calculateTotal(debts) - this.calculateTotal(this.snowballDebts),
+    };
   }
 
   getRemainingPayments = (debtsArr) => {
@@ -116,5 +122,15 @@ class Paydown {
       snowballDebts.push(newDebt);
     }
     return snowballDebts;
+  };
+
+  calculateTotal = (debtsArr) => {
+    let total = 0;
+    for (let debt of debtsArr) {
+      if (debt.payments.length > 0) {
+        total += debt.payments.reduce((sum, payment) => sum + payment);
+      }
+    }
+    return total;
   };
 }
