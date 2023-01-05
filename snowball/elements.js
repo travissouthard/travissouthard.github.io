@@ -74,6 +74,7 @@ const makeChart = (paydownObject) => {
     animationEnabled: true,
     title: {
       text: "Comparing snowball with traditional",
+      fontFamily: "sans-serif",
     },
     axisY: {
       prefix: "$",
@@ -170,7 +171,12 @@ renderPaymentsTable = (paydownObject) => {
   table.appendChild(thead);
   for (let i = 0; i < paydownObject.snowballPaydown.length; i++) {
     let row = document.createElement("tr");
-    row.appendChild(createCell("td", i + 1));
+    const cellDate = getDateFromNum(i).toDateString().split(" ");
+    cellDate.shift();
+    cellDate.splice(1, 1);
+    const dateTd = createCell("td", cellDate.join(" "));
+    dateTd.classList.add("cell-date");
+    row.appendChild(dateTd);
 
     for (let debt of paydownObject.snowballDebts) {
       if (i === 0) {

@@ -25,6 +25,10 @@ th {
     text-align: center;
 }
 
+.cell-date {
+    text-align: center;
+}
+
 .chart-rendered {
     height: 600px;
 }

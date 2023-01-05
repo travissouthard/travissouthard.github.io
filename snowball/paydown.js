@@ -1,3 +1,16 @@
+const now = new Date(Date.now());
+const todaysMonth = now.getMonth();
+const todaysYear = now.getFullYear();
+const getDateFromNum = (num) => {
+  const month = todaysMonth + (num % 12);
+  const year =
+    todaysMonth + num > 12
+      ? todaysYear + Math.ceil(num / 12)
+      : todaysYear + Math.floor(num / 12);
+
+  return new Date(year, month);
+};
+
 class Debt {
   constructor({ name, amount, minimum, rate, prevDebts, snowball }) {
     this.name = name || "Unnamed Debt";
@@ -10,9 +23,9 @@ class Debt {
       amount,
       minimum,
       rate,
-      [{ x: 1, y: amount }],
+      [{ x: getDateFromNum(0), y: amount }],
       [],
-      2,
+      1,
       prevDebts,
       snowball
     );
@@ -42,7 +55,7 @@ class Debt {
     if (isSnowball) {
       for (let prev of prevs) {
         payment += prev.minimum;
-        let prevPayment = prev.payments[count - 2] || 0;
+        let prevPayment = prev.payments[count - 1] || 0;
         payment -= prevPayment;
       }
     }
@@ -50,7 +63,10 @@ class Debt {
     let newRemaining = remaining + interest;
     if (newRemaining <= payment) payment = newRemaining;
     newRemaining -= payment;
-    paydown.push({ x: count, y: this.roundCents(newRemaining) });
+    paydown.push({
+      x: getDateFromNum(count),
+      y: this.roundCents(newRemaining),
+    });
     payments.push(this.roundCents(payment));
     if (paydown.length >= 720 || newRemaining <= 0) {
       return [paydown, payments];
@@ -101,8 +117,8 @@ class Paydown {
           currentTotal += debt.paydown[i].y;
         }
       }
-      if (currentTotal <= 0) break;
-      paydown.push({ x: i + 1, y: currentTotal });
+      if (currentTotal < 0) break;
+      paydown.push({ x: getDateFromNum(i), y: currentTotal });
     }
     return paydown;
   };
