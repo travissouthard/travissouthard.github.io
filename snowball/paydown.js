@@ -4,7 +4,7 @@ const todaysYear = now.getFullYear();
 const getDateFromNum = (num) => {
   const month = todaysMonth + (num % 12);
   const year =
-    todaysMonth + num > 12
+    todaysMonth > num % 12
       ? todaysYear + Math.ceil(num / 12)
       : todaysYear + Math.floor(num / 12);
 
