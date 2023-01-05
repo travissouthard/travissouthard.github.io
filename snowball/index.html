@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debt Snowball Calculator</title>
+    <meta property="og:title" content="Debt Snowball Calculator">
+    <meta property="og:description" content="A simple, debt snowball calculator with charts.">
+    <meta property="og:image" content="../assets/images/debt-snowball.png" />
+    <meta property="og:image:width" content="1560" />
+    <meta property="og:image:height" content="1222" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="paydown.js"></script>
+    <script src="elements.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Debt Snowball Calculator</h1>
+        <p>
+            A calculator to see how the <a href="https://en.wikipedia.org/wiki/Debt_snowball_method"
+                target="_blank">debt snowball</a> method of paying off debt
+            compares to just making minimum payments
+        </p>
+    </header>
+    <main>
+        <form id="debt-form">
+            <div id="row-container"></div>
+            <div id="buttons">
+                <button id="add-debt">Add debt</button>
+                <button id="submit">Calculate</button>
+            </div>
+        </form>
+        <div id="paydown-info"></div>
+        <div id="chartContainer"></div>
+        <div id="payments-table"></div>
+    </main>
+    <footer>
+        <p>
+            This was built by <a href="https://travissouthard.com" target="_blank">Travis Southard</a><br>
+            Travis is not a financial expert and is not offering financial advice.<br>
+            This is just a tool to help you see what kind of debt payment plan appeals to you.
+        </p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
