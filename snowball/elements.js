@@ -86,6 +86,7 @@ const makeChart = (paydownObject) => {
     toolTip: {
       shared: true,
     },
+    colorSet: "snowballColors",
     data: [
       ...paydownObject.snowballDebts.map((debt) => {
         return {

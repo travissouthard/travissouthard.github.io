@@ -26,4 +26,11 @@ submitButton.addEventListener("click", (e) => {
 
 window.addEventListener("load", (e) => {
   addDebtRow();
+  CanvasJS.addColorSet("snowballColors", [
+    "#375B75",
+    "#BEDFF7",
+    "#73BFF5",
+    "#5A6A75",
+    "#5B97C2",
+  ]);
 });
