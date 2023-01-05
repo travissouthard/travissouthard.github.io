@@ -117,7 +117,7 @@ class Paydown {
           currentTotal += debt.paydown[i].y;
         }
       }
-      if (currentTotal < 0) break;
+      if (currentTotal === 0 && currentTotal === paydown[i - 1].y) break;
       paydown.push({ x: getDateFromNum(i), y: currentTotal });
     }
     return paydown;
