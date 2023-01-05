@@ -1,5 +1,49 @@
-.chartRendered {
+h1 {
+    font-family: sans-serif;
+}
+
+form {
+    padding: 4px 0;
+    border: 1px solid black
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+tr {
+    width: 100%
+}
+
+th, td {
+    border: 1px solid gray;
+}
+
+th {
+    text-align: center;
+}
+
+.chart-rendered {
     height: 600px;
+}
+
+.form-row {
+    margin: 4px 8px;
+    padding: 4px;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#buttons {
+    margin: 4px 8px;
+    text-align: center;
+    padding: 4px 0;
+    border: 1px solid black;
 }
 
 #chartContainer {

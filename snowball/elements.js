@@ -53,8 +53,8 @@ const addDebtRow = () => {
       input.max = item.max;
     }
 
+    label.appendChild(input);
     blankDebtRow.appendChild(label);
-    blankDebtRow.appendChild(input);
   }
 
   const removeButton = document.createElement("button");

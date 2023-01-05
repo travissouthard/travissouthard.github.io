@@ -7,7 +7,7 @@ addDebtButton.addEventListener("click", (e) => {
 
 const renderPaydown = (paydownObject) => {
   const chartContainer = document.getElementById("chartContainer");
-  chartContainer.classList.add("chartRendered");
+  chartContainer.classList.add("chart-rendered");
 
   renderPaydownInfo(paydownObject);
   renderPaymentsTable(paydownObject);
