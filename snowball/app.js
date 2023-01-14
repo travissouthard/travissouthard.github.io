@@ -6,13 +6,15 @@ addDebtButton.addEventListener("click", (e) => {
 });
 
 const renderPaydown = (paydownObject) => {
-  const chartContainer = document.getElementById("chartContainer");
-  chartContainer.classList.add("chart-rendered");
-
   renderPaydownInfo(paydownObject);
-  renderPaymentsTable(paydownObject);
-  const chart = makeChart(paydownObject);
-  chart.render();
+
+  if (paydownObject.debts.length > 2) {
+    const chartContainer = document.getElementById("chartContainer");
+    chartContainer.classList.add("chart-rendered");
+    renderPaymentsTable(paydownObject);
+    const chart = makeChart(paydownObject);
+    chart.render();
+  }
 };
 
 const submitButton = document.getElementById("submit");

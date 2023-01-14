@@ -133,20 +133,30 @@ const stringifyMoney = (num) => {
   return `$${groupsOfThree.join()}${cents}`;
 };
 
+const createInfoText = (paydownObject) => {
+  if (paydownObject.debts.length === 1) {
+    return `
+      If you have no debts, congratulations! But also you have no need for a snowball. \n
+      Use the 'Add debt' button to add new debt forms.
+    `;
+  }
+  if (paydownObject.debts.length === 2) {
+    return "Snowball plans really only work for multiple debts. Or else there is no previous payment to add to the current one.";
+  }
+
+  return `Using the debt snowball method, your ${
+    paydownObject.debts.length - 1
+  } debts could be paid off in ${
+    paydownObject.snowballSavings.time
+  } fewer months than a traditional paydown. This could also save you ${stringifyMoney(
+    paydownObject.snowballSavings.money
+  )} in total.`;
+};
+
 const renderPaydownInfo = (paydownObject) => {
   const paydownInfoDiv = document.getElementById("paydown-info");
   const paydownInfoP = document.createElement("p");
-  const paydownInfo = document.createTextNode(
-    paydownObject.debts.length > 1
-      ? `Using the debt snowball method, your ${
-          paydownObject.debts.length
-        } debts could be paid off in ${
-          paydownObject.snowballSavings.time
-        } fewer months than a traditional paydown. This could also save you ${stringifyMoney(
-          paydownObject.snowballSavings.money
-        )} in total.`
-      : "Snowball plans really only work for multiple debts. Or else there is no previous payment to add to the current one."
-  );
+  const paydownInfo = document.createTextNode(createInfoText(paydownObject));
 
   paydownInfoP.appendChild(paydownInfo);
   paydownInfoDiv.replaceChildren(paydownInfoP);

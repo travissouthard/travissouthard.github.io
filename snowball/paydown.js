@@ -154,6 +154,12 @@ class Paydown {
 const createDebtObjects = (elements) => {
   const debts = [];
   let count = 0;
+
+  const isValidDebt = (debt) => {
+    if (debt.name === "Extra Payment") return true;
+    return !!debt.amount;
+  };
+
   while (elements[`debt-name-${count}`] !== undefined) {
     let debtData = {
       name: elements[`debt-name-${count}`].value,
@@ -161,7 +167,7 @@ const createDebtObjects = (elements) => {
       minimum: elements[`debt-minimum-${count}`].valueAsNumber,
       rate: elements[`debt-rate-${count}`].valueAsNumber,
     };
-    debts.push(new Debt(debtData));
+    if (isValidDebt(debtData)) debts.push(new Debt(debtData));
     count++;
   }
   return debts;
