@@ -30,7 +30,15 @@
     </header>
     <main>
         <form id="debt-form">
-            <div id="row-container"></div>
+            <div id="row-container">
+                <div class="form-row">
+                    <input name="debt-name-0" type="hidden" value="Extra Payment">
+                    <input name="debt-amount-0" type="hidden" value="0">
+                    <label>Extra (not required):<input name="debt-minimum-0" type="number" placeholder="Minimum payment"
+                            min="0"></label>
+                    <input name="debt-rate-0" type="hidden" value="0">
+                </div>
+            </div>
             <div id="buttons">
                 <button id="add-debt">Add debt</button>
                 <button id="submit">Calculate</button>

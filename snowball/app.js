@@ -20,7 +20,6 @@ submitButton.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
   const paydown = getPaydown(document.getElementById("debt-form").elements);
-  console.log(paydown);
   renderPaydown(paydown);
 });
 

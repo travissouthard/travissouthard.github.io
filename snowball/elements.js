@@ -29,7 +29,7 @@ const formRowItems = [
   },
 ];
 
-let rowNum = 0;
+let rowNum = 1;
 const addDebtRow = () => {
   const container = document.getElementById("row-container");
   const blankDebtRow = document.createElement("div");
@@ -92,8 +92,6 @@ const makeChart = (paydownObject) => {
         return {
           type: "stackedArea",
           showInLegend: true,
-          toolTipContent:
-            '<span style="color:#AA3300"><strong>{name}: </strong></span> ${y}',
           name: debt.name,
           dataPoints: debt.paydown,
         };
@@ -101,16 +99,12 @@ const makeChart = (paydownObject) => {
       {
         type: "line",
         showInLegend: true,
-        toolTipContent:
-          '<span style="color:#0033AA"><strong>{name}: </strong></span> ${y}',
         name: "Traditional Paydown",
         dataPoints: paydownObject.traditionalPaydown,
       },
       {
         type: "line",
         showInLegend: true,
-        toolTipContent:
-          '<span style="color:#00AA00"><strong>{name}: </strong></span> ${y}',
         name: "Snowball Paydown",
         dataPoints: paydownObject.snowballPaydown,
       },
@@ -167,10 +161,17 @@ renderPaymentsTable = (paydownObject) => {
   };
   const container = document.getElementById("payments-table");
   const table = document.createElement("table");
+  const title = document.createElement("tr");
+  const titleCell = createCell("th", "A Snowball Payment Plan");
   let thead = document.createElement("tr");
 
+  titleCell.setAttribute("colspan", `${paydownObject.snowballDebts.length}`);
+  title.appendChild(titleCell);
+
   thead.appendChild(createCell("th", "Month"));
+  table.appendChild(title);
   table.appendChild(thead);
+
   for (let i = 0; i < paydownObject.snowballPaydown.length; i++) {
     let row = document.createElement("tr");
     const cellDate = getDateFromNum(i).toDateString().split(" ");
@@ -181,12 +182,17 @@ renderPaymentsTable = (paydownObject) => {
     row.appendChild(dateTd);
 
     for (let debt of paydownObject.snowballDebts) {
-      if (i === 0) {
-        thead.appendChild(createCell("th", debt.name));
+      if (debt.name !== "Extra Payment") {
+        if (i === 0) {
+          thead.appendChild(createCell("th", debt.name));
+        }
+        row.appendChild(
+          createCell(
+            "td",
+            debt.payments[i] ? stringifyMoney(debt.payments[i]) : ""
+          )
+        );
       }
-      row.appendChild(
-        createCell("td", debt.payments[i] ? debt.payments[i] : 0)
-      );
     }
     table.appendChild(row);
   }
