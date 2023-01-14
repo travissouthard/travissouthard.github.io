@@ -130,10 +130,11 @@ const stringifyMoney = (num) => {
   const groupsOfThree = [];
   for (let i = numString.length; i >= 0; i -= 3) {
     if (i < 3) {
-      groupsOfThree.unshift(numString.slice(0, i));
-      break;
+      let head = numString.slice(0, i);
+      if (head) groupsOfThree.unshift(head);
+    } else {
+      groupsOfThree.unshift(numString.slice(i - 3, i));
     }
-    groupsOfThree.unshift(numString.slice(i - 3, i));
   }
   return `$${groupsOfThree.join()}${cents}`;
 };
