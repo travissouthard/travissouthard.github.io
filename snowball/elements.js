@@ -73,7 +73,7 @@ const makeChart = (paydownObject) => {
   return new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
     title: {
-      text: "Comparing snowball with traditional",
+      text: "Comparing paydown methods",
       fontFamily: "sans-serif",
     },
     axisY: {
@@ -81,7 +81,7 @@ const makeChart = (paydownObject) => {
       valueFormatString: "#,###",
     },
     axisX: {
-      title: "Months To Pay Down",
+      title: "Time",
     },
     toolTip: {
       shared: true,
@@ -101,6 +101,12 @@ const makeChart = (paydownObject) => {
         showInLegend: true,
         name: "Traditional Paydown",
         dataPoints: paydownObject.traditionalPaydown,
+      },
+      {
+        type: "line",
+        showInLegend: true,
+        name: "Avalanche Paydown",
+        dataPoints: paydownObject.avalanchePaydown,
       },
       {
         type: "line",
@@ -141,15 +147,20 @@ const createInfoText = (paydownObject) => {
     `;
   }
   if (paydownObject.debts.length === 2) {
-    return "Snowball plans really only work for multiple debts. Or else there is no previous payment to add to the current one.";
+    return "Snowball plans really only work for multiple debts. \
+    Or else there is no previous payment to add to the current one.";
   }
+
+  const { time, money } = paydownObject.snowballSavings;
 
   return `Using the debt snowball method, your ${
     paydownObject.debts.length - 1
-  } debts could be paid off in ${
-    paydownObject.snowballSavings.time
-  } fewer months than a traditional paydown. This could also save you ${stringifyMoney(
-    paydownObject.snowballSavings.money
+  } debts could be paid off ${
+    time > 12 ? Math.floor(time / 12) + " years" : ""
+  } ${
+    (time === 12 ? time : time % 12) + " months"
+  } faster than a traditional paydown. This could also save you ${stringifyMoney(
+    money
   )} in total.`;
 };
 
