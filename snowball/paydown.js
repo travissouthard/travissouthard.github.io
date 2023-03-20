@@ -92,7 +92,11 @@ class Paydown {
     this.remainingPayments = this.getRemainingPayments(debts);
     this.traditionalPaydown = this.getPaydown(debts);
     this.snowballDebts = this.getSnowball(this.debts);
+    this.avalancheDebts = this.getSnowball(
+      debts.sort((a, b) => a.rate - b.rate)
+    );
     this.snowballPaydown = this.getPaydown(this.snowballDebts);
+    this.avalanchePaydown = this.getPaydown(this.avalancheDebts);
     this.snowballSavings = {
       time: this.traditionalPaydown.length - this.snowballPaydown.length,
       money:
