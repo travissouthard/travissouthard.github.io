@@ -137,6 +137,7 @@ nav a:hover, footer a:hover {
 .project-card p, .project-card a {
     margin: 0;
     color: black;
+    text-align: center;
 }
 
 .project-card img {

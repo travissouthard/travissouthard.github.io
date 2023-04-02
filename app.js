@@ -1,5 +1,5 @@
 const assembleProjectCard = (project) => {
-  const $card = $("<div></div>").attr("class", "project-card");
+  const $card = $("<article></article>").attr("class", "project-card");
   const $projectImage = $("<a></a>").attr({
     href: project.siteLink,
     target: "_blank",
@@ -13,7 +13,7 @@ const assembleProjectCard = (project) => {
   $projectText.append(
     $("<a>Visit Site</a>").attr({ href: project.siteLink, target: "_blank" })
   );
-  if (project.public) {
+  if (project.public && project.codeLink) {
     $projectText.append(" | ");
     $projectText.append(
       $("<a>See code</a>").attr({ href: project.codeLink, target: "_blank" })
@@ -27,10 +27,15 @@ const assembleProjectCard = (project) => {
   return $card;
 };
 
+const sortArrayByDate = (arr) => {
+  return arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
+};
+
 $(() => {
   const $projectsDiv = $("#projects");
+  const sortedProjects = sortArrayByDate([...data.projects, ...data.pixelArt]);
 
-  for (let project of projectData) {
+  for (let project of sortedProjects) {
     const $projectCard = assembleProjectCard(project);
 
     $projectsDiv.append($projectCard);
