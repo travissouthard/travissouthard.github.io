@@ -121,7 +121,7 @@ nav a:hover, footer a:hover {
     text-decoration: none;
 }
 
-#projects {
+.project-section {
     padding: 0;
     display: flex;
     flex-flow: row wrap;
@@ -142,9 +142,9 @@ nav a:hover, footer a:hover {
 
 .project-card img {
     width: 100%;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
-    object-position: top;
+    object-position: bottom;
 }
 
 .skills {

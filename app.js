@@ -31,13 +31,24 @@ const sortArrayByDate = (arr) => {
   return arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
 };
 
-$(() => {
-  const $projectsDiv = $("#projects");
-  const sortedProjects = sortArrayByDate([...data.projects, ...data.pixelArt]);
+const fillOutSections = (key, value) => {
+  const $section = $(key);
+  const sortedData = sortArrayByDate(value);
 
-  for (let project of sortedProjects) {
-    const $projectCard = assembleProjectCard(project);
+  for (let entry of sortedData) {
+    const $card = assembleProjectCard(entry);
 
-    $projectsDiv.append($projectCard);
+    $section.append($card);
   }
+};
+
+$(() => {
+  const sectionData = {
+    "#projects": data.projects,
+    "#pixelArt": data.pixelArt,
+  };
+
+  Object.entries(sectionData).map(([key, value]) =>
+    fillOutSections(key, value)
+  );
 });
