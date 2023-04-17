@@ -13,7 +13,7 @@ const documentStart = `<?xml version="1.0" encoding="UTF-8" ?>
 
 <channel>
     <title>Travis Southard Blog</title>
-    <link>https://www.travissouthard.com</link>
+    <link>https://travissouthard.com</link>
     <description>
         Travis Southard is a software engineer, cyclist, and artist living in Philadelphia, PA
     </description>
