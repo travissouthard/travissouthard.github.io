@@ -9,17 +9,17 @@ const data = JSON.parse(dataFile);
 
 const now = new Date();
 const documentStart = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
     <title>Travis Southard Blog</title>
-    <link>https://travissouthard.com</link>
+    <link>https://travissouthard.com/</link>
     <description>
         Travis Southard is a software engineer, cyclist, and artist living in Philadelphia, PA
     </description>
     <image>
         <url>https://travissouthard.com/assets/images/pixelart/headshot-32.png</url>
-        <title>Travis Southard's face, but done as pixel art</title>
+        <title>Travis Southard Blog</title>
         <link>https://travissouthard.com/</link>
         <width>144</width>
         <height>144</height>
@@ -27,6 +27,7 @@ const documentStart = `<?xml version="1.0" encoding="UTF-8" ?>
     <language>en-us</language>
     <pubDate>${now.toUTCString()}</pubDate>
     <lastBuildDate>${now.toUTCString()}</lastBuildDate>
+    <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     `;
 const documentEnd = `
 </channel>
@@ -34,18 +35,41 @@ const documentEnd = `
 </rss>
     `;
 
-const fixLocalLink = (link, isImage = false) => {
-  return link[0] === "."
-    ? `http${isImage ? "" : "s"}://travissouthard.com` + link.slice(1)
-    : link;
+const homeUrl = "https://travissouthard.com";
+
+const fixLocalLink = (link) => {
+  return link[0] === "." ? homeUrl + link.slice(1) : link;
 };
 
 const createImageFromPost = (post) => {
+  const link = post.siteLink || homeUrl;
   return post.imagePath
-    ? `<enclosure url="${fixLocalLink(post.imagePath, true)}" length="${
-        post.imageSize
-      }" type="image/png" />`
+    ? `<a href="${fixLocalLink(link)}" target="blank">
+        <img src="${fixLocalLink(post.imagePath)}" alt="${post.altText}"/>
+      </a>`
     : "";
+};
+
+const encodeDescriptionFromPost = (post) => {
+  const htmlEntities = {
+    amp: /\&/g,
+    quot: /\"/g,
+    apos: /\'/g,
+    lt: /\</g,
+    gt: /\>/g,
+  };
+  const codeLink = post.codeLink
+    ? `See the <a href="${post.codeLink}" target="blank">code here</a>`
+    : "";
+  let htmlString = `${createImageFromPost(post)}
+  ${post.description}${codeLink}`;
+  const encodeHtml = (html) => {
+    for (let entity in htmlEntities) {
+      html = html.replace(htmlEntities[entity], () => `&${entity};`);
+    }
+    return html;
+  };
+  return encodeHtml(htmlString);
 };
 
 const createItemsFromPosts = (posts) => {
@@ -55,10 +79,7 @@ const createItemsFromPosts = (posts) => {
     const item = `
         <item>
             <title>${post.title}</title>
-            ${createImageFromPost(post)}
-            <description>${post.description}${
-      post.codeLink ? `See the code for this at ${post.codeLink}` : ""
-    }</description>
+            <description>${encodeDescriptionFromPost(post)}</description>
             <link>${fixLocalLink(post.siteLink)}</link>
             <pubDate>${pubDate.toUTCString()}</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
