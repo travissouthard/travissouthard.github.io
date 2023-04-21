@@ -1,120 +1,169 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
     <title>Travis Southard Blog</title>
-    <link>https://travissouthard.com</link>
+    <link>https://travissouthard.com/</link>
     <description>
         Travis Southard is a software engineer, cyclist, and artist living in Philadelphia, PA
     </description>
     <image>
         <url>https://travissouthard.com/assets/images/pixelart/headshot-32.png</url>
-        <title>Travis Southard's face, but done as pixel art</title>
+        <title>Travis Southard Blog</title>
         <link>https://travissouthard.com/</link>
         <width>144</width>
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Mon, 17 Apr 2023 04:06:11 GMT</pubDate>
-    <lastBuildDate>Mon, 17 Apr 2023 04:06:11 GMT</lastBuildDate>
+    <pubDate>Fri, 21 Apr 2023 02:39:21 GMT</pubDate>
+    <lastBuildDate>Fri, 21 Apr 2023 02:39:21 GMT</lastBuildDate>
+    <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
             <title>Brand new RSS feed!</title>
-            
-            <description>This is the first dedicated blog post in a new thing I am trying which is making a blog from scratch that can be read by RSS readers. I have been wanting to make this for some time and finally made the time to figure out how to do this on a static site and without having to write out XML code by hand.
-      I have been redoing my portfolio site recently and wanted to sit down and figure this out. I wrote a basic JavaScript script to parse a data object I was already using for the portfolio and made a way to generate XML code from it. The code is pretty simple but I will include it at the bottom of this post.
-      I make no promises about the frequency of how often I will be making posts here, but will update with new code projects and pixel art pieces as they come up. But really, that's the beauty of using an RSS reader: The reader checks for you!
-      For the past year or so I have really re-fallen in love with using an RSS reader to keep up with blogs, webcomics, and a few other things that post irregularly or that I used to follow on Twitter. It feels good to read through and empty out my feed each day and really helps me to keep up with creators and companies with ease. I have been using NetNewsWire's iOS app for a few weeks and like how it works, especially the "reader" view.
-      Go ahead and add https://travissouthard.com/rss.xml to your reader of choice.
-      See the code for this at https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js</description>
+            <description>
+  &lt;p&gt;This is the first dedicated blog post as an attempt to 
+      make a blog from scratch that can be read by RSS readers. I have been 
+      wanting to make this for some time and finally made the time to figure 
+      out how to do this on a static site and without having to write out XML 
+      code by hand.&lt;/p&gt;
+      &lt;p&gt;I have been redoing my portfolio site recently and wanted to sit down
+      and figure this out. I wrote a basic JavaScript script to parse a data 
+      object I was already using for the portfolio and made a way to generate 
+      XML code from it. The code is pretty simple but I will include it at the 
+      bottom of this post.&lt;/p&gt;
+      &lt;p&gt;I make no promises about the frequency of how often I will be making 
+      posts here, but will update with new code projects and pixel art pieces 
+      as they come up. But really, that&apos;s the beauty of using an RSS reader: 
+      The reader checks for you!&lt;/p&gt;
+      &lt;p&gt;For the past year or so I have really re-fallen in love with using an 
+      RSS reader to keep up with blogs, webcomics, and a few other things that 
+      post irregularly (or that I used to follow on Twitter). It feels good to 
+      read through and empty out my feed each day and really helps me to keep 
+      up with creators and companies with ease. I have been using NetNewsWire&apos;s 
+      iOS app for a few weeks and like how it works, especially the &quot;reader&quot; 
+      view.&lt;/p&gt;
+      &lt;p&gt;Go ahead and add &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; 
+      target=&quot;blank&quot;&gt;https://travissouthard.com/rss.xml&lt;/a&gt; to your reader of 
+      choice.&lt;/p&gt;
+      &lt;p&gt;&lt;em&gt;Edit: I cleaned up how the rss is generated and adding HTML tags 
+      to actually show the images and organize my writing better.&lt;/em&gt;&lt;/p&gt;
+      See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com</link>
-            <pubDate>Sun, 16 Apr 2023 04:00:00 GMT</pubDate>
+            <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-Bit Beach Scene</title>
-            <enclosure url="http://travissouthard.com/assets/images/pixelart/beach.png" length="24303" type="image/png" />
-            <description></description>
+            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109934647644450793&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
+      &lt;/a&gt;
+  </description>
             <link>https://mastodon.social/@tsouthard/109934647644450793</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>32x32 Self Portrait</title>
-            <enclosure url="http://travissouthard.com/assets/images/pixelart/headshot-32.png" length="9569" type="image/png" />
-            <description></description>
+            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109931960684000706&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/headshot-32.png&quot; alt=&quot;A low-color low-res pixel art portait of a man with a mustache&quot;/&gt;
+      &lt;/a&gt;
+  </description>
             <link>https://mastodon.social/@tsouthard/109931960684000706</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Debt Snowball Calculator</title>
-            <enclosure url="http://travissouthard.com/assets/images/projects/debt-snowball.png" length="199269" type="image/png" />
-            <description>See the code for this at https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball</description>
+            <description>&lt;a href=&quot;https://travissouthard.com/snowball/index.html&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/debt-snowball.png&quot; alt=&quot;Screenshot of my debt snowball calculator app.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;A debt snowball calculator with a chart showing how the 
+        different debts pays down as you follow the plan&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/snowball/index.html</link>
             <pubDate>Fri, 13 Jan 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>CRT Flower</title>
-            <enclosure url="http://travissouthard.com/assets/images/pixelart/crt-flower.png" length="11525" type="image/png" />
-            <description></description>
+            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109411109868393841&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
+      &lt;/a&gt;
+  </description>
             <link>https://mastodon.social/@tsouthard/109411109868393841</link>
             <pubDate>Sun, 06 Nov 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Expungement Petition Generator</title>
-            <enclosure url="http://travissouthard.com/assets/images/projects/plse-expungement.png" length="106543" type="image/png" />
-            <description></description>
+            <description>&lt;a href=&quot;https://www.plsephilly.org/&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/plse-expungement.png&quot; alt=&quot;Screenshot of the Expungement Petition Generator&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;A volunteer project I lead as part of &lt;a 
+        href=&quot;https://codeforphilly.org&quot;&gt;Code for Philly&lt;/a&gt; that benefits 
+        the work of Philadelphia Lawyers for Social Equity&lt;/p&gt;</description>
             <link>https://www.plsephilly.org/</link>
             <pubDate>Wed, 02 Nov 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>House Portrait</title>
-            <enclosure url="http://travissouthard.com/assets/images/pixelart/house.png" length="32559" type="image/png" />
-            <description></description>
+            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109485424439372092&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/house.png&quot; alt=&quot;A 4-color grayscale pixelart image of a rowhome&quot;/&gt;
+      &lt;/a&gt;
+  </description>
             <link>https://mastodon.social/@tsouthard/109485424439372092</link>
             <pubDate>Sun, 30 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Self Portrait</title>
-            <enclosure url="http://travissouthard.com/assets/images/pixelart/pixel-art-portrait.png" length="12583" type="image/png" />
-            <description></description>
+            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/pixel-art-portrait.png&quot; alt=&quot;A 1-bit pixelart self portrait of a man using a keyboard&quot;/&gt;
+      &lt;/a&gt;
+  </description>
             <link>https://mastodon.social/@tsouthard</link>
             <pubDate>Sun, 16 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Mushroom</title>
-            <enclosure url="http://travissouthard.com/assets/images/pixelart/mushroom.png" length="9779" type="image/png" />
-            <description></description>
+            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/110129547262579634&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/mushroom.png&quot; alt=&quot;A 1-bit pixelart closeup image of a whitecap mushroom&quot;/&gt;
+      &lt;/a&gt;
+  </description>
             <link>https://mastodon.social/@tsouthard/110129547262579634</link>
             <pubDate>Mon, 10 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Gravity Play</title>
-            <enclosure url="http://travissouthard.com/assets/images/projects/gravity-play.png" length="263287" type="image/png" />
-            <description>See the code for this at https://editor.p5js.org/travissouthard/sketches/Fq_vEfA8O</description>
+            <description>&lt;a href=&quot;https://editor.p5js.org/travissouthard/full/Fq_vEfA8O&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/gravity-play.png&quot; alt=&quot;Screenshot of small colorful planets orbiting each other in a gravity simulation.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;A small 2D simulation of particles enacting gravity on 
+        each other and combining as they get close together.&lt;/p&gt;See the &lt;a href=&quot;https://editor.p5js.org/travissouthard/sketches/Fq_vEfA8O&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://editor.p5js.org/travissouthard/full/Fq_vEfA8O</link>
             <pubDate>Sat, 16 Jan 2021 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Minesweeper Clone</title>
-            <enclosure url="http://travissouthard.com/assets/images/projects/minesweeper.png" length="38036" type="image/png" />
-            <description>See the code for this at https://github.com/travissouthard/travissouthard.github.io/tree/master/games/minesweeper</description>
+            <description>&lt;a href=&quot;https://travissouthard.com/games/minesweeper/index.html&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/minesweeper.png&quot; alt=&quot;Screenshot of my Minesweeper game.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;A clone of the classic computer game, Minesweeper.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/games/minesweeper&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/games/minesweeper/index.html</link>
             <pubDate>Sun, 30 Aug 2020 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Bike Camping PHL</title>
-            <enclosure url="http://travissouthard.com/assets/images/projects/bike_camping_phl.png" length="202444" type="image/png" />
-            <description>See the code for this at https://github.com/travissouthard/travissouthard.github.io/tree/master/bike_camping_PHL</description>
+            <description>&lt;a href=&quot;https://travissouthard.com/bike_camping_PHL/index.html&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/bike_camping_phl.png&quot; alt=&quot;Screenshot of my Bike Camping PHL checklist app.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;A Philadelphia-specific weather based packing 
+        list for bike camping trips.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/bike_camping_PHL&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/bike_camping_PHL/index.html</link>
             <pubDate>Wed, 01 Jul 2020 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
