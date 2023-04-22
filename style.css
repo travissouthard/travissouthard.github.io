@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'kghappy-full';
+    src: url('./assets/font/KGHAPPY.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'kghappy-solid';
+    src: url('./assets/font/KGHAPPYSolid.ttf')  format('truetype');
+}
+
 :root {
     --red: #852320;
     --light-red: #D4534E;
@@ -25,9 +34,11 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin: 0;
     padding: 10px;
+    font-weight: normal;
 }
 
 main h2 {
+    font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
     background-color: var(--red);
     color: white;
 }
@@ -67,20 +78,26 @@ article a {
 }
 
 header, nav, footer {
+    font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
     background-color: var(--blue);
     color: white;
 }
 
 header {
-    height: 200px;
+    padding: 24px 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
 }
 
+header h1 {
+    font-family: 'kghappy-full', Arial, Helvetica, sans-serif;
+    font-size: 64px;
+}
+
 header p {
+    font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
     text-align: center;
-    font-variant: small-caps;
     margin: 0;
 }
 
@@ -90,35 +107,36 @@ header img {
     border-radius: 50%;
 }
 
-nav ul, footer ul {
+nav ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     text-align: center;
-    padding: 20px 0;
+    font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
 }
 
-nav li, footer li {
-    width: 90%;
-    margin: 1px;
-    border-radius: 5px;
+footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+footer ul {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+}
+
+nav a {
     background-color: var(--light-blue);
-    padding: 2% 5%;
-}
-
-nav li:hover, footer li:hover {
-    margin: 0;
-    border: 1px solid white;
-    background-color: var(--blue);
-    color: var(--light-blue);
-}
-
-nav a, footer a {
-    width: 24%;
+    padding: 8px 16px;
+    flex-grow: 1;
+    font-weight: 100;
 }
 
 nav a:hover, footer a:hover {
     text-decoration: none;
+    font-family: 'kghappy-full', Arial, Helvetica, sans-serif;
 }
 
 .project-section {
@@ -129,9 +147,42 @@ nav a:hover, footer a:hover {
     text-align: center;
 }
 
+.blog-section {
+    padding: 0 24px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.blog-post h3 {
+    font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
+}
+
+.blog-nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: space-around;
+    padding: 16px 0;
+}
+
+.blog-nav li {
+    text-align: center;
+    font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.blog-nav li:hover {
+    font-family: 'kghappy-full', Arial, Helvetica, sans-serif;
+}
+
 .project-card {
     padding: 2.5%;
     width: 95%;
+}
+
+.project-card h3 {
+    font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
+
 }
 
 .project-card p, .project-card a {
@@ -181,5 +232,17 @@ nav a:hover, footer a:hover {
 @media (min-width: 1400px) {
     .project-card {
         width: 20%;
+    }
+}
+
+@media (max-width: 720px) {
+    header h1 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 32px;
     }
 }
