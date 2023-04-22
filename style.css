@@ -10,19 +10,17 @@
 :root {
     --red: #852320;
     --light-red: #D4534E;
-    --yellow: #E8C76D;
     --light-blue: #3B92D9;
     --blue: #215D8F;
 }
 
 html {
-    background-color: var(--yellow);
+    background-color: var(--blue);
 }
 
 body {
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
-    width: 90%;
     margin: 0 auto;
 }
 
@@ -182,7 +180,6 @@ nav a:hover, footer a:hover {
 
 .project-card h3 {
     font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
-
 }
 
 .project-card p, .project-card a {
