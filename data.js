@@ -182,9 +182,8 @@ const data = {
       lastUpdated: Date.parse("Dec 6 2022"),
     },
     {
-      title:
-        "Solved: docker-compose error: cannot resolve import from 'vite' from vite.config.ts",
-      siteLink: "https://travissouthard.com",
+      title: "Solved a tricky (for me) docker-compose error!",
+      siteLink: "https://travissouthard.com/blog.html",
       codeLink: "https://github.com/CodeForPhilly/third-places/pull/10",
       imagePath: "",
       description: `
@@ -255,4 +254,4 @@ const data = {
 
 // Uncomment to output JSON from this
 // Use with `node data.js > data.json`
-// console.log(JSON.stringify(data));
+console.log(JSON.stringify(data));
