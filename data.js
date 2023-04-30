@@ -156,6 +156,31 @@ const data = {
       public: true,
       lastUpdated: Date.parse("20 Apr 2023"),
     },
+    {
+      title: "Why is some documentation better than others?",
+      siteLink:
+        "https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/",
+      codeLink: "",
+      imagePath: "",
+      description: `
+      <p>In fall of 2022, I wrote a blog post for 
+      work on what makes for good documentation.</p>
+      <blockquote>Documentation is vital for anything open source; from open 
+      hardware, to free recipes, to DIY repair tutorials, but it is especially 
+      vital when it comes to software. Whether you're a user or a developer, 
+      documentation provides the “how to” for interacting with any piece of 
+      software.<br/>
+      Since I first started getting into software development two years ago, 
+      I've learned that documentation frequently assumes you already know how 
+      to use the item in question, and are using the docs as a reference. 
+      While acting as a reference material is one of documentation's important 
+      functions, it cannot be the only function...</blockquote>
+      <a href="" target="_blank" ><p>Read the full post here.</p></a>
+      `,
+      altText: "",
+      public: true,
+      lastUpdated: Date.parse("Dec 6 2022"),
+    },
   ],
 };
 
