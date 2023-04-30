@@ -181,6 +181,75 @@ const data = {
       public: true,
       lastUpdated: Date.parse("Dec 6 2022"),
     },
+    {
+      title:
+        "Solved: docker-compose error: cannot resolve import from 'vite' from vite.config.ts",
+      siteLink: "https://travissouthard.com",
+      codeLink: "https://github.com/CodeForPhilly/third-places/pull/10",
+      imagePath: "",
+      description: `
+      <p>I am currently volunteering on a project as part of <a
+            href="https://codeforphilly.org/projects/third_places_project-launchpad_2023" target="_blank">Code for
+            Philly's Launchpad 2023</a>. I am working with a small team of developers and UXers to develop a project
+        that will seek to connect Philadelphians to comfortable public spaces, with the focus being on finding places
+        spontaneously.</p>
+      <a href="#solution">
+          <p>Jump to code solution.</p>
+      </a>
+      <p>We got started at the end of March this year and the launchpad demos will be <a
+              href="https://opencollective.com/code-for-philly/events/2023-code-for-philly-launchpad-project-showcase-c95b1dc3"
+              target="_blank">on May 10</a> as part of
+          <a href="https://2023.phillytechweek.com/" target="_blank">Philly Tech Week 2023</a>. Come see our presentation!
+          For the past few weeks we have been simultaneously going
+          through the discovery of what we want to build and setting up the boilerplate to build our code on.
+      </p>
+      <p>One speed bump I ran into was setting up a <code>docker-compose.yml</code> file. In my work life and in my <a
+              href="https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement">other
+              Code for
+              Philly project</a>, we use these to build, run, and manage our Docker containers for the frontend, backend,
+          and
+          database. However, I realized this week I have never set one up from scratch since those above projects were
+          either already built or built from a template we couldn't use for this project.</p>
+      <p>For context, we are going to be building a React frontend with Leaflet for our map component, and a Django
+          backend with PostgreSQL and PostGIS. We also decided to set up React with Vite to avoid create-react-app.</p>
+      <p>Setting up the Dockerfiles and docker-compose.yml file were easy enough using the Docker setup documentation. I
+          made sure each docker container built and ran on its own, but when putting them together with compose, I was
+          getting this error from Docker:</p>
+      <pre><code>error: cannot resolve import from 'vite' from vite.config.ts</code></pre>
+      <p>After a lot of searching, looking at forums and docs, and trying many different things, this error mostly pointed
+          to the idea that vite is missing. Where a lot of the solutions pointed to an old issue with Node 14, Typescript,
+          and Vite and that solving it with updating Node to 16, that wouldn't work for us since we are using Node 18.</p>
+      <p>I checked to make sure it was in the package.json, and making sure that npm install was running successfully. And
+          there I found it: Despite, the Dockerfile calling for <code>npm install</code> to run when building, the logs
+          showed it wasn't actually running.</p>
+      <p id="solution">The solution I found pointed to using the following line in the Dockerfile in our React app:</p>
+      <pre><code>
+          # From: 
+          ADD . .
+          RUN npm install
+          CMD ["npm", "run", "dev", "--host"]
+          # To: 
+          # See the PR for the full Dockerfile.
+          ADD . .
+          ENTRYPOINT [ "/entrypoint.sh" ]
+          CMD ["npm", "run", "dev", "--host"]
+      </code></pre>
+      <p>And of course adding that entrypoint.hs file with:</p>
+      <pre><code>
+          #!/bin/sh
+          npm install
+          npm rebuild esbuild
+          exec "$@"
+      </code></pre>
+      <p>The <code>npm rebuild</code> is there as a precaution for a problem I was running into with the wrong esbuild
+          coming from the Docker host, but using that entry point file did successfully get the node_modules installed
+          with the correct esbuild and now we are happily boilerplated and ready to roll building out as much of our demo
+          as we can in the next week!</p>
+      `,
+      altText: "",
+      public: true,
+      lastUpdated: Date.parse("Apr 30 2023"),
+    },
   ],
 };
 

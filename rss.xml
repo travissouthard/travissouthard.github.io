@@ -15,10 +15,76 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 30 Apr 2023 15:39:49 GMT</pubDate>
-    <lastBuildDate>Sun, 30 Apr 2023 15:39:49 GMT</lastBuildDate>
+    <pubDate>Sun, 30 Apr 2023 17:06:20 GMT</pubDate>
+    <lastBuildDate>Sun, 30 Apr 2023 17:06:20 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>Solved: docker-compose error: cannot resolve import from 'vite' from vite.config.ts</title>
+            <description>
+  
+      &lt;p&gt;I am currently volunteering on a project as part of &lt;a
+            href=&quot;https://codeforphilly.org/projects/third_places_project-launchpad_2023&quot; target=&quot;_blank&quot;&gt;Code for
+            Philly&apos;s Launchpad 2023&lt;/a&gt;. I am working with a small team of developers and UXers to develop a project
+        that will seek to connect Philadelphians to comfortable public spaces, with the focus being on finding places
+        spontaneously.&lt;/p&gt;
+      &lt;a href=&quot;#solution&quot;&gt;
+          &lt;p&gt;Jump to code solution.&lt;/p&gt;
+      &lt;/a&gt;
+      &lt;p&gt;We got started at the end of March this year and the launchpad demos will be &lt;a
+              href=&quot;https://opencollective.com/code-for-philly/events/2023-code-for-philly-launchpad-project-showcase-c95b1dc3&quot;
+              target=&quot;_blank&quot;&gt;on May 10&lt;/a&gt; as part of
+          &lt;a href=&quot;https://2023.phillytechweek.com/&quot; target=&quot;_blank&quot;&gt;Philly Tech Week 2023&lt;/a&gt;. Come see our presentation!
+          For the past few weeks we have been simultaneously going
+          through the discovery of what we want to build and setting up the boilerplate to build our code on.
+      &lt;/p&gt;
+      &lt;p&gt;One speed bump I ran into was setting up a &lt;code&gt;docker-compose.yml&lt;/code&gt; file. In my work life and in my &lt;a
+              href=&quot;https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement&quot;&gt;other
+              Code for
+              Philly project&lt;/a&gt;, we use these to build, run, and manage our Docker containers for the frontend, backend,
+          and
+          database. However, I realized this week I have never set one up from scratch since those above projects were
+          either already built or built from a template we couldn&apos;t use for this project.&lt;/p&gt;
+      &lt;p&gt;For context, we are going to be building a React frontend with Leaflet for our map component, and a Django
+          backend with PostgreSQL and PostGIS. We also decided to set up React with Vite to avoid create-react-app.&lt;/p&gt;
+      &lt;p&gt;Setting up the Dockerfiles and docker-compose.yml file were easy enough using the Docker setup documentation. I
+          made sure each docker container built and ran on its own, but when putting them together with compose, I was
+          getting this error from Docker:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;error: cannot resolve import from &apos;vite&apos; from vite.config.ts&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;After a lot of searching, looking at forums and docs, and trying many different things, this error mostly pointed
+          to the idea that vite is missing. Where a lot of the solutions pointed to an old issue with Node 14, Typescript,
+          and Vite and that solving it with updating Node to 16, that wouldn&apos;t work for us since we are using Node 18.&lt;/p&gt;
+      &lt;p&gt;I checked to make sure it was in the package.json, and making sure that npm install was running successfully. And
+          there I found it: Despite, the Dockerfile calling for &lt;code&gt;npm install&lt;/code&gt; to run when building, the logs
+          showed it wasn&apos;t actually running.&lt;/p&gt;
+      &lt;p id=&quot;solution&quot;&gt;The solution I found pointed to using the following line in the Dockerfile in our React app:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;
+          # From: 
+          ADD . .
+          RUN npm install
+          CMD [&quot;npm&quot;, &quot;run&quot;, &quot;dev&quot;, &quot;--host&quot;]
+          # To: 
+          # See the PR for the full Dockerfile.
+          ADD . .
+          ENTRYPOINT [ &quot;/entrypoint.sh&quot; ]
+          CMD [&quot;npm&quot;, &quot;run&quot;, &quot;dev&quot;, &quot;--host&quot;]
+      &lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;And of course adding that entrypoint.hs file with:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;
+          #!/bin/sh
+          npm install
+          npm rebuild esbuild
+          exec &quot;$@&quot;
+      &lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;The &lt;code&gt;npm rebuild&lt;/code&gt; is there as a precaution for a problem I was running into with the wrong esbuild
+          coming from the Docker host, but using that entry point file did successfully get the node_modules installed
+          with the correct esbuild and now we are happily boilerplated and ready to roll building out as much of our demo
+          as we can in the next week!&lt;/p&gt;
+      See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places/pull/10&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
+            <link>https://travissouthard.com</link>
+            <pubDate>Sun, 30 Apr 2023 04:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>Brand new RSS feed!</title>
             <description>
