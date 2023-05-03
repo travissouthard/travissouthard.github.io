@@ -2,7 +2,8 @@ const data = {
   projects: [
     {
       title: "Expungement Petition Generator",
-      siteLink: "https://www.plsephilly.org/",
+      siteLink:
+        "https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement",
       codeLink: "",
       imagePath: "./assets/images/projects/plse-expungement.png",
       description: `<p>A volunteer project I lead as part of <a 
