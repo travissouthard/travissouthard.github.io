@@ -60,6 +60,26 @@ const data = {
       public: true,
       lastUpdated: Date.parse("16 Jan 2021"),
     },
+    {
+      title: "PhilaVibes",
+      siteLink:
+        "https://codeforphilly.org/projects/third_places_project-launchpad_2023",
+      codeLink: "https://github.com/CodeForPhilly/third-places",
+      imagePath: "./assets/images/projects/phila-vibes.png",
+      description: `<p>PhilaVibes is a map application that helps people in 
+        Philadelphia at point A with more time than they need to get to point B 
+        find a comfortable place to be between those spaces. The map will 
+        feature points surrounded by word clouds describing the spaces (and 
+        will show the name, address, etc, once the user clicks on that space). 
+        The user can see choose to see spaces around them, along their route, 
+        or around their destination. Philavibes started as a 
+        <a href="https://codeforphilly.org/" target="_blank">Code for Philly</a> Launchpad 2023
+        project.</p>`,
+      altText:
+        "Screenshot of the PhilaVibes project page on the Code for Philly website.",
+      public: true,
+      lastUpdated: Date.parse("10 May 2023"),
+    },
   ],
   pixelArt: [
     {
@@ -224,35 +244,103 @@ const data = {
           showed it wasn't actually running.</p>
       <p id="solution">The solution I found pointed to using the following line in the Dockerfile in our React app:</p>
       <pre><code>
-          # From: 
-          ADD . .
-          RUN npm install
-          CMD ["npm", "run", "dev", "--host"]
-          # To: 
-          # See the PR for the full Dockerfile.
-          ADD . .
-          ENTRYPOINT [ "/entrypoint.sh" ]
-          CMD ["npm", "run", "dev", "--host"]
+      # From: 
+      ADD . .
+      RUN npm install
+      CMD ["npm", "run", "dev", "--host"]
+      # To: 
+      # See the PR for the full Dockerfile.
+      ADD . .
+      ENTRYPOINT [ "/entrypoint.sh" ]
+      CMD ["npm", "run", "dev", "--host"]
       </code></pre>
       <p>And of course adding that entrypoint.hs file with:</p>
       <pre><code>
-          #!/bin/sh
-          npm install
-          npm rebuild esbuild
-          exec "$@"
+      #!/bin/sh
+      npm install
+      npm rebuild esbuild
+      exec "$@"
       </code></pre>
       <p>The <code>npm rebuild</code> is there as a precaution for a problem I was running into with the wrong esbuild
           coming from the Docker host, but using that entry point file did successfully get the node_modules installed
           with the correct esbuild and now we are happily boilerplated and ready to roll building out as much of our demo
           as we can in the next week!</p>
+      <em><p>Edit: 6/16/23 - Fixed a tab error in the code portions.</p></em>
       `,
       altText: "",
       public: true,
-      lastUpdated: Date.parse("Apr 30 2023"),
+      lastUpdated: Date.parse("Jun 16 2023"),
+    },
+    {
+      title: "I need a better routine",
+      siteLink: "https://travissouthard.com",
+      codeLink: "",
+      imagePath: "./assets/images/blog/raystown-camp.png",
+      description: `
+      <p>I am still very much on <a href="./assets/Travis_Southard_Software_Engineer_Resume.pdf" target="_blank">the job
+            search</a>. I am actively seeking a full-time (though ideally 32-hours-a-week) software engineering position
+        in civic technology with geospatial work. I have had some great conversations and opportunities so far and I
+        hope I can find something I love very soon.</p>
+    <p>While I have been home, I was hoping to establish a new routine that honors my physical, emotional, and
+        interpersonal needs. Ruby recently prompted me to imagine my ideal life and I struggled to even begin. I
+        have the ability and strength to imagine a better world, improvements to my city, and even fantasy elements, but
+        apparently not my ideal day. I also recently thought about this issue because of a <a
+            href="https://www.raptitude.com/2010/07/your-lifestyle-has-already-been-designed/" target="_blank">great
+            (13-year-old) blog post about feeling helpless about how we spend our non-work time</a>.</p>
+    <p>But recently, Ruby and I did a 4-day camping trip at Raystown Lake in Central PA. We drove out on a Monday,
+        brought our mountain bikes, an enormous borrowed tent, and a new cooler full of lovely foods to eat. At camp, I
+        found I was able to live more like I want:</p>
+    <ul>
+        <li>woke up at about 7am</li>
+        <li>took care of my morning hygiene routine</li>
+        <li>started making coffee and read a book</li>
+        <li>made breakfast while Ruby writes her morning pages</li>
+        <li>eat breakfast and review my plan for the day</li>
+        <li>do the plan for the morning (ride mountain bikes!)</li>
+        <li>make and eat lunch</li>
+        <li>do the plan for the afternoon (swim, read, explore)</li>
+        <li>make and eat dinner</li>
+        <li>enjoy a drink and spend quality time with loved ones (look at stars, birds, and bugs with Ruby)</li>
+        <li>take care of my evening hygiene routine</li>
+        <li>in bed at about 10pm</li>
+    </ul>
+    <p>I have felt this feeling before; that I feel better at camp than I do at home. This was a large part of why I did
+        so much bike camping from 2016 to 2019 and tried to make bike touring my job a few years back. I have recognized
+        that a campsite is a better environment for me than the one I make for myself at home.</p>
+    <p>Granted, that does not mean I understand the solution suddenly. When Ruby and I were talking about this the other
+        day, she asked me what made the difference. I wasn't really sure, but I did say, "WiFi." And I think there's
+        some truth to that. I tend to stay up too late clicking on another YouTube video, or scrolling down a social
+        media feed, or finding another reason to avoid bedtime. Part of this is a very ADHD struggle with transitioning
+        activities, but I think I also feel resistant to be done with the day (even though all of those activities just
+        reinforce that I am, in fact, done). Those late nights make it harder to get up when I want to and everything
+        gets thrown off.</p>
+    <p>I have come to recognize that I am far more capable of harder and more complex tasks in the morning, whether
+        that's work, chores, or even a hobby. I was good at building that into my last job by blocking off the start of
+        my day through 1 or 2pm. I think trying to build my day more like that above schedule is going to really help me
+        just feel like I'm living more fully.</p>
+    <p>Especially the idea that I would have a morning block for harder things to do and an afternoon block for easier
+        or less complex things to do. Another huge thing that I have really been needing more and more is to
+        specifically leave the house and bring my computer to a cafe or do chores outside the house (including outside
+        my own backyard). I just don't go outside nearly enough if I don't already have a "thing" to go to. So it's up
+        to me and my adult self to make that happen.</p>
+    <p>Yes, the schedule above is simple, but having that as an established habit will be better than the current habit:
+        Just throwing myself at tasks and feeling paralyzed so I just avoid them while falling in scroll holes until
+        they are too urgent to avoid. To
+        no surprise; that feels awful. </p>
+    <p>I genuinely believe that establishing such a routine would help me shake some of
+        the executive dysfunction I've
+        been feeling lately. Not to mention it will help me really feel like I'm living up to my potential and living a
+        fulfilling and
+        actually restful life. Building habits is very hard, but I have done it before and can do it again.</p>
+      `,
+      altText:
+        "A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.",
+      public: true,
+      lastUpdated: Date.parse("Dec 6 2022"),
     },
   ],
 };
 
 // Uncomment to output JSON from this
 // Use with `node data.js > data.json`
-console.log(JSON.stringify(data));
+// console.log(JSON.stringify(data));

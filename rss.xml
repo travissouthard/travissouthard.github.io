@@ -15,8 +15,8 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 30 Apr 2023 21:05:42 GMT</pubDate>
-    <lastBuildDate>Sun, 30 Apr 2023 21:05:42 GMT</lastBuildDate>
+    <pubDate>Fri, 16 Jun 2023 17:42:23 GMT</pubDate>
+    <lastBuildDate>Fri, 16 Jun 2023 17:42:23 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
@@ -59,30 +59,49 @@
           showed it wasn&apos;t actually running.&lt;/p&gt;
       &lt;p id=&quot;solution&quot;&gt;The solution I found pointed to using the following line in the Dockerfile in our React app:&lt;/p&gt;
       &lt;pre&gt;&lt;code&gt;
-          # From: 
-          ADD . .
-          RUN npm install
-          CMD [&quot;npm&quot;, &quot;run&quot;, &quot;dev&quot;, &quot;--host&quot;]
-          # To: 
-          # See the PR for the full Dockerfile.
-          ADD . .
-          ENTRYPOINT [ &quot;/entrypoint.sh&quot; ]
-          CMD [&quot;npm&quot;, &quot;run&quot;, &quot;dev&quot;, &quot;--host&quot;]
+      # From: 
+      ADD . .
+      RUN npm install
+      CMD [&quot;npm&quot;, &quot;run&quot;, &quot;dev&quot;, &quot;--host&quot;]
+      # To: 
+      # See the PR for the full Dockerfile.
+      ADD . .
+      ENTRYPOINT [ &quot;/entrypoint.sh&quot; ]
+      CMD [&quot;npm&quot;, &quot;run&quot;, &quot;dev&quot;, &quot;--host&quot;]
       &lt;/code&gt;&lt;/pre&gt;
       &lt;p&gt;And of course adding that entrypoint.hs file with:&lt;/p&gt;
       &lt;pre&gt;&lt;code&gt;
-          #!/bin/sh
-          npm install
-          npm rebuild esbuild
-          exec &quot;$@&quot;
+      #!/bin/sh
+      npm install
+      npm rebuild esbuild
+      exec &quot;$@&quot;
       &lt;/code&gt;&lt;/pre&gt;
       &lt;p&gt;The &lt;code&gt;npm rebuild&lt;/code&gt; is there as a precaution for a problem I was running into with the wrong esbuild
           coming from the Docker host, but using that entry point file did successfully get the node_modules installed
           with the correct esbuild and now we are happily boilerplated and ready to roll building out as much of our demo
           as we can in the next week!&lt;/p&gt;
+      &lt;em&gt;&lt;p&gt;Edit: 6/16/23 - Fixed a tab error in the code portions.&lt;/p&gt;&lt;/em&gt;
       See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places/pull/10&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/blog.html</link>
-            <pubDate>Sun, 30 Apr 2023 04:00:00 GMT</pubDate>
+            <pubDate>Fri, 16 Jun 2023 04:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
+        <item>
+            <title>PhilaVibes</title>
+            <description>&lt;a href=&quot;https://codeforphilly.org/projects/third_places_project-launchpad_2023&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/phila-vibes.png&quot; alt=&quot;Screenshot of the PhilaVibes project page on the Code for Philly website.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;PhilaVibes is a map application that helps people in 
+        Philadelphia at point A with more time than they need to get to point B 
+        find a comfortable place to be between those spaces. The map will 
+        feature points surrounded by word clouds describing the spaces (and 
+        will show the name, address, etc, once the user clicks on that space). 
+        The user can see choose to see spaces around them, along their route, 
+        or around their destination. Philavibes started as a 
+        &lt;a href=&quot;https://codeforphilly.org/&quot; target=&quot;_blank&quot;&gt;Code for Philly&lt;/a&gt; Launchpad 2023
+        project.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
+            <link>https://codeforphilly.org/projects/third_places_project-launchpad_2023</link>
+            <pubDate>Wed, 10 May 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -173,6 +192,72 @@
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
+            <title>I need a better routine</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/raystown-camp.png&quot; alt=&quot;A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.&quot;/&gt;
+      &lt;/a&gt;
+  
+      &lt;p&gt;I am still very much on &lt;a href=&quot;./assets/Travis_Southard_Software_Engineer_Resume.pdf&quot; target=&quot;_blank&quot;&gt;the job
+            search&lt;/a&gt;. I am actively seeking a full-time (though ideally 32-hours-a-week) software engineering position
+        in civic technology with geospatial work. I have had some great conversations and opportunities so far and I
+        hope I can find something I love very soon.&lt;/p&gt;
+    &lt;p&gt;While I have been home, I was hoping to establish a new routine that honors my physical, emotional, and
+        interpersonal needs. Ruby recently prompted me to imagine my ideal life and I struggled to even begin. I
+        have the ability and strength to imagine a better world, improvements to my city, and even fantasy elements, but
+        apparently not my ideal day. I also recently thought about this issue because of a &lt;a
+            href=&quot;https://www.raptitude.com/2010/07/your-lifestyle-has-already-been-designed/&quot; target=&quot;_blank&quot;&gt;great
+            (13-year-old) blog post about feeling helpless about how we spend our non-work time&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;But recently, Ruby and I did a 4-day camping trip at Raystown Lake in Central PA. We drove out on a Monday,
+        brought our mountain bikes, an enormous borrowed tent, and a new cooler full of lovely foods to eat. At camp, I
+        found I was able to live more like I want:&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;woke up at about 7am&lt;/li&gt;
+        &lt;li&gt;took care of my morning hygiene routine&lt;/li&gt;
+        &lt;li&gt;started making coffee and read a book&lt;/li&gt;
+        &lt;li&gt;made breakfast while Ruby writes her morning pages&lt;/li&gt;
+        &lt;li&gt;eat breakfast and review my plan for the day&lt;/li&gt;
+        &lt;li&gt;do the plan for the morning (ride mountain bikes!)&lt;/li&gt;
+        &lt;li&gt;make and eat lunch&lt;/li&gt;
+        &lt;li&gt;do the plan for the afternoon (swim, read, explore)&lt;/li&gt;
+        &lt;li&gt;make and eat dinner&lt;/li&gt;
+        &lt;li&gt;enjoy a drink and spend quality time with loved ones (look at stars, birds, and bugs with Ruby)&lt;/li&gt;
+        &lt;li&gt;take care of my evening hygiene routine&lt;/li&gt;
+        &lt;li&gt;in bed at about 10pm&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;I have felt this feeling before; that I feel better at camp than I do at home. This was a large part of why I did
+        so much bike camping from 2016 to 2019 and tried to make bike touring my job a few years back. I have recognized
+        that a campsite is a better environment for me than the one I make for myself at home.&lt;/p&gt;
+    &lt;p&gt;Granted, that does not mean I understand the solution suddenly. When Ruby and I were talking about this the other
+        day, she asked me what made the difference. I wasn&apos;t really sure, but I did say, &quot;WiFi.&quot; And I think there&apos;s
+        some truth to that. I tend to stay up too late clicking on another YouTube video, or scrolling down a social
+        media feed, or finding another reason to avoid bedtime. Part of this is a very ADHD struggle with transitioning
+        activities, but I think I also feel resistant to be done with the day (even though all of those activities just
+        reinforce that I am, in fact, done). Those late nights make it harder to get up when I want to and everything
+        gets thrown off.&lt;/p&gt;
+    &lt;p&gt;I have come to recognize that I am far more capable of harder and more complex tasks in the morning, whether
+        that&apos;s work, chores, or even a hobby. I was good at building that into my last job by blocking off the start of
+        my day through 1 or 2pm. I think trying to build my day more like that above schedule is going to really help me
+        just feel like I&apos;m living more fully.&lt;/p&gt;
+    &lt;p&gt;Especially the idea that I would have a morning block for harder things to do and an afternoon block for easier
+        or less complex things to do. Another huge thing that I have really been needing more and more is to
+        specifically leave the house and bring my computer to a cafe or do chores outside the house (including outside
+        my own backyard). I just don&apos;t go outside nearly enough if I don&apos;t already have a &quot;thing&quot; to go to. So it&apos;s up
+        to me and my adult self to make that happen.&lt;/p&gt;
+    &lt;p&gt;Yes, the schedule above is simple, but having that as an established habit will be better than the current habit:
+        Just throwing myself at tasks and feeling paralyzed so I just avoid them while falling in scroll holes until
+        they are too urgent to avoid. To
+        no surprise; that feels awful. &lt;/p&gt;
+    &lt;p&gt;I genuinely believe that establishing such a routine would help me shake some of
+        the executive dysfunction I&apos;ve
+        been feeling lately. Not to mention it will help me really feel like I&apos;m living up to my potential and living a
+        fulfilling and
+        actually restful life. Building habits is very hard, but I have done it before and can do it again.&lt;/p&gt;
+      </description>
+            <link>https://travissouthard.com</link>
+            <pubDate>Tue, 06 Dec 2022 05:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
+        <item>
             <title>CRT Flower</title>
             <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109411109868393841&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
@@ -184,13 +269,13 @@
         </item>
         <item>
             <title>Expungement Petition Generator</title>
-            <description>&lt;a href=&quot;https://www.plsephilly.org/&quot; target=&quot;blank&quot;&gt;
+            <description>&lt;a href=&quot;https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/projects/plse-expungement.png&quot; alt=&quot;Screenshot of the Expungement Petition Generator&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;A volunteer project I lead as part of &lt;a 
         href=&quot;https://codeforphilly.org&quot;&gt;Code for Philly&lt;/a&gt; that benefits 
         the work of Philadelphia Lawyers for Social Equity&lt;/p&gt;</description>
-            <link>https://www.plsephilly.org/</link>
+            <link>https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement</link>
             <pubDate>Wed, 02 Nov 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
