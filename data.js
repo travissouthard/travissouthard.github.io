@@ -269,7 +269,7 @@ const data = {
       `,
       altText: "",
       public: true,
-      lastUpdated: Date.parse("Jun 16 2023"),
+      lastUpdated: Date.parse("Jun 15 2023"),
     },
     {
       title: "I need a better routine",
@@ -336,7 +336,7 @@ const data = {
       altText:
         "A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.",
       public: true,
-      lastUpdated: Date.parse("Dec 6 2022"),
+      lastUpdated: Date.parse("June 16 2023"),
     },
   ],
 };
