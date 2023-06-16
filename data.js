@@ -60,6 +60,26 @@ const data = {
       public: true,
       lastUpdated: Date.parse("16 Jan 2021"),
     },
+    {
+      title: "PhilaVibes",
+      siteLink:
+        "https://codeforphilly.org/projects/third_places_project-launchpad_2023",
+      codeLink: "https://github.com/CodeForPhilly/third-places",
+      imagePath: "./assets/images/projects/phila-vibes.png",
+      description: `<p>PhilaVibes is a map application that helps people in 
+        Philadelphia at point A with more time than they need to get to point B 
+        find a comfortable place to be between those spaces. The map will 
+        feature points surrounded by word clouds describing the spaces (and 
+        will show the name, address, etc, once the user clicks on that space). 
+        The user can see choose to see spaces around them, along their route, 
+        or around their destination. Philavibes started as a 
+        <a href="https://codeforphilly.org/" target="_blank">Code for Philly</a> Launchpad 2023
+        project.</p>`,
+      altText:
+        "Screenshot of the PhilaVibes project page on the Code for Philly website.",
+      public: true,
+      lastUpdated: Date.parse("10 May 2023"),
+    },
   ],
   pixelArt: [
     {
