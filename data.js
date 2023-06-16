@@ -275,7 +275,7 @@ const data = {
       title: "I need a better routine",
       siteLink: "https://travissouthard.com",
       codeLink: "",
-      imagePath: "./assets/images/blog/raystown-camp.png",
+      imagePath: "./assets/images/blog/raystown-camp.jpg",
       description: `
       <p>I am still very much on <a href="./assets/Travis_Southard_Software_Engineer_Resume.pdf" target="_blank">the job
             search</a>. I am actively seeking a full-time (though ideally 32-hours-a-week) software engineering position
