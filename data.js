@@ -244,35 +244,36 @@ const data = {
           showed it wasn't actually running.</p>
       <p id="solution">The solution I found pointed to using the following line in the Dockerfile in our React app:</p>
       <pre><code>
-          # From: 
-          ADD . .
-          RUN npm install
-          CMD ["npm", "run", "dev", "--host"]
-          # To: 
-          # See the PR for the full Dockerfile.
-          ADD . .
-          ENTRYPOINT [ "/entrypoint.sh" ]
-          CMD ["npm", "run", "dev", "--host"]
+      # From: 
+      ADD . .
+      RUN npm install
+      CMD ["npm", "run", "dev", "--host"]
+      # To: 
+      # See the PR for the full Dockerfile.
+      ADD . .
+      ENTRYPOINT [ "/entrypoint.sh" ]
+      CMD ["npm", "run", "dev", "--host"]
       </code></pre>
       <p>And of course adding that entrypoint.hs file with:</p>
       <pre><code>
-          #!/bin/sh
-          npm install
-          npm rebuild esbuild
-          exec "$@"
+      #!/bin/sh
+      npm install
+      npm rebuild esbuild
+      exec "$@"
       </code></pre>
       <p>The <code>npm rebuild</code> is there as a precaution for a problem I was running into with the wrong esbuild
           coming from the Docker host, but using that entry point file did successfully get the node_modules installed
           with the correct esbuild and now we are happily boilerplated and ready to roll building out as much of our demo
           as we can in the next week!</p>
+      <em><p>Edit: 6/16/23 - Fixed a tab error in the code portions.</p></em>
       `,
       altText: "",
       public: true,
-      lastUpdated: Date.parse("Apr 30 2023"),
+      lastUpdated: Date.parse("Jun 16 2023"),
     },
   ],
 };
 
 // Uncomment to output JSON from this
 // Use with `node data.js > data.json`
-console.log(JSON.stringify(data));
+// console.log(JSON.stringify(data));
