@@ -80,6 +80,28 @@ const data = {
       public: true,
       lastUpdated: Date.parse("10 May 2023"),
     },
+    {
+      title: "Green Equity Demo",
+      siteLink: "https://github.com/azavea/green-equity-demo",
+      codeLink: "https://github.com/azavea/green-equity-demo",
+      imagePath: "./assets/images/projects/green-equity.png",
+      description: `<p>A demo project by Azavea (now Element 84) developers to show Bipartisan Infrastructure Bill Spending by state.</p>`,
+      altText:
+        "Screenshot of the Green Equity Demo map showing BIL spending by state.",
+      public: true,
+      lastUpdated: Date.parse("19 Apr 2023"),
+    },
+    {
+      title: "Azavea CS Fundamentals Group",
+      siteLink: "https://github.com/azavea/cs-fundamentals-group",
+      codeLink: "https://github.com/azavea/cs-fundamentals-group",
+      imagePath: "./assets/images/projects/cs-fundamentals.png",
+      description: `<p>A repository of the work that fellow Azavea co-workers and I went through to learn computer science fundamentals.</p>`,
+      altText:
+        "Screenshot of the README from the CS fundamentals group repository.",
+      public: true,
+      lastUpdated: Date.parse("31 Jan 2023"),
+    },
   ],
   pixelArt: [
     {

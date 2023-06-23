@@ -15,8 +15,8 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Fri, 16 Jun 2023 18:06:38 GMT</pubDate>
-    <lastBuildDate>Fri, 16 Jun 2023 18:06:38 GMT</lastBuildDate>
+    <pubDate>Fri, 23 Jun 2023 18:35:57 GMT</pubDate>
+    <lastBuildDate>Fri, 23 Jun 2023 18:35:57 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
@@ -205,6 +205,16 @@
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
+            <title>Green Equity Demo</title>
+            <description>&lt;a href=&quot;https://github.com/azavea/green-equity-demo&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/green-equity.png&quot; alt=&quot;Screenshot of the Green Equity Demo map showing BIL spending by state.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;A demo project by Azavea (now Element 84) developers to show Bipartisan Infrastructure Bill Spending by state.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/azavea/green-equity-demo&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
+            <link>https://github.com/azavea/green-equity-demo</link>
+            <pubDate>Wed, 19 Apr 2023 04:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
+        <item>
             <title>1-Bit Beach Scene</title>
             <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109934647644450793&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
@@ -222,6 +232,16 @@
   </description>
             <link>https://mastodon.social/@tsouthard/109931960684000706</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
+        <item>
+            <title>Azavea CS Fundamentals Group</title>
+            <description>&lt;a href=&quot;https://github.com/azavea/cs-fundamentals-group&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/cs-fundamentals.png&quot; alt=&quot;Screenshot of the README from the CS fundamentals group repository.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;A repository of the work that fellow Azavea co-workers and I went through to learn computer science fundamentals.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/azavea/cs-fundamentals-group&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
+            <link>https://github.com/azavea/cs-fundamentals-group</link>
+            <pubDate>Tue, 31 Jan 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
