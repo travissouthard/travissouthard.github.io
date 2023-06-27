@@ -15,10 +15,56 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Fri, 23 Jun 2023 18:35:57 GMT</pubDate>
-    <lastBuildDate>Fri, 23 Jun 2023 18:35:57 GMT</lastBuildDate>
+    <pubDate>Tue, 27 Jun 2023 17:43:52 GMT</pubDate>
+    <lastBuildDate>Tue, 27 Jun 2023 17:43:52 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>Now with permalinks!</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/permalink.png&quot; alt=&quot;A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves.&quot;/&gt;
+      &lt;/a&gt;
+  
+      &lt;p&gt;I have been trying to keep &lt;a href=&quot;https://travissouthard.com/&quot;&gt;this portfolio&lt;/a&gt; and its parts pretty simple
+        and lightweight. Part of this is wanting to
+        use free services as much as possible, but part of it is to keep my vanilla Javascript skills up to snuff. It
+        also may be my recent interest in &lt;a href=&quot;https://permacomputing.net/&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;permacomputing as
+        well as a great disdain for overcomplicated (and data-sucking) big tech products.&lt;/p&gt;
+      &lt;p&gt;Sometimes though it means I miss out on some features that come a little more &quot;out of the box.&quot; I met up with a
+          former colleague last week and we were talking about just this issue. He pointed out that while he has been
+          enjoying reading these, there was no way to link to a particular post. Well no more!&lt;/p&gt;
+      &lt;p&gt;I did some work this morning to add support for permalinks with these posts despite not using a backend or
+          database. The solution I adopted here was to use query parameters from the url and a custom function to create
+          slugs from the post titles as unique-ish identifiers. This was pretty easy to set up, luckily, and you can look
+          at &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/pull/23&quot; target=&quot;_blank&quot;&gt;what I did to
+              put this
+              together here&lt;/a&gt;. This also gave the the ability to refactor some functions to better organize what is
+          happening where and add the navigation buttons to the top of &lt;a href=&quot;https://travissouthard.com/blog.html&quot;&gt;the
+              blog page&lt;/a&gt; as well.&lt;/p&gt;
+      &lt;p&gt;Granted, this current system using a javascript array in a &lt;code&gt;.js&lt;/code&gt; file will only last so many more
+          posts before I want to convert this to using a database, but I have genuinely been enjoying this set up and &lt;a
+              href=&quot;https://travissouthard.com/blog.html?post=brand-new-rss-feed&quot;&gt;the custom RSS generator&lt;/a&gt; to put
+          these together. My tolerance for a too-long file may grow as that file does.&lt;/p&gt;
+      &lt;p&gt;There is something powerful about mastering the &quot;simpler&quot; or lower-level skills in coding. I felt this way when
+          digging more deeply into bash scripting, C, and SQL queries the last few years. But I think that since I am most
+          interested in building out things for the web, I will continue to work in vanilla (or close to) Javascript and
+          try to make things as lightweight as can also be readable (and maintainable).&lt;/p&gt;
+      &lt;p&gt;Moreso than feeling more like a wizard with code, I am feeling good about having my own online space to put the
+          weird
+          things I am working on or just what is interesting me at any time. It is also nice to feel like I have more
+          control over the presentation of that space and its &lt;em&gt;content&lt;/em&gt;. I am not necessarily interested in
+          becoming a &lt;em&gt;Content Creator&amp;trade;&lt;/em&gt;, I am interested in sharing what I make, how I make it, and
+          especially in helping others to learn how to create spaces like these for themselves.&lt;/p&gt;
+      &lt;p&gt;These posts still feel good to write and especially to see them update in my RSS reader. These will likely
+          continue to be a mix of project updates and personal blogs. I got a lot of good feedback on &lt;a
+              href=&quot;https://travissouthard.com/blog.html?post=i-need-a-better-routine&quot;&gt;&lt;/a&gt; and
+          have &lt;em&gt;somewhat&lt;/em&gt; improved the way I am spending my days, but that is a whole other work in progress.&lt;/p&gt;
+      &lt;p&gt;Thanks for reading!&lt;/p&gt;
+      See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/pull/23&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
+            <link></link>
+            <pubDate>Tue, 27 Jun 2023 04:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>I need a better routine</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
@@ -271,7 +317,8 @@
       to use the item in question, and are using the docs as a reference. 
       While acting as a reference material is one of documentation&apos;s important 
       functions, it cannot be the only function...&lt;/blockquote&gt;
-      &lt;a href=&quot;&quot; target=&quot;_blank&quot; &gt;&lt;p&gt;Read the full post here.&lt;/p&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/&quot; 
+      target=&quot;_blank&quot; &gt;&lt;p&gt;Read the full post here.&lt;/p&gt;&lt;/a&gt;
       </description>
             <link>https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/</link>
             <pubDate>Tue, 06 Dec 2022 05:00:00 GMT</pubDate>
