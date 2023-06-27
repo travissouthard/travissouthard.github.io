@@ -1,12 +1,26 @@
+const createPostSlug = (title) => {
+  const justWords = title.replace(/[.,\/#!$%\^&\*;:{}=_`~()\?]/g, "");
+  const wordsArr = justWords.toLowerCase().split(" ");
+  return wordsArr.join("-");
+};
+
 const assembleBlogPost = (blog) => {
   const pubDate = new Date(blog.lastUpdated);
+  const $blogImage = blog.imagePath
+    ? $(`<img src="${blog.imagePath}" alt="${blog.altText} width="100%">`)
+    : null;
   const $blogPost = $("<article></article>").attr("class", "blog-post");
   const $title = $(`<h3>${blog.title}</h3>`);
-  const $dateLine = $(`<h5>Last updated: ${pubDate.toDateString()}</h5>`);
+  const $dateLine = $(
+    `<h5>Last updated: ${pubDate.toDateString()} | <a href="?post=${createPostSlug(
+      blog.title
+    )}">Permalink</a></h5>`
+  );
   const blogHtml = $.parseHTML(blog.description);
 
   $blogPost.append($title);
   $blogPost.append($dateLine);
+  $blogPost.append($blogImage);
   $blogPost.append(blogHtml);
 
   return $blogPost;
@@ -56,41 +70,75 @@ const fillOutSections = (key, value) => {
   }
 };
 
-const fillOutBlogSection = (blogs, choice = null) => {
-  if (choice === null) choice = blogs.length - 1;
-  const orderedBlogs = sortArrayByDate(blogs).reverse();
+const fillOutBlogNavigation = (blogs, choice) => {
+  const makeLink = (num) => `?post=${createPostSlug(blogs[num].title)}`;
+  const parts = {
+    first: { link: makeLink(0), button: "&lt;&lt;" },
+    prev: { link: choice > 0 ? makeLink(choice - 1) : "", button: "&lt;" },
+    next: {
+      link: choice < blogs.length - 1 ? makeLink(choice + 1) : "",
+      button: "&gt;",
+    },
+    last: { link: makeLink(blogs.length - 1), button: "&gt;&gt;" },
+  };
+
   const $blogNav = $("<ul></ul>").attr("class", "blog-nav");
-  const $first = $("<li>&lt;&lt;</li>").click(() =>
-    fillOutBlogSection(blogs, 0)
-  );
-  const $prev = $("<li>&lt;</li>").click(() =>
-    fillOutBlogSection(blogs, choice - 1)
-  );
-  const $next = $("<li>&gt;</li>").click(() =>
-    fillOutBlogSection(blogs, choice + 1)
-  );
-  const $last = $("<li>&gt;&gt;</li>").click(() =>
-    fillOutBlogSection(blogs, blogs.length - 1)
-  );
+  const $spacers = $("<li></li><li></li>");
 
   if (choice > 0) {
-    $blogNav.append($first);
-    $blogNav.append($prev);
+    $blogNav.append(
+      $(`<a href="${parts.first.link}"><li>${parts.first.button}</li></a>`)
+    );
+    $blogNav.append(
+      $(`<a href="${parts.prev.link}"><li>${parts.prev.button}</li></a>`)
+    );
   } else {
-    $blogNav.append($("<li></li><li></li>"));
+    $blogNav.append($spacers);
   }
   if (choice + 1 < blogs.length) {
-    $blogNav.append($next);
-    $blogNav.append($last);
+    $blogNav.append(
+      $(`<a href="${parts.next.link}"><li>${parts.next.button}</li></a>`)
+    );
+    $blogNav.append(
+      $(`<a href="${parts.last.link}"><li>${parts.last.button}</li></a>`)
+    );
   } else {
-    $blogNav.append($("<li></li><li></li>"));
+    $blogNav.append($spacers);
+  }
+
+  return $blogNav;
+};
+
+const fillOutBlogSection = (blogs, postSlug) => {
+  const orderedBlogs = sortArrayByDate(blogs).reverse();
+  let choice;
+  postSlug === null
+    ? (choice = blogs.length - 1)
+    : (choice = orderedBlogs.findIndex(
+        (blog) => createPostSlug(blog.title) === postSlug
+      ));
+
+  if (choice < 0) {
+    const $blogSection = $("#blog");
+    $blogSection.empty();
+    $blogSection.append(
+      $(
+        `<article>
+          <h3>404! Blog Not Found</h3>
+          <h5>We can't find that blog post! Please double check your link and try again.</h5>
+        </article>`
+      ).attr("class", "blog-post")
+    );
+    return;
   }
 
   const $blogSection = $("#blog");
   $blogSection.empty();
+
   const $chosenPost = assembleBlogPost(orderedBlogs[choice]);
+  $blogSection.append(fillOutBlogNavigation(orderedBlogs, choice));
   $blogSection.append($chosenPost);
-  $blogSection.append($blogNav);
+  $blogSection.append(fillOutBlogNavigation(orderedBlogs, choice));
 };
 
 $(() => {
@@ -99,8 +147,11 @@ $(() => {
     "#pixelArt": data.pixelArt,
   };
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const postSlug = urlParams.get("post");
+
   Object.entries(sectionData).map(([key, value]) =>
     fillOutSections(key, value)
   );
-  fillOutBlogSection(data.blogs);
+  fillOutBlogSection(data.blogs, postSlug);
 });

@@ -152,22 +152,42 @@ nav a:hover, footer a:hover {
     margin: 0 auto;
 }
 
+.blog-post {
+    padding: 0;
+}
+
 .blog-post h3 {
     font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
+}
+
+.blog-post img {
+    width: 100%;
+}
+
+.blog-post li {
+    list-style: disc;
+    margin-left: 1em;
 }
 
 .blog-nav {
     display: flex;
     flex-flow: row nowrap;
-    align-items: space-around;
-    padding: 16px 0;
+}
+
+.blog-nav a {
+    text-align: center;
+    color: black;
+    width: 25%;
+}
+
+.blog-nav a:hover {
+    text-decoration: none;
 }
 
 .blog-nav li {
-    text-align: center;
     font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
     font-size: 32px;
-    cursor: pointer;
+    width: 25%;
 }
 
 .blog-nav li:hover {
