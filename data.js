@@ -218,7 +218,8 @@ const data = {
       to use the item in question, and are using the docs as a reference. 
       While acting as a reference material is one of documentation's important 
       functions, it cannot be the only function...</blockquote>
-      <a href="" target="_blank" ><p>Read the full post here.</p></a>
+      <a href="https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/" 
+      target="_blank" ><p>Read the full post here.</p></a>
       `,
       altText: "",
       public: true,
@@ -359,6 +360,54 @@ const data = {
         "A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.",
       public: true,
       lastUpdated: Date.parse("June 16 2023"),
+    },
+    {
+      title: "Now with permalinks!",
+      siteLink: "",
+      codeLink:
+        "https://github.com/travissouthard/travissouthard.github.io/pull/23",
+      imagePath: "./assets/images/blog/permalink.png",
+      description: `
+      <p>I have been trying to keep <a href="https://travissouthard.com/">this portfolio</a> and its parts pretty simple
+        and lightweight. Part of this is wanting to
+        use free services as much as possible, but part of it is to keep my vanilla Javascript skills up to snuff. It
+        also may be my recent interest in <a href="https://permacomputing.net/" target="_blank"></a>permacomputing as
+        well as a great disdain for overcomplicated (and data-sucking) big tech products.</p>
+      <p>Sometimes though it means I miss out on some features that come a little more "out of the box." I met up with a
+          former colleague last week and we were talking about just this issue. He pointed out that while he has been
+          enjoying reading these, there was no way to link to a particular post. Well no more!</p>
+      <p>I did some work this morning to add support for permalinks with these posts despite not using a backend or
+          database. The solution I adopted here was to use query parameters from the url and a custom function to create
+          slugs from the post titles as unique-ish identifiers. This was pretty easy to set up, luckily, and you can look
+          at <a href="https://github.com/travissouthard/travissouthard.github.io/pull/23" target="_blank">what I did to
+              put this
+              together here</a>. This also gave the the ability to refactor some functions to better organize what is
+          happening where and add the navigation buttons to the top of <a href="https://travissouthard.com/blog.html">the
+              blog page</a> as well.</p>
+      <p>Granted, this current system using a javascript array in a <code>.js</code> file will only last so many more
+          posts before I want to convert this to using a database, but I have genuinely been enjoying this set up and <a
+              href="https://travissouthard.com/blog.html?post=brand-new-rss-feed">the custom RSS generator</a> to put
+          these together. My tolerance for a too-long file may grow as that file does.</p>
+      <p>There is something powerful about mastering the "simpler" or lower-level skills in coding. I felt this way when
+          digging more deeply into bash scripting, C, and SQL queries the last few years. But I think that since I am most
+          interested in building out things for the web, I will continue to work in vanilla (or close to) Javascript and
+          try to make things as lightweight as can also be readable (and maintainable).</p>
+      <p>Moreso than feeling more like a wizard with code, I am feeling good about having my own online space to put the
+          weird
+          things I am working on or just what is interesting me at any time. It is also nice to feel like I have more
+          control over the presentation of that space and its <em>content</em>. I am not necessarily interested in
+          becoming a <em>Content Creator&trade;</em>, I am interested in sharing what I make, how I make it, and
+          especially in helping others to learn how to create spaces like these for themselves.</p>
+      <p>These posts still feel good to write and especially to see them update in my RSS reader. These will likely
+          continue to be a mix of project updates and personal blogs. I got a lot of good feedback on <a
+              href="https://travissouthard.com/blog.html?post=i-need-a-better-routine"></a> and
+          have <em>somewhat</em> improved the way I am spending my days, but that is a whole other work in progress.</p>
+      <p>Thanks for reading!</p>
+      `,
+      altText:
+        "A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves.",
+      public: true,
+      lastUpdated: Date.parse("Jun 27 2023"),
     },
   ],
 };
