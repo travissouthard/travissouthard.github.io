@@ -14,7 +14,7 @@ const assembleBlogPost = (blog) => {
   const $dateLine = $(
     `<h5>Last updated: ${pubDate.toDateString()} | <a href="?post=${createPostSlug(
       blog.title
-    )}">Permalink</a></h5>`
+    )}">Permalink</a> | <a href="https://travissouthard.com/rss.xml" target="_blank">RSS</a></h5>`
   );
   const blogHtml = $.parseHTML(blog.description);
 
