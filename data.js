@@ -1,72 +1,73 @@
 const data = {
-  projects: [
-    {
-      title: "Expungement Petition Generator",
-      siteLink:
-        "https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement",
-      codeLink: "",
-      imagePath: "./assets/images/projects/plse-expungement.png",
-      description: `<p>A volunteer project I lead as part of <a 
+    projects: [
+        {
+            title: "Expungement Petition Generator",
+            siteLink:
+                "https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement",
+            codeLink: "",
+            imagePath: "./assets/images/projects/plse-expungement.png",
+            description: `<p>A volunteer project I lead as part of <a 
         href="https://codeforphilly.org">Code for Philly</a> that benefits 
         the work of Philadelphia Lawyers for Social Equity</p>`,
-      altText: "Screenshot of the Expungement Petition Generator",
-      public: false,
-      lastUpdated: Date.parse("02 Nov 2022"),
-    },
-    {
-      title: "Bike Camping PHL",
-      siteLink: "./bike_camping_PHL/index.html",
-      codeLink:
-        "https://github.com/travissouthard/travissouthard.github.io/tree/master/bike_camping_PHL",
-      imagePath: "./assets/images/projects/bike_camping_phl.png",
-      description: `<p>A Philadelphia-specific weather based packing 
+            altText: "Screenshot of the Expungement Petition Generator",
+            public: false,
+            lastUpdated: Date.parse("02 Nov 2022"),
+        },
+        {
+            title: "Bike Camping PHL",
+            siteLink: "./bike_camping_PHL/index.html",
+            codeLink:
+                "https://github.com/travissouthard/travissouthard.github.io/tree/master/bike_camping_PHL",
+            imagePath: "./assets/images/projects/bike_camping_phl.png",
+            description: `<p>A Philadelphia-specific weather based packing 
         list for bike camping trips.</p>`,
-      altText: "Screenshot of my Bike Camping PHL checklist app.",
-      public: true,
-      lastUpdated: Date.parse("01 Jul 2020"),
-    },
-    {
-      title: "Debt Snowball Calculator",
-      siteLink: "./snowball/index.html",
-      codeLink:
-        "https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball",
-      imagePath: "./assets/images/projects/debt-snowball.png",
-      description: `<p>A debt snowball calculator with a chart showing how the 
+            altText: "Screenshot of my Bike Camping PHL checklist app.",
+            public: true,
+            lastUpdated: Date.parse("01 Jul 2020"),
+        },
+        {
+            title: "Debt Snowball Calculator",
+            siteLink: "./snowball/index.html",
+            codeLink:
+                "https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball",
+            imagePath: "./assets/images/projects/debt-snowball.png",
+            description: `<p>A debt snowball calculator with a chart showing how the 
         different debts pays down as you follow the plan</p>`,
-      altText: "Screenshot of my debt snowball calculator app.",
-      public: true,
-      lastUpdated: Date.parse("13 Jan 2023"),
-    },
-    {
-      title: "Minesweeper Clone",
-      siteLink: "./games/minesweeper/index.html",
-      codeLink:
-        "https://github.com/travissouthard/travissouthard.github.io/tree/master/games/minesweeper",
-      imagePath: "./assets/images/projects/minesweeper.png",
-      description: `<p>A clone of the classic computer game, Minesweeper.</p>`,
-      altText: "Screenshot of my Minesweeper game.",
-      public: true,
-      lastUpdated: Date.parse("30 Aug 2020"),
-    },
-    {
-      title: "Gravity Play",
-      siteLink: "https://editor.p5js.org/travissouthard/full/Fq_vEfA8O",
-      codeLink: "https://editor.p5js.org/travissouthard/sketches/Fq_vEfA8O",
-      imagePath: "./assets/images/projects/gravity-play.png",
-      description: `<p>A small 2D simulation of particles enacting gravity on 
+            altText: "Screenshot of my debt snowball calculator app.",
+            public: true,
+            lastUpdated: Date.parse("13 Jan 2023"),
+        },
+        {
+            title: "Minesweeper Clone",
+            siteLink: "./games/minesweeper/index.html",
+            codeLink:
+                "https://github.com/travissouthard/travissouthard.github.io/tree/master/games/minesweeper",
+            imagePath: "./assets/images/projects/minesweeper.png",
+            description: `<p>A clone of the classic computer game, Minesweeper.</p>`,
+            altText: "Screenshot of my Minesweeper game.",
+            public: true,
+            lastUpdated: Date.parse("30 Aug 2020"),
+        },
+        {
+            title: "Gravity Play",
+            siteLink: "https://editor.p5js.org/travissouthard/full/Fq_vEfA8O",
+            codeLink:
+                "https://editor.p5js.org/travissouthard/sketches/Fq_vEfA8O",
+            imagePath: "./assets/images/projects/gravity-play.png",
+            description: `<p>A small 2D simulation of particles enacting gravity on 
         each other and combining as they get close together.</p>`,
-      altText:
-        "Screenshot of small colorful planets orbiting each other in a gravity simulation.",
-      public: true,
-      lastUpdated: Date.parse("16 Jan 2021"),
-    },
-    {
-      title: "PhilaVibes",
-      siteLink:
-        "https://codeforphilly.org/projects/third_places_project-launchpad_2023",
-      codeLink: "https://github.com/CodeForPhilly/third-places",
-      imagePath: "./assets/images/projects/phila-vibes.png",
-      description: `<p>PhilaVibes is a map application that helps people in 
+            altText:
+                "Screenshot of small colorful planets orbiting each other in a gravity simulation.",
+            public: true,
+            lastUpdated: Date.parse("16 Jan 2021"),
+        },
+        {
+            title: "PhilaVibes",
+            siteLink:
+                "https://codeforphilly.org/projects/third_places_project-launchpad_2023",
+            codeLink: "https://github.com/CodeForPhilly/third-places",
+            imagePath: "./assets/images/projects/phila-vibes.png",
+            description: `<p>PhilaVibes is a map application that helps people in 
         Philadelphia at point A with more time than they need to get to point B 
         find a comfortable place to be between those spaces. The map will 
         feature points surrounded by word clouds describing the spaces (and 
@@ -75,100 +76,101 @@ const data = {
         or around their destination. Philavibes started as a 
         <a href="https://codeforphilly.org/" target="_blank">Code for Philly</a> Launchpad 2023
         project.</p>`,
-      altText:
-        "Screenshot of the PhilaVibes project page on the Code for Philly website.",
-      public: true,
-      lastUpdated: Date.parse("10 May 2023"),
-    },
-    {
-      title: "Green Equity Demo",
-      siteLink: "https://github.com/azavea/green-equity-demo",
-      codeLink: "https://github.com/azavea/green-equity-demo",
-      imagePath: "./assets/images/projects/green-equity.png",
-      description: `<p>A demo project by Azavea (now Element 84) developers to show Bipartisan Infrastructure Bill Spending by state.</p>`,
-      altText:
-        "Screenshot of the Green Equity Demo map showing BIL spending by state.",
-      public: true,
-      lastUpdated: Date.parse("19 Apr 2023"),
-    },
-    {
-      title: "Azavea CS Fundamentals Group",
-      siteLink: "https://github.com/azavea/cs-fundamentals-group",
-      codeLink: "https://github.com/azavea/cs-fundamentals-group",
-      imagePath: "./assets/images/projects/cs-fundamentals.png",
-      description: `<p>A repository of the work that fellow Azavea co-workers and I went through to learn computer science fundamentals.</p>`,
-      altText:
-        "Screenshot of the README from the CS fundamentals group repository.",
-      public: true,
-      lastUpdated: Date.parse("31 Jan 2023"),
-    },
-  ],
-  pixelArt: [
-    {
-      title: "1-Bit Beach Scene",
-      siteLink: "https://mastodon.social/@tsouthard/109934647644450793",
-      imagePath: "./assets/images/pixelart/beach.png",
-      description: "",
-      altText:
-        "A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach",
-      public: true,
-      lastUpdated: Date.parse("26 Feb 2023"),
-    },
-    {
-      title: "CRT Flower",
-      siteLink: "https://mastodon.social/@tsouthard/109411109868393841",
-      imagePath: "./assets/images/pixelart/crt-flower.png",
-      description: "",
-      altText:
-        "A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV",
-      public: true,
-      lastUpdated: Date.parse("6 Nov 2022"),
-    },
-    {
-      title: "32x32 Self Portrait",
-      siteLink: "https://mastodon.social/@tsouthard/109931960684000706",
-      imagePath: "./assets/images/pixelart/headshot-32.png",
-      description: "",
-      altText: "A low-color low-res pixel art portait of a man with a mustache",
-      public: true,
-      lastUpdated: Date.parse("26 Feb 2023"),
-    },
-    {
-      title: "House Portrait",
-      siteLink: "https://mastodon.social/@tsouthard/109485424439372092",
-      imagePath: "./assets/images/pixelart/house.png",
-      description: "",
-      altText: "A 4-color grayscale pixelart image of a rowhome",
-      public: true,
-      lastUpdated: Date.parse("30 Oct 2022"),
-    },
-    {
-      title: "1-bit Mushroom",
-      siteLink: "https://mastodon.social/@tsouthard/110129547262579634",
-      imagePath: "./assets/images/pixelart/mushroom.png",
-      description: "",
-      altText: "A 1-bit pixelart closeup image of a whitecap mushroom",
-      public: true,
-      lastUpdated: Date.parse("10 Oct 2022"),
-    },
-    {
-      title: "1-bit Self Portrait",
-      siteLink: "https://mastodon.social/@tsouthard",
-      imagePath: "./assets/images/pixelart/pixel-art-portrait.png",
-      description: "",
-      altText: "A 1-bit pixelart self portrait of a man using a keyboard",
-      public: true,
-      lastUpdated: Date.parse("16 Oct 2022"),
-    },
-  ],
-  blogs: [
-    {
-      title: "Brand new RSS feed!",
-      siteLink: "https://travissouthard.com",
-      codeLink:
-        "https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js",
-      imagePath: "",
-      description: `<p>This is the first dedicated blog post as an attempt to 
+            altText:
+                "Screenshot of the PhilaVibes project page on the Code for Philly website.",
+            public: true,
+            lastUpdated: Date.parse("10 May 2023"),
+        },
+        {
+            title: "Green Equity Demo",
+            siteLink: "https://github.com/azavea/green-equity-demo",
+            codeLink: "https://github.com/azavea/green-equity-demo",
+            imagePath: "./assets/images/projects/green-equity.png",
+            description: `<p>A demo project by Azavea (now Element 84) developers to show Bipartisan Infrastructure Bill Spending by state.</p>`,
+            altText:
+                "Screenshot of the Green Equity Demo map showing BIL spending by state.",
+            public: true,
+            lastUpdated: Date.parse("19 Apr 2023"),
+        },
+        {
+            title: "Azavea CS Fundamentals Group",
+            siteLink: "https://github.com/azavea/cs-fundamentals-group",
+            codeLink: "https://github.com/azavea/cs-fundamentals-group",
+            imagePath: "./assets/images/projects/cs-fundamentals.png",
+            description: `<p>A repository of the work that fellow Azavea co-workers and I went through to learn computer science fundamentals.</p>`,
+            altText:
+                "Screenshot of the README from the CS fundamentals group repository.",
+            public: true,
+            lastUpdated: Date.parse("31 Jan 2023"),
+        },
+    ],
+    pixelArt: [
+        {
+            title: "1-Bit Beach Scene",
+            siteLink: "https://mastodon.social/@tsouthard/109934647644450793",
+            imagePath: "./assets/images/pixelart/beach.png",
+            description: "",
+            altText:
+                "A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach",
+            public: true,
+            lastUpdated: Date.parse("26 Feb 2023"),
+        },
+        {
+            title: "CRT Flower",
+            siteLink: "https://mastodon.social/@tsouthard/109411109868393841",
+            imagePath: "./assets/images/pixelart/crt-flower.png",
+            description: "",
+            altText:
+                "A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV",
+            public: true,
+            lastUpdated: Date.parse("6 Nov 2022"),
+        },
+        {
+            title: "32x32 Self Portrait",
+            siteLink: "https://mastodon.social/@tsouthard/109931960684000706",
+            imagePath: "./assets/images/pixelart/headshot-32.png",
+            description: "",
+            altText:
+                "A low-color low-res pixel art portait of a man with a mustache",
+            public: true,
+            lastUpdated: Date.parse("26 Feb 2023"),
+        },
+        {
+            title: "House Portrait",
+            siteLink: "https://mastodon.social/@tsouthard/109485424439372092",
+            imagePath: "./assets/images/pixelart/house.png",
+            description: "",
+            altText: "A 4-color grayscale pixelart image of a rowhome",
+            public: true,
+            lastUpdated: Date.parse("30 Oct 2022"),
+        },
+        {
+            title: "1-bit Mushroom",
+            siteLink: "https://mastodon.social/@tsouthard/110129547262579634",
+            imagePath: "./assets/images/pixelart/mushroom.png",
+            description: "",
+            altText: "A 1-bit pixelart closeup image of a whitecap mushroom",
+            public: true,
+            lastUpdated: Date.parse("10 Oct 2022"),
+        },
+        {
+            title: "1-bit Self Portrait",
+            siteLink: "https://mastodon.social/@tsouthard",
+            imagePath: "./assets/images/pixelart/pixel-art-portrait.png",
+            description: "",
+            altText: "A 1-bit pixelart self portrait of a man using a keyboard",
+            public: true,
+            lastUpdated: Date.parse("16 Oct 2022"),
+        },
+    ],
+    blogs: [
+        {
+            title: "Brand new RSS feed!",
+            siteLink: "https://travissouthard.com",
+            codeLink:
+                "https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js",
+            imagePath: "",
+            description: `<p>This is the first dedicated blog post as an attempt to 
       make a blog from scratch that can be read by RSS readers. I have been 
       wanting to make this for some time and finally made the time to figure 
       out how to do this on a static site and without having to write out XML 
@@ -195,17 +197,17 @@ const data = {
       <p><em>Edit: I cleaned up how the rss is generated and adding HTML tags 
       to actually show the images and organize my writing better.</em></p>
       `,
-      altText: "",
-      public: true,
-      lastUpdated: Date.parse("20 Apr 2023"),
-    },
-    {
-      title: "Why is some documentation better than others?",
-      siteLink:
-        "https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/",
-      codeLink: "",
-      imagePath: "",
-      description: `
+            altText: "",
+            public: true,
+            lastUpdated: Date.parse("20 Apr 2023"),
+        },
+        {
+            title: "Why is some documentation better than others?",
+            siteLink:
+                "https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/",
+            codeLink: "",
+            imagePath: "",
+            description: `
       <p>In fall of 2022, I wrote a blog post for 
       work on what makes for good documentation.</p>
       <blockquote>Documentation is vital for anything open source; from open 
@@ -221,16 +223,16 @@ const data = {
       <a href="https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/" 
       target="_blank" ><p>Read the full post here.</p></a>
       `,
-      altText: "",
-      public: true,
-      lastUpdated: Date.parse("Dec 6 2022"),
-    },
-    {
-      title: "Solved a tricky (for me) docker-compose error!",
-      siteLink: "https://travissouthard.com/blog.html",
-      codeLink: "https://github.com/CodeForPhilly/third-places/pull/10",
-      imagePath: "",
-      description: `
+            altText: "",
+            public: true,
+            lastUpdated: Date.parse("Dec 6 2022"),
+        },
+        {
+            title: "Solved a tricky (for me) docker-compose error!",
+            siteLink: "https://travissouthard.com/blog.html",
+            codeLink: "https://github.com/CodeForPhilly/third-places/pull/10",
+            imagePath: "",
+            description: `
       <p>I am currently volunteering on a project as part of <a
             href="https://codeforphilly.org/projects/third_places_project-launchpad_2023" target="_blank">Code for
             Philly's Launchpad 2023</a>. I am working with a small team of developers and UXers to develop a project
@@ -290,16 +292,16 @@ const data = {
           as we can in the next week!</p>
       <em><p>Edit: 6/16/23 - Fixed a tab error in the code portions.</p></em>
       `,
-      altText: "",
-      public: true,
-      lastUpdated: Date.parse("Jun 15 2023"),
-    },
-    {
-      title: "I need a better routine",
-      siteLink: "https://travissouthard.com",
-      codeLink: "",
-      imagePath: "./assets/images/blog/raystown-camp.jpg",
-      description: `
+            altText: "",
+            public: true,
+            lastUpdated: Date.parse("Jun 15 2023"),
+        },
+        {
+            title: "I need a better routine",
+            siteLink: "https://travissouthard.com",
+            codeLink: "",
+            imagePath: "./assets/images/blog/raystown-camp.jpg",
+            description: `
       <p>I am still very much on <a href="./assets/Travis_Southard_Software_Engineer_Resume.pdf" target="_blank">the job
             search</a>. I am actively seeking a full-time (though ideally 32-hours-a-week) software engineering position
         in civic technology with geospatial work. I have had some great conversations and opportunities so far and I
@@ -356,18 +358,18 @@ const data = {
         fulfilling and
         actually restful life. Building habits is very hard, but I have done it before and can do it again.</p>
       `,
-      altText:
-        "A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.",
-      public: true,
-      lastUpdated: Date.parse("June 16 2023"),
-    },
-    {
-      title: "Now with permalinks!",
-      siteLink: "",
-      codeLink:
-        "https://github.com/travissouthard/travissouthard.github.io/pull/23",
-      imagePath: "./assets/images/blog/permalink.png",
-      description: `
+            altText:
+                "A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.",
+            public: true,
+            lastUpdated: Date.parse("June 16 2023"),
+        },
+        {
+            title: "Now with permalinks!",
+            siteLink: "",
+            codeLink:
+                "https://github.com/travissouthard/travissouthard.github.io/pull/23",
+            imagePath: "./assets/images/blog/permalink.png",
+            description: `
       <p>I have been trying to keep <a href="https://travissouthard.com/">this portfolio</a> and its parts pretty simple
         and lightweight. Part of this is wanting to
         use free services as much as possible, but part of it is to keep my vanilla Javascript skills up to snuff. It
@@ -404,17 +406,17 @@ const data = {
           have <em>somewhat</em> improved the way I am spending my days, but that is a whole other work in progress.</p>
       <p>Thanks for reading!</p>
       `,
-      altText:
-        "A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves.",
-      public: true,
-      lastUpdated: Date.parse("Jun 27 2023"),
-    },
-    {
-      title: "Cautiously considering creating content",
-      siteLink: "",
-      codeLink: "",
-      imagePath: "./assets/images/blog/cityview.jpg",
-      description: `
+            altText:
+                "A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves.",
+            public: true,
+            lastUpdated: Date.parse("Jun 27 2023"),
+        },
+        {
+            title: "Cautiously considering creating content",
+            siteLink: "",
+            codeLink: "",
+            imagePath: "./assets/images/blog/cityview.jpg",
+            description: `
       <p>
         I have been arguing with myself for a while now about getting back into <b><em>content creation</em></b> for the
         past few years. I have started and <s>abandoned</s> moved on from <a
@@ -460,12 +462,77 @@ const data = {
           </ul>
       </p>
       `,
-      altText:
-        "Gray buildings amongst green trees under a blue sky. A dithered pixel-art of a view of Fairmount, The Art Museum, the Schuylkill River, and the ridges beyond.",
-      public: true,
-      lastUpdated: Date.parse("Jul 31 2023"),
-    },
-  ],
+            altText:
+                "Gray buildings amongst green trees under a blue sky. A dithered pixel-art of a view of Fairmount, The Art Museum, the Schuylkill River, and the ridges beyond.",
+            public: true,
+            lastUpdated: Date.parse("Jul 31 2023"),
+        },
+        {
+            title: "Working While Looking For New Work",
+            siteLink: "",
+            codeLink: "",
+            imagePath: "./assets/images/blog/travis-flowers.jpg",
+            description: `
+            <p>
+                I have been working on personal projects in my spare time for a few weeks: stepping into a leadership role at <a
+                    href="https://codeforphilly.org" target="_blank">Code for
+                    Philly</a>, writing tutorials for upcoming streaming I'll be doing, and working with Ruby to improve our
+                house.
+            </p>
+            <p>
+                The <a href="https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement"
+                    target="_blank">PLSE Expungement team at Code for Philly</a> has been putting in a ton of work lately and I
+                am thrilled to work with such stellar volunteers. I recently wrote a <a
+                    href="https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement/updates/5"
+                    target="_blank">new
+                    update</a> for our project page
+                talking about the progress we've made over the past year. We're actively accepting new volunteers if
+                you live in Philly and are interested in meaningful work and expanding your skills.
+            </p>
+            <p>
+                I decided to start writing out tutorials for weekend-sized projects in browser-only,
+                native tech (i.e. just HTML, CSS and JavaScript). I have one tutorial completely done, a second almost ready,
+                and
+                a third one in the wings. Once I have all three done I will start hosting <a
+                    href="https://www.youtube.com/channel/UCv75JMz-8JkuhGZVRBbrZbQ" target="_blank">weekly streams</a>
+                teaching those
+                tutorials as well as working through personal projects and pixel art. I plan to do those bigger tutorials
+                monthly and edit them into more digestible videos and written blogs. I have found a lack of beginner-friendly
+                written content in this area and am seeking to fill that gap.
+            </p>
+            <p>
+                There's a few motivations for doing the streaming and content creation despite <a
+                    href="https://travissouthard.com/blog.html?post=cautiously-considering-creating-content"
+                    target="_blank">being concerned about getting back into creating content</a>. One is that I do like making
+                videos. I spent years growing my video production skills and genuinely love making them. Another is that with
+                the streaming, writing, and developing, I will become a better developer and
+                continue growing my skills. The last is that I am interested in doing more independent work and that likely
+                means trying to grow an audience (Hi!) and build out some options beyond just working for a boss.
+            </p>
+            <p>
+                That being said, I still plan to work full-time and you should<a
+                    href="https://travissouthard.com/assets/Travis_Southard_Software_Engineer_Resume.pdf" target="_blank">hire
+                    me full time as a Software Engineer</a>, I am certainly still interested in working on
+                civic technology and geospatial projects that improve people's lives. Doing work that is meaningful to me will
+                always be one of the most important factors in how I choose to spend my days. A salary and healthcare are
+                important to
+                me but I work best when I am working to make the world a better place. And that's a huge part of why I'm
+                interested in trying to take more of my workday decisions into my own hands. My goal with these projects is to
+                plant seeds so that I can begin to cultivate a career aligned with my values.
+            </p>
+            <p>
+                The best way to keep up with what's happening is to check here or subscribe to <a
+                    href="https://travissouthard.com/rss.xml" target="_blank">this blog's RSS feed</a>. To see my upcoming
+                streams <a href="https://www.youtube.com/channel/UCv75JMz-8JkuhGZVRBbrZbQ" target="_blank">subscribe to my
+                    YouTube channel</a> where I'll be streaming them.
+            </p>
+      `,
+            altText:
+                "Travis holding a bouquet of flowers in a field of flowers!",
+            public: true,
+            lastUpdated: Date.parse("Sep 24 2023"),
+        },
+    ],
 };
 
 // Uncomment to output JSON from this
