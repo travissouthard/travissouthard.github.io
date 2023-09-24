@@ -22,6 +22,16 @@ const assembleBlogPost = (blog) => {
     $blogPost.append($dateLine);
     $blogPost.append($blogImage);
     $blogPost.append(blogHtml);
+    $blogPost.append(
+        `<p>
+            <em>
+                Thank you for reading! 
+                <a href="https://ko-fi.com/travissouthard" target="_blank">
+                    Please consider supporting this blog.
+                </a>
+            </em>
+        </p>`
+    );
 
     return $blogPost;
 };
