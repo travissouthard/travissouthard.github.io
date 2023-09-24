@@ -468,7 +468,7 @@ const data = {
             lastUpdated: Date.parse("Jul 31 2023"),
         },
         {
-            title: "Working While Looking For New Work",
+            title: "Web development streams coming soon!",
             siteLink: "",
             codeLink: "",
             imagePath: "./assets/images/blog/travis-flowers.jpg",
