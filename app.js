@@ -158,6 +158,42 @@ const fillOutBlogSection = (blogs, postSlug) => {
     $blogSection.append(fillOutBlogNavigation(orderedBlogs, choice));
 };
 
+const buildPage = () => {
+    const $body = $("body");
+    const $mainHtml = $body.html();
+    const $header = `
+        <header>
+            <h1>Travis Southard</h1>
+            <p>Philadelphian Software Engineer</p>
+        </header>
+    `;
+    const $nav = $("<nav></nav>");
+    const $footer = $("<footer></footer>");
+
+    const buildNav = (linkArr) => {
+        const $list = $("<ul></ul>");
+        for (let { name, linkUrl } of linkArr) {
+            $list.append(`
+                <a href="${linkUrl}">
+                    <li>${name}</li>
+                </a>
+            `);
+        }
+
+        return $list;
+    };
+
+    $nav.append(buildNav(LOCALNAV));
+    $footer.append(buildNav(LOCALNAV));
+    $footer.append(buildNav(EXTERIORLINKS));
+
+    $body.empty();
+    $body.append($header);
+    $body.append($nav);
+    $body.append($mainHtml);
+    $body.append($footer);
+};
+
 $(() => {
     const sectionData = {
         "#projects": data.projects,
@@ -171,4 +207,5 @@ $(() => {
         fillOutSections(key, value)
     );
     fillOutBlogSection(data.blogs, postSlug);
+    buildPage();
 });
