@@ -107,7 +107,7 @@ const data = {
     pixelArt: [
         {
             title: "1-Bit Beach Scene",
-            siteLink: "https://mastodon.social/@tsouthard/109934647644450793",
+            siteLink: "",
             imagePath: "./assets/images/pixelart/beach.png",
             description: "",
             altText:
@@ -117,7 +117,7 @@ const data = {
         },
         {
             title: "CRT Flower",
-            siteLink: "https://mastodon.social/@tsouthard/109411109868393841",
+            siteLink: "",
             imagePath: "./assets/images/pixelart/crt-flower.png",
             description: "",
             altText:
@@ -127,7 +127,7 @@ const data = {
         },
         {
             title: "32x32 Self Portrait",
-            siteLink: "https://mastodon.social/@tsouthard/109931960684000706",
+            siteLink: "",
             imagePath: "./assets/images/pixelart/headshot-32.png",
             description: "",
             altText:
@@ -137,7 +137,7 @@ const data = {
         },
         {
             title: "House Portrait",
-            siteLink: "https://mastodon.social/@tsouthard/109485424439372092",
+            siteLink: "",
             imagePath: "./assets/images/pixelart/house.png",
             description: "",
             altText: "A 4-color grayscale pixelart image of a rowhome",
@@ -146,7 +146,7 @@ const data = {
         },
         {
             title: "1-bit Mushroom",
-            siteLink: "https://mastodon.social/@tsouthard/110129547262579634",
+            siteLink: "",
             imagePath: "./assets/images/pixelart/mushroom.png",
             description: "",
             altText: "A 1-bit pixelart closeup image of a whitecap mushroom",
@@ -155,7 +155,7 @@ const data = {
         },
         {
             title: "1-bit Self Portrait",
-            siteLink: "https://mastodon.social/@tsouthard",
+            siteLink: "",
             imagePath: "./assets/images/pixelart/pixel-art-portrait.png",
             description: "",
             altText: "A 1-bit pixelart self portrait of a man using a keyboard",
@@ -166,7 +166,7 @@ const data = {
     blogs: [
         {
             title: "Brand new RSS feed!",
-            siteLink: "https://travissouthard.com",
+            siteLink: "",
             codeLink:
                 "https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js",
             imagePath: "",
@@ -229,7 +229,7 @@ const data = {
         },
         {
             title: "Solved a tricky (for me) docker-compose error!",
-            siteLink: "https://travissouthard.com/blog.html",
+            siteLink: "",
             codeLink: "https://github.com/CodeForPhilly/third-places/pull/10",
             imagePath: "",
             description: `
@@ -298,7 +298,7 @@ const data = {
         },
         {
             title: "I need a better routine",
-            siteLink: "https://travissouthard.com",
+            siteLink: "",
             codeLink: "",
             imagePath: "./assets/images/blog/raystown-camp.jpg",
             description: `

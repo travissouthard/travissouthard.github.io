@@ -201,6 +201,7 @@ nav a:hover, footer a:hover {
 
 .project-card h3 {
     font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
+    height: 60px;
 }
 
 .project-card p, .project-card a {

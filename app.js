@@ -4,6 +4,22 @@ const createPostSlug = (title) => {
     return wordsArr.join("-");
 };
 
+const getDetailPageName = (title) => {
+    const titles = {
+        projects: "projects",
+        pixelArt: "pixelart",
+        blogs: "blog",
+    };
+    for (let [key, arr] of Object.entries(data)) {
+        for (let post of arr) {
+            if (title === post.title) {
+                return titles[key];
+            }
+        }
+    }
+    return;
+};
+
 const assembleBlogPost = (blog) => {
     const pubDate = new Date(blog.lastUpdated);
     const $blogImage = blog.imagePath
@@ -37,32 +53,36 @@ const assembleBlogPost = (blog) => {
 };
 
 const assembleProjectCard = (project) => {
+    const postLink =
+        project.siteLink ||
+        `./${getDetailPageName(project.title)}.html?post=${createPostSlug(
+            project.title
+        )}`;
     const $card = $("<article></article>").attr("class", "project-card");
     const $projectImage = $("<a></a>").attr({
-        href: project.siteLink,
-        target: "_blank",
+        href: postLink,
+        target: project.siteLink ? "_blank" : "",
     });
-    const $projectText = $("<p></p>");
-
     $projectImage.append(
-        $("<img>").attr({ src: project.imagePath, alt: project.altText })
-    );
-
-    $projectText.append(
-        $("<a>Visit Site</a>").attr({
-            href: project.siteLink,
-            target: "_blank",
+        $("<img>").attr({
+            src:
+                project.imagePath || "./assets/images/pixelart/headshot-32.png",
+            alt: project.altText,
         })
     );
-    if (project.public && project.codeLink) {
-        $projectText.append(" | ");
-        $projectText.append(
-            $("<a>See code</a>").attr({
-                href: project.codeLink,
-                target: "_blank",
-            })
-        );
-    }
+
+    const $projectText = $("<p></p>");
+    const descText = project.description || project.altText;
+    const $strippedDescText = $(`<p>${descText}</p>`).text();
+    const previewLength = 240;
+    const $descPreview =
+        $strippedDescText.length > previewLength
+            ? `${$strippedDescText.slice(
+                  0,
+                  previewLength
+              )}... <a href="${postLink}">Read more</a>`
+            : $strippedDescText;
+    $projectText.append($descPreview);
 
     $card.append($(`<h3>${project.title}</h3>`));
     $card.append($projectImage);
@@ -195,9 +215,15 @@ const buildPage = () => {
 };
 
 $(() => {
+    const sortedData = sortArrayByDate([
+        ...data.projects,
+        ...data.pixelArt,
+        ...data.blogs,
+    ]);
     const sectionData = {
         "#projects": data.projects,
         "#pixelArt": data.pixelArt,
+        "#most-recent": sortedData.slice(0, 6),
     };
 
     const urlParams = new URLSearchParams(window.location.search);
