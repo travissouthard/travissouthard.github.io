@@ -1,7 +1,7 @@
 const LOCALNAV = [
     { name: "Home", linkUrl: "./index.html" },
-    { name: "Projects", linkUrl: "./index.html#projects" },
-    { name: "Pixel Art", linkUrl: "./index.html#pixelArt" },
+    { name: "Projects", linkUrl: "./projects.html" },
+    { name: "Pixel Art", linkUrl: "./pixelArt.html" },
     { name: "Blog", linkUrl: "./blog.html" },
     { name: "About", linkUrl: "./about.html" },
 ];
