@@ -228,7 +228,9 @@ nav a:hover, footer a:hover {
 }
 
 #about {
-    padding: 10px 10% 10px 10%;
+    max-width: 632px;
+    margin: 0 auto;
+    padding: 16px;
 }
 
 #about ul li {
