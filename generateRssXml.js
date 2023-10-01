@@ -38,45 +38,45 @@ const documentEnd = `
 const homeUrl = "https://travissouthard.com";
 
 const fixLocalLink = (link) => {
-  return link[0] === "." ? homeUrl + link.slice(1) : link;
+    return link[0] === "." ? homeUrl + link.slice(1) : link;
 };
 
 const createImageFromPost = (post) => {
-  const link = post.siteLink || homeUrl;
-  return post.imagePath
-    ? `<a href="${fixLocalLink(link)}" target="blank">
+    const link = post.siteLink || homeUrl;
+    return post.imagePath
+        ? `<a href="${fixLocalLink(link)}" target="blank">
         <img src="${fixLocalLink(post.imagePath)}" alt="${post.altText}"/>
       </a>`
-    : "";
+        : "";
 };
 
 const encodeDescriptionFromPost = (post) => {
-  const htmlEntities = {
-    amp: /\&/g,
-    quot: /\"/g,
-    apos: /\'/g,
-    lt: /\</g,
-    gt: /\>/g,
-  };
-  const codeLink = post.codeLink
-    ? `See the <a href="${post.codeLink}" target="blank">code here</a>`
-    : "";
-  let htmlString = `${createImageFromPost(post)}
+    const htmlEntities = {
+        amp: /\&/g,
+        quot: /\"/g,
+        apos: /\'/g,
+        lt: /\</g,
+        gt: /\>/g,
+    };
+    const codeLink = post.codeLink
+        ? `See the <a href="${post.codeLink}" target="blank">code here</a>`
+        : "";
+    let htmlString = `${createImageFromPost(post)}
   ${post.description}${codeLink}`;
-  const encodeHtml = (html) => {
-    for (let entity in htmlEntities) {
-      html = html.replace(htmlEntities[entity], () => `&${entity};`);
-    }
-    return html;
-  };
-  return encodeHtml(htmlString);
+    const encodeHtml = (html) => {
+        for (let entity in htmlEntities) {
+            html = html.replace(htmlEntities[entity], () => `&${entity};`);
+        }
+        return html;
+    };
+    return encodeHtml(htmlString);
 };
 
 const createItemsFromPosts = (posts) => {
-  const items = [];
-  for (let post of posts) {
-    const pubDate = new Date(post.lastUpdated);
-    const item = `
+    const items = [];
+    for (let post of posts) {
+        const pubDate = new Date(post.lastUpdated);
+        const item = `
         <item>
             <title>${post.title}</title>
             <description>${encodeDescriptionFromPost(post)}</description>
@@ -84,18 +84,18 @@ const createItemsFromPosts = (posts) => {
             <pubDate>${pubDate.toUTCString()}</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>`;
-    items.push(item);
-  }
-  return items.join("");
+        items.push(item);
+    }
+    return items.join("");
 };
 
 const sortArrayByDate = (arr) => {
-  return arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
+    return arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
 };
 const posts = sortArrayByDate([
-  ...data.projects,
-  ...data.pixelArt,
-  ...data.blogs,
+    ...data.projects,
+    ...data.pixelArt,
+    ...data.blog,
 ]);
 
 console.log(`${documentStart}${createItemsFromPosts(posts)}${documentEnd}`);
