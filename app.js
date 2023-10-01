@@ -5,15 +5,15 @@ const createPostSlug = (title) => {
 };
 
 const getDetailPageName = (title) => {
-    const titles = {
+    const pageNames = {
         projects: "projects",
-        pixelArt: "pixelart",
-        blogs: "blog",
+        pixelArt: "pixelArt",
+        blog: "blog",
     };
     for (let [key, arr] of Object.entries(data)) {
         for (let post of arr) {
-            if (title === post.title) {
-                return titles[key];
+            if (title === post.title || title === createPostSlug(post.title)) {
+                return pageNames[key];
             }
         }
     }
@@ -55,9 +55,9 @@ const assembleBlogPost = (blog) => {
 const assembleProjectCard = (project) => {
     const postLink =
         project.siteLink ||
-        `./${getDetailPageName(project.title)}.html?post=${createPostSlug(
+        `./${getDetailPageName(
             project.title
-        )}`;
+        ).toLowerCase()}.html?post=${createPostSlug(project.title)}`;
     const $card = $("<article></article>").attr("class", "project-card");
     const $projectImage = $("<a></a>").attr({
         href: postLink,
@@ -95,8 +95,8 @@ const sortArrayByDate = (arr) => {
     return arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
 };
 
-const fillOutSections = (key, value) => {
-    const $section = $(key);
+const fillOutListView = (key, value) => {
+    const $section = $(key).attr("class", "list-view");
     const sortedData = sortArrayByDate(value);
 
     for (let entry of sortedData) {
@@ -106,7 +106,7 @@ const fillOutSections = (key, value) => {
     }
 };
 
-const fillOutBlogNavigation = (blogs, choice) => {
+const fillOutDetailNavigation = (blogs, choice) => {
     const makeLink = (num) => `?post=${createPostSlug(blogs[num].title)}`;
     const parts = {
         first: { link: makeLink(0), button: "&lt;&lt;" },
@@ -147,38 +147,50 @@ const fillOutBlogNavigation = (blogs, choice) => {
     return $blogNav;
 };
 
-const fillOutBlogSection = (blogs, postSlug) => {
-    const $blogSection = $("#blog");
-    const orderedBlogs = sortArrayByDate(blogs).reverse();
-    let choice;
-    postSlug === null
-        ? (choice = blogs.length - 1)
-        : (choice = orderedBlogs.findIndex(
-              (blog) => createPostSlug(blog.title) === postSlug
-          ));
-
-    if (choice < 0) {
-        $blogSection.empty();
-        $blogSection.append(
-            $(
-                `<article>
-          <h3>404! Blog Not Found</h3>
-          <h5>We can't find that blog post! Please double check your link and try again.</h5>
-        </article>`
-            ).attr("class", "blog-post")
+const fillOutDetailView = (data, postSlug) => {
+    if (!getDetailPageName(postSlug)) {
+        const $body = $("body");
+        $body.empty();
+        $body.append(
+            $(`
+                <main>
+                    <h2>404: Not found</h2>
+                    <div>
+                        <article>
+                            <h5>We can't find that post! Please double check your link and try again.</h5>
+                        </article>
+                    </div>
+                </main>
+                `).attr("class", "blog-post")
         );
         return;
     }
 
-    $blogSection.empty();
+    const sectionType = `#${getDetailPageName(postSlug)}`;
+    const postList = data[sectionType];
+    const $detailSection = $(sectionType).attr("class", "detail-view");
+    const orderedData = sortArrayByDate(postList).reverse();
+    let choice;
+    postSlug === null
+        ? (choice = postList.length - 1)
+        : (choice = orderedData.findIndex(
+              (blog) => createPostSlug(blog.title) === postSlug
+          ));
+    $detailSection.empty();
 
-    const $chosenPost = assembleBlogPost(orderedBlogs[choice]);
-    $blogSection.append(fillOutBlogNavigation(orderedBlogs, choice));
-    $blogSection.append($chosenPost);
-    $blogSection.append(fillOutBlogNavigation(orderedBlogs, choice));
+    const $chosenPost = assembleBlogPost(orderedData[choice]);
+    $detailSection.append(fillOutDetailNavigation(orderedData, choice));
+    $detailSection.append($chosenPost);
+    $detailSection.append(fillOutDetailNavigation(orderedData, choice));
 };
 
-const buildPage = () => {
+const buildPage = (sectionData, slug) => {
+    !!slug
+        ? fillOutDetailView(sectionData, slug)
+        : Object.entries(sectionData).map(([key, value]) =>
+              fillOutListView(key, value)
+          );
+
     const $body = $("body");
     const $mainHtml = $body.html();
     const $header = `
@@ -218,20 +230,17 @@ $(() => {
     const sortedData = sortArrayByDate([
         ...data.projects,
         ...data.pixelArt,
-        ...data.blogs,
+        ...data.blog,
     ]);
     const sectionData = {
         "#projects": data.projects,
         "#pixelArt": data.pixelArt,
+        "#blog": data.blog,
         "#most-recent": sortedData.slice(0, 6),
     };
 
     const urlParams = new URLSearchParams(window.location.search);
     const postSlug = urlParams.get("post");
 
-    Object.entries(sectionData).map(([key, value]) =>
-        fillOutSections(key, value)
-    );
-    fillOutBlogSection(data.blogs, postSlug);
-    buildPage();
+    buildPage(sectionData, postSlug);
 });
