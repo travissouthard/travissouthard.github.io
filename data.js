@@ -6,12 +6,16 @@ const data = {
                 "https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement",
             codeLink: "",
             imagePath: "./assets/images/projects/plse-expungement.png",
-            description: `<p>A volunteer project I lead as part of <a 
-        href="https://codeforphilly.org">Code for Philly</a> that benefits 
-        the work of Philadelphia Lawyers for Social Equity</p>`,
+            description: `<p>From the project page: The project we are 
+                currently working on is building out an expungement 
+                petition generator for PLSE. The application takes in 
+                PDFs of clients' criminal dockets and returns fully 
+                formatted petitions to expunge the clients' criminal 
+                records. Having a clear criminal record helps those 
+                clients to better find work, housing, and services.</p>`,
             altText: "Screenshot of the Expungement Petition Generator",
             public: false,
-            lastUpdated: Date.parse("02 Nov 2022"),
+            lastUpdated: Date.parse("11 Sep 2023"),
         },
         {
             title: "Bike Camping PHL",
@@ -163,7 +167,7 @@ const data = {
             lastUpdated: Date.parse("16 Oct 2022"),
         },
     ],
-    blogs: [
+    blog: [
         {
             title: "Brand new RSS feed!",
             siteLink: "",
@@ -531,6 +535,78 @@ const data = {
                 "Travis holding a bouquet of flowers in a field of flowers!",
             public: true,
             lastUpdated: Date.parse("Sep 24 2023"),
+        },
+        {
+            title: "September Updates and October Upcoming",
+            siteLink: "",
+            codeLink: "",
+            imagePath: "./assets/images/blog/sunset-graveyard.jpg",
+            description: `
+            <p>
+                I have some updates from the past week and a <em>content schedule</em> for the next month!
+            </p>
+            <p>
+                Firstly I am honored that last Monday I was named one of <a href="https://technical.ly/"
+                    target="_blank">Technical.ly</a>'s <a
+                    href="https://technical.ly/software-development/philly-reallist-engineers-2023/" target="_blank">RealLIST
+                    Engineers of Philadephia for 2023</a>! It always feels nice to be recognized for work and this is the first
+                professional recognition I've received since transitioning into tech. I am especially honored that my work with
+                <a href="https://codeforphilly.org/" target="_blank">Code for Philly</a> was specifically mentioned because I am
+                incredibly proud of the work that I've done there over the past three years.
+            </p>
+            <p>
+                Speaking of Code for Philly, my second update this week is that I am stepping up to join Code for Philly's
+                leadership team as the Operations Lead. Over the next few months I will be learning more about the different
+                projects we facilitate, who the players are (that I don't already know), and what needs and strengths each
+                project team has. I will also be supporting the teams' operational needs like making sure teams have the tools
+                they need to thrive. I have loved volunteering on the <a
+                    href="https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement"
+                    target="_blank">PLSE Expungement team</a> for
+                the past three years and will continue to support them as team lead until a new lead is fully in place.
+            </p>
+            <p>
+                My final update from the week is that I have put in some work on updates to <a
+                    href="https://travissouthard.com/">my personal website and portfolio</a>! I
+                have made the home page a little less scattered so that now it only shows my most recent
+                projects, blogs, and pixel art pieces. There is also a separate about page so that it is easier to link to. The
+                biggest change is that the projects, blogs, and pixel art all have their own pages. Each of the pages shows a
+                list of the content and when clicked on, shows a detailed view with the ability to navigate to previous and next
+                posts.
+            </p>
+            <p>
+                This change felt relevant to my interest in writing blogs, doing streams, and making more pixel art. The thought
+                was "If I will be making more content, it should be easier to look at content on my portfolio." Granted this has
+                been an
+                upgrade to my website I have been wanting to do for a long time. But of course, priorities for a long time were
+                elsewhere and finally I was able to make those changes. There's always more to do but I'm pleased with this
+                update and excited to post more and find need for things like pagination and a more robust database than a JSON
+                file.
+            </p>
+            <p>
+                Speaking of content: I made a content schedule for myself for the next month! I am still figuring out a good way
+                to do streams from my refurbished early-2015 MacBook Pro, so those will not be announced yet, but I will be sure
+                to post them when they are officially scheduled. For now what I can say is that they will be Mondays from 7-9pm
+                Eastern Time. The blogs though are certainly ready to be sheduled! In the month of October, I will be
+                publishing:
+            </p>
+            <ul>
+                <li><b>October 8</b>: Minesweeper Tutorial (this is a big post)</li>
+                <li><b>October 15</b>: Money, Tech, & Motivation</li>
+                <li><b>October 22</b>: Code Should Be Smaller</li>
+                <li><b>October 28</b>: Monthly updates and next schedule (similar to this post)</li>
+            </ul>
+            <p>
+                The titles and topics may change, like everything in life, really. And once streaming is figured out I will add
+                that to the schedule as well. But, like always, the best way to keep up with this blog is to subscribe to <a
+                    href="https://travissouthard.com/rss.xml" target="_blank">this blog's RSS feed</a> and to my <a
+                    href="https://www.youtube.com/channel/UCv75JMz-8JkuhGZVRBbrZbQ" target="_blank">subscribe to my
+                    YouTube channel</a> where I'll be streaming (once I figure out the tech for it). You're also welcome to join
+                the test streams as they pop up.
+            </p>
+            `,
+            altText: "Sunset over a local church and graveyard",
+            public: true,
+            lastUpdated: Date.parse("Oct 1 2023"),
         },
     ],
 };

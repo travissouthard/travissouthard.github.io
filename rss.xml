@@ -15,10 +15,82 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 24 Sep 2023 17:57:15 GMT</pubDate>
-    <lastBuildDate>Sun, 24 Sep 2023 17:57:15 GMT</lastBuildDate>
+    <pubDate>Sun, 01 Oct 2023 17:06:13 GMT</pubDate>
+    <lastBuildDate>Sun, 01 Oct 2023 17:06:13 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>September Updates and October Upcoming</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/sunset-graveyard.jpg&quot; alt=&quot;Sunset over a local church and graveyard&quot;/&gt;
+      &lt;/a&gt;
+  
+            &lt;p&gt;
+                I have some updates from the past week and a &lt;em&gt;content schedule&lt;/em&gt; for the next month!
+            &lt;/p&gt;
+            &lt;p&gt;
+                Firstly I am honored that last Monday I was named one of &lt;a href=&quot;https://technical.ly/&quot;
+                    target=&quot;_blank&quot;&gt;Technical.ly&lt;/a&gt;&apos;s &lt;a
+                    href=&quot;https://technical.ly/software-development/philly-reallist-engineers-2023/&quot; target=&quot;_blank&quot;&gt;RealLIST
+                    Engineers of Philadephia for 2023&lt;/a&gt;! It always feels nice to be recognized for work and this is the first
+                professional recognition I&apos;ve received since transitioning into tech. I am especially honored that my work with
+                &lt;a href=&quot;https://codeforphilly.org/&quot; target=&quot;_blank&quot;&gt;Code for Philly&lt;/a&gt; was specifically mentioned because I am
+                incredibly proud of the work that I&apos;ve done there over the past three years.
+            &lt;/p&gt;
+            &lt;p&gt;
+                Speaking of Code for Philly, my second update this week is that I am stepping up to join Code for Philly&apos;s
+                leadership team as the Operations Lead. Over the next few months I will be learning more about the different
+                projects we facilitate, who the players are (that I don&apos;t already know), and what needs and strengths each
+                project team has. I will also be supporting the teams&apos; operational needs like making sure teams have the tools
+                they need to thrive. I have loved volunteering on the &lt;a
+                    href=&quot;https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement&quot;
+                    target=&quot;_blank&quot;&gt;PLSE Expungement team&lt;/a&gt; for
+                the past three years and will continue to support them as team lead until a new lead is fully in place.
+            &lt;/p&gt;
+            &lt;p&gt;
+                My final update from the week is that I have put in some work on updates to &lt;a
+                    href=&quot;https://travissouthard.com/&quot;&gt;my personal website and portfolio&lt;/a&gt;! I
+                have made the home page a little less scattered so that now it only shows my most recent
+                projects, blogs, and pixel art pieces. There is also a separate about page so that it is easier to link to. The
+                biggest change is that the projects, blogs, and pixel art all have their own pages. Each of the pages shows a
+                list of the content and when clicked on, shows a detailed view with the ability to navigate to previous and next
+                posts.
+            &lt;/p&gt;
+            &lt;p&gt;
+                This change felt relevant to my interest in writing blogs, doing streams, and making more pixel art. The thought
+                was &quot;If I will be making more content, it should be easier to look at content on my portfolio.&quot; Granted this has
+                been an
+                upgrade to my website I have been wanting to do for a long time. But of course, priorities for a long time were
+                elsewhere and finally I was able to make those changes. There&apos;s always more to do but I&apos;m pleased with this
+                update and excited to post more and find need for things like pagination and a more robust database than a JSON
+                file.
+            &lt;/p&gt;
+            &lt;p&gt;
+                Speaking of content: I made a content schedule for myself for the next month! I am still figuring out a good way
+                to do streams from my refurbished early-2015 MacBook Pro, so those will not be announced yet, but I will be sure
+                to post them when they are officially scheduled. For now what I can say is that they will be Mondays from 7-9pm
+                Eastern Time. The blogs though are certainly ready to be sheduled! In the month of October, I will be
+                publishing:
+            &lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;b&gt;October 8&lt;/b&gt;: Minesweeper Tutorial (this is a big post)&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;October 15&lt;/b&gt;: Money, Tech, &amp; Motivation&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;October 22&lt;/b&gt;: Code Should Be Smaller&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;October 28&lt;/b&gt;: Monthly updates and next schedule (similar to this post)&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;
+                The titles and topics may change, like everything in life, really. And once streaming is figured out I will add
+                that to the schedule as well. But, like always, the best way to keep up with this blog is to subscribe to &lt;a
+                    href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;this blog&apos;s RSS feed&lt;/a&gt; and to my &lt;a
+                    href=&quot;https://www.youtube.com/channel/UCv75JMz-8JkuhGZVRBbrZbQ&quot; target=&quot;_blank&quot;&gt;subscribe to my
+                    YouTube channel&lt;/a&gt; where I&apos;ll be streaming (once I figure out the tech for it). You&apos;re also welcome to join
+                the test streams as they pop up.
+            &lt;/p&gt;
+            </description>
+            <link></link>
+            <pubDate>Sun, 01 Oct 2023 04:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>Web development streams coming soon!</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
@@ -81,6 +153,22 @@
       </description>
             <link></link>
             <pubDate>Sun, 24 Sep 2023 04:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
+        <item>
+            <title>Expungement Petition Generator</title>
+            <description>&lt;a href=&quot;https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/plse-expungement.png&quot; alt=&quot;Screenshot of the Expungement Petition Generator&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;From the project page: The project we are 
+                currently working on is building out an expungement 
+                petition generator for PLSE. The application takes in 
+                PDFs of clients&apos; criminal dockets and returns fully 
+                formatted petitions to expunge the clients&apos; criminal 
+                records. Having a clear criminal record helps those 
+                clients to better find work, housing, and services.&lt;/p&gt;</description>
+            <link>https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement</link>
+            <pubDate>Mon, 11 Sep 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -246,7 +334,7 @@
         fulfilling and
         actually restful life. Building habits is very hard, but I have done it before and can do it again.&lt;/p&gt;
       </description>
-            <link>https://travissouthard.com</link>
+            <link></link>
             <pubDate>Fri, 16 Jun 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -313,7 +401,7 @@
           as we can in the next week!&lt;/p&gt;
       &lt;em&gt;&lt;p&gt;Edit: 6/16/23 - Fixed a tab error in the code portions.&lt;/p&gt;&lt;/em&gt;
       See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places/pull/10&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link>https://travissouthard.com/blog.html</link>
+            <link></link>
             <pubDate>Thu, 15 Jun 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -365,7 +453,7 @@
       &lt;p&gt;&lt;em&gt;Edit: I cleaned up how the rss is generated and adding HTML tags 
       to actually show the images and organize my writing better.&lt;/em&gt;&lt;/p&gt;
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link>https://travissouthard.com</link>
+            <link></link>
             <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -381,21 +469,21 @@
         </item>
         <item>
             <title>1-Bit Beach Scene</title>
-            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109934647644450793&quot; target=&quot;blank&quot;&gt;
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://mastodon.social/@tsouthard/109934647644450793</link>
+            <link></link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>32x32 Self Portrait</title>
-            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109931960684000706&quot; target=&quot;blank&quot;&gt;
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/headshot-32.png&quot; alt=&quot;A low-color low-res pixel art portait of a man with a mustache&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://mastodon.social/@tsouthard/109931960684000706</link>
+            <link></link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -445,53 +533,41 @@
         </item>
         <item>
             <title>CRT Flower</title>
-            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109411109868393841&quot; target=&quot;blank&quot;&gt;
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://mastodon.social/@tsouthard/109411109868393841</link>
+            <link></link>
             <pubDate>Sun, 06 Nov 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
-            <title>Expungement Petition Generator</title>
-            <description>&lt;a href=&quot;https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement&quot; target=&quot;blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/plse-expungement.png&quot; alt=&quot;Screenshot of the Expungement Petition Generator&quot;/&gt;
-      &lt;/a&gt;
-  &lt;p&gt;A volunteer project I lead as part of &lt;a 
-        href=&quot;https://codeforphilly.org&quot;&gt;Code for Philly&lt;/a&gt; that benefits 
-        the work of Philadelphia Lawyers for Social Equity&lt;/p&gt;</description>
-            <link>https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement</link>
-            <pubDate>Wed, 02 Nov 2022 04:00:00 GMT</pubDate>
-            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
-        </item>
-        <item>
             <title>House Portrait</title>
-            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/109485424439372092&quot; target=&quot;blank&quot;&gt;
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/house.png&quot; alt=&quot;A 4-color grayscale pixelart image of a rowhome&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://mastodon.social/@tsouthard/109485424439372092</link>
+            <link></link>
             <pubDate>Sun, 30 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Self Portrait</title>
-            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard&quot; target=&quot;blank&quot;&gt;
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/pixel-art-portrait.png&quot; alt=&quot;A 1-bit pixelart self portrait of a man using a keyboard&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://mastodon.social/@tsouthard</link>
+            <link></link>
             <pubDate>Sun, 16 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Mushroom</title>
-            <description>&lt;a href=&quot;https://mastodon.social/@tsouthard/110129547262579634&quot; target=&quot;blank&quot;&gt;
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/mushroom.png&quot; alt=&quot;A 1-bit pixelart closeup image of a whitecap mushroom&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://mastodon.social/@tsouthard/110129547262579634</link>
+            <link></link>
             <pubDate>Mon, 10 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
