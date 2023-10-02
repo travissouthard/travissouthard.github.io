@@ -206,7 +206,7 @@ const buildPage = (sectionData, slug) => {
         const $list = $("<ul></ul>");
         for (let { name, linkUrl } of linkArr) {
             $list.append(`
-                <a href="${linkUrl}">
+                <a href="${linkUrl.toLowerCase()}">
                     <li>${name}</li>
                 </a>
             `);
