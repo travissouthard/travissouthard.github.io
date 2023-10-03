@@ -9,7 +9,7 @@ const LOCALNAV = [
 const EXTERIORLINKS = [
     {
         name: "Resume",
-        linkUrl: "../assets/Travis_Southard_Software_Engineer_Resume.pdf",
+        linkUrl: "./assets/Travis_Southard_Software_Engineer_Resume.pdf",
     },
     { name: "RSS Feed", linkUrl: "./rss.xml" },
     { name: "Email", linkUrl: "mailto:travissouthard@proton.me" },
