@@ -7,6 +7,28 @@ const fs = require("fs");
 const dataFile = fs.readFileSync("./data.json", "utf-8");
 const data = JSON.parse(dataFile);
 
+const createPostSlug = (title) => {
+    const justWords = title.replace(/[.,\/#!$%\^&\*;:{}=_`~()\?]/g, "");
+    const wordsArr = justWords.toLowerCase().split(" ");
+    return wordsArr.join("-");
+};
+
+const getDetailPageName = (title) => {
+    const pageNames = {
+        projects: "projects",
+        pixelArt: "pixelArt",
+        blog: "blog",
+    };
+    for (let [key, arr] of Object.entries(data)) {
+        for (let post of arr) {
+            if (title === post.title || title === createPostSlug(post.title)) {
+                return pageNames[key];
+            }
+        }
+    }
+    return;
+};
+
 const now = new Date();
 const documentStart = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -64,6 +86,8 @@ const encodeDescriptionFromPost = (post) => {
     let htmlString = `${createImageFromPost(post)}
   ${post.description}${codeLink}`;
     const encodeHtml = (html) => {
+        // Convert relative img sources to absolute links first
+        html = html.replace(/src\=\"\./g, `src="${homeUrl}`);
         for (let entity in htmlEntities) {
             html = html.replace(htmlEntities[entity], () => `&${entity};`);
         }
@@ -76,11 +100,16 @@ const createItemsFromPosts = (posts) => {
     const items = [];
     for (let post of posts) {
         const pubDate = new Date(post.lastUpdated);
+        const link = post.siteLink
+            ? fixLocalLink(post.siteLink)
+            : `${homeUrl}/${getDetailPageName(
+                  post.title
+              )}.html?post=${createPostSlug(post.title)}`;
         const item = `
         <item>
             <title>${post.title}</title>
             <description>${encodeDescriptionFromPost(post)}</description>
-            <link>${fixLocalLink(post.siteLink)}</link>
+            <link>${link}</link>
             <pubDate>${pubDate.toUTCString()}</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>`;

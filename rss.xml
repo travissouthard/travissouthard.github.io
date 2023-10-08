@@ -15,10 +15,216 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 01 Oct 2023 17:06:13 GMT</pubDate>
-    <lastBuildDate>Sun, 01 Oct 2023 17:06:13 GMT</lastBuildDate>
+    <pubDate>Sun, 08 Oct 2023 02:08:16 GMT</pubDate>
+    <lastBuildDate>Sun, 08 Oct 2023 02:08:16 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>How to make Minesweeper part 1</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper06.jpg&quot; alt=&quot;Our partially done Minesweeper game with randomly placed bombs and safe squares&quot;/&gt;
+      &lt;/a&gt;
+  
+&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;Let’s make minesweeper with just native web tools! Using only native web components we can build this classic video game using some loops, array methods, and recursion. Specifically we&amp;#39;ll be using HTML5, CSS3 with Flexbox, and ES6 JavaScript.&lt;/p&gt;
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+&lt;p&gt;To make this project you will need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A code editor (I’ll be using VS Code)&lt;/li&gt;
+&lt;li&gt;A web browser&lt;/li&gt;
+&lt;li&gt;A basic understanding of HTML, JavaScript, and CSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;how-to-make-minesweeper-part-1-&quot;&gt;How to make Minesweeper part 1:&lt;/h3&gt;
+&lt;h3 id=&quot;make-your-files&quot;&gt;Make your files&lt;/h3&gt;
+&lt;p&gt;Start a project folder called “minesweeper” and in it create 3 files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;index.html&lt;/li&gt;
+&lt;li&gt;style.css&lt;/li&gt;
+&lt;li&gt;app.js&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: If you don’t already navigate your machine and manage your code files in the terminal or shell I recommend it! To do the above:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sh&quot;&gt;# Make your folder &lt;span class=&quot;hljs-built_in&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;change&lt;/span&gt; directories &lt;span class=&quot;hljs-keyword&quot;&gt;to&lt;/span&gt; it
+&lt;span class=&quot;hljs-built_in&quot;&gt;mkdir&lt;/span&gt; minesweeper
+&lt;span class=&quot;hljs-keyword&quot;&gt;cd&lt;/span&gt; minesweeper
+
+# Create the &lt;span class=&quot;hljs-keyword&quot;&gt;files&lt;/span&gt;
+touch &lt;span class=&quot;hljs-built_in&quot;&gt;index&lt;/span&gt;.html style.css app.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;add-your-boilerplate-code&quot;&gt;Add your boilerplate code&lt;/h3&gt;
+&lt;p&gt;Open all three files into your editor of choice. In index.html start with the boilerplate code (in VS Code you can type &lt;code&gt;!&lt;/code&gt; and click the first option, this fills it out as a snippet):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;hljs-meta&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;lang&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;width=device-width, initial-scale=1.0&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;Title&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; section, add: &lt;code&gt;&amp;lt;h1&amp;gt;Minesweeper&amp;lt;/h1&amp;gt;&lt;/code&gt; and change the text in the &lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt; tag to also read Minesweeper.
+Open index.html in your browser. You can drag and drop the file into the browser or use &lt;code&gt;open index.html&lt;/code&gt; in your terminal or even use the &lt;code&gt;file://&lt;/code&gt; protocol if you’re feeling fancy.&lt;/p&gt;
+&lt;p&gt;This isn’t much of a website yet, and certainly not a game or stylish. But to get either of those qualities we need to connect our &lt;code&gt;app.js&lt;/code&gt; and &lt;code&gt;style.css&lt;/code&gt; files. To do so we need two lines in the head section of the html:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;style.css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;app.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then in the &lt;code&gt;style.css&lt;/code&gt; file we will need the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-tag&quot;&gt;h1&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: pink;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It doesn&amp;#39;t have to be pink, but it does help to have something stand out pretty dramatically. Now in our &lt;code&gt;app.js&lt;/code&gt; file let&amp;#39;s add:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;console.log(&lt;span class=&quot;hljs-string&quot;&gt;&quot;This is connected&quot;&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note: I want to establish a pattern here that whenever we add new code to our files, we should test it. In this case, we’ll refresh the browser to see what we changed. So each time we make a change I’ll refer to this step as “refresh and check”. Also, each section in this is designed to be its own commit (and the titles of the sections work as &lt;a href=&quot;https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/&quot;&gt;good commit messages&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;When we refresh and check, we should see our title on a pink background. To see the console.log message, we’ll have to right-click, and choose “inspect” from the context menu. If it’s your first time opening the inspector, welcome! Most browsers open by default to to the Elements inspector tab to let you see the html and css as it’s rendered on the page. And we’ll come back to that later. For now, let’s choose the Console tab and we should see our message!&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper01.jpg&quot; alt=&quot;Our Minesweeper title with a pink background and message in the console&quot; /&gt;
+&lt;h3 id=&quot;add-the-board-and-put-stuff-in-it&quot;&gt;Add the board and put stuff in it&lt;/h3&gt;
+&lt;p&gt;A key part of the minesweeper game is a board of squares on a grid. So let’s add a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element with the id: “board” (this will look like &lt;code&gt;&amp;lt;div id=&amp;quot;board&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;). A div by itself will not really do much. So we&amp;#39;ll add our squares with JavaScript.&lt;/p&gt;
+&lt;p&gt;There’s no prescriptive size that our “minefield” should be, and in fact many implementations use many different sizes, but a 10x10 grid has an appeal for both easy numbers and a nice size for playing.&lt;/p&gt;
+&lt;p&gt;So to make a 10x10 board we will need to make 100 squares. But rather than using 10 and 100, let’s use variables like &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;boardSize&lt;/code&gt; so we can make this easier to work on later. So in our &lt;code&gt;app.js&lt;/code&gt; file we&amp;#39;ll replace our &lt;code&gt;console.log&lt;/code&gt; line with:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; width = &lt;span class=&quot;hljs-number&quot;&gt;10&lt;/span&gt;;
+&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; boardSize = width * width;
+
+&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; board = &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;hljs-string&quot;&gt;&quot;board&quot;&lt;/span&gt;);
+
+&lt;span class=&quot;hljs-keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; i = &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span class=&quot;hljs-number&quot;&gt;100&lt;/span&gt;; i++) {
+    &lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; square = &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;hljs-string&quot;&gt;&quot;p&quot;&lt;/span&gt;);
+    square.innerHTML = &lt;span class=&quot;hljs-string&quot;&gt;`&lt;span class=&quot;hljs-subst&quot;&gt;${i + &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;}&lt;/span&gt;`&lt;/span&gt;;
+    board.appendChild(square);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let&amp;#39;s check and refresh. Here we run into an interesting bit of trouble, there should be 100 numbers on the screen and there are none and an error is in the console telling us no element exists with an id of &amp;quot;board.&amp;quot; Code in HTML, CSS, and JS is read by the browser from top to bottom. The HTML file asks for the &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; to the style sheet in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; and then asks for the &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; containing the Javascript. Then once the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; is read and rendered, the browser executes the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; code.&lt;/p&gt;
+&lt;p&gt;This means that in this case the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; with the id of &amp;quot;board&amp;quot; hasn&amp;#39;t been rendered yet when the JavaScript is executed. There is a &lt;code&gt;window.load&lt;/code&gt; event we can ask for, but another way to handle this is to move the &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag to the bottom of the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; section. This way the Javascript is only run once the whole page is rendered.&lt;/p&gt;
+&lt;p&gt;Refresh and check again and we have 100 numbers in our &amp;quot;board&amp;quot;.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper02.jpg&quot; alt=&quot;Our Minesweeper title with a vertical list of increasing integers&quot; /&gt;
+&lt;h3 id=&quot;style-the-board-to-be-square&quot;&gt;Style the board to be square&lt;/h3&gt;
+&lt;p&gt;Now we have 100 numbers in a weirdly long list, but that’s not much of a board. For a moment we will need to write some CSS. &lt;/p&gt;
+&lt;p&gt;Note: For a lot of engineers, CSS can be very daunting, especially where page layout is concerned. And yes there are many component libraries that will handle this for us, but those libraries compile or otherwise eventually render CSS. Therefore, knowing how CSS works natively, it will help us to diagnose and solve design and UX issues because they come up with libraries too.&lt;/p&gt;
+&lt;p&gt;We will worry about the aesthetic style of the game later, for now we want to get the board to be functional. And for now, we only have a few elements on the page to worry about first. We have the board itself and 100 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; elements within it.&lt;/p&gt;
+&lt;p&gt;The board is a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; with an &lt;code&gt;id&lt;/code&gt; of &amp;quot;board&amp;quot; so we can easily grab that with &lt;code&gt;#board&lt;/code&gt; in our CSS. We&amp;#39;ll set an arbitrary width (ideally one that will make math easy later), center it, and add a border so we can see the board.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;500px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt; auto;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;1px&lt;/span&gt; solid black;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A refresh and check shows us a square with a border at the center of our page, but the numbers are still falling down the page. There&amp;#39;s a few ways to get our elements to sit in a grid in the board, and my go-to is Flexbox, which is natively supported in CSS3. In this case it&amp;#39;s appropriate since we have one array that we are arranging as a 2-dimensional grid and flexbox will treat them that way as well.&lt;/p&gt;
+&lt;p&gt;Note: &lt;a href=&quot;https://flexboxfroggy.com/&quot;&gt;Flexbox Froggy&lt;/a&gt; is a great way to learn how to use the basics of Flexbox and CSS Tricks has &lt;a href=&quot;https://css-tricks.com/snippets/css/a-guide-to-flexbox/&quot;&gt;an excellent reference guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s add the following lines to our &lt;code&gt;#board&lt;/code&gt; CSS block to use Flexbox and display its children (our squares) as rows that wrap to the next row when they run out of horizontal space.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;display&lt;/span&gt;: flex;
+&lt;span class=&quot;hljs-attribute&quot;&gt;flex-flow&lt;/span&gt;: row wrap;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We still need to style the numbers to get them to fit nicely since their defaults will change depending on what text is in them. We will want to give them a fixed width and height, a border so we can see them for now, and center the text in each square.&lt;/p&gt;
+&lt;p&gt;Above, we (completely arbitrarily) chose &lt;code&gt;500px&lt;/code&gt; as our board width and a game board size of 10 squares by 10 squares. So each square should be &lt;code&gt;50px&lt;/code&gt;, but if we just set height and width to be &lt;code&gt;50px&lt;/code&gt;, the squares wouldn&amp;#39;t fit. HTML elements render width as the content (in this case: text) width. Padding, border, and margin will add more size to the box and will not fit on our grid.&lt;/p&gt;
+&lt;p&gt;We don&amp;#39;t want any margin, since each square will sit directly against its neighbors. We also don&amp;#39;t want padding since we&amp;#39;re just centering with &lt;code&gt;text-align&lt;/code&gt;. However, we do want a border so we can see where the boxes are.&lt;/p&gt;
+&lt;p&gt;So, we will start our squares with the following styles: A width and height of &lt;code&gt;48px&lt;/code&gt; to leave room for the &lt;code&gt;1px&lt;/code&gt; of border on each side (e.g. for width, the left and right borders both add to the overall width).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;p&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;48px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;48px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;padding&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;line-height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;48px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;text-align&lt;/span&gt;: center;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;1px&lt;/span&gt; solid gray;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A refresh and check should now show us a board with 100 squares arranged in a nice grid.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper03.jpg&quot; alt=&quot;Our Minesweeper title with a square of squares with numbers in them&quot; /&gt;
+&lt;h3 id=&quot;make-the-squares-clickable&quot;&gt;Make the squares clickable&lt;/h3&gt;
+&lt;p&gt;Now that we have a grid, let&amp;#39;s make it interactive! This is typically an expectation of any video game. The &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document&quot;&gt;&lt;code&gt;document&lt;/code&gt; API&lt;/a&gt; has an &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener&quot;&gt;&lt;code&gt;addEventListener&lt;/code&gt; method&lt;/a&gt; that is incredibly useful for this. The best place to add these event listeners will be as we make each square. So let&amp;#39;s make our loop that creates the squares look like this.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;for (&lt;span class=&quot;hljs-name&quot;&gt;let&lt;/span&gt; i = &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;; i &amp;lt; 100; i++) {&lt;/span&gt;
+    const clickedClass = &lt;span class=&quot;hljs-string&quot;&gt;&quot;clicked&quot;&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    const square = document.createElement(&lt;span class=&quot;hljs-string&quot;&gt;&quot;p&quot;&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    square.innerHTML = `${i + &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;}`&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    square.addEventListener(&lt;span class=&quot;hljs-string&quot;&gt;&quot;click&quot;&lt;/span&gt;, (&lt;span class=&quot;hljs-name&quot;&gt;e&lt;/span&gt;) =&amp;gt; {
+        if (!square.classList.contains(&lt;span class=&quot;hljs-name&quot;&gt;clickedClass&lt;/span&gt;)) {
+            square.classList.add(&lt;span class=&quot;hljs-name&quot;&gt;clickedClass&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+        }
+    })&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    board.appendChild(&lt;span class=&quot;hljs-name&quot;&gt;square&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note: &lt;code&gt;clickedClass&lt;/code&gt; may be extraneous for now, but we wanted to use the string &lt;code&gt;&amp;quot;clicked&amp;quot;&lt;/code&gt; more than once and it often helps to set that with a constant to ensure they match (and to make changing it easier later). I have had plenty of projects get stalled for a little too long trying to find a typo in a string.&lt;/p&gt;
+&lt;p&gt;And now that we are adding a &amp;quot;clicked&amp;quot; class to each square, let&amp;#39;s change the color to see if our event handling works by adding this to our CSS:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-class&quot;&gt;.clicked&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;: green;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Refresh and check and click around the board. Any unclicked squares will change color now! However, as it&amp;#39;s written above, we are only adding a class if it&amp;#39;s not already there. If you&amp;#39;d like it to change the color back on the second click instead, try &lt;code&gt;square.classList.toggle(clickedClass)&lt;/code&gt;&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper04.jpg&quot; alt=&quot;Our board now with green squares indicating which have been clicked&quot; /&gt;
+&lt;h3 id=&quot;refactor-board-to-build-from-array-of-values&quot;&gt;Refactor board to build from array of values&lt;/h3&gt;
+&lt;p&gt;Now that we have a grid of 100 numbers ready to be built and clicked, let&amp;#39;s add some mines to our minefield! In our javascript, let&amp;#39;s create an array of 100 elements, with 20 bombs and 80 empties.&lt;/p&gt;
+&lt;p&gt;But what data should we put in this array? We have a lot of options, but since we are developing this as a webpage, adding classes to our square elements gives us an easy way to check if that square is a bomb (and then style it) by checking &lt;code&gt;square.classList.contains()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note: For a savvy game player, this does expose the locations via the inspector if a player wanted to cheat. If we were building something that needed to be competitive, a better choice would be to refer back to our array and check the value there. While less likely, that savvy player could still have access to that array via the console. In that case, a backend server would probably be necessary to keep things competitive. This is certainly outside our scope here, but it&amp;#39;s always worth thinking about security especially when practicing.&lt;/p&gt;
+&lt;p&gt;So if we are going to use classes on each square, an array of strings would be a good choice. The strings in this case will be &amp;quot;bomb&amp;quot; and &amp;quot;valid&amp;quot;, as in: There is either a bomb in this square or this square is a valid place to click. Booleans like &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;false&lt;/code&gt; could also work, however, with enough distance it may become muddy wondering if it&amp;#39;s &lt;code&gt;true&lt;/code&gt; this is a bomb or &lt;code&gt;true&lt;/code&gt; that we can safely click it.&lt;/p&gt;
+&lt;p&gt;Note: In this case I&amp;#39;ve chosen the word &amp;quot;bomb&amp;quot; instead of &amp;quot;mine&amp;quot; since &amp;quot;mine&amp;quot; has a few common meanings (place to dig for ores, belonging to me, etc), but &amp;quot;bomb&amp;quot; commonly is just that (though I suppose it is also sometimes a cake). But the goal of naming like this is to choose something as clear as possible.&lt;/p&gt;
+&lt;p&gt;In our &lt;code&gt;app.js&lt;/code&gt; file let&amp;#39;s add the following after the &lt;code&gt;boardSize&lt;/code&gt; is declared but before the &lt;code&gt;board&lt;/code&gt; is defined:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;const &lt;span class=&quot;hljs-keyword&quot;&gt;bombCount &lt;/span&gt;= &lt;span class=&quot;hljs-number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+const validCount = &lt;span class=&quot;hljs-keyword&quot;&gt;boardSize &lt;/span&gt;- &lt;span class=&quot;hljs-keyword&quot;&gt;bombCount;
+&lt;/span&gt;const squareValues = []&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+
+for (let i = &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;; i &amp;lt; boardSize; i++) {&lt;/span&gt;
+    if (i &amp;lt; &lt;span class=&quot;hljs-keyword&quot;&gt;bombCount) &lt;/span&gt;{
+        squareValues.push(&lt;span class=&quot;hljs-string&quot;&gt;&quot;bomb&quot;&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    } else {
+        squareValues.push(&lt;span class=&quot;hljs-string&quot;&gt;&quot;valid&quot;&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have an array of 20 bombs and 80 valids. We&amp;#39;ll randomize that later so that the board is not just bombs at the top. But for now, let&amp;#39;s use this array to create the board. So let&amp;#39;s change our loop to live within a function (with a clear name) and use that array:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; createBoard = () =&amp;gt; {
+    &lt;span class=&quot;hljs-keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;value&lt;/span&gt; of squareValues) {
+        &lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; clickedClass = &lt;span class=&quot;hljs-string&quot;&gt;&quot;clicked&quot;&lt;/span&gt;;
+        &lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; square = document.createElement(&lt;span class=&quot;hljs-string&quot;&gt;&quot;p&quot;&lt;/span&gt;);
+        square.innerHTML = &lt;span class=&quot;hljs-keyword&quot;&gt;value&lt;/span&gt; === &lt;span class=&quot;hljs-string&quot;&gt;&quot;bomb&quot;&lt;/span&gt; ? &lt;span class=&quot;hljs-string&quot;&gt;&quot;💣&quot;&lt;/span&gt; : &lt;span class=&quot;hljs-string&quot;&gt;&quot;😀&quot;&lt;/span&gt;;
+        square.classList.&lt;span class=&quot;hljs-keyword&quot;&gt;add&lt;/span&gt;(&lt;span class=&quot;hljs-keyword&quot;&gt;value&lt;/span&gt;);
+        square.addEventListener(&lt;span class=&quot;hljs-string&quot;&gt;&quot;click&quot;&lt;/span&gt;, (e) =&amp;gt; {
+            &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (!square.classList.contains(clickedClass)) {
+                square.classList.&lt;span class=&quot;hljs-keyword&quot;&gt;add&lt;/span&gt;(clickedClass);
+            }
+        });
+        board.appendChild(square);
+    }
+};
+
+createBoard();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note: If you&amp;#39;re not familiar with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of&quot;&gt;for...of loops&lt;/a&gt;, they are very useful for iterating over every value in an array. Another option could be using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach&quot;&gt;&lt;code&gt;squareValues.forEach()&lt;/code&gt;&lt;/a&gt;, but in this case I prefer how the for...of loop looks.&lt;/p&gt;
+&lt;p&gt;Now when we refresh and check, we should see the 20 bomb icons in the top two rows of the board and the remaining of the board should be smiley faces.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper05.jpg&quot; alt=&quot;Our Minesweeper board with two rows of bombs and many others of smiley faces&quot; /&gt;
+&lt;h3 id=&quot;randomize-the-board-when-building&quot;&gt;Randomize the board when building&lt;/h3&gt;
+&lt;p&gt;Our minesweeper game is going to get very stale very fast if the board is always populated with all the bombs up at the very top. So let&amp;#39;s randomize the array we are building the board from each time we build the board.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s make a &lt;code&gt;shuffleValues&lt;/code&gt; function and call it on the first line inside the &lt;code&gt;createBoard&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; shuffleValues = &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; =&amp;gt;&lt;/span&gt; {
+    &lt;span class=&quot;hljs-keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; i = &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;; i &amp;lt; squareValues.length; i++) {
+        &lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; randomIndex = &lt;span class=&quot;hljs-built_in&quot;&gt;Math&lt;/span&gt;.floor(&lt;span class=&quot;hljs-built_in&quot;&gt;Math&lt;/span&gt;.random() * squareValues.length);
+        &lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; temp = squareValues[i];
+        squareValues[i] = squareValues[randomIndex];
+        squareValues[randomIndex] = temp;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is a very simple method of scrambling our array, but it is pretty sufficient. Every element will switch with a random element, which could mean that an element will switch with itself, but that&amp;#39;s okay since it&amp;#39;s unlikely all 100 will switch with just themselves.&lt;/p&gt;
+&lt;p&gt;There&amp;#39;s two steps to this function, for every element:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Choose a random index&lt;/li&gt;
+&lt;li&gt;Switch the element&amp;#39;s value with the value at that index&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: Instead of the temp switch method, another option with ES6 is to use destructuring: &lt;code&gt;[squareValues[i], squareValues[randomIndex]] = [squareValues[randomIndex], squareValues[i]]&lt;/code&gt; to switch them in a single line. Both are valid, though neither are immediately better than the other so choose accordingly.&lt;/p&gt;
+&lt;p&gt;Refresh and check and now our values should be randomized for every time we refresh the page.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper06.jpg&quot; alt=&quot;Our Minesweeper board with randomized bombs and smiley faces&quot; /&gt;
+&lt;h3&gt;Parts 2 and 3 coming soon!&lt;/h3&gt;
+&lt;p&gt;Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader to get it as soon as it comes out&lt;/p&gt;
+            </description>
+            <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1</link>
+            <pubDate>Sun, 08 Oct 2023 04:00:00 GMT</pubDate>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>September Updates and October Upcoming</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;blank&quot;&gt;
@@ -87,7 +293,7 @@
                 the test streams as they pop up.
             &lt;/p&gt;
             </description>
-            <link></link>
+            <link>https://travissouthard.com/blog.html?post=september-updates-and-october-upcoming</link>
             <pubDate>Sun, 01 Oct 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -151,7 +357,7 @@
                     YouTube channel&lt;/a&gt; where I&apos;ll be streaming them.
             &lt;/p&gt;
       </description>
-            <link></link>
+            <link>https://travissouthard.com/blog.html?post=web-development-streams-coming-soon</link>
             <pubDate>Sun, 24 Sep 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -222,7 +428,7 @@
           &lt;/ul&gt;
       &lt;/p&gt;
       </description>
-            <link></link>
+            <link>https://travissouthard.com/blog.html?post=cautiously-considering-creating-content</link>
             <pubDate>Mon, 31 Jul 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -268,7 +474,7 @@
           have &lt;em&gt;somewhat&lt;/em&gt; improved the way I am spending my days, but that is a whole other work in progress.&lt;/p&gt;
       &lt;p&gt;Thanks for reading!&lt;/p&gt;
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/pull/23&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link></link>
+            <link>https://travissouthard.com/blog.html?post=now-with-permalinks</link>
             <pubDate>Tue, 27 Jun 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -334,7 +540,7 @@
         fulfilling and
         actually restful life. Building habits is very hard, but I have done it before and can do it again.&lt;/p&gt;
       </description>
-            <link></link>
+            <link>https://travissouthard.com/blog.html?post=i-need-a-better-routine</link>
             <pubDate>Fri, 16 Jun 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -401,7 +607,7 @@
           as we can in the next week!&lt;/p&gt;
       &lt;em&gt;&lt;p&gt;Edit: 6/16/23 - Fixed a tab error in the code portions.&lt;/p&gt;&lt;/em&gt;
       See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places/pull/10&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link></link>
+            <link>https://travissouthard.com/blog.html?post=solved-a-tricky-for-me-docker-compose-error</link>
             <pubDate>Thu, 15 Jun 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -453,7 +659,7 @@
       &lt;p&gt;&lt;em&gt;Edit: I cleaned up how the rss is generated and adding HTML tags 
       to actually show the images and organize my writing better.&lt;/em&gt;&lt;/p&gt;
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link></link>
+            <link>https://travissouthard.com/blog.html?post=brand-new-rss-feed</link>
             <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -473,7 +679,7 @@
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link></link>
+            <link>https://travissouthard.com/pixelArt.html?post=1-bit-beach-scene</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -483,7 +689,7 @@
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/headshot-32.png&quot; alt=&quot;A low-color low-res pixel art portait of a man with a mustache&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link></link>
+            <link>https://travissouthard.com/pixelArt.html?post=32x32-self-portrait</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -537,7 +743,7 @@
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link></link>
+            <link>https://travissouthard.com/pixelArt.html?post=crt-flower</link>
             <pubDate>Sun, 06 Nov 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -547,7 +753,7 @@
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/house.png&quot; alt=&quot;A 4-color grayscale pixelart image of a rowhome&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link></link>
+            <link>https://travissouthard.com/pixelArt.html?post=house-portrait</link>
             <pubDate>Sun, 30 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -557,7 +763,7 @@
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/pixel-art-portrait.png&quot; alt=&quot;A 1-bit pixelart self portrait of a man using a keyboard&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link></link>
+            <link>https://travissouthard.com/pixelArt.html?post=1-bit-self-portrait</link>
             <pubDate>Sun, 16 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
@@ -567,7 +773,7 @@
         &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/mushroom.png&quot; alt=&quot;A 1-bit pixelart closeup image of a whitecap mushroom&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link></link>
+            <link>https://travissouthard.com/pixelArt.html?post=1-bit-mushroom</link>
             <pubDate>Mon, 10 Oct 2022 04:00:00 GMT</pubDate>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
