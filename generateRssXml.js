@@ -66,7 +66,7 @@ const fixLocalLink = (link) => {
 const createImageFromPost = (post) => {
     const link = post.siteLink || homeUrl;
     return post.imagePath
-        ? `<a href="${fixLocalLink(link)}" target="blank">
+        ? `<a href="${fixLocalLink(link)}" target="_blank">
         <img src="${fixLocalLink(post.imagePath)}" alt="${post.altText}"/>
       </a>`
         : "";
@@ -87,7 +87,7 @@ const encodeDescriptionFromPost = (post) => {
   ${post.description}${codeLink}`;
     const encodeHtml = (html) => {
         // Convert relative img sources to absolute links first
-        html = html.replace(/src\=\"\./g, `src="${homeUrl}`);
+        html = html.replace(/(src)|(href)\=\"\./g, `src="${homeUrl}`);
         for (let entity in htmlEntities) {
             html = html.replace(htmlEntities[entity], () => `&${entity};`);
         }
