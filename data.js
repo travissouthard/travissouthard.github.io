@@ -807,13 +807,436 @@ createBoard();
 <p>Note: Instead of the temp switch method, another option with ES6 is to use destructuring: <code>[squareValues[i], squareValues[randomIndex]] = [squareValues[randomIndex], squareValues[i]]</code> to switch them in a single line. Both are valid, though neither are immediately better than the other so choose accordingly.</p>
 <p>Refresh and check and now our values should be randomized for every time we refresh the page.</p>
 <img src="./assets/images/blog/minesweeper06.jpg" alt="Our Minesweeper board with randomized bombs and smiley faces" />
-<h3>Parts 2 and 3 coming soon!</h3>
-<p>Add the <a href="https://travissouthard.com/rss.xml" target="_blank">RSS feed</a> to your favorite RSS reader to get it as soon as it comes out</p>
+<h3>Part 2 out now! Part 3 coming soon!</h3>
+<p> Check out <a href="https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2">part 2</a> to build out most of the gameplay. Add the <a href="https://travissouthard.com/rss.xml" target="_blank">RSS feed</a> to your favorite RSS reader to get it as soon as it comes out</p>
             `,
             altText:
                 "Our partially done Minesweeper game with randomly placed bombs and safe squares",
             public: true,
             lastUpdated: Date.parse("Oct 8 2023"),
+        },
+        {
+            title: "How to make Minesweeper part 2",
+            siteLink: "",
+            codeLink: "",
+            imagePath: "./assets/images/blog/minesweeper12.jpg",
+            description: `
+            <h3 id="how-to-make-minesweeper-part-2">How to make Minesweeper part 2</h3>
+    <p>This is part 2 of 3 and I recommend starting with <a
+            href="https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1">part 1</a> before moving on
+        to this part. If you have already worked through part 1, welcome back! In the previous part, we built a board of
+        100 squares with 20 bombs, and randomized them around the board. In this part we will build out most of the
+        gameplay.</p>
+    <h3 id="refactor-click-handler-to-own-function">Refactor click handler to own function</h3>
+    <p>To help keep our <code>createBoard</code> function from getting too cluttered, we can start refactoring out some
+        functionality into its own function.</p>
+    <p>Note: Refactoring is a specific action in which the functionality of our code stays the same, but we change the
+        code to (ideally) be more readable or more efficient. At the end of any refactor, nothing should be different
+        from the user perspective.</p>
+    <p>A great candidate here is to take our callback code in the <code>addEventListener</code> to its own function. So
+        we will add the following above our <code>createBoard</code> function.</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> handleClick = <span class="hljs-function">(<span class="hljs-params">squareObj</span>) =&gt;</span> {
+                <span class="hljs-keyword">const</span> clickedClass = <span class="hljs-string">"clicked"</span>;
+                <span class="hljs-keyword">if</span> (!squareObj.classList.contains(clickedClass)) {
+                    squareObj.classList.add(clickedClass);
+                }
+            };
+            </code></pre>
+    <p>And the <code>addEventListener</code> line will be:
+        <code>square.addEventListener(&quot;click&quot;, () =&gt; handleClick(square));</code>
+    </p>
+    <p>Note: The <code>clickedClass</code> declaration is also likely a good candidate for a global constant or a
+        <code>classes</code> object if we find ourselves adding other classes later. Especially if we create bigger
+        boards, we want to be mindful of memory efficiency, and not be redeclaring the same string every loop.
+    </p>
+    <h3 id="add-reset-feature-and-game-over-if-click-bomb">Add reset feature and game over if click bomb</h3>
+    <p>And now we should add one last bit of infrastructure before adding in gameplay. We want to be able to reset the
+        board without refreshing the whole page. Let&#39;s start that by adding a new button to the page by adding
+        <code>&lt;button id=&quot;reset&quot;&gt;Reset&lt;/button&gt;</code> between the <code>&lt;h1&gt;</code> and
+        board.
+    </p>
+    <p>Now let&#39;s set up the reset logic. At the top of <code>app.js</code>: we&#39;ll add
+        <code>let isGameOver = false;</code> to the bottom of our constants block. We&#39;ll use this more in the next
+        section.
+    </p>
+    <p>Next we&#39;ll go down to where we select and declare the board and add
+        <code>const reset = document.getElementById(&quot;reset&quot;);</code>
+    </p>
+    <p>Then, just above our <code>handleClick</code> function, we&#39;ll add in our reset function:</p>
+    <pre><code class="lang-js">const resetGame = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                isGameOver = <span class="hljs-literal">false</span>;
+                board.innerHTML = <span class="hljs-string">""</span>;
+            };
+            </code></pre>
+    <p>At the top of our <code>createBoard</code> function, we will call <code>resetGame();</code> to ensure we clear
+        the board before building it again.</p>
+    <p>And finally we will add an event listener to the <code>reset</code> DOM object just before we create the board at
+        the bottom.</p>
+    <pre><code class="lang-js"><span class="hljs-selector-tag">reset</span><span class="hljs-selector-class">.addEventListener</span>(<span class="hljs-string">"click"</span>, createBoard);
+            </code></pre>
+    <p>Note: On looking at this again, it may make more sense to call <code>createBoard</code> at the bottom of the
+        <code>resetGame</code> function and have the <code>onClick</code> callback be <code>resetGame</code> instead.
+        This will need some rearranging but is very likely worth the work for a little clarity.
+    </p>
+    <p>Refresh and check to make sure the reset button does what we expect. Right now the two ways to see if it&#39;s
+        working is to see the squares get rearranged. If there are any green squares from clicking on the board, those
+        should also be cleared from the board during the reset.</p>
+    <img src="./assets/images/blog/minesweeper07.jpg"
+        alt="Our Minesweeper board with a few green selected squares and one exploded one" />
+    <h3 id="add-game-over-condition-and-bomb-to-click-handler">Add game over condition and bomb to click handler</h3>
+    <p>Let&#39;s add some actual gameplay features! The one we&#39;ll start with is getting a game over, which is not
+        the most fun feature, but is one that we&#39;ll need a lot going forward. We already have an
+        <code>isGameOver</code> boolean, and our reset function already sets it back to <code>false</code> but we
+        haven&#39;t set it to <code>true</code> anywhere yet.
+    </p>
+    <p>In Minesweeper, there&#39;s only two reasons why the game would be over:</p>
+    <ul>
+        <li>The player successfully flagged all the bombs or revealed all the valid squares, thus winning</li>
+        <li>The player clicked on a bomb, thus losing</li>
+    </ul>
+    <p>We don&#39;t have the ability to flag bombs yet, but the player is able to click them. What we will want to do is
+        check if the square that was clicked has a &quot;bomb&quot; class. DOM objects have a <code>classList</code>
+        object and we can check if a string is among those classes with the <code>classList.contains()</code> method. So
+        at the top of <code>handleClick</code> let&#39;s add:</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">if</span> (squareObj.classList.contains(<span class="hljs-string">"bomb"</span>)) {
+                <span class="hljs-attr">isGameOver</span> = <span class="hljs-literal">true</span>;
+                squareObj.<span class="hljs-attr">innerHTML</span> = <span class="hljs-string">"💥"</span>;
+            }
+            </code></pre>
+    <p>Once the game is over, we want to make the board stay put and no longer be clickable. So we can add a check to
+        <code>handleClick</code> to check if the game is over, and in that case return from the function early,
+        effectively stopping the click action. At the top of <code>handleClick</code> add
+        <code>if (isGameOver) return;</code>
+    </p>
+    <p>Refresh and check and let&#39;s test a few things now. Click some smiley faces, and these should still turn
+        green. Click a bomb and it should &quot;explode&quot;. Then click more smiley faces or bombs to confirm that no
+        click actions are happening now that the game is over. Finally click the reset button to reset the game and be
+        able to click in the game again.</p>
+    <h3 id="add-ability-to-check-neighbors">Add ability to check neighbors</h3>
+    <p>A key feature in minesweeper is to check how many bombs are next to the square you just clicked. This helps the
+        player know which square to click next or where a bomb might be. Each square that&#39;s not on an edge has eight
+        neighbors, and we can visualize how to access those neighbors by displaying their array index numbers instead of
+        the emojis.</p>
+    <p>We do still want to keeo track of where the bombs are, so let&#39;s add the following to the CSS file:</p>
+    <pre><code class="lang-css"><span class="hljs-selector-class">.bomb</span> {
+                <span class="hljs-attribute">background-color</span>: pink;
+            }
+            </code></pre>
+    <p>Now instead of adding emojis let&#39;s change the line in <code>createBoard</code> where we declare the
+        square&#39;s <code>innerHTML</code> to: <code>square.innerHTML = \`\${i}\`;</code></p>
+    <p>Also rather than adding the <code>i</code> as a class; we know these will be unique to each square and would be a
+        good candidate to set the squares&#39; <code>id</code> attributes to that <code>i</code> value. Under our
+        <code>square.innerHTML</code> line let&#39;s add: <code>square.id = \`\${i}\`;</code>
+    </p>
+    <p>When we refresh and check we should see the squares numbered 0-99 with 20 randomly-placed pink squares.</p>
+    <p>Now that we can see the numbers, we can examine how we can use those numbers to check each of the square&#39;s
+        neighbors. Let&#39;s look at square 12, it&#39;s neighbors are (top to bottom, left to right):
+        1, 2, 3, 11, 13, 21, 22, 23
+        In our case, the difference between each and 12 is:
+        -11, -10, -9, -1, +1, +9, +10, +11</p>
+    <p>Every board with 10 squared squares will follow this pattern, but for us wanting to choose any size in the
+        future, we can make the top and bottom neighbors relative to the <code>width</code> of the board. For example to
+        get 1 from an <code>index</code> of 12 we would say it is <code>index - width - 1</code> and extrapolate our
+        other neighbor values from that.</p>
+    <p>Let&#39;s add a <code>checkNeighbors</code> function above the <code>handleClick</code> function that looks like
+        this and then break that down:</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> checkNeighbors = <span class="hljs-function">(<span class="hljs-params">squareObj</span>) =&gt;</span> {
+                <span class="hljs-keyword">const</span> index = <span class="hljs-built_in">parseInt</span>(squareObj.id);
+                <span class="hljs-keyword">const</span> neighborIndexes = [
+                    index - width - <span class="hljs-number">1</span>,
+                    index - width,
+                    index - width + <span class="hljs-number">1</span>,
+                    index - <span class="hljs-number">1</span>,
+                    index + <span class="hljs-number">1</span>,
+                    index + width - <span class="hljs-number">1</span>,
+                    index + width,
+                    index + width + <span class="hljs-number">1</span>,
+                ];
+                <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;
+            
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> neighborId <span class="hljs-keyword">of</span> neighborIndexes) {
+                    <span class="hljs-keyword">const</span> neighbor = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">\`<span class="hljs-subst">\${neighborId}</span>\`</span>);
+                    <span class="hljs-keyword">if</span> (neighbor &amp;&amp; neighbor.classList.contains(<span class="hljs-string">"bomb"</span>)) {
+                        count++;
+                    }
+                }
+            
+                squareObj.innerHTML = <span class="hljs-string">\`<span class="hljs-subst">\${count}</span>\`</span>;
+            };
+            </code></pre>
+    <p>There are three steps to this function:</p>
+    <ul>
+        <li>Establish our constants and variables</li>
+        <li>For each neighbor in the array, increment the <code>count</code> when that neighbor has a bomb</li>
+        <li>Set the <code>innerHTML</code> of the clicked square to be the <code>count</code></li>
+    </ul>
+    <p>And then of course we have to call <code>checkNeighbors</code> as part of our <code>handleClick</code> function.
+        So we&#39;ll add <code>checkNeighbors(squareObj);</code> within the <code>if</code> block where we check if the
+        square is not clicked.</p>
+    <p>When we refresh and check now, we should be able to click any non-pink square and be shown the number of pink
+        squares next to each clicked square.</p>
+    <img src="./assets/images/blog/minesweeper08.jpg"
+        alt="Our Minesweeper board with a few green selected squares that show how many bombs are next to them" />
+    <h3 id=" fix-counting-for-squares-at-edges">Fix counting for squares at edges</h3>
+    <p>Our function to check neighbors is working pretty well, but if you can find a board configuration where a square
+        on the left edge has a pink square in the right-most square of the row above or a square on the right has a pink
+        square on the left-most square of the row below, you may notice that the count has too many bombs in it.</p>
+    <p>From the user perspective a square on an edge only has five neighbors, and a corner square only has three. But
+        our array-based method has a drawback: It doesn&#39;t know where the edges are. An array has no concept of
+        edges. It is only a line of numbers we tricked into forming rows. So we will have to add a way to check the
+        edges in our <code>checkNeighbors</code> function.</p>
+    <p>Because we are asking the DOM for elements with specific IDs (the <code>neighbor</code> in the loop above) if it
+        doesn&#39;t exist then it will return <code>undefined</code>. Naturally, an <code>undefined</code> object
+        won&#39;t have a &quot;bomb&quot; and will not increment our <code>count</code>. For example, if we&#39;re on
+        square &quot;94&quot; it&#39;s nonexistent lower neighbors would be 103, 104, &amp; 105 and would return
+        <code>undefined</code> when we try to <code>getElementById</code> for those values.
+    </p>
+    <p>However, for square &quot;90&quot; its left neighbors are 79, 89, &amp; 99, which all exist, but are all over on
+        the right side of the board, and for our gameplay need to not be checked. For the purposes of this tutorial and
+        showing the concept we will check for all the edges. This will also make our loop skip unnecessary checks and
+        make it more efficient, even if by a little.</p>
+    <p>So let&#39;s define some edges. Top and bottom will be pretty easy since those are rows made of consecutive
+        numbers and we have a constant defined for how big our rows are. The top row is
+        <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</code>, so we know that they are all less than 10. But like above, we want
+        our boards to be variably sized and don&#39;t want to update this check every time, so we can use the
+        <code>width</code> constant. We know our square is on the top edge if <code>index &lt; width</code>.
+    </p>
+    <p>Likewise we know that the bottom row indeces (<code>90, 91, 92, 93, 94, 95, 96, 97, 98, 99</code>) are all within
+        one <code>width</code> of 100. We are storing 100 in the constant <code>boardSize</code> that we haven&#39;t
+        used in a while. So we know a square is in the bottom row if <code>index &gt;= boardSize - width</code>.</p>
+    <p>So we can add to our <code>checkNeighbors</code> function after we define our <code>index</code> but before we
+        define the <code>neighborIndexes</code> the following:</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> topEdge = index &lt; <span class="hljs-built_in">width</span>;
+            <span class="hljs-keyword">const</span> bottomEdge = index &gt;= boardSize - <span class="hljs-built_in">width</span>;
+            </code></pre>
+    <p>The right and left edges will also be kind of paired so let&#39;s look at the numbers for our 10x10 grid:</p>
+    <pre><code><span class="hljs-symbol">Left:</span> <span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>, <span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>
+            <span class="hljs-symbol">Right:</span> <span class="hljs-number">9</span>, <span class="hljs-number">19</span>, <span class="hljs-number">29</span>, <span class="hljs-number">39</span>, <span class="hljs-number">49</span>, <span class="hljs-number">59</span>, <span class="hljs-number">69</span>, <span class="hljs-number">79</span>, <span class="hljs-number">89</span>, <span class="hljs-number">99</span>
+            </code></pre>
+    <p>The &quot;ones&quot; digit of each number has the same value. This looks like multiples of 10 (and 0) and numbers
+        that are each 1 off of multiples of 10. For multiples of any number we can check the <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder">modulo</a> of
+        that number.</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> leftEdge = index % <span class="hljs-built_in">width</span> === <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">const</span> rightEdge = (index + <span class="hljs-number">1</span>) % <span class="hljs-built_in">width</span> === <span class="hljs-number">0</span>;
+            </code></pre>
+    <p>Note: Those parens in <code>rightEdge</code> are key if you are using Prettier for formatting because it loves
+        autoformatting to <code>index + (1 % width)</code> which will never work how you want and only lead to
+        frustration. But also because modulo comes before addition in the order of operations and the parens help give
+        you control.</p>
+    <p>So once these four get added we will want to change our <code>neighborIndexes</code> to include our edge checks.
+        While I feel like this next part was pretty clever, clever solutions make me nervous:</p>
+    <p><code>Everyone knows that debugging is twice as hard as writing a program in the first place. So if you&#39;re as clever as you can be when you write it, how will you ever debug it?</code>
+        - <a href="http://www.linusakesson.net/programming/kernighans-lever/">Kernighan&#39;s lever</a></p>
+    <p>We&#39;ll be changing <code>neighborIndexes</code> to be a 2D array (an array full of arrays), each inner array
+        will be a pair of values being: the edge check logic and the index of that neighbor. In this case we&#39;ll also
+        rename the constant to <code>neighborEdgesAndIndexes</code> though this likely still needs a better name.</p>
+    <pre><code class="lang-js">const neighborEdgesAndIndexes = [
+                [ !leftEdge &amp;&amp; !topEdge    , index - width - <span class="hljs-number">1</span> ],
+                [ !topEdge                 , index - width     ],
+                [ !rightEdge &amp;&amp; !topEdge   , index - width + <span class="hljs-number">1</span> ],
+                [ !leftEdge                , index - <span class="hljs-number">1</span>         ],
+                [ !rightEdge               , index + <span class="hljs-number">1</span>         ],
+                [ !leftEdge &amp;&amp; !bottomEdge , index + width - <span class="hljs-number">1</span> ],
+                [ !bottomEdge              , index + width     ],
+                [ !rightEdge &amp;&amp; !bottomEdge, index + width + <span class="hljs-number">1</span> ],
+            ];
+            </code></pre>
+    <p>Most of my trepidation with this constant is that it looks pretty intimidating at first glance, but I did give it
+        some whitespace here to make it a little clearer what&#39;s what. What I like about it is how it gets used in
+        our loop for each neighbor, because we&#39;ll be using destructuring! Instead of just <code>neighborId</code>,
+        we&#39;ll have <code>shouldCheck and neighborId</code> and make it very easy to skip if we should not check.</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [shouldCheck, neighborId] <span class="hljs-keyword">of</span> neighborEdgesAndIndexes) {
+                <span class="hljs-keyword">if</span> (!shouldCheck) <span class="hljs-keyword">continue</span>;
+                <span class="hljs-keyword">const</span> neighbor = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">\`<span class="hljs-subst">\${neighborId}</span>\`</span>);
+                <span class="hljs-keyword">if</span> (neighbor &amp;&amp; neighbor.classList.contains(<span class="hljs-string">"bomb"</span>)) {
+                    count++;
+                }
+            }
+            </code></pre>
+    <p>Note: On second look, the <code>shouldCheck</code> value is a bit of a double negative how we&#39;re using it.
+        Rather than all those <code>!</code>s in the arrays and the <code>!</code> in the <code>if</code>, we could
+        remove all the <code>!</code>s and rename <code>shouldCheck</code> to <code>shouldNotCheck</code> or
+        <code>shouldSkip</code>.
+    </p>
+    <p>Now with a refresh and check we should see accurate counts of pink squares when we click on the non-pink squares.
+        We should check corners and edges to make sure they work as expected.</p>
+    <img src="./assets/images/blog/minesweeper09.jpg"
+        alt="Our Minesweeper board with a few green selected squares that show the correct counts of bombs at the edges" />
+    <h3 id="add-recursive-calls-if-square-is-zero">Add recursive calls if square is zero</h3>
+    <p>One of the more satisfying parts about playing minesweeper is clicking on an empty square with no bombs
+        surrounding it because it then reveals all its neighbors and if those neighbors are empty then <strong>each of
+            those neaighbors&#39;</strong> neighbors are revealed and then <strong>each of THOSE
+            neaighbors&#39;</strong> neighbors are revealed and so on. When we see a pattern like that it&#39;s probably
+        a good case for recursion!</p>
+    <p>Note: Recursion can be a scary concept and in our case the recursion will be a little removed but is still there.
+        One thing to remember with recursion is that we want to avoid infinite loops and thus need an exit condition.
+        Luckily we already have one built in, and I&#39;ll explain below.</p>
+    <p>Let&#39;s add the following chunk after the <code>for</code> loop where we increment the <code>count</code>:</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">if</span> (count === <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [shouldCheck, neighborId] <span class="hljs-keyword">of</span> neighborEdgesAndIndexes) {
+                    <span class="hljs-keyword">if</span> (!shouldCheck) <span class="hljs-keyword">continue</span>;
+                    <span class="hljs-keyword">const</span> neighbor = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">\`<span class="hljs-subst">\${neighborId}</span>\`</span>);
+                    handleClick(neighbor);
+                }
+            }
+            </code></pre>
+    <p>What does this loop do? If the count for this square is 0, loop over each of its neighbors, if we should check
+        them, and run <code>handleClick</code> on that neighbor. <code>handleClick</code> will check if the neighbor has
+        already been clicked and if not, will run <code>checkNeighbors</code> on it. This is our recursive call:
+        <code>checkNeighbors</code> will call <code>handleClick</code> on those neighbors it&#39;s checking which will
+        call <code>checkNeighbors</code> which will call <code>handleClick</code> and so on until all the 0s and their
+        neighbors have been clicked.
+    </p>
+    <p>Above I mentioned we have a buit in exit condition for our recursion, which is that in <code>handleClick</code>,
+        this only calls <code>checkNeighbors</code> if the square hasn&#39;t been clicked. If it has been, then we end
+        the function there. This prevents a square checking all eight of its neighbors and then those neighbors checking
+        the original square that checked them causing an infinite loop.</p>
+    <p>Refresh and check by clicking on a square with no pink squares around it so we can see all those 0s appear!
+        Groups of 0s should now show up like little seas with continents of bombs with shores of 1s and 2s.</p>
+    <img src="./assets/images/blog/minesweeper10.jpg"
+        alt="Our Minesweeper board with many green selected squares showing that many squares have zero bombs next to them" />
+    <h3 id="refactor-our-repeated-loops-into-own-function">Refactor our repeated loops into own function</h3>
+    <p>Eagle-eyed learners will notice that we have two nearly identical loops. stepping through neighbors and doing
+        something to them. The principle of <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY code
+            (Don&#39;t repeat yourself)</a> tells us this loop should be its own function that gets called multiple
+        times to make our code easier to read, debug, and develop in the future.</p>
+    <p>Let&#39;s start by writing out what code is shared in both loops:</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [shouldCheck, neighborId] <span class="hljs-keyword">of</span> neighborEdgesAndIndexes) {
+                <span class="hljs-keyword">if</span> (!shouldCheck) <span class="hljs-keyword">continue</span>;
+                <span class="hljs-keyword">const</span> neighbor = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">\`<span class="hljs-subst">\${neighborId}</span>\`</span>);
+                <span class="hljs-comment">// Some stuff we want to do to the neighbor</span>
+            }
+            </code></pre>
+    <p>We do still want access to <code>neighborEdgesAndIndexes</code> so we should keep our new function inside
+        <code>checkNeighbors</code> and I think we should declare our new function in between where we declare
+        <code>neighborEdgesAndIndexes</code> and where we declare <code>count</code>:
+    </p>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> doForEachNeighbor = <span class="hljs-function">(<span class="hljs-params">callBack</span>) =&gt;</span> {
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [shouldCheck, neighborId] <span class="hljs-keyword">of</span> neighborEdgesAndIndexes) {
+                    <span class="hljs-keyword">if</span> (!shouldCheck) <span class="hljs-keyword">continue</span>;
+                    <span class="hljs-keyword">const</span> neighbor = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">\`<span class="hljs-subst">\${neighborId}</span>\`</span>);
+                    callBack(neighbor);
+                }
+            };
+            </code></pre>
+    <p>Where we want to &quot;do stuff&quot; to the neighbor, we will use a <code>callBack</code> function or one that
+        we give as an argument to our new function. And when we call <code>doForEachNeighbor</code>, we will have to set
+        a parameter that will accept <code>neighbor</code> as an argument in our callbacks. This is starting to sound
+        like recursion again, but it really is just an oddity of callback functions.</p>
+    <p>So instead of our two loops, let&#39;s replace them with:</p>
+    <pre><code class="lang-js">doForEachNeighbor(<span class="hljs-function"><span class="hljs-params">(neighborObj)</span> =&gt;</span> {
+                <span class="hljs-keyword">if</span> (neighborObj.classList.contains(<span class="hljs-string">"bomb"</span>)) {
+                    count++;
+                }
+            });
+            <span class="hljs-keyword">if</span> (count === <span class="hljs-number">0</span>) {
+                doForEachNeighbor(<span class="hljs-function"><span class="hljs-params">(neighborObj)</span> =&gt;</span> handleClick(neighborObj));
+            }
+            </code></pre>
+    <p>And let&#39;s break this down. First we call <code>doForEachNeighbor</code> and our anonymous callback accepts a
+        <code>neighborObj</code> parameter and checks if that <code>neighborObj</code> contains a bomb class. If it
+        does, it increments the count. Once that&#39;s complete, if <code>count</code> is 0, we call
+        <code>doForEachNeighbor</code> again, but this time, we pass in an anonymous function that also accepts a
+        <code>neighborObj</code> parameter and calls <code>handleClick</code> on that <code>neighborObj</code>.
+    </p>
+    <p>Like I wrote up above, refactoring means changing our code but that the functionality remains the same as before
+        we changed anything. So let&#39;s refresh and check and make sure that everything is still working as before.
+    </p>
+    <h3 id="show-number-only-if-count-is-greater-than-0">Show number only if count is greater than 0</h3>
+    <p>Now that we have the ability to show empty areas of the board with our recursive checks, let&#39;s make the board
+        a little less noisy. Rather than showing <code>0</code> in squares that have no bombs as neighbors, let&#39;s
+        only show the <code>count</code> if the <code>count</code> is greater than 0. So then these empty areas will
+        also be visually empty and the board will be easier to look at.</p>
+    <p>To do this let&#39;s cut <code>squareObj.innerHTML = \`\${count}\`;</code> from the bottom of
+        <code>checkNeighbors</code>. We&#39;ll then change our <code>if (count === 0)</code> block to be:
+    </p>
+    <pre><code class="lang-js"><span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">0</span>) {
+                squareObj.innerHTML = \`<span class="javascript">\${count}</span>\`;
+            } <span class="hljs-keyword">else</span> {
+                doForEachNeighbor(<span class="hljs-function"><span class="hljs-params">(neighborObj)</span> =&gt;</span> handleClick(neighborObj));
+            }
+            </code></pre>
+    <p>So now, we will only print the <code>count</code> if it actually indicates a nearby bomb and otherwise just let
+        the squares be empty. This will cut down on visual overload to the player.</p>
+    <p>Another bit of visual overload we can remove is our <code>index</code> values since we only needed that to write
+        and debug <code>checkNeighbors</code>. So remove <code>square.innerHTML = \`\${i}\`;</code> from the
+        <code>createBoard</code> function.
+    </p>
+    <p>When we refresh and check we should see blank squares but still be able to identify our bombs by the pink squares
+        they&#39;re sitting in. Now the game should be much easier to parse. Also if the black-text-on-green-squares
+        bother you, you can also add <code>color: white;</code> to the <code>.clicked</code> block in the CSS.</p>
+    <img src="./assets/images/blog/minesweeper11.jpg"
+        alt="Our Minesweeper boardthat only shows numbers for squares with known bomb counts of more than zero" />
+    <h3 id="add-difficulty-settings">Add difficulty settings</h3>
+    <p>Next it makes sense to me to add some difficulty settings to our game. Yes, this may seem early since our player
+        cannot actually win yet, so why add multiple difficulties? To make testing easier too. Later when we add flags,
+        20 flags are a lot to place over and over.</p>
+    <p>Different implementations of the game had different settings but for a board of 100, it seems to me to make sense
+        that &quot;easy&quot; have 10 bombs, &quot;medium&quot; have 20, and &quot;hard&quot; have 40. But on different
+        sized boards those may be way too many or too little, so let&#39;s set this up with a ratio instead.</p>
+    <p>An object make sense to store these values so instead of setting <code>bombCount</code> as <code>20</code>,
+        let&#39;s declare: </p>
+    <pre><code class="lang-js">const <span class="hljs-keyword">bombCount </span>= { 
+            <span class="hljs-symbol">    easy:</span> <span class="hljs-keyword">boardSize </span>* .<span class="hljs-number">1</span>,
+            <span class="hljs-symbol">    medium:</span> <span class="hljs-keyword">boardSize </span>* .<span class="hljs-number">2</span>,
+            <span class="hljs-symbol">    hard:</span> <span class="hljs-keyword">boardSize </span>* .<span class="hljs-number">4</span> 
+            }<span class="hljs-comment">;</span>
+            let <span class="hljs-keyword">difficulty </span>= <span class="hljs-string">"easy"</span><span class="hljs-comment">;</span>
+            </code></pre>
+    <p>Now in our loop where we populate <code>squareValues</code> we&#39;ll check if
+        <code>i &lt; bombCount[difficulty]</code>. Also this loop is a little odd sitting between our constants and our
+        DOM elements, especially since we will want to create the array more than just on loading now. We will want to
+        build this array every time we reset the game, so let&#39;s add it to the end of <code>resetGame</code>!
+    </p>
+    <p>If we refresh and check everything should work the same, except that when we hit reset, will will have too many
+        extra squares! This is because that loop is just pushing new values into the array and the array isn&#39;t
+        actually be reset to empty. We got away with this before since we were also scrambling the array with
+        <code>shuffleValues</code> everytime the board was created.
+    </p>
+    <p>To fix this we just have to add <code>squareValues.length = 0;</code> right before the loop which effectively
+        deletes all the elements in the <code>squareValues</code> array.</p>
+    <p>Okay now that we have the ability to build different difficulties, let&#39;s add a way for the player to choose
+        their difficulty. In the HTML (which we haven&#39;t touched in a while), lets add the following between the
+        reset button and the board <code>div</code>:</p>
+    <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"easy"</span>&gt;</span>Easy<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"medium"</span>&gt;</span>Medium<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hard"</span>&gt;</span>Hard<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            </code></pre>
+    <p>Then back in our <code>js</code> file, we&#39;ll add the following after we declare <code>board</code> and
+        <code>reset</code>:
+    </p>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> easy = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"easy"</span>);
+            <span class="hljs-keyword">const</span> medium = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"medium"</span>);
+            <span class="hljs-keyword">const</span> hard = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"hard"</span>);
+            </code></pre>
+    <p>So now we have the buttons and a way to access them, so we&#39;ll write a simple function that takes in a string,
+        sets the <code>difficulty</code> to that string, and immediately creates the board anew:</p>
+    <pre><code class="lang-js">const setDifficultyAndReset = (<span class="hljs-keyword">difficultyStr) </span>=&gt; {
+                <span class="hljs-keyword">difficulty </span>= <span class="hljs-keyword">difficultyStr;
+            </span>    createBoard()<span class="hljs-comment">;</span>
+            }<span class="hljs-comment">;</span>
+            </code></pre>
+    <p>Finally we have to call <code>setDifficultyAndReset</code> whenever those buttons are clicked: so between the
+        <code>reset.addEventListener</code> and the <code>createBoard</code> call at the bottom of the <code>js</code>
+        file add:
+    </p>
+    <pre><code class="lang-js">easy.addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> setDifficultyAndReset(<span class="hljs-string">"easy"</span>));
+            medium.addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> setDifficultyAndReset(<span class="hljs-string">"medium"</span>));
+            hard.addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> setDifficultyAndReset(<span class="hljs-string">"hard"</span>));
+            </code></pre>
+    <p>Let&#39;s do a refresh and check to make sure that our reset button still works, we can click squares and rest as
+        many times as we like. Then each of the difficulty buttons also reset the game and we can see they change the
+        number of bombs (by roughly counting the pink squares).</p>
+    <img src="./assets/images/blog/minesweeper12.jpg"
+        alt="Our Minesweeper board alongside the reset, easy, medium, and hard difficulty buttons" />
+        <h3>Part 3 coming soon!</h3>
+        <p>Add the <a href="https://travissouthard.com/rss.xml" target="_blank">RSS feed</a> to your favorite RSS reader to get it as soon as it comes out!</p>
+            `,
+            altText:
+                "Our partially done Minesweeper game with blank squares, some pink ones, and an array of buttons reading 'reset', 'easy', 'medium', and 'hard'",
+            public: true,
+            lastUpdated: Date.parse("Oct 15 2023"),
         },
     ],
 };
