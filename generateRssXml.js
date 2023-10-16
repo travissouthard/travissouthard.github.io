@@ -114,6 +114,7 @@ const createItemsFromPosts = (posts) => {
             <description>${encodeDescriptionFromPost(post)}</description>
             <link>${link}</link>
             <pubDate>${pubDate.toUTCString()}</pubDate>
+            <guid>${link}</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>`;
         items.push(item);

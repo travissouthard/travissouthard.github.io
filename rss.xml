@@ -15,8 +15,8 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Mon, 16 Oct 2023 02:23:17 GMT</pubDate>
-    <lastBuildDate>Mon, 16 Oct 2023 02:23:17 GMT</lastBuildDate>
+    <pubDate>Mon, 16 Oct 2023 02:44:36 GMT</pubDate>
+    <lastBuildDate>Mon, 16 Oct 2023 02:44:36 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
@@ -439,6 +439,7 @@
             </description>
             <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2</link>
             <pubDate>Sun, 15 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -645,6 +646,7 @@ createBoard();
             </description>
             <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1</link>
             <pubDate>Sun, 08 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -717,6 +719,7 @@ createBoard();
             </description>
             <link>https://travissouthard.com/blog.html?post=september-updates-and-october-upcoming</link>
             <pubDate>Sun, 01 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=september-updates-and-october-upcoming</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -781,6 +784,7 @@ createBoard();
       </description>
             <link>https://travissouthard.com/blog.html?post=web-development-streams-coming-soon</link>
             <pubDate>Sun, 24 Sep 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=web-development-streams-coming-soon</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -797,6 +801,7 @@ createBoard();
                 clients to better find work, housing, and services.&lt;/p&gt;</description>
             <link>https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement</link>
             <pubDate>Mon, 11 Sep 2023 04:00:00 GMT</pubDate>
+            <guid>https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -852,6 +857,7 @@ createBoard();
       </description>
             <link>https://travissouthard.com/blog.html?post=cautiously-considering-creating-content</link>
             <pubDate>Mon, 31 Jul 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=cautiously-considering-creating-content</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -898,6 +904,7 @@ createBoard();
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/pull/23&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/blog.html?post=now-with-permalinks</link>
             <pubDate>Tue, 27 Jun 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=now-with-permalinks</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -964,6 +971,7 @@ createBoard();
       </description>
             <link>https://travissouthard.com/blog.html?post=i-need-a-better-routine</link>
             <pubDate>Fri, 16 Jun 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=i-need-a-better-routine</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1031,6 +1039,7 @@ createBoard();
       See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places/pull/10&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/blog.html?post=solved-a-tricky-for-me-docker-compose-error</link>
             <pubDate>Thu, 15 Jun 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=solved-a-tricky-for-me-docker-compose-error</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1049,6 +1058,7 @@ createBoard();
         project.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://codeforphilly.org/projects/third_places_project-launchpad_2023</link>
             <pubDate>Wed, 10 May 2023 04:00:00 GMT</pubDate>
+            <guid>https://codeforphilly.org/projects/third_places_project-launchpad_2023</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1083,6 +1093,7 @@ createBoard();
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/blog.html?post=brand-new-rss-feed</link>
             <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=brand-new-rss-feed</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1093,6 +1104,7 @@ createBoard();
   &lt;p&gt;A demo project by Azavea (now Element 84) developers to show Bipartisan Infrastructure Bill Spending by state.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/azavea/green-equity-demo&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://github.com/azavea/green-equity-demo</link>
             <pubDate>Wed, 19 Apr 2023 04:00:00 GMT</pubDate>
+            <guid>https://github.com/azavea/green-equity-demo</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1103,6 +1115,7 @@ createBoard();
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=1-bit-beach-scene</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-beach-scene</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1113,6 +1126,7 @@ createBoard();
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=32x32-self-portrait</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=32x32-self-portrait</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1123,6 +1137,7 @@ createBoard();
   &lt;p&gt;A repository of the work that fellow Azavea co-workers and I went through to learn computer science fundamentals.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/azavea/cs-fundamentals-group&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://github.com/azavea/cs-fundamentals-group</link>
             <pubDate>Tue, 31 Jan 2023 05:00:00 GMT</pubDate>
+            <guid>https://github.com/azavea/cs-fundamentals-group</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1134,6 +1149,7 @@ createBoard();
         different debts pays down as you follow the plan&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/snowball/index.html</link>
             <pubDate>Fri, 13 Jan 2023 05:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/snowball/index.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1157,6 +1173,7 @@ createBoard();
       </description>
             <link>https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/</link>
             <pubDate>Tue, 06 Dec 2022 05:00:00 GMT</pubDate>
+            <guid>https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1167,6 +1184,7 @@ createBoard();
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=crt-flower</link>
             <pubDate>Sun, 06 Nov 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=crt-flower</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1177,6 +1195,7 @@ createBoard();
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=house-portrait</link>
             <pubDate>Sun, 30 Oct 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=house-portrait</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1187,6 +1206,7 @@ createBoard();
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=1-bit-self-portrait</link>
             <pubDate>Sun, 16 Oct 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-self-portrait</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1197,6 +1217,7 @@ createBoard();
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=1-bit-mushroom</link>
             <pubDate>Mon, 10 Oct 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-mushroom</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1208,6 +1229,7 @@ createBoard();
         each other and combining as they get close together.&lt;/p&gt;See the &lt;a href=&quot;https://editor.p5js.org/travissouthard/sketches/Fq_vEfA8O&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://editor.p5js.org/travissouthard/full/Fq_vEfA8O</link>
             <pubDate>Sat, 16 Jan 2021 05:00:00 GMT</pubDate>
+            <guid>https://editor.p5js.org/travissouthard/full/Fq_vEfA8O</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1218,6 +1240,7 @@ createBoard();
   &lt;p&gt;A clone of the classic computer game, Minesweeper.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/games/minesweeper&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/games/minesweeper/index.html</link>
             <pubDate>Sun, 30 Aug 2020 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/games/minesweeper/index.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1229,6 +1252,7 @@ createBoard();
         list for bike camping trips.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/bike_camping_PHL&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/bike_camping_PHL/index.html</link>
             <pubDate>Wed, 01 Jul 2020 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/bike_camping_PHL/index.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
 </channel>
