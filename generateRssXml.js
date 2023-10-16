@@ -87,7 +87,10 @@ const encodeDescriptionFromPost = (post) => {
   ${post.description}${codeLink}`;
     const encodeHtml = (html) => {
         // Convert relative img sources to absolute links first
-        html = html.replace(/(src)|(href)\=\"\./g, `src="${homeUrl}`);
+        html = html.replace(
+            /((img src)|(a href))\=(\\)?\"\./g,
+            `$1="${homeUrl}`
+        );
         for (let entity in htmlEntities) {
             html = html.replace(htmlEntities[entity], () => `&${entity};`);
         }
@@ -111,6 +114,7 @@ const createItemsFromPosts = (posts) => {
             <description>${encodeDescriptionFromPost(post)}</description>
             <link>${link}</link>
             <pubDate>${pubDate.toUTCString()}</pubDate>
+            <guid>${link}</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>`;
         items.push(item);

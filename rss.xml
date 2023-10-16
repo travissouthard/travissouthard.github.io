@@ -15,14 +15,14 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Thu, 12 Oct 2023 20:56:01 GMT</pubDate>
-    <lastBuildDate>Thu, 12 Oct 2023 20:56:01 GMT</lastBuildDate>
+    <pubDate>Mon, 16 Oct 2023 02:44:36 GMT</pubDate>
+    <lastBuildDate>Mon, 16 Oct 2023 02:44:36 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
             <title>How to make Minesweeper part 2</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/blog/minesweeper12.jpg&quot; alt=&quot;Our partially done Minesweeper game with blank squares, some pink ones, and an array of buttons reading &apos;reset&apos;, &apos;easy&apos;, &apos;medium&apos;, and &apos;hard&apos;&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper12.jpg&quot; alt=&quot;Our partially done Minesweeper game with blank squares, some pink ones, and an array of buttons reading &apos;reset&apos;, &apos;easy&apos;, &apos;medium&apos;, and &apos;hard&apos;&quot;/&gt;
       &lt;/a&gt;
   
             &lt;h3 id=&quot;how-to-make-minesweeper-part-2&quot;&gt;How to make Minesweeper part 2&lt;/h3&gt;
@@ -85,7 +85,7 @@
     &lt;p&gt;Refresh and check to make sure the reset button does what we expect. Right now the two ways to see if it&amp;#39;s
         working is to see the squares get rearranged. If there are any green squares from clicking on the board, those
         should also be cleared from the board during the reset.&lt;/p&gt;
-    &lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper07.jpg&quot;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper07.jpg&quot;
         alt=&quot;Our Minesweeper board with a few green selected squares and one exploded one&quot; /&gt;
     &lt;h3 id=&quot;add-game-over-condition-and-bomb-to-click-handler&quot;&gt;Add game over condition and bomb to click handler&lt;/h3&gt;
     &lt;p&gt;Let&amp;#39;s add some actual gameplay features! The one we&amp;#39;ll start with is getting a game over, which is not
@@ -179,7 +179,7 @@
         square is not clicked.&lt;/p&gt;
     &lt;p&gt;When we refresh and check now, we should be able to click any non-pink square and be shown the number of pink
         squares next to each clicked square.&lt;/p&gt;
-    &lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper08.jpg&quot;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper08.jpg&quot;
         alt=&quot;Our Minesweeper board with a few green selected squares that show how many bombs are next to them&quot; /&gt;
     &lt;h3 id=&quot; fix-counting-for-squares-at-edges&quot;&gt;Fix counting for squares at edges&lt;/h3&gt;
     &lt;p&gt;Our function to check neighbors is working pretty well, but if you can find a board configuration where a square
@@ -265,7 +265,7 @@
     &lt;/p&gt;
     &lt;p&gt;Now with a refresh and check we should see accurate counts of pink squares when we click on the non-pink squares.
         We should check corners and edges to make sure they work as expected.&lt;/p&gt;
-    &lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper09.jpg&quot;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper09.jpg&quot;
         alt=&quot;Our Minesweeper board with a few green selected squares that show the correct counts of bombs at the edges&quot; /&gt;
     &lt;h3 id=&quot;add-recursive-calls-if-square-is-zero&quot;&gt;Add recursive calls if square is zero&lt;/h3&gt;
     &lt;p&gt;One of the more satisfying parts about playing minesweeper is clicking on an empty square with no bombs
@@ -298,7 +298,7 @@
         the original square that checked them causing an infinite loop.&lt;/p&gt;
     &lt;p&gt;Refresh and check by clicking on a square with no pink squares around it so we can see all those 0s appear!
         Groups of 0s should now show up like little seas with continents of bombs with shores of 1s and 2s.&lt;/p&gt;
-    &lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper10.jpg&quot;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper10.jpg&quot;
         alt=&quot;Our Minesweeper board with many green selected squares showing that many squares have zero bombs next to them&quot; /&gt;
     &lt;h3 id=&quot;refactor-our-repeated-loops-into-own-function&quot;&gt;Refactor our repeated loops into own function&lt;/h3&gt;
     &lt;p&gt;Eagle-eyed learners will notice that we have two nearly identical loops. stepping through neighbors and doing
@@ -370,7 +370,7 @@
     &lt;p&gt;When we refresh and check we should see blank squares but still be able to identify our bombs by the pink squares
         they&amp;#39;re sitting in. Now the game should be much easier to parse. Also if the black-text-on-green-squares
         bother you, you can also add &lt;code&gt;color: white;&lt;/code&gt; to the &lt;code&gt;.clicked&lt;/code&gt; block in the CSS.&lt;/p&gt;
-    &lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper11.jpg&quot;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper11.jpg&quot;
         alt=&quot;Our Minesweeper boardthat only shows numbers for squares with known bomb counts of more than zero&quot; /&gt;
     &lt;h3 id=&quot;add-difficulty-settings&quot;&gt;Add difficulty settings&lt;/h3&gt;
     &lt;p&gt;Next it makes sense to me to add some difficulty settings to our game. Yes, this may seem early since our player
@@ -432,19 +432,20 @@
     &lt;p&gt;Let&amp;#39;s do a refresh and check to make sure that our reset button still works, we can click squares and rest as
         many times as we like. Then each of the difficulty buttons also reset the game and we can see they change the
         number of bombs (by roughly counting the pink squares).&lt;/p&gt;
-    &lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper12.jpg&quot;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper12.jpg&quot;
         alt=&quot;Our Minesweeper board alongside the reset, easy, medium, and hard difficulty buttons&quot; /&gt;
         &lt;h3&gt;Part 3 coming soon!&lt;/h3&gt;
         &lt;p&gt;Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader to get it as soon as it comes out!&lt;/p&gt;
             </description>
             <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2</link>
             <pubDate>Sun, 15 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>How to make Minesweeper part 1</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/blog/minesweeper06.jpg&quot; alt=&quot;Our partially done Minesweeper game with randomly placed bombs and safe squares&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper06.jpg&quot; alt=&quot;Our partially done Minesweeper game with randomly placed bombs and safe squares&quot;/&gt;
       &lt;/a&gt;
   
 &lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
@@ -492,7 +493,7 @@ touch &lt;span class=&quot;hljs-built_in&quot;&gt;index&lt;/span&gt;.html style.
 Open index.html in your browser. You can drag and drop the file into the browser or use &lt;code&gt;open index.html&lt;/code&gt; in your terminal or even use the &lt;code&gt;file://&lt;/code&gt; protocol if you’re feeling fancy.&lt;/p&gt;
 &lt;p&gt;This isn’t much of a website yet, and certainly not a game or stylish. But to get either of those qualities we need to connect our &lt;code&gt;app.js&lt;/code&gt; and &lt;code&gt;style.css&lt;/code&gt; files. To do so we need two lines in the head section of the html:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;style.css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src=&quot;https://travissouthard.com&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;app.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;app.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Then in the &lt;code&gt;style.css&lt;/code&gt; file we will need the following:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-tag&quot;&gt;h1&lt;/span&gt; {
@@ -504,7 +505,7 @@ Open index.html in your browser. You can drag and drop the file into the browser
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note: I want to establish a pattern here that whenever we add new code to our files, we should test it. In this case, we’ll refresh the browser to see what we changed. So each time we make a change I’ll refer to this step as “refresh and check”. Also, each section in this is designed to be its own commit (and the titles of the sections work as &lt;a href=&quot;https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/&quot;&gt;good commit messages&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;When we refresh and check, we should see our title on a pink background. To see the console.log message, we’ll have to right-click, and choose “inspect” from the context menu. If it’s your first time opening the inspector, welcome! Most browsers open by default to to the Elements inspector tab to let you see the html and css as it’s rendered on the page. And we’ll come back to that later. For now, let’s choose the Console tab and we should see our message!&lt;/p&gt;
-&lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper01.jpg&quot; alt=&quot;Our Minesweeper title with a pink background and message in the console&quot; /&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper01.jpg&quot; alt=&quot;Our Minesweeper title with a pink background and message in the console&quot; /&gt;
 &lt;h3 id=&quot;add-the-board-and-put-stuff-in-it&quot;&gt;Add the board and put stuff in it&lt;/h3&gt;
 &lt;p&gt;A key part of the minesweeper game is a board of squares on a grid. So let’s add a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element with the id: “board” (this will look like &lt;code&gt;&amp;lt;div id=&amp;quot;board&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;). A div by itself will not really do much. So we&amp;#39;ll add our squares with JavaScript.&lt;/p&gt;
 &lt;p&gt;There’s no prescriptive size that our “minefield” should be, and in fact many implementations use many different sizes, but a 10x10 grid has an appeal for both easy numbers and a nice size for playing.&lt;/p&gt;
@@ -523,7 +524,7 @@ Open index.html in your browser. You can drag and drop the file into the browser
 &lt;p&gt;Let&amp;#39;s check and refresh. Here we run into an interesting bit of trouble, there should be 100 numbers on the screen and there are none and an error is in the console telling us no element exists with an id of &amp;quot;board.&amp;quot; Code in HTML, CSS, and JS is read by the browser from top to bottom. The HTML file asks for the &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; to the style sheet in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; and then asks for the &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; containing the Javascript. Then once the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; is read and rendered, the browser executes the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; code.&lt;/p&gt;
 &lt;p&gt;This means that in this case the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; with the id of &amp;quot;board&amp;quot; hasn&amp;#39;t been rendered yet when the JavaScript is executed. There is a &lt;code&gt;window.load&lt;/code&gt; event we can ask for, but another way to handle this is to move the &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag to the bottom of the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; section. This way the Javascript is only run once the whole page is rendered.&lt;/p&gt;
 &lt;p&gt;Refresh and check again and we have 100 numbers in our &amp;quot;board&amp;quot;.&lt;/p&gt;
-&lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper02.jpg&quot; alt=&quot;Our Minesweeper title with a vertical list of increasing integers&quot; /&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper02.jpg&quot; alt=&quot;Our Minesweeper title with a vertical list of increasing integers&quot; /&gt;
 &lt;h3 id=&quot;style-the-board-to-be-square&quot;&gt;Style the board to be square&lt;/h3&gt;
 &lt;p&gt;Now we have 100 numbers in a weirdly long list, but that’s not much of a board. For a moment we will need to write some CSS. &lt;/p&gt;
 &lt;p&gt;Note: For a lot of engineers, CSS can be very daunting, especially where page layout is concerned. And yes there are many component libraries that will handle this for us, but those libraries compile or otherwise eventually render CSS. Therefore, knowing how CSS works natively, it will help us to diagnose and solve design and UX issues because they come up with libraries too.&lt;/p&gt;
@@ -556,7 +557,7 @@ Open index.html in your browser. You can drag and drop the file into the browser
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;A refresh and check should now show us a board with 100 squares arranged in a nice grid.&lt;/p&gt;
-&lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper03.jpg&quot; alt=&quot;Our Minesweeper title with a square of squares with numbers in them&quot; /&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper03.jpg&quot; alt=&quot;Our Minesweeper title with a square of squares with numbers in them&quot; /&gt;
 &lt;h3 id=&quot;make-the-squares-clickable&quot;&gt;Make the squares clickable&lt;/h3&gt;
 &lt;p&gt;Now that we have a grid, let&amp;#39;s make it interactive! This is typically an expectation of any video game. The &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document&quot;&gt;&lt;code&gt;document&lt;/code&gt; API&lt;/a&gt; has an &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener&quot;&gt;&lt;code&gt;addEventListener&lt;/code&gt; method&lt;/a&gt; that is incredibly useful for this. The best place to add these event listeners will be as we make each square. So let&amp;#39;s make our loop that creates the squares look like this.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;for (&lt;span class=&quot;hljs-name&quot;&gt;let&lt;/span&gt; i = &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;; i &amp;lt; 100; i++) {&lt;/span&gt;
@@ -578,7 +579,7 @@ Open index.html in your browser. You can drag and drop the file into the browser
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Refresh and check and click around the board. Any unclicked squares will change color now! However, as it&amp;#39;s written above, we are only adding a class if it&amp;#39;s not already there. If you&amp;#39;d like it to change the color back on the second click instead, try &lt;code&gt;square.classList.toggle(clickedClass)&lt;/code&gt;&lt;/p&gt;
-&lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper04.jpg&quot; alt=&quot;Our board now with green squares indicating which have been clicked&quot; /&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper04.jpg&quot; alt=&quot;Our board now with green squares indicating which have been clicked&quot; /&gt;
 &lt;h3 id=&quot;refactor-board-to-build-from-array-of-values&quot;&gt;Refactor board to build from array of values&lt;/h3&gt;
 &lt;p&gt;Now that we have a grid of 100 numbers ready to be built and clicked, let&amp;#39;s add some mines to our minefield! In our javascript, let&amp;#39;s create an array of 100 elements, with 20 bombs and 80 empties.&lt;/p&gt;
 &lt;p&gt;But what data should we put in this array? We have a lot of options, but since we are developing this as a webpage, adding classes to our square elements gives us an easy way to check if that square is a bomb (and then style it) by checking &lt;code&gt;square.classList.contains()&lt;/code&gt;.&lt;/p&gt;
@@ -618,7 +619,7 @@ createBoard();
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note: If you&amp;#39;re not familiar with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of&quot;&gt;for...of loops&lt;/a&gt;, they are very useful for iterating over every value in an array. Another option could be using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach&quot;&gt;&lt;code&gt;squareValues.forEach()&lt;/code&gt;&lt;/a&gt;, but in this case I prefer how the for...of loop looks.&lt;/p&gt;
 &lt;p&gt;Now when we refresh and check, we should see the 20 bomb icons in the top two rows of the board and the remaining of the board should be smiley faces.&lt;/p&gt;
-&lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper05.jpg&quot; alt=&quot;Our Minesweeper board with two rows of bombs and many others of smiley faces&quot; /&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper05.jpg&quot; alt=&quot;Our Minesweeper board with two rows of bombs and many others of smiley faces&quot; /&gt;
 &lt;h3 id=&quot;randomize-the-board-when-building&quot;&gt;Randomize the board when building&lt;/h3&gt;
 &lt;p&gt;Our minesweeper game is going to get very stale very fast if the board is always populated with all the bombs up at the very top. So let&amp;#39;s randomize the array we are building the board from each time we build the board.&lt;/p&gt;
 &lt;p&gt;Let&amp;#39;s make a &lt;code&gt;shuffleValues&lt;/code&gt; function and call it on the first line inside the &lt;code&gt;createBoard&lt;/code&gt; function.&lt;/p&gt;
@@ -639,18 +640,19 @@ createBoard();
 &lt;/ul&gt;
 &lt;p&gt;Note: Instead of the temp switch method, another option with ES6 is to use destructuring: &lt;code&gt;[squareValues[i], squareValues[randomIndex]] = [squareValues[randomIndex], squareValues[i]]&lt;/code&gt; to switch them in a single line. Both are valid, though neither are immediately better than the other so choose accordingly.&lt;/p&gt;
 &lt;p&gt;Refresh and check and now our values should be randomized for every time we refresh the page.&lt;/p&gt;
-&lt;img src=&quot;https://travissouthard.com=&quot;./assets/images/blog/minesweeper06.jpg&quot; alt=&quot;Our Minesweeper board with randomized bombs and smiley faces&quot; /&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper06.jpg&quot; alt=&quot;Our Minesweeper board with randomized bombs and smiley faces&quot; /&gt;
 &lt;h3&gt;Part 2 out now! Part 3 coming soon!&lt;/h3&gt;
 &lt;p&gt; Check out &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2&quot;&gt;part 2&lt;/a&gt; to build out most of the gameplay. Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader to get it as soon as it comes out&lt;/p&gt;
             </description>
             <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1</link>
             <pubDate>Sun, 08 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>September Updates and October Upcoming</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/blog/sunset-graveyard.jpg&quot; alt=&quot;Sunset over a local church and graveyard&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/sunset-graveyard.jpg&quot; alt=&quot;Sunset over a local church and graveyard&quot;/&gt;
       &lt;/a&gt;
   
             &lt;p&gt;
@@ -717,12 +719,13 @@ createBoard();
             </description>
             <link>https://travissouthard.com/blog.html?post=september-updates-and-october-upcoming</link>
             <pubDate>Sun, 01 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=september-updates-and-october-upcoming</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Web development streams coming soon!</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/blog/travis-flowers.jpg&quot; alt=&quot;Travis holding a bouquet of flowers in a field of flowers!&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/travis-flowers.jpg&quot; alt=&quot;Travis holding a bouquet of flowers in a field of flowers!&quot;/&gt;
       &lt;/a&gt;
   
             &lt;p&gt;
@@ -781,12 +784,13 @@ createBoard();
       </description>
             <link>https://travissouthard.com/blog.html?post=web-development-streams-coming-soon</link>
             <pubDate>Sun, 24 Sep 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=web-development-streams-coming-soon</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Expungement Petition Generator</title>
             <description>&lt;a href=&quot;https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/plse-expungement.png&quot; alt=&quot;Screenshot of the Expungement Petition Generator&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/plse-expungement.png&quot; alt=&quot;Screenshot of the Expungement Petition Generator&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;From the project page: The project we are 
                 currently working on is building out an expungement 
@@ -797,12 +801,13 @@ createBoard();
                 clients to better find work, housing, and services.&lt;/p&gt;</description>
             <link>https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement</link>
             <pubDate>Mon, 11 Sep 2023 04:00:00 GMT</pubDate>
+            <guid>https://codeforphilly.org/projects/philadelphia_lawyers_for_social_equity_-_record_expungement</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Cautiously considering creating content</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/blog/cityview.jpg&quot; alt=&quot;Gray buildings amongst green trees under a blue sky. A dithered pixel-art of a view of Fairmount, The Art Museum, the Schuylkill River, and the ridges beyond.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/cityview.jpg&quot; alt=&quot;Gray buildings amongst green trees under a blue sky. A dithered pixel-art of a view of Fairmount, The Art Museum, the Schuylkill River, and the ridges beyond.&quot;/&gt;
       &lt;/a&gt;
   
       &lt;p&gt;
@@ -852,12 +857,13 @@ createBoard();
       </description>
             <link>https://travissouthard.com/blog.html?post=cautiously-considering-creating-content</link>
             <pubDate>Mon, 31 Jul 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=cautiously-considering-creating-content</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Now with permalinks!</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/blog/permalink.png&quot; alt=&quot;A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/permalink.png&quot; alt=&quot;A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves.&quot;/&gt;
       &lt;/a&gt;
   
       &lt;p&gt;I have been trying to keep &lt;a href=&quot;https://travissouthard.com/&quot;&gt;this portfolio&lt;/a&gt; and its parts pretty simple
@@ -898,15 +904,16 @@ createBoard();
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/pull/23&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/blog.html?post=now-with-permalinks</link>
             <pubDate>Tue, 27 Jun 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=now-with-permalinks</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>I need a better routine</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/blog/raystown-camp.jpg&quot; alt=&quot;A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/raystown-camp.jpg&quot; alt=&quot;A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake.&quot;/&gt;
       &lt;/a&gt;
   
-      &lt;p&gt;I am still very much on &lt;a src=&quot;https://travissouthard.com/assets/Travis_Southard_Software_Engineer_Resume.pdf&quot; target=&quot;_blank&quot;&gt;the job
+      &lt;p&gt;I am still very much on &lt;a href=&quot;https://travissouthard.com/assets/Travis_Southard_Software_Engineer_Resume.pdf&quot; target=&quot;_blank&quot;&gt;the job
             search&lt;/a&gt;. I am actively seeking a full-time (though ideally 32-hours-a-week) software engineering position
         in civic technology with geospatial work. I have had some great conversations and opportunities so far and I
         hope I can find something I love very soon.&lt;/p&gt;
@@ -964,6 +971,7 @@ createBoard();
       </description>
             <link>https://travissouthard.com/blog.html?post=i-need-a-better-routine</link>
             <pubDate>Fri, 16 Jun 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=i-need-a-better-routine</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1031,12 +1039,13 @@ createBoard();
       See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places/pull/10&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/blog.html?post=solved-a-tricky-for-me-docker-compose-error</link>
             <pubDate>Thu, 15 Jun 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=solved-a-tricky-for-me-docker-compose-error</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>PhilaVibes</title>
             <description>&lt;a href=&quot;https://codeforphilly.org/projects/third_places_project-launchpad_2023&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/phila-vibes.png&quot; alt=&quot;Screenshot of the PhilaVibes project page on the Code for Philly website.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/phila-vibes.png&quot; alt=&quot;Screenshot of the PhilaVibes project page on the Code for Philly website.&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;PhilaVibes is a map application that helps people in 
         Philadelphia at point A with more time than they need to get to point B 
@@ -1049,6 +1058,7 @@ createBoard();
         project.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://codeforphilly.org/projects/third_places_project-launchpad_2023</link>
             <pubDate>Wed, 10 May 2023 04:00:00 GMT</pubDate>
+            <guid>https://codeforphilly.org/projects/third_places_project-launchpad_2023</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1083,57 +1093,63 @@ createBoard();
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/blog.html?post=brand-new-rss-feed</link>
             <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=brand-new-rss-feed</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Green Equity Demo</title>
             <description>&lt;a href=&quot;https://github.com/azavea/green-equity-demo&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/green-equity.png&quot; alt=&quot;Screenshot of the Green Equity Demo map showing BIL spending by state.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/green-equity.png&quot; alt=&quot;Screenshot of the Green Equity Demo map showing BIL spending by state.&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;A demo project by Azavea (now Element 84) developers to show Bipartisan Infrastructure Bill Spending by state.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/azavea/green-equity-demo&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://github.com/azavea/green-equity-demo</link>
             <pubDate>Wed, 19 Apr 2023 04:00:00 GMT</pubDate>
+            <guid>https://github.com/azavea/green-equity-demo</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-Bit Beach Scene</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/pixelart/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
       &lt;/a&gt;
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=1-bit-beach-scene</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-beach-scene</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>32x32 Self Portrait</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/pixelart/headshot-32.png&quot; alt=&quot;A low-color low-res pixel art portait of a man with a mustache&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/headshot-32.png&quot; alt=&quot;A low-color low-res pixel art portait of a man with a mustache&quot;/&gt;
       &lt;/a&gt;
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=32x32-self-portrait</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=32x32-self-portrait</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Azavea CS Fundamentals Group</title>
             <description>&lt;a href=&quot;https://github.com/azavea/cs-fundamentals-group&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/cs-fundamentals.png&quot; alt=&quot;Screenshot of the README from the CS fundamentals group repository.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/cs-fundamentals.png&quot; alt=&quot;Screenshot of the README from the CS fundamentals group repository.&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;A repository of the work that fellow Azavea co-workers and I went through to learn computer science fundamentals.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/azavea/cs-fundamentals-group&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://github.com/azavea/cs-fundamentals-group</link>
             <pubDate>Tue, 31 Jan 2023 05:00:00 GMT</pubDate>
+            <guid>https://github.com/azavea/cs-fundamentals-group</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Debt Snowball Calculator</title>
             <description>&lt;a href=&quot;https://travissouthard.com/snowball/index.html&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/debt-snowball.png&quot; alt=&quot;Screenshot of my debt snowball calculator app.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/debt-snowball.png&quot; alt=&quot;Screenshot of my debt snowball calculator app.&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;A debt snowball calculator with a chart showing how the 
         different debts pays down as you follow the plan&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/snowball/index.html</link>
             <pubDate>Fri, 13 Jan 2023 05:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/snowball/index.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1157,78 +1173,86 @@ createBoard();
       </description>
             <link>https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/</link>
             <pubDate>Tue, 06 Dec 2022 05:00:00 GMT</pubDate>
+            <guid>https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>CRT Flower</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/pixelart/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
       &lt;/a&gt;
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=crt-flower</link>
             <pubDate>Sun, 06 Nov 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=crt-flower</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>House Portrait</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/pixelart/house.png&quot; alt=&quot;A 4-color grayscale pixelart image of a rowhome&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/house.png&quot; alt=&quot;A 4-color grayscale pixelart image of a rowhome&quot;/&gt;
       &lt;/a&gt;
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=house-portrait</link>
             <pubDate>Sun, 30 Oct 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=house-portrait</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Self Portrait</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/pixelart/pixel-art-portrait.png&quot; alt=&quot;A 1-bit pixelart self portrait of a man using a keyboard&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/pixel-art-portrait.png&quot; alt=&quot;A 1-bit pixelart self portrait of a man using a keyboard&quot;/&gt;
       &lt;/a&gt;
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=1-bit-self-portrait</link>
             <pubDate>Sun, 16 Oct 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-self-portrait</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Mushroom</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/pixelart/mushroom.png&quot; alt=&quot;A 1-bit pixelart closeup image of a whitecap mushroom&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/mushroom.png&quot; alt=&quot;A 1-bit pixelart closeup image of a whitecap mushroom&quot;/&gt;
       &lt;/a&gt;
   </description>
             <link>https://travissouthard.com/pixelArt.html?post=1-bit-mushroom</link>
             <pubDate>Mon, 10 Oct 2022 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-mushroom</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Gravity Play</title>
             <description>&lt;a href=&quot;https://editor.p5js.org/travissouthard/full/Fq_vEfA8O&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/gravity-play.png&quot; alt=&quot;Screenshot of small colorful planets orbiting each other in a gravity simulation.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/gravity-play.png&quot; alt=&quot;Screenshot of small colorful planets orbiting each other in a gravity simulation.&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;A small 2D simulation of particles enacting gravity on 
         each other and combining as they get close together.&lt;/p&gt;See the &lt;a href=&quot;https://editor.p5js.org/travissouthard/sketches/Fq_vEfA8O&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://editor.p5js.org/travissouthard/full/Fq_vEfA8O</link>
             <pubDate>Sat, 16 Jan 2021 05:00:00 GMT</pubDate>
+            <guid>https://editor.p5js.org/travissouthard/full/Fq_vEfA8O</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Minesweeper Clone</title>
             <description>&lt;a href=&quot;https://travissouthard.com/games/minesweeper/index.html&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/minesweeper.png&quot; alt=&quot;Screenshot of my Minesweeper game.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/minesweeper.png&quot; alt=&quot;Screenshot of my Minesweeper game.&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;A clone of the classic computer game, Minesweeper.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/games/minesweeper&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/games/minesweeper/index.html</link>
             <pubDate>Sun, 30 Aug 2020 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/games/minesweeper/index.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>Bike Camping PHL</title>
             <description>&lt;a href=&quot;https://travissouthard.com/bike_camping_PHL/index.html&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com=&quot;https://travissouthard.com/assets/images/projects/bike_camping_phl.png&quot; alt=&quot;Screenshot of my Bike Camping PHL checklist app.&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/projects/bike_camping_phl.png&quot; alt=&quot;Screenshot of my Bike Camping PHL checklist app.&quot;/&gt;
       &lt;/a&gt;
   &lt;p&gt;A Philadelphia-specific weather based packing 
         list for bike camping trips.&lt;/p&gt;See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/bike_camping_PHL&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
             <link>https://travissouthard.com/bike_camping_PHL/index.html</link>
             <pubDate>Wed, 01 Jul 2020 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/bike_camping_PHL/index.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
 </channel>
