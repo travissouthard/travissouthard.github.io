@@ -15,10 +15,401 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Mon, 16 Oct 2023 02:44:36 GMT</pubDate>
-    <lastBuildDate>Mon, 16 Oct 2023 02:44:36 GMT</lastBuildDate>
+    <pubDate>Sun, 22 Oct 2023 14:55:55 GMT</pubDate>
+    <lastBuildDate>Sun, 22 Oct 2023 14:55:55 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>How to make Minesweeper part 3</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper19.jpg&quot; alt=&quot;Our fully done Minesweeper game with styling to make it look like cut stone.&quot;/&gt;
+      &lt;/a&gt;
+  
+            &lt;h3 id=&quot;how-to-make-minesweeper-part-2&quot;&gt;How to make Minesweeper part 3&lt;/h3&gt;
+    &lt;p&gt;This is the final part of this 3-part series! I recommend starting with &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1&quot;&gt;part 1&lt;/a&gt; and also working through &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2&quot;&gt;part 2&lt;/a&gt; before moving on
+        to this one. If you have already worked through parts 1 and 2, welcome back! In the previous parts, we built a board of
+        100 squares with variable amount of bombs depending on the difficulty, randomized them around the board, and gave the player ways to find those bombs. In this part we will finish the gameplay, including adding the win condition and styling the board to look nice.&lt;/p&gt;
+            &lt;h3 id=&quot;show-all-bombs-when-one-is-clicked&quot;&gt;Show all bombs when one is clicked&lt;/h3&gt;
+&lt;p&gt;Another feature of Minesweeper is that when the player clicks a bomb, we want to show them all the bombs so that they can see where they made their mistake. So in &lt;code&gt;handleClick&lt;/code&gt; let&amp;#39;s add the following to our &lt;code&gt;if (squareObj.classList.contains(&amp;quot;bomb&amp;quot;))&lt;/code&gt; block between setting &lt;code&gt;isGameOver&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; and setting the clicked bomb to an explosion:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;const &lt;span class=&quot;hljs-keyword&quot;&gt;bombs &lt;/span&gt;= document.querySelectorAll(&lt;span class=&quot;hljs-string&quot;&gt;&quot;.bomb&quot;&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;hljs-keyword&quot;&gt;bombs.forEach((bomb) &lt;/span&gt;=&amp;gt; {
+    &lt;span class=&quot;hljs-keyword&quot;&gt;bomb.innerHTML &lt;/span&gt;= &lt;span class=&quot;hljs-string&quot;&gt;&quot;💣&quot;&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;hljs-keyword&quot;&gt;bomb.classList.add(&quot;clicked&quot;);
+&lt;/span&gt;})&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll&quot;&gt;&lt;code&gt;document.querySelectorAll&lt;/code&gt;&lt;/a&gt; method is pretty powerful. It takes a CSS selector string as an argument (e.g. &lt;code&gt;.clicked&lt;/code&gt; for the clicked class, &lt;code&gt;p&lt;/code&gt; for paragraph elements) and returns a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/NodeList&quot;&gt;&lt;code&gt;NodeList&lt;/code&gt;&lt;/a&gt; which acts &lt;strong&gt;kind of&lt;/strong&gt; like an array and has many of the same methods and properties as an array like &lt;code&gt;.length&lt;/code&gt; and &lt;code&gt;.forEach()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We want to use the &lt;code&gt;.forEach()&lt;/code&gt; method to both set set each bomb square to show a bomb emoji and to add the &amp;quot;clicked&amp;quot; class for styling later. We want to add the above code &lt;strong&gt;before&lt;/strong&gt; setting the square-that-was-clicked to an explosion so that we don&amp;#39;t overwrite that explosion when we set all the bombs to bomb emojis.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s refresh and check and immediately click a bomb to see all the bombs show up and to see the one we clicked explode!&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper13.jpg&quot;
+alt=&quot;Our Minesweeper board in game over mode showing all the bombs in the pink squares&quot; /&gt;
+&lt;h3 id=&quot;add-feature-to-place-flag&quot;&gt;Add feature to place flag&lt;/h3&gt;
+&lt;p&gt;Finally we can start making it so the player can actually win the game! In minesweeper, the player can click to see how many bombs are nearby. But once they think they know where a bomb is, they can right-click to place a flag. The flag tells the player where they already think bombs are and to help them no click on them. And for us, we can keep track of them later to let us know when the player has found them all!&lt;/p&gt;
+&lt;p&gt;But first, let&amp;#39;s allow the player to right-click the squares at all. We&amp;#39;ll start by adding a function after the &lt;code&gt;handleClick&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;const handlePlaceFlag = &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-params&quot;&gt;(squareObj)&lt;/span&gt; =&amp;gt;&lt;/span&gt; {
+    &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (isGameOver) &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt;;
+    &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (!squareObj.classList.contains(&lt;span class=&quot;hljs-string&quot;&gt;&quot;clicked&quot;&lt;/span&gt;)) {
+        squareObj.innerHTML = squareObj.classList.contains(&lt;span class=&quot;hljs-string&quot;&gt;&quot;flag&quot;&lt;/span&gt;) ? &lt;span class=&quot;hljs-string&quot;&gt;&quot;🚩&quot;&lt;/span&gt; : &lt;span class=&quot;hljs-string&quot;&gt;&quot;&quot;&lt;/span&gt;;
+        squareObj.classList.toggle(&lt;span class=&quot;hljs-string&quot;&gt;&quot;flag&quot;&lt;/span&gt;);
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The above function makes sure the game is not over, makes sure the square that was right-clicked has not already been clicked, and then fills in the appropriate text and class. This function as written will add a flag if there isn&amp;#39;t one and will remove a flag if there is one.&lt;/p&gt;
+&lt;p&gt;We are using a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator&quot;&gt;ternary operator&lt;/a&gt; to set the &lt;code&gt;square.innerHTML&lt;/code&gt;. If you haven&amp;#39;t seen these before the following phrases work the same:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;// With ternary operator
+squareObj.&lt;span class=&quot;hljs-attr&quot;&gt;innerHTML&lt;/span&gt; = squareObj.classList.contains(&lt;span class=&quot;hljs-string&quot;&gt;&quot;flag&quot;&lt;/span&gt;) ? &lt;span class=&quot;hljs-string&quot;&gt;&quot;🚩&quot;&lt;/span&gt; : &lt;span class=&quot;hljs-string&quot;&gt;&quot;&quot;&lt;/span&gt;;
+
+// With &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt;/&lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (squareObj.classList.contains(&lt;span class=&quot;hljs-string&quot;&gt;&quot;flag&quot;&lt;/span&gt;)) {
+    squareObj.&lt;span class=&quot;hljs-attr&quot;&gt;innerHTML&lt;/span&gt; = &lt;span class=&quot;hljs-string&quot;&gt;&quot;🚩&quot;&lt;/span&gt;
+} &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; {
+    squareObj.&lt;span class=&quot;hljs-attr&quot;&gt;innerHTML&lt;/span&gt; = &lt;span class=&quot;hljs-string&quot;&gt;&quot;&quot;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have our function, we can call it with a new event listener. Add the following after the &lt;code&gt;click&lt;/code&gt; event listener in &lt;code&gt;createBoard&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;square.addEventListener(&lt;span class=&quot;hljs-string&quot;&gt;&quot;contextmenu&quot;&lt;/span&gt;, &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; =&amp;gt;&lt;/span&gt;
+    handlePlaceFlag(square)
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;quot;contextmenu&amp;quot; is the event that is called with the player right-clicks. When we refresh and check, we can now add and remove flags whenever. Except that the actual context menu (the right-click menu) is getting in the way! We can prevent that by adding the &lt;code&gt;event&lt;/code&gt; as an argument to &lt;code&gt;handlePlaceFlag&lt;/code&gt;. So let&amp;#39;s change the anonymous callback we just added to be:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;square.addEventListener(&lt;span class=&quot;hljs-string&quot;&gt;&quot;contextmenu&quot;&lt;/span&gt;, &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-params&quot;&gt;(e)&lt;/span&gt; =&amp;gt;&lt;/span&gt; handlePlaceFlag(e, square));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We don&amp;#39;t have to call the &lt;code&gt;event&lt;/code&gt; &lt;code&gt;e&lt;/code&gt;, but that is a pretty established pattern that other developers will also understand. Also we do have to use the &lt;code&gt;e&lt;/code&gt; argument &lt;strong&gt;before&lt;/strong&gt; the &lt;code&gt;square&lt;/code&gt; argument, this is an odd JavaScript thing, but it is required. Now let&amp;#39;s add the &lt;code&gt;e&lt;/code&gt; to the &lt;code&gt;handlePlaceFlag&lt;/code&gt; parameters which should now look like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;const handlePlaceFlag = &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-params&quot;&gt;(e, squareObj)&lt;/span&gt; =&amp;gt;&lt;/span&gt; {
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And then before anything else in the &lt;code&gt;handlePlaceFlag&lt;/code&gt; function we&amp;#39;ll add &lt;code&gt;e.preventDefault();&lt;/code&gt; This is a great little &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault&quot;&gt;method&lt;/a&gt; that helps us stop that context menu from appearing.&lt;/p&gt;
+&lt;p&gt;Now another refresh and check will let us place and remove flags as much as we want. No menus in the way anymore.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper14.jpg&quot;
+alt=&quot;Our Minesweeper board showing mostly green squares as well as pink squares, some of which have flags in them&quot; /&gt;
+&lt;h3 id=&quot;make-it-so-only-finite-flags-can-be-placed&quot;&gt;Make it so only finite flags can be placed&lt;/h3&gt;
+&lt;p&gt;Now we are able to place flags, but we are able to place infinite flags. This does not make for very fun gameplay so we should limit the amount of flags to the amount of bombs on the field. This way if the player has placed 10 flags and there are 10 bombs, but they haven&amp;#39;t won, then it lets them know that one or more of their flags are misplaced.&lt;/p&gt;
+&lt;p&gt;Similar to adding our difficulty levels above, let&amp;#39;s first create a DOM element to place our number. Let&amp;#39;s place it between the buttons and the board:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-selector-tag&quot;&gt;p&lt;/span&gt; id=&lt;span class=&quot;hljs-string&quot;&gt;&quot;flagCounter&quot;&lt;/span&gt;&amp;gt;Flags &lt;span class=&quot;hljs-attribute&quot;&gt;left&lt;/span&gt;:&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next we&amp;#39;ll grab with with &lt;code&gt;document.getElementByID&lt;/code&gt; calling this in a similar place to our other &lt;code&gt;document&lt;/code&gt; calls:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; flagCounter = &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;hljs-string&quot;&gt;&quot;flagCounter&quot;&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want this element to update each time a flag is removed or placed and when the game updates. So we will need to have a variable that keeps track of how many flags are left, functionality to change that value when necessary, and a function to update the DOM element whenever the variable is changed.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s start by adding &lt;code&gt;let flagsLeft = bombCount[diffculty];&lt;/code&gt; up in our constants and variables at the top of the JS file (It can go anywhere in that block as long as it&amp;#39;s after both &lt;code&gt;bombCount&lt;/code&gt; &amp;amp; &lt;code&gt;difficulty&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Next we&amp;#39;ll add an &lt;code&gt;updateFlagCounter&lt;/code&gt; function above our &lt;code&gt;resetGame&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; updateFlagCounter = &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; =&amp;gt;&lt;/span&gt; {
+    flagCounter.innerHTML = &lt;span class=&quot;hljs-string&quot;&gt;`Flags left: &lt;span class=&quot;hljs-subst&quot;&gt;${flagsLeft}&lt;/span&gt;`&lt;/span&gt;;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And then within &lt;code&gt;resetGame&lt;/code&gt;, before we build our array of square values, we&amp;#39;ll also reset the &lt;code&gt;flagsLeft&lt;/code&gt; and update the &lt;code&gt;flagCounter&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;flagsLeft&lt;/span&gt; = bombCount[difficulty]&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+updateFlagCounter()&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, we will change our &lt;code&gt;handlePlaceFlag&lt;/code&gt; logic. When the player right-clicks, a flag should only be placed if:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;they right click an unclicked square&lt;/li&gt;
+&lt;li&gt;AND there are flags left to place
+And they should only be removed if that square has a flag to remove.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In both scnarios we want to show the right icon in the square, add or remove the &amp;quot;flag&amp;quot; class, increment or decrement the &lt;code&gt;flagsLeft&lt;/code&gt;, and update the &lt;code&gt;flagCounter&lt;/code&gt;. But if has no flag and there are no more flags we want to do nothing. So in this case we&amp;#39;ll actually remove the ternary operator and &lt;code&gt;classList.toggle&lt;/code&gt; method and add the following in their place:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;if (squareObj.classList.contains(&lt;span class=&quot;hljs-string&quot;&gt;&quot;flag&quot;&lt;/span&gt;)) {
+    squareObj.innerHTML = &lt;span class=&quot;hljs-string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    squareObj.classList.remove(&lt;span class=&quot;hljs-string&quot;&gt;&quot;flag&quot;&lt;/span&gt;)&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    flagsLeft++&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    updateFlagCounter()&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+} else if (flagsLeft &amp;gt; &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;) {
+    squareObj.innerHTML = &lt;span class=&quot;hljs-string&quot;&gt;&quot;🚩&quot;&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    squareObj.classList.&lt;span class=&quot;hljs-keyword&quot;&gt;add(&quot;flag&quot;);
+&lt;/span&gt;    flagsLeft--&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+    updateFlagCounter()&lt;span class=&quot;hljs-comment&quot;&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now when we refresh and check, we should be able to place 10 flags anywhere but not an 11th flag. We should also be able to remove flags once they have been placed. For each addition or removal, the counter above the board should display the correct amount of flags remaining.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper15.jpg&quot;
+alt=&quot;Under our Minesweeper board&apos;s difficulty and reset buttons, is now text that reads &apos;Flags left: 10&apos; and we expect the number to decrease as we add flags to the board.&quot; /&gt;
+&lt;h3 id=&quot;add-win-condition&quot;&gt;Add win condition&lt;/h3&gt;
+&lt;p&gt;One last bit of functionality we need to add is the ability for the player to win the game (and for us to tell them). There are two win conditions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the player places a flag correctly on each bomb&lt;/li&gt;
+&lt;li&gt;the player clears all of the non-bomb spaces without hitting a bomb first?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So there are two values we want to check:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How many squares have both the &amp;quot;bomb&amp;quot; and &amp;quot;flag&amp;quot; classes?&lt;/li&gt;
+&lt;li&gt;How many squares have the &amp;quot;clicked&amp;quot; class&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So for this a great way to check the classes of the squares is to once again use &lt;code&gt;document.querySelectorAll()&lt;/code&gt; to check the entire document for those values. As above, &lt;code&gt;document.querySelectorAll()&lt;/code&gt; receives one argument of a CSS Selector string and returns a &lt;code&gt;NodeList&lt;/code&gt; that behaves very similarly to an array. For the values we want to grab, we can use the &lt;code&gt;.length&lt;/code&gt; property to figure out how many of each type we have.&lt;/p&gt;
+&lt;p&gt;But to make it very obvious the player has won, we&amp;#39;ll take advantage of the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach&quot;&gt;&lt;code&gt;.forEach()&lt;/code&gt; method&lt;/a&gt; to change the board to be fully revealed and show all the squares.&lt;/p&gt;
+&lt;p&gt;So we need a function that will check that at least one of our two win conditions is met and then change the board to show the player they won. Let&amp;#39;s add a &lt;code&gt;checkForWin&lt;/code&gt; function after the &lt;code&gt;resetGame&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; checkForWin = () =&amp;gt; {
+    &lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; flaggedBombsCount = &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;hljs-built_in&quot;&gt;querySelectorAll&lt;/span&gt;(&lt;span class=&quot;hljs-string&quot;&gt;&quot;.flag.bomb&quot;&lt;/span&gt;).length;
+    &lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; clickedCount = &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;hljs-built_in&quot;&gt;querySelectorAll&lt;/span&gt;(&lt;span class=&quot;hljs-string&quot;&gt;&quot;.clicked&quot;&lt;/span&gt;).length;
+    &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (
+        flaggedBombsCount === bombCount[difficulty] ||
+        clickedCount === boardSize - bombCount[difficulty]
+    ) {
+        isGameOver = &lt;span class=&quot;hljs-keyword&quot;&gt;true&lt;/span&gt;;
+        &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;hljs-built_in&quot;&gt;querySelector&lt;/span&gt;(&lt;span class=&quot;hljs-string&quot;&gt;&quot;h1&quot;&lt;/span&gt;).innerHTML = &lt;span class=&quot;hljs-string&quot;&gt;&quot;You win!&quot;&lt;/span&gt;;
+        &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;hljs-built_in&quot;&gt;querySelectorAll&lt;/span&gt;(&lt;span class=&quot;hljs-string&quot;&gt;&quot;.bomb&quot;&lt;/span&gt;).forEach((b) =&amp;gt; (b.innerHTML = &lt;span class=&quot;hljs-string&quot;&gt;&quot;💣&quot;&lt;/span&gt;));
+        &lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;
+            .&lt;span class=&quot;hljs-built_in&quot;&gt;querySelectorAll&lt;/span&gt;(&lt;span class=&quot;hljs-string&quot;&gt;&quot;#board p&quot;&lt;/span&gt;)
+            .forEach((p) =&amp;gt; p.classList.add(&lt;span class=&quot;hljs-string&quot;&gt;&quot;clicked&quot;&lt;/span&gt;));
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And you can see above, since we want to check for both the &amp;quot;flag&amp;quot; and &amp;quot;bomb&amp;quot; classes, we can use &lt;code&gt;.flag.bomb&lt;/code&gt;, which for CSS reads as &amp;quot;flag class AND bomb class&amp;quot;. But then lower down since we only want to grab &lt;code&gt;p&lt;/code&gt; elements that are inside the board (specifically to exclude the flag counter element), we we &lt;code&gt;#board p&lt;/code&gt; which reads to CSS as &amp;quot;paragraphs IN the board ID&amp;quot;. I strongly recommend learning &lt;a href=&quot;https://css-tricks.com/how-css-selectors-work/&quot;&gt;how CSS selectors work&lt;/a&gt; because it&amp;#39;s pretty powerful. But also this is a &lt;a href=&quot;https://www.w3schools.com/cssref/css_selectors.php&quot;&gt;great CSS selector reference resource&lt;/a&gt; for you to look through to see all the neat tricks.&lt;/p&gt;
+&lt;p&gt;The last thing we have to do then is to call &lt;code&gt;checkForWin&lt;/code&gt; in both places where the player interacts with the board to see if that interaction won or lost the game. So well add those calls to the end of both the &lt;code&gt;handlePlaceFlag&lt;/code&gt; and &lt;code&gt;handleClick&lt;/code&gt; functions.&lt;/p&gt;
+&lt;p&gt;Now when we refresh and check we should be able to flag each bomb and trigger a win, and then reset the game and click each of the non-bomb squares and trigger a win. And now we have a fully playable Minesweeper game!&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper16.jpg&quot;
+alt=&quot;Our Minesweeper board but the title text has changed to &apos;You win!&apos; and the board is fully marked as clicked&quot; /&gt;
+&lt;h3 id=&quot;style-the-board&quot;&gt;Style the board&lt;/h3&gt;
+&lt;p&gt;Before we&amp;#39;re done though we should make the game look good. We have all of our functionality together but we are still revealing where the bombs are and do want to make our game look attractive.&lt;/p&gt;
+&lt;p&gt;Aesthetically, I wanted to imitate some early looks of the game, but also I wanted to have a chiseled stone look similar to an old chess game my grandmother had on her computer in the late nineties.&lt;/p&gt;
+&lt;p&gt;Note: Like I said above, CSS invokes the fear of the ancients in many developers, but it really is a powerful thing to learn. Even if you mostly use component libraries like Bootstrap or Tailwind, understanding CSS means you will understand how those components work &amp;quot;under the hood&amp;quot; and how best to interact with those libraries&amp;#39; APIs.&lt;/p&gt;
+&lt;p&gt;The first things we will change is to remove out current &lt;code&gt;.clicked&lt;/code&gt; and &lt;code&gt;.bomb&lt;/code&gt; blocks. They only existed for us to test the game with but don&amp;#39;t really contribute to the look of the game. And now let&amp;#39;s make our &lt;code&gt;#board&lt;/code&gt; block look like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;500px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt; auto;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;display&lt;/span&gt;: flex;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;flex-flow&lt;/span&gt;: row wrap;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid lightgray;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid gray;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid gray;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid lightgray;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;border&lt;/code&gt; attribute (as well as other box model striibutes like &lt;code&gt;padding&lt;/code&gt;) can be broken out into its individual sides. This lets us color and size the sides individually and in this case let&amp;#39;s us create a faux-shadow effect that looks like of like a flat-topped pyramid.&lt;/p&gt;
+&lt;p&gt;Next we want to style each of our squares. The squares are all &lt;code&gt;p&lt;/code&gt; elements in the board so we can use the same selector we want our existing &lt;code&gt;#board p&lt;/code&gt; block to look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;p&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;42px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;42px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;padding&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;line-height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;42px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;text-align&lt;/span&gt;: center;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;: darkgray;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid lightgray;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid gray;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid gray;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid lightgray;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It was noted towards the beginning of the project that borders, margin, and padding add to the  width and to keep the squares only 50 pixels wide so we have to subtract both sides&amp;#39; border and  from the &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;line-height&lt;/code&gt;. In this case the borders will also give a faux-shadow look for each of the squares.&lt;/p&gt;
+&lt;p&gt;Finally we want to re-add a &lt;code&gt;.clicked&lt;/code&gt; block to show a clear difference when the squares are clicked. So let&amp;#39;s add a &lt;code&gt;#board .clicked&lt;/code&gt; block:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; &lt;span class=&quot;hljs-selector-class&quot;&gt;.clicked&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;50px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;50px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border&lt;/span&gt;: none;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So now when we refresh and check, the board should appear like raised stone except when we click on a square and then clicked squares should appear flat. Also this is the first time we&amp;#39;re seeing the game as a fully-working game where you aren&amp;#39;t shown where all the bombs are at the start. So now is a good time to test the game and check over how it&amp;#39;s playing in full.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper17.jpg&quot;
+alt=&quot;Our Minesweeper board styled to look like cut stone with raised squares representing that they are unclicked&quot; /&gt;
+&lt;h3 id=&quot;color-the-numbers&quot;&gt;Color the numbers&lt;/h3&gt;
+&lt;p&gt;Another feature of most Minesweeper implementations is color-coding the different numbers to see the &amp;quot;urgency&amp;quot; of squares at a glance, but also I have a bias towards color-coding because it helps my particular way of thinking. This will require adding a little more JavaScript to set those colors with more classes.&lt;/p&gt;
+&lt;p&gt;So back in our &lt;code&gt;app.js&lt;/code&gt; file, let&amp;#39;s add a little extra code to our &lt;code&gt;checkNeighbors&lt;/code&gt; function starting with a new constant after the &lt;code&gt;neighborEdgesAndIndexes&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;const numberClasses&lt;/span&gt; = [
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;one&quot;&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;two&quot;&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;three&quot;&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;four&quot;&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;five&quot;&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;six&quot;&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;seven&quot;&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;&quot;eight&quot;&lt;/span&gt;,
+];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then at the bottom inside our &lt;code&gt;if (count &amp;gt; 0)&lt;/code&gt; block, we will add &lt;code&gt;squareObj.classList.add(numberClasses[count - 1]);&lt;/code&gt;. CSS classes don&amp;#39;t like to start with numbers so we want to manually set the classes with the number words instead. Once we&amp;#39;ve set these classes we can update our CSS:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-class&quot;&gt;.one&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: blue;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.two&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: green;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.three&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: yellow;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.four&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: darkorange;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.five&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: red;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.six&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: purple;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.seven&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: pink;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.eight&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: blue;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When we refresh and check the game, if we find as many number as we can we can see the different number colors. The top half of the numbers are pretty rare, but you can also edit the classes in the Elements inspector so that you can check the different classes are working (and whether or not you like the colors.)&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper18.jpg&quot;
+alt=&quot;Our Minesweeper board with blue 1s and green 2s to help differentiate them and make them easier to read&quot; /&gt;
+&lt;h3 id=&quot;finish-styling-rest-of-game&quot;&gt;Finish styling rest of game&lt;/h3&gt;
+&lt;p&gt;Now we have a pretty well put together game and just need to add some polish. To better accomplish this, we&amp;#39;ll rearrange our HTML a little bit:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;header&lt;/span&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;Minesweeper&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;nav&lt;/span&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;reset&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Reset&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;easy&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Easy&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;medium&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Medium&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;hard&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Hard&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;flagCounter&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Flags left:&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;nav&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;header&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;main&lt;/span&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;board&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;main&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;app.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have some specific elements to grab and arrange better. Next we&amp;#39;ll change our CSS file to look like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;hljs-selector-pseudo&quot;&gt;:root&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;--highlight&lt;/span&gt;: &lt;span class=&quot;hljs-built_in&quot;&gt;rgba&lt;/span&gt;(255, 255, 255, 0.5);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;--lowlight&lt;/span&gt;: &lt;span class=&quot;hljs-built_in&quot;&gt;rgba&lt;/span&gt;(0, 0, 0, 0.3);
+}
+
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;html&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;font-family&lt;/span&gt;: monospace;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;: lightgray;
+}
+
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;header&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;492px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt; auto;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;8px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;8px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;8px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;8px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+}
+
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;h1&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;text-align&lt;/span&gt;: center;
+}
+
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;nav&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;display&lt;/span&gt;: flex;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;flex-flow&lt;/span&gt;: row nowrap;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;justify-content&lt;/span&gt;: space-around;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;476px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt; auto;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;padding&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;8px&lt;/span&gt;;
+}
+
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;button&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-radius&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;: transparent;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+}
+
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;hljs-selector-pseudo&quot;&gt;:hover&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;: &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+}
+
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;hljs-selector-pseudo&quot;&gt;:active&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.one&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: blue;
+}
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.two&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: green;
+}
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.three&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: yellow;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.four&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: darkorange;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.five&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: red;
+}
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.six&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: purple;
+}
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.seven&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: pink;
+}
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.eight&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;: blue;
+}
+&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;500px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt; auto;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;display&lt;/span&gt;: flex;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;flex-flow&lt;/span&gt;: row wrap;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;cursor&lt;/span&gt;: pointer;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+}
+
+&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;p&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;42px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;42px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;padding&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;line-height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;42px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;text-align&lt;/span&gt;: center;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+}
+
+&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;hljs-selector-pseudo&quot;&gt;:active&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-top&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-right&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-bottom&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--highlight);
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border-left&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;4px&lt;/span&gt; solid &lt;span class=&quot;hljs-built_in&quot;&gt;var&lt;/span&gt;(--lowlight);
+}
+
+&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; &lt;span class=&quot;hljs-selector-class&quot;&gt;.clicked&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;50px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;50px&lt;/span&gt;;
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border&lt;/span&gt;: none;
+}
+
+&lt;span class=&quot;hljs-selector-id&quot;&gt;#board&lt;/span&gt; &lt;span class=&quot;hljs-selector-class&quot;&gt;.clicked&lt;/span&gt;&lt;span class=&quot;hljs-selector-pseudo&quot;&gt;:active&lt;/span&gt; {
+    &lt;span class=&quot;hljs-attribute&quot;&gt;border&lt;/span&gt;: none;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And we&amp;#39;ll go through what that changes from top to bottom. If you refresh and check, you can see the changes as you read about them below: &lt;/p&gt;
+&lt;p&gt;At the very top with the &lt;code&gt;:root&lt;/code&gt; block we set some custom colors that add a somewhat transparent highlight or shadow to the borders instead of using &lt;code&gt;lightgray&lt;/code&gt; and &lt;code&gt;gray&lt;/code&gt;. That transparency will also help later if we want to set different background colors to the game.&lt;/p&gt;
+&lt;p&gt;Speaking of in the &lt;code&gt;html&lt;/code&gt; block we set a new &lt;code&gt;background-color&lt;/code&gt; attribute. Doing so at this level sets that color for the whole page (with some exceptions, elements have a &lt;code&gt;transparent&lt;/code&gt; background by default). Also you can change the &lt;code&gt;background-color&lt;/code&gt; to any color you like and the board will now still create realistic(-ish) looking shadows since the custom colors are just lightly-transparent white and black. Try some colors out!&lt;/p&gt;
+&lt;p&gt;Next we add a &lt;code&gt;header&lt;/code&gt; block to get the page&amp;#39;s header to match the decor of the game board. The notable change here is that we are using the &lt;code&gt;var()&lt;/code&gt; function to set our custom colors from the &lt;code&gt;:root&lt;/code&gt; block.&lt;/p&gt;
+&lt;p&gt;Now we move on to the &lt;code&gt;nav&lt;/code&gt; where we want to use Flexbox to arrange the buttons as a row with space around them. The buttons are one of those rare elements that come with some default styling. So to get them to match the styling pattern we&amp;#39;ve been using so far, we have to undo the &lt;code&gt;border-radius&lt;/code&gt; &amp;amp; &lt;code&gt;background-color&lt;/code&gt;. The other attribute that has a default is the &lt;code&gt;border&lt;/code&gt;, but we want to style that anyway so that&amp;#39;s taken care of.&lt;/p&gt;
+&lt;p&gt;The buttons have some &lt;code&gt;:hover&lt;/code&gt; and &lt;code&gt;:active&lt;/code&gt; state defaults as well. But also if we switch the colors of the border segments while the player is clicking (aka: the element is &lt;code&gt;:active&lt;/code&gt;), the shadow appears to invert creating an illusion that the button is now concave. We&amp;#39;ll also visit these with the squares in a second.&lt;/p&gt;
+&lt;p&gt;Most of the rest of the changes are switching the border colors to use the custom colors and use the transparency that comes with them. Notably we also are adding an &lt;code&gt;:active&lt;/code&gt; state to the squares that also invert the border colors and help make the squares look &amp;quot;pressed in&amp;quot; when the player clicks on them. &lt;/p&gt;
+&lt;p&gt;And finally the last change here is to set an &lt;code&gt;:active&lt;/code&gt; state for the &lt;code&gt;.clicked&lt;/code&gt; squares that takes away the &lt;code&gt;border&lt;/code&gt; so that there is no difference than the regular &lt;code&gt;.clicked&lt;/code&gt; squares. If the player clicks a square that is otherwise unclickable, but responds as if it should be doing something that will confuse the player.&lt;/p&gt;
+&lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper19.jpg&quot;
+alt=&quot;Our fully done Minesweeper game with styling to make it look like cut stone.&quot;/&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;We have a fully working game built entirely in native web tooling. This is just a static page that takes very little data to store or run (about 78 kilobytes as built here)! Web pages are pretty powerful and (while sometimes opaque or obtuse) the JavaScript and CSS can do a lot with very little.&lt;/p&gt;
+&lt;p&gt;Lately I have found myself interested in &lt;a href=&quot;https://permacomputing.net/&quot;&gt;permacomputing principles&lt;/a&gt; and one of the principles is to &lt;a href=&quot;https://permacomputing.net/Principles/&quot;&gt;&amp;quot;Keep it small&amp;quot;&lt;/a&gt;. Making pages smaller also helps users use less resources to play your games or visit your sites, and to put less burdern on the user to &amp;quot;keep up&amp;quot; with system requirements for more and more complex games and sites. As I continue building out more tutorials, this is going to be a driving part of how I design projects. Small games like this will be similarly complex, but even more complex works will be designed to use as few dependencies and power as possible.&lt;/p&gt;
+&lt;p&gt;Thanks for following along with this tutorial! Find more of my projects and writing at &lt;a href=&quot;https://travissouthard.com/&quot;&gt;my portfolio&lt;/a&gt; and &lt;a href=&quot;https://travissouthard.com/blog/&quot;&gt;blog&lt;/a&gt;.&lt;/p&gt;
+
+            </description>
+            <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-3</link>
+            <pubDate>Sun, 22 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-3</guid>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>How to make Minesweeper part 2</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
@@ -434,8 +825,8 @@
         number of bombs (by roughly counting the pink squares).&lt;/p&gt;
     &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper12.jpg&quot;
         alt=&quot;Our Minesweeper board alongside the reset, easy, medium, and hard difficulty buttons&quot; /&gt;
-        &lt;h3&gt;Part 3 coming soon!&lt;/h3&gt;
-        &lt;p&gt;Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader to get it as soon as it comes out!&lt;/p&gt;
+        &lt;h3&gt;Finish your game!&lt;/h3&gt;
+        &lt;p&gt;&lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-3&quot;&gt;Finish the gameplay and style the board in part 3&lt;/a&gt;! Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader for more tutorials and blogs every Sunday!&lt;/p&gt;
             </description>
             <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2</link>
             <pubDate>Sun, 15 Oct 2023 04:00:00 GMT</pubDate>
