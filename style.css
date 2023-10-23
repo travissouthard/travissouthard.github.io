@@ -220,7 +220,7 @@ code {
     height: 60px;
 }
 
-.project-card p, .project-card a {
+.project-card p {
     margin: 0;
     color: black;
     text-align: center;
