@@ -1629,9 +1629,80 @@ alt="Our fully done Minesweeper game with styling to make it look like cut stone
             public: true,
             lastUpdated: Date.parse("Oct 22 2023"),
         },
+        {
+            title: "Smaller code and bigger plans",
+            siteLink: "",
+            codeLink: "",
+            imagePath: "./assets/images/blog/ruby-beach.jpg",
+            description: `
+            <p>
+                Over the past few weeks I have released a tutorial to make the classic video game, Minesweeper, from scratch
+                using native web tools (being HTML, CSS, and Javascript). (Check out parts <a 
+                    href="./blog.html?post=how-to-make-minesweeper-part-1" target="_blank">1</a>, <a 
+                    href="./blog.html?post=how-to-make-minesweeper-part-2" target="_blank">2</a>, & <a 
+                    href="./blog.html?post=how-to-make-minesweeper-part-3" target="_blank">3</a>!) I was motivated to write tutorials in general to help
+                new developers bridge the gap between what they currently know and what they need to know to get a job
+                developing code. The other half of that motivation is to help me become a better developer by teaching.
+            </p>
+            <p>
+                I chose to write tutorials about native web tools because developers do need to know what the browser is
+                actually reading and rendering and why it does what it does. Part of this is that frameworks and libraries
+                compile down to HTML, CSS, and Javascript, so developers should be aware of what is happening 'under the hood.' I
+                was taught to try to be aware of how the tech is working at least one or two layers down to ensure my code will
+                behave how I want it to. The other part of that motivation has been feeling more and more that we should be
+                delivering smaller websites to end users.
+            </p>
+            <p>
+                I have been reading a lot of work around <a href="http://permacomputing.net/"
+                    target="_blank">permacomputing</a>, <a href="https://solar.lowtechmagazine.com/" target="_blank">more
+                    sustainable technology</a>, and <a
+                    href="https://bookshop.org/p/books/the-digital-closet-how-the-internet-became-straight-alexander-monea/17170660?ean=9780262545952"
+                    target="_blank">making the web better for
+                    people</a>, including <a href="https://abookapart.com/products/you-deserve-a-tech-union"
+                    target="_blank">developers</a>. And one of the easiest ways I can do that as a developer is to write my
+                own code that is easier on both storage and compute power and also to encourage others to do the same. One of
+                <a href="http://permacomputing.net/Principles/" target="_blank">permacomputing's principles</a> is to "Keep
+                it small" since:
+            </p>
+            <blockquote>
+                Small systems are more likely to have small hardware and energy requirements, as well as high understandability.
+                They are easier to understand, manage, refactor and repurpose. -<a href="http://permacomputing.net/Principles/"
+                    target="_blank">Permacomputing Principles page</a>
+            </blockquote>
+            <p>
+                There's certainly more to permacomputing and sustainability than just making things smaller, and there is also a
+                <a href="https://en.wikipedia.org/wiki/Code_golf" target="_blank">"code golf"</a> tradeoff where the code
+                becomes so small that it makes it harder to understand and thus will be harder to maintain. This blog and my
+                portfolio site in general are built as just a static webpage and the only library I'm using is JQuery, though it
+                could be rewritten in vanilla Javascript. Granted, there are downsides to this setup: one is that I cannot tell how many
+                people are visiting the site unless they tell me directly. For now this is fine since I am writing these for fun
+                and practice more than relying on them for any sort of income just yet.
+            </p>
+            <p>
+                Along the lines of not knowing who is reading, I have no plans to track readers ever. User tracking is
+                creepy and invasive. I personally use tools to protect my privacy as much as I can, and I recommend you do too.
+                At some point, I will want to know how many times posts are being read (and if possible how many unique readers,
+                if there is a non-tracking way to do that). I currently have the site and blog hosted on GitHub Pages, which is
+                easy to use and free. But to start seeing some readership numbers, I would have to set up my own server. I would
+                like to do this anyway to improve how I'm coding the different posts, to fulfill my own DIY desires, and to take
+                more control over my work and the resources it uses.
+            </p>
+            <p>
+                In the meantime, I am reasonably happy with this site. It serves my need of having a consistent site for software
+                projects, pixel art, and blog posts. One of my <code>TODOs</code> is to create a <code>resume.html</code> page
+                with a list of all my past jobs and download link for <a
+                    href="./assets/travis_southard_software_engineer_resume.pdf" target="_blank">the PDF</a>. If you enjoy what
+                I'm building here, please consider <a href="https://ko-fi.com/travissouthard">supporting my work</a> to help me
+                make more tutorials, blogs, pixel art, and everything.
+            </p>
+            `,
+            altText: "Ruby standing on an autumn beach on her birthday weekend",
+            public: true,
+            lastUpdated: Date.parse("Oct 29 2023"),
+        },
     ],
 };
 
 // Uncomment to output JSON from this
 // Use with `node data.js > data.json`
-console.log(JSON.stringify(data));
+// console.log(JSON.stringify(data));
