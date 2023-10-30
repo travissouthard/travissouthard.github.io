@@ -15,10 +15,82 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 22 Oct 2023 14:55:55 GMT</pubDate>
-    <lastBuildDate>Sun, 22 Oct 2023 14:55:55 GMT</lastBuildDate>
+    <pubDate>Sun, 29 Oct 2023 00:00:00 GMT</pubDate>
+    <lastBuildDate>Mon, 23 Oct 2023 01:37:11 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>Smaller code and bigger plans</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/ruby-beach.jpg&quot; alt=&quot;Ruby standing on an autumn beach on her birthday weekend&quot;/&gt;
+      &lt;/a&gt;
+  
+            &lt;p&gt;
+                Over the past few weeks I have released a tutorial to make the classic video game, Minesweeper, from scratch
+                using native web tools (being HTML, CSS, and Javascript). (Check out parts &lt;a 
+                    href=&quot;./blog.html?post=how-to-make-minesweeper-part-1&quot; target=&quot;_blank&quot;&gt;1&lt;/a&gt;, &lt;a 
+                    href=&quot;./blog.html?post=how-to-make-minesweeper-part-2&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;, &amp; &lt;a 
+                    href=&quot;./blog.html?post=how-to-make-minesweeper-part-3&quot; target=&quot;_blank&quot;&gt;3&lt;/a&gt;!) I was motivated to write tutorials in general to help
+                new developers bridge the gap between what they currently know and what they need to know to get a job
+                developing code. The other half of that motivation is to help me become a better developer by teaching.
+            &lt;/p&gt;
+            &lt;p&gt;
+                I chose to write tutorials about native web tools because developers do need to know what the browser is
+                actually reading and rendering and why it does what it does. Part of this is that frameworks and libraries
+                compile down to HTML, CSS, and Javascript, so developers should be aware of what is happening &apos;under the hood.&apos; I
+                was taught to try to be aware of how the tech is working at least one or two layers down to ensure my code will
+                behave how I want it to. The other part of that motivation has been feeling more and more that we should be
+                delivering smaller websites to end users.
+            &lt;/p&gt;
+            &lt;p&gt;
+                I have been reading a lot of work around &lt;a href=&quot;http://permacomputing.net/&quot;
+                    target=&quot;_blank&quot;&gt;permacomputing&lt;/a&gt;, &lt;a href=&quot;https://solar.lowtechmagazine.com/&quot; target=&quot;_blank&quot;&gt;more
+                    sustainable technology&lt;/a&gt;, and &lt;a
+                    href=&quot;https://bookshop.org/p/books/the-digital-closet-how-the-internet-became-straight-alexander-monea/17170660?ean=9780262545952&quot;
+                    target=&quot;_blank&quot;&gt;making the web better for
+                    people&lt;/a&gt;, including &lt;a href=&quot;https://abookapart.com/products/you-deserve-a-tech-union&quot;
+                    target=&quot;_blank&quot;&gt;developers&lt;/a&gt;. And one of the easiest ways I can do that as a developer is to write my
+                own code that is easier on both storage and compute power and also to encourage others to do the same. One of
+                &lt;a href=&quot;http://permacomputing.net/Principles/&quot; target=&quot;_blank&quot;&gt;permacomputing&apos;s principles&lt;/a&gt; is to &quot;Keep
+                it small&quot; since:
+            &lt;/p&gt;
+            &lt;blockquote&gt;
+                Small systems are more likely to have small hardware and energy requirements, as well as high understandability.
+                They are easier to understand, manage, refactor and repurpose. -&lt;a href=&quot;http://permacomputing.net/Principles/&quot;
+                    target=&quot;_blank&quot;&gt;Permacomputing Principles page&lt;/a&gt;
+            &lt;/blockquote&gt;
+            &lt;p&gt;
+                There&apos;s certainly more to permacomputing and sustainability than just making things smaller, and there is also a
+                &lt;a href=&quot;https://en.wikipedia.org/wiki/Code_golf&quot; target=&quot;_blank&quot;&gt;&quot;code golf&quot;&lt;/a&gt; tradeoff where the code
+                becomes so small that it makes it harder to understand and thus will be harder to maintain. This blog and my
+                portfolio site in general are built as just a static webpage and the only library I&apos;m using is JQuery, though it
+                could be rewritten in vanilla Javascript. Granted, there are downsides to this setup: one is that I cannot tell how many
+                people are visiting the site unless they tell me directly. For now this is fine since I am writing these for fun
+                and practice more than relying on them for any sort of income just yet.
+            &lt;/p&gt;
+            &lt;p&gt;
+                Along the lines of not knowing who is reading, I have no plans to track readers ever. User tracking is
+                creepy and invasive. I personally use tools to protect my privacy as much as I can, and I recommend you do too.
+                At some point, I will want to know how many times posts are being read (and if possible how many unique readers,
+                if there is a non-tracking way to do that). I currently have the site and blog hosted on GitHub Pages, which is
+                easy to use and free. But to start seeing some readership numbers, I would have to set up my own server. I would
+                like to do this anyway to improve how I&apos;m coding the different posts, to fulfill my own DIY desires, and to take
+                more control over my work and the resources it uses.
+            &lt;/p&gt;
+            &lt;p&gt;
+                In the meantime, I am reasonably happy with this site. It serves my need of having a consistent site for software
+                projects, pixel art, and blog posts. One of my &lt;code&gt;TODOs&lt;/code&gt; is to create a &lt;code&gt;resume.html&lt;/code&gt; page
+                with a list of all my past jobs and download link for &lt;a
+                    href=&quot;./assets/travis_southard_software_engineer_resume.pdf&quot; target=&quot;_blank&quot;&gt;the PDF&lt;/a&gt;. If you enjoy what
+                I&apos;m building here, please consider &lt;a href=&quot;https://ko-fi.com/travissouthard&quot;&gt;supporting my work&lt;/a&gt; to help me
+                make more tutorials, blogs, pixel art, and everything.
+            &lt;/p&gt;
+            </description>
+            <link>https://travissouthard.com/blog.html?post=smaller-code-and-bigger-plans</link>
+            <pubDate>Sun, 29 Oct 2023 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=smaller-code-and-bigger-plans</guid>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>How to make Minesweeper part 3</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
