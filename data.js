@@ -1700,6 +1700,73 @@ alt="Our fully done Minesweeper game with styling to make it look like cut stone
             public: true,
             lastUpdated: Date.parse("Oct 29 2023"),
         },
+        {
+            title: "Season of Change",
+            siteLink: "",
+            codeLink: "",
+            imagePath: "./assets/images/blog/wiss-fall.jpg",
+            description: `
+            <p>
+                Autumn is in full show here in Philadelphia, at least up in the Northwest of Philly where I now live. The colors
+                are a great time to reflect on the passage of time. It being the weekend daylight savings ends is also a big
+                hint that time is always changing, even if only arbitrarily.
+            </p>
+            <p>
+                I am grateful to see the leaves change like this and for consistent access to more trees in general than I had
+                experienced in South Philly. Despite being much closer to the Wissahickon park, I still don't go there often
+                enough (at least not as often as I'd like to). I also appreciate the irony that as a teenager, I completely took
+                for granted the massive forests around me in Northeast PA, but mostly because I wanted to be closer to my
+                friends.
+            </p>
+            <p>
+                I've gone through a lot of changes to my daily life this year: My employer got acquired, the new employer laid
+                me off, I am
+                joining the <a href="https://codeforphilly.org/" target="_blank">Code for Philly</a> leadership team, and <a
+                    href="https://spokesandstitches.com/" target="_blank">Ruby is kicking up her business again</a>! I'm still
+                expecting more changes to my daily life before the end of the year.
+            </p>
+            <p>
+                Changes can be very hard, and many people are resistant to them. I had to learn to weather changes as a child
+                who attended at least one new school every year until the sixth grade. Then in my late teens and early twenties
+                I welcomed changes to help get me into better places. When I can afford to, I also bring on daily changes as
+                recreation in the form of bike tours. Each day is a different ride to a different place and I rarely wake up in
+                the same place twice on those trips. I even <a
+                    href="https://www.instagram.com/explore/tags/ridealongecg/">planned a trip</a> in 2019 along the <a
+                    href="https://www.greenway.org/">East Coast Greenway</a> to follow the beginning of the changing leaves that
+                year.
+            </p>
+            <p>
+                A huge change for me in the last year was buying a house with Ruby. What's especially wild about that is that we
+                effectively signed up to be involved with this one house and piece of land for thirty years! Granted, we don't
+                <em>have</em> to stay here for thirty years if we don't want, but a mortgage is still on that <em>scale</em> of
+                financial planning. And for most future plans, selling this house would lead to buying another.
+            </p>
+            <p>
+                This is often a "stage" of American life where a person really wants to stop changes. They want to keep their
+                neighborhood exactly like it was when they bought their home. But I try to remember change is inevitable.
+                Planets and stars continue moving through space. Water pulls mountains down towards oceans. Winds push leaves
+                and seeds off plants. I hope I can continue to take on changes with grace and never try to lock my life in
+                place.
+            </p>
+            <p>
+                I still don't feel ready for winter, but there is certainly still time to prepare. And arguably, that is the
+                purpose of a transitional time like the fall to help us get ready for the cold and dark. That we can slowly
+                approach the hard things and steel ourselves to them as they creep closer. I tend to be an optimist and one way
+                that hurts me is that I spend most of the winter just looking ahead to springtime rather than embracing what
+                winter has to offer.
+            </p>
+            <p>
+                This year I want to commit to changing my approach to winter: To use the inside time to improve my engineering
+                and my art. To make more time for friends to get together. To take advantage of the slowed plant growth to
+                prepare an overgrown lot to become a garden. To spend time decorating my house. This winter I want to resist
+                hibernating.
+            </p>
+            `,
+            altText:
+                "The Wissahickon Creek flowing from around the corner through orange leaved tees that have dropped about 20% of their leaves",
+            public: true,
+            lastUpdated: Date.parse("Nov 5 2023"),
+        },
     ],
 };
 
