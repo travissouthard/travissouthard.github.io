@@ -1767,9 +1767,102 @@ alt="Our fully done Minesweeper game with styling to make it look like cut stone
             public: true,
             lastUpdated: Date.parse("Nov 5 2023"),
         },
+        {
+            title: "A personal financial project",
+            siteLink: "",
+            codeLink:
+                "https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball",
+            imagePath: "./assets/images/projects/debt-snowball.png",
+            description: `
+            <p>
+                Earlier this year <a href="https://travissouthard.com/snowball/index.html" target="_blank">I built a project</a>
+                that came from a personal need. I have three student loans from my time at University of the Arts, my time at
+                Temple University, and my coding bootcamp. My spouse Ruby has her own loans from undergraduate and graduate
+                school. We also share a mortgage on our home. I have been exploring different options to ideally pay down these
+                debts early and save both money on interest and time for ourselves in the future with less debt payment burden.
+            </p>
+            <p>
+                As part of my research, the most personally compelling plan I found is called the <a
+                    href="https://en.wikipedia.org/wiki/Debt_snowball_method" target="_blank">debt snowball plan</a>. The
+                essence of the plan is:
+            </p>
+            <ul>
+                <li>Order your debts from smallest to largest by remaining principle on each loan.</li>
+                <li>Pay only the minimums on each loan.</li>
+                <li>Optionally if you are able and want to pay extra to accelerate the process, only apply the extra amount to
+                    the smallest loan’s monthly payments.</li>
+                <li>Once the smallest is paid off, take what you were paying each month and add that to the monthly payment of
+                    the next smallest plan.</li>
+                <li>Repeat the last step until all of your debts are paid off.</li>
+            </ul>
+            <p>
+                What is nice about this plan is that, unless you are adding extra each month to accelerate the plan, the amount
+                you pay towards your debts each month stays the same. Arguably this is also a drawback, since the monthly
+                payment burden stays the same, even as debts are resolved. I am not a financial expert but appreciate the
+                simplicity and effectiveness of this plan. There are similar approaches like the debt avalanche, which works
+                similarly except that the first step is to order the debts from highest interest rate to lowest. My
+                understanding is that while also effective, the avalanche is slower overall, but especially slower to start
+                feeling the benefits of paying off the first debt in the sequence.
+            </p>
+            <p>
+                For our situation, without going too deeply into our personal finances, following this plan would allow us to
+                pay off our student loans a few years early. However, the much bigger effect is that our mortgage would be paid
+                off about 14 years earlier than the 30 years our mortgage is planned for. If all goes to plan, this would save
+                us a lot in interest and dramatically cut down our living expenses. Granted, all our loan terms allow us to pay
+                down the principal ahead of schedule, and not all loans allow this (although they absolutely should). You should
+                check your terms on your loans before making any plans.
+            </p>
+            <p>
+                Now that I understood this plan, I wanted to show Ruby how this may benefit us, but needed a way to show her how
+                it works. There are many debt snowball calculators, and most have great written descriptions, but almost none of
+                the ones I came across had any sort of chart showing how the plan is paid off over time. I am always one to make
+                a plan with a spreadsheet (including vacation plans) and my favorite part of any spreadsheet is creating charts.
+            </p>
+            <p>
+                Having charts would also help me explain the concept and benefits to Ruby, but also would help me visualize for
+                myself the differences between different plans and also continuing to pay the minimums. Faced with a serious
+                dearth of charts amongst the existing resources, I did what all engineers do when faced with a missing tool: I
+                began to build it myself.
+            </p>
+            <p>
+                To build this out I had to do some research on <a href="https://en.wikipedia.org/wiki/Amortizing_loan"
+                    target="_blank">how loans, interest, and amortization work</a> at a more detailed level than I had really
+                thought about since learning about complex and simple interest in high school math classes. I started with a
+                spreadsheet for myself, but quickly realized that what I wanted was a webpage. I found it much easier to create
+                loops and recursive functions with JavaScript than with spreadsheet macros. Besides, if I was looking for debt
+                snowball charts, others likely were too, so once I had a complete site, I could share it publicly as well. You
+                should <a href="https://travissouthard.com/snowball/index.html" target="_blank">try it out</a> and see if a plan
+                like this might work for you.
+            </p>
+            <p>
+                I built this early on in my learnings about <a href="http://permacomputing.net/"
+                    target="_blank">permacomputing</a> and <a href="./blog.html?post=smaller-code-and-bigger-plans"
+                    target="_blank">building out smaller websites</a> with just HTML, CSS, and JavaScript. I wanted to lean on
+                and design around the HTML tags as they exist. I think I did an okay job with this but some of the parts of how
+                this is built go against some of my better design sensibilities.
+            </p>
+            <p>
+                In particular, I think the site uses too much text without intentional visual hierarchy and too little color to
+                help orient a person to what to use or read first. I do still think this project works but I learned some things
+                about designing a project from scratch and would like to revisit the aesthetics of this project sometime.
+                Overall, I am still happy with how it came out for a weekend project. Plus, I do still use this to occasionally
+                to recheck my own financial plans as our life and the world around us changes.
+            </p>
+            <p>
+                Excitingly, we have our snowball rolling down the hill and are just this week starting to see it picking up some
+                momentum. My loans from my time at UArts were fully paid off at the beginning of this month and I was able to use
+                what I was paying towards that and put it towards my boot camp loan payments. It feels wonderful so far and I look
+                forward to completing this plan.
+            </p>
+            `,
+            altText:
+                "A screenshot of the debt snowball chart showing the paydown of the debts compared to the traditional payment plan",
+            public: true,
+            lastUpdated: Date.parse("Nov 12 2023"),
+        },
     ],
 };
 
 // Uncomment to output JSON from this
 // Use with `node data.js > data.json`
-// console.log(JSON.stringify(data));
+console.log(JSON.stringify(data));
