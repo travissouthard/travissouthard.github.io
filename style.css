@@ -138,7 +138,7 @@ nav a:hover, footer a:hover {
     font-family: 'kghappy-full', Arial, Helvetica, sans-serif;
 }
 
-blockquote {
+blockquote, details p {
     border-left: 4px solid var(--blue);
     padding-left: 8px;
 }
@@ -152,6 +152,10 @@ pre {
 
 code {
     color: var(--red)
+}
+
+summary {
+    margin-bottom: 8px;
 }
 
 .list-view {
