@@ -4,13 +4,10 @@ const LOCALNAV = [
     { name: "Pixel Art", linkUrl: "./pixelArt.html" },
     { name: "Blog", linkUrl: "./blog.html" },
     { name: "About", linkUrl: "./about.html" },
+    { name: "Resume", linkUrl: "./resume.html" },
 ];
 
 const EXTERIORLINKS = [
-    {
-        name: "Resume",
-        linkUrl: "./assets/Travis_Southard_Software_Engineer_Resume.pdf",
-    },
     { name: "RSS Feed", linkUrl: "./rss.xml" },
     { name: "Email", linkUrl: "mailto:travissouthard@proton.me" },
     { name: "GitHub", linkUrl: "https://github.com/travissouthard" },
