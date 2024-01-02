@@ -9,6 +9,7 @@ const getDetailPageName = (title) => {
         projects: "projects",
         pixelArt: "pixelArt",
         blog: "blog",
+        resume: "resume",
     };
     for (let [key, arr] of Object.entries(data)) {
         for (let post of arr) {
@@ -91,16 +92,57 @@ const assembleProjectCard = (project) => {
     return $card;
 };
 
+const assembleResumeCard = (entry) => {
+    const $card = $("<article></article>").attr("class", "resume-card");
+    const { title, start, end, company, coLink, description, location } = entry;
+    const formatDate = (dateNum) => {
+        if (dateNum === null) return "Present";
+        return new Intl.DateTimeFormat("en-US", {
+            month: "long",
+            year: "numeric",
+        }).format(dateNum);
+    };
+    const companyLink = (child) => {
+        return coLink
+            ? `<a href="${coLink}" target="_blank">${child}</a>`
+            : child;
+    };
+
+    $card.append($(`<h3>${title}</h3>`));
+    $card.append(
+        $(
+            `<p>${companyLink(
+                `<b>${company}</b>`
+            )} | ${location} | <em>${formatDate(start)}-${formatDate(
+                end
+            )}</em></p>`
+        )
+    );
+    description && $card.append($(`<p>${description}</p>`));
+    return $card;
+};
+
 const sortArrayByDate = (arr) => {
-    return arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
+    const isResume = !arr[0].lastUpdated && arr[0].end;
+    const sortCallback = isResume
+        ? (a, b) => {
+              const endA = a.end === null ? Infinity : a.end;
+              const endB = b.end === null ? Infinity : b.end;
+              return endB - endA;
+          }
+        : (a, b) => b.lastUpdated - a.lastUpdated;
+    return arr.sort(sortCallback);
 };
 
 const fillOutListView = (key, value) => {
     const $section = $(key).attr("class", "list-view");
     const sortedData = sortArrayByDate(value);
+    const isResume = !value[0].lastUpdated && value[0].start;
 
     for (let entry of sortedData) {
-        const $card = assembleProjectCard(entry);
+        const $card = isResume
+            ? assembleResumeCard(entry)
+            : assembleProjectCard(entry);
 
         $section.append($card);
     }
@@ -237,6 +279,7 @@ $(() => {
         "#pixelArt": data.pixelArt,
         "#blog": data.blog,
         "#most-recent": sortedData.slice(0, 6),
+        "#resume": data.resume,
     };
 
     const urlParams = new URLSearchParams(window.location.search);
