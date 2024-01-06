@@ -1860,8 +1860,57 @@ alt="Our fully done Minesweeper game with styling to make it look like cut stone
             public: true,
             lastUpdated: Date.parse("Nov 12 2023"),
         },
+        {
+            title: "New year. New job. New habits.",
+            siteLink: "",
+            codeLink:
+                "https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball",
+            imagePath: "./assets/images/blog/snowyard.jpg",
+            description: `
+            <p>
+                New year. I am newly 35 years old and just came through a tough but still good year. Many
+                years have been tough for me, but in the grand scheme of tough years, 2023 was pretty easy on me. This year I
+                was laid off from a dream job, joined the leadership at <a href="https://codeforphilly.org/"
+                    target="_blank">Code for Philly</a>, didn't ride my bike enough, worked in a large corporate environment
+                that I dislike, but ended the year by securing a job that fits my values. Ruby and I also have some travel plans
+                that I will talk about more once we're back home!
+            </p>
+            <p>
+                New job. I will be joining <a href="https://clsphila.org/" target="_blank">Community Legal Services</a> this
+                week as a Developer and Data Analyst in their Digital Innovation Lab. I am excited to be working on local issues
+                and helping Philadelphians, but I am also just excited to be working at a values-driven organization once again!
+                CLS is a great organization and I have been a fan of their work for some time.
+            </p>
+            <p>
+                New habits. I have a new <a href="https://bonk.lol/2024A" target="_blank">Bonk planner</a> and want to leverage
+                it to build up some new habits and routines I have been wanting to build. I am using it as part tracker and part
+                journal. Each day I note: How many cups of coffee I've had (less than I thought). Which meals I've prepared.
+                When I woke up and went to bed. What exercise I did that day. What 3rd place I visited. What tasks I need to do
+                and which I did. And finally a highlight list of what happened that day. I have been doing it for a week now and
+                it's already given me some insight into my habits and helped me build some new ones.
+            </p>
+            <p>
+                I was expecting that I would have more reflections I'd like to share from my usual birthday/new year
+                introspection, but I think most of that is best left private. I am looking forward to this year, even if it is
+                starting with winter (as Gregorian years typically do), but time with friends should at least make that easier.
+            </p>
+            `,
+            altText:
+                "A dithered photo of our backyard lightly coated in snow, a rarity now in Philly. A mostly brown landscape features some orange pots, a blue umbrella, and white snow.",
+            public: true,
+            lastUpdated: Date.parse("Jan 7, 2024"),
+        },
     ],
     resume: [
+        {
+            title: "Developer & Data Analyst",
+            company: "Community Legal Services",
+            coLink: "https://clsphila.org/",
+            start: Date.parse("1 Jan 2024"),
+            end: null,
+            location: "Philadelphia, PA",
+            description: "",
+        },
         {
             title: "Software Engineer",
             company: "Brooksource",
@@ -2079,4 +2128,4 @@ alt="Our fully done Minesweeper game with styling to make it look like cut stone
 
 // Uncomment to output JSON from this
 // Use with `node data.js > data.json`
-console.log(JSON.stringify(data));
+// console.log(JSON.stringify(data));
