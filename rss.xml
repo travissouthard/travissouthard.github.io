@@ -15,10 +15,49 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 12 Nov 2023 00:00:00 GMT</pubDate>
-    <lastBuildDate>Sat, 11 Nov 2023 15:12:51 GMT</lastBuildDate>
+    <pubDate>Sun, 07 Jan 2024 05:00:00 GMT</pubDate>
+    <lastBuildDate>Sat, 06 Jan 2024 23:16:16 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>New year. New job. New habits.</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/snowyard.jpg&quot; alt=&quot;A dithered photo of our backyard lightly coated in snow, a rarity now in Philly. A mostly brown landscape features some orange pots, a blue umbrella, and white snow.&quot;/&gt;
+      &lt;/a&gt;
+  
+            &lt;p&gt;
+                New year. I am newly 35 years old and just came through a tough but still good year. Many
+                years have been tough for me, but in the grand scheme of tough years, 2023 was pretty easy on me. This year I
+                was laid off from a dream job, joined the leadership at &lt;a href=&quot;https://codeforphilly.org/&quot;
+                    target=&quot;_blank&quot;&gt;Code for Philly&lt;/a&gt;, didn&apos;t ride my bike enough, worked in a large corporate environment
+                that I dislike, but ended the year by securing a job that fits my values. Ruby and I also have some travel plans
+                that I will talk about more once we&apos;re back home!
+            &lt;/p&gt;
+            &lt;p&gt;
+                New job. I will be joining &lt;a href=&quot;https://clsphila.org/&quot; target=&quot;_blank&quot;&gt;Community Legal Services&lt;/a&gt; this
+                week as a Developer and Data Analyst in their Digital Innovation Lab. I am excited to be working on local issues
+                and helping Philadelphians, but I am also just excited to be working at a values-driven organization once again!
+                CLS is a great organization and I have been a fan of their work for some time.
+            &lt;/p&gt;
+            &lt;p&gt;
+                New habits. I have a new &lt;a href=&quot;https://bonk.lol/2024A&quot; target=&quot;_blank&quot;&gt;Bonk planner&lt;/a&gt; and want to leverage
+                it to build up some new habits and routines I have been wanting to build. I am using it as part tracker and part
+                journal. Each day I note: How many cups of coffee I&apos;ve had (less than I thought). Which meals I&apos;ve prepared.
+                When I woke up and went to bed. What exercise I did that day. What 3rd place I visited. What tasks I need to do
+                and which I did. And finally a highlight list of what happened that day. I have been doing it for a week now and
+                it&apos;s already given me some insight into my habits and helped me build some new ones.
+            &lt;/p&gt;
+            &lt;p&gt;
+                I was expecting that I would have more reflections I&apos;d like to share from my usual birthday/new year
+                introspection, but I think most of that is best left private. I am looking forward to this year, even if it is
+                starting with winter (as Gregorian years typically do), but time with friends should at least make that easier.
+            &lt;/p&gt;
+            See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
+            <link>https://travissouthard.com/blog.html?post=new-year-new-job-new-habits</link>
+            <pubDate>Sun, 07 Jan 2024 05:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog.html?post=new-year-new-job-new-habits</guid>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>A personal financial project</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
