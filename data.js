@@ -108,11 +108,11 @@ const data = {
             lastUpdated: Date.parse("31 Jan 2023"),
         },
     ],
-    pixelArt: [
+    art: [
         {
             title: "1-Bit Beach Scene",
             siteLink: "",
-            imagePath: "./assets/images/pixelart/beach.png",
+            imagePath: "./assets/images/art/beach.png",
             description: "",
             altText:
                 "A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach",
@@ -122,7 +122,7 @@ const data = {
         {
             title: "CRT Flower",
             siteLink: "",
-            imagePath: "./assets/images/pixelart/crt-flower.png",
+            imagePath: "./assets/images/art/crt-flower.png",
             description: "",
             altText:
                 "A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV",
@@ -132,7 +132,7 @@ const data = {
         {
             title: "32x32 Self Portrait",
             siteLink: "",
-            imagePath: "./assets/images/pixelart/headshot-32.png",
+            imagePath: "./assets/images/art/headshot-32.png",
             description: "",
             altText:
                 "A low-color low-res pixel art portait of a man with a mustache",
@@ -142,27 +142,27 @@ const data = {
         {
             title: "House Portrait",
             siteLink: "",
-            imagePath: "./assets/images/pixelart/house.png",
+            imagePath: "./assets/images/art/house.png",
             description: "",
-            altText: "A 4-color grayscale pixelart image of a rowhome",
+            altText: "A 4-color grayscale art image of a rowhome",
             public: true,
             lastUpdated: Date.parse("30 Oct 2022"),
         },
         {
             title: "1-bit Mushroom",
             siteLink: "",
-            imagePath: "./assets/images/pixelart/mushroom.png",
+            imagePath: "./assets/images/art/mushroom.png",
             description: "",
-            altText: "A 1-bit pixelart closeup image of a whitecap mushroom",
+            altText: "A 1-bit art closeup image of a whitecap mushroom",
             public: true,
             lastUpdated: Date.parse("10 Oct 2022"),
         },
         {
             title: "1-bit Self Portrait",
             siteLink: "",
-            imagePath: "./assets/images/pixelart/pixel-art-portrait.png",
+            imagePath: "./assets/images/art/pixel-art-portrait.png",
             description: "",
-            altText: "A 1-bit pixelart self portrait of a man using a keyboard",
+            altText: "A 1-bit art self portrait of a man using a keyboard",
             public: true,
             lastUpdated: Date.parse("16 Oct 2022"),
         },
