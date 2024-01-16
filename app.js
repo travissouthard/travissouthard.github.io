@@ -7,7 +7,7 @@ const createPostSlug = (title) => {
 const getDetailPageName = (title) => {
     const pageNames = {
         projects: "projects",
-        pixelArt: "pixelArt",
+        art: "art",
         blog: "blog",
         resume: "resume",
     };
@@ -66,8 +66,7 @@ const assembleProjectCard = (project) => {
     });
     $projectImage.append(
         $("<img>").attr({
-            src:
-                project.imagePath || "./assets/images/pixelart/headshot-32.png",
+            src: project.imagePath || "./assets/images/art/headshot-32.png",
             alt: project.altText,
         })
     );
@@ -271,12 +270,12 @@ const buildPage = (sectionData, slug) => {
 $(() => {
     const sortedData = sortArrayByDate([
         ...data.projects,
-        ...data.pixelArt,
+        ...data.art,
         ...data.blog,
     ]);
     const sectionData = {
         "#projects": data.projects,
-        "#pixelArt": data.pixelArt,
+        "#art": data.art,
         "#blog": data.blog,
         "#most-recent": sortedData.slice(0, 6),
         "#resume": data.resume,
