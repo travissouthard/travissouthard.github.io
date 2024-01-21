@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to make Minesweeper part 1 | Travis Southard</title>
+    <meta property="og:title" content="How to make Minesweeper part 1 | Travis Southard">
+    <meta property="og:description"
+        content="
+Overview
+Let’s make minesweeper with just native web tools! Using only native web components we can build this classic video game using some loops, array methods, and recursion. Specifically we&#39;ll be using HTML5, CSS3 with Flexbox, and">
+    <meta property="og:image" content="./assets/images/blog/minesweeper06.jpg" />
+    <meta name="robots" content="noai, noimageai">
+    <link href="https://jawns.club/@travissouthard" rel="me">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon_io/site.webmanifest">
+</head>
+<body>
+    <header>
+        <h1>Travis Southard</h1>
+        <p>Philadelphian Software Engineer</p>
+    </header>
+    <nav><ul>
+            <a href="../index.html">
+                <li>Home</li>
+            </a>
+            <a href="../projects.html">
+                <li>Projects</li>
+            </a>
+            <a href="../art.html">
+                <li>Art</li>
+            </a>
+            <a href="../blog.html">
+                <li>Blog</li>
+            </a>
+            <a href="../about.html">
+                <li>About</li>
+            </a>
+            <a href="../resume.html">
+                <li>Resume</li>
+            </a></ul></nav>
+    <main>
+        <h2>How to make Minesweeper part 1</h2>
+        <div class="detail-view"><ul class="blog-nav">
+        <a href="why-is-some-documentation-better-than-others.html"><li>&lt;&lt;</li></a>
+        <a href="september-updates-and-october-upcoming.html"><li>&lt;</li></a>
+        <a href="how-to-make-minesweeper-part-2.html"><li>&gt;</li></a>
+        <a href="new-year-new-job-new-habits.html"><li>&gt;&gt;</li></a>
+    </ul>
+    <article class="blog-post">
+        <h5>Last updated: Sun Oct 08 2023 | <a href="https://travissouthard.com/blog/how-to-make-minesweeper-part-1.html">Permalink</a> | <a href="https://travissouthard.com/rss.xml" target="_blank">RSS</a></h5>
+        <img src=".././assets/images/blog/minesweeper06.jpg" alt="Our partially done Minesweeper game with randomly placed bombs and safe squares" width="100%">
+        
+<h3 id="overview">Overview</h3>
+<p>Let’s make minesweeper with just native web tools! Using only native web components we can build this classic video game using some loops, array methods, and recursion. Specifically we&#39;ll be using HTML5, CSS3 with Flexbox, and ES6 JavaScript.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>To make this project you will need:</p>
+<ul>
+<li>A code editor (I’ll be using VS Code)</li>
+<li>A web browser</li>
+<li>A basic understanding of HTML, JavaScript, and CSS</li>
+</ul>
+<h3 id="how-to-make-minesweeper-part-1-">How to make Minesweeper part 1:</h3>
+<h3 id="make-your-files">Make your files</h3>
+<p>Start a project folder called “minesweeper” and in it create 3 files:</p>
+<ul>
+<li>index.html</li>
+<li>style.css</li>
+<li>app.js</li>
+</ul>
+<p>Note: If you don’t already navigate your machine and manage your code files in the terminal or shell I recommend it! To do the above:</p>
+<pre><code class="lang-sh"># Make your folder <span class="hljs-built_in">and</span> <span class="hljs-keyword">change</span> directories <span class="hljs-keyword">to</span> it
+<span class="hljs-built_in">mkdir</span> minesweeper
+<span class="hljs-keyword">cd</span> minesweeper
+
+# Create the <span class="hljs-keyword">files</span>
+touch <span class="hljs-built_in">index</span>.html style.css app.js
+</code></pre>
+<h3 id="add-your-boilerplate-code">Add your boilerplate code</h3>
+<p>Open all three files into your editor of choice. In index.html start with the boilerplate code (in VS Code you can type <code>!</code> and click the first option, this fills it out as a snippet):</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>In the <code>&lt;body&gt;</code> section, add: <code>&lt;h1&gt;Minesweeper&lt;/h1&gt;</code> and change the text in the <code>&lt;title&gt;</code> tag to also read Minesweeper.
+Open index.html in your browser. You can drag and drop the file into the browser or use <code>open index.html</code> in your terminal or even use the <code>file://</code> protocol if you’re feeling fancy.</p>
+<p>This isn’t much of a website yet, and certainly not a game or stylish. But to get either of those qualities we need to connect our <code>app.js</code> and <code>style.css</code> files. To do so we need two lines in the head section of the html:</p>
+<pre><code class="lang-html">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"style.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"app.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>Then in the <code>style.css</code> file we will need the following:</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">color</span>: pink;
+}
+</code></pre>
+<p>It doesn&#39;t have to be pink, but it does help to have something stand out pretty dramatically. Now in our <code>app.js</code> file let&#39;s add:</p>
+<pre><code class="lang-js">console.log(<span class="hljs-string">"This is connected"</span>)<span class="hljs-comment">;</span>
+</code></pre>
+<p>Note: I want to establish a pattern here that whenever we add new code to our files, we should test it. In this case, we’ll refresh the browser to see what we changed. So each time we make a change I’ll refer to this step as “refresh and check”. Also, each section in this is designed to be its own commit (and the titles of the sections work as <a href="https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/">good commit messages</a>).</p>
+<p>When we refresh and check, we should see our title on a pink background. To see the console.log message, we’ll have to right-click, and choose “inspect” from the context menu. If it’s your first time opening the inspector, welcome! Most browsers open by default to to the Elements inspector tab to let you see the html and css as it’s rendered on the page. And we’ll come back to that later. For now, let’s choose the Console tab and we should see our message!</p>
+<img src="./assets/images/blog/minesweeper01.jpg" alt="Our Minesweeper title with a pink background and message in the console" />
+<h3 id="add-the-board-and-put-stuff-in-it">Add the board and put stuff in it</h3>
+<p>A key part of the minesweeper game is a board of squares on a grid. So let’s add a <code>&lt;div&gt;</code> element with the id: “board” (this will look like <code>&lt;div id=&quot;board&quot;&gt;&lt;/div&gt;</code>). A div by itself will not really do much. So we&#39;ll add our squares with JavaScript.</p>
+<p>There’s no prescriptive size that our “minefield” should be, and in fact many implementations use many different sizes, but a 10x10 grid has an appeal for both easy numbers and a nice size for playing.</p>
+<p>So to make a 10x10 board we will need to make 100 squares. But rather than using 10 and 100, let’s use variables like <code>width</code> and <code>boardSize</code> so we can make this easier to work on later. So in our <code>app.js</code> file we&#39;ll replace our <code>console.log</code> line with:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> width = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">const</span> boardSize = width * width;
+
+<span class="hljs-keyword">const</span> board = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"board"</span>);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) {
+    <span class="hljs-keyword">const</span> square = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"p"</span>);
+    square.innerHTML = <span class="hljs-string">`<span class="hljs-subst">${i + <span class="hljs-number">1</span>}</span>`</span>;
+    board.appendChild(square);
+}
+</code></pre>
+<p>Let&#39;s check and refresh. Here we run into an interesting bit of trouble, there should be 100 numbers on the screen and there are none and an error is in the console telling us no element exists with an id of &quot;board.&quot; Code in HTML, CSS, and JS is read by the browser from top to bottom. The HTML file asks for the <code>&lt;link&gt;</code> to the style sheet in the <code>&lt;head&gt;</code> and then asks for the <code>&lt;script&gt;</code> containing the Javascript. Then once the <code>&lt;head&gt;</code> is read and rendered, the browser executes the <code>&lt;body&gt;</code> code.</p>
+<p>This means that in this case the <code>&lt;div&gt;</code> with the id of &quot;board&quot; hasn&#39;t been rendered yet when the JavaScript is executed. There is a <code>window.load</code> event we can ask for, but another way to handle this is to move the <code>&lt;script&gt;</code> tag to the bottom of the <code>&lt;body&gt;</code> section. This way the Javascript is only run once the whole page is rendered.</p>
+<p>Refresh and check again and we have 100 numbers in our &quot;board&quot;.</p>
+<img src="./assets/images/blog/minesweeper02.jpg" alt="Our Minesweeper title with a vertical list of increasing integers" />
+<h3 id="style-the-board-to-be-square">Style the board to be square</h3>
+<p>Now we have 100 numbers in a weirdly long list, but that’s not much of a board. For a moment we will need to write some CSS. </p>
+<p>Note: For a lot of engineers, CSS can be very daunting, especially where page layout is concerned. And yes there are many component libraries that will handle this for us, but those libraries compile or otherwise eventually render CSS. Therefore, knowing how CSS works natively, it will help us to diagnose and solve design and UX issues because they come up with libraries too.</p>
+<p>We will worry about the aesthetic style of the game later, for now we want to get the board to be functional. And for now, we only have a few elements on the page to worry about first. We have the board itself and 100 <code>&lt;p&gt;</code> elements within it.</p>
+<p>The board is a <code>&lt;div&gt;</code> with an <code>id</code> of &quot;board&quot; so we can easily grab that with <code>#board</code> in our CSS. We&#39;ll set an arbitrary width (ideally one that will make math easy later), center it, and add a border so we can see the board.</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#board</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid black;
+}
+</code></pre>
+<p>A refresh and check shows us a square with a border at the center of our page, but the numbers are still falling down the page. There&#39;s a few ways to get our elements to sit in a grid in the board, and my go-to is Flexbox, which is natively supported in CSS3. In this case it&#39;s appropriate since we have one array that we are arranging as a 2-dimensional grid and flexbox will treat them that way as well.</p>
+<p>Note: <a href="https://flexboxfroggy.com/">Flexbox Froggy</a> is a great way to learn how to use the basics of Flexbox and CSS Tricks has <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">an excellent reference guide</a>.</p>
+<p>Let&#39;s add the following lines to our <code>#board</code> CSS block to use Flexbox and display its children (our squares) as rows that wrap to the next row when they run out of horizontal space.</p>
+<pre><code class="lang-css"><span class="hljs-attribute">display</span>: flex;
+<span class="hljs-attribute">flex-flow</span>: row wrap;
+</code></pre>
+<p>We still need to style the numbers to get them to fit nicely since their defaults will change depending on what text is in them. We will want to give them a fixed width and height, a border so we can see them for now, and center the text in each square.</p>
+<p>Above, we (completely arbitrarily) chose <code>500px</code> as our board width and a game board size of 10 squares by 10 squares. So each square should be <code>50px</code>, but if we just set height and width to be <code>50px</code>, the squares wouldn&#39;t fit. HTML elements render width as the content (in this case: text) width. Padding, border, and margin will add more size to the box and will not fit on our grid.</p>
+<p>We don&#39;t want any margin, since each square will sit directly against its neighbors. We also don&#39;t want padding since we&#39;re just centering with <code>text-align</code>. However, we do want a border so we can see where the boxes are.</p>
+<p>So, we will start our squares with the following styles: A width and height of <code>48px</code> to leave room for the <code>1px</code> of border on each side (e.g. for width, the left and right borders both add to the overall width).</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#board</span> <span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">48px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">48px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">48px</span>;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid gray;
+}
+</code></pre>
+<p>A refresh and check should now show us a board with 100 squares arranged in a nice grid.</p>
+<img src="./assets/images/blog/minesweeper03.jpg" alt="Our Minesweeper title with a square of squares with numbers in them" />
+<h3 id="make-the-squares-clickable">Make the squares clickable</h3>
+<p>Now that we have a grid, let&#39;s make it interactive! This is typically an expectation of any video game. The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document"><code>document</code> API</a> has an <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>addEventListener</code> method</a> that is incredibly useful for this. The best place to add these event listeners will be as we make each square. So let&#39;s make our loop that creates the squares look like this.</p>
+<pre><code class="lang-js">for (<span class="hljs-name">let</span> i = <span class="hljs-number">0</span><span class="hljs-comment">; i &lt; 100; i++) {</span>
+    const clickedClass = <span class="hljs-string">"clicked"</span><span class="hljs-comment">;</span>
+    const square = document.createElement(<span class="hljs-string">"p"</span>)<span class="hljs-comment">;</span>
+    square.innerHTML = `${i + <span class="hljs-number">1</span>}`<span class="hljs-comment">;</span>
+    square.addEventListener(<span class="hljs-string">"click"</span>, (<span class="hljs-name">e</span>) =&gt; {
+        if (!square.classList.contains(<span class="hljs-name">clickedClass</span>)) {
+            square.classList.add(<span class="hljs-name">clickedClass</span>)<span class="hljs-comment">;</span>
+        }
+    })<span class="hljs-comment">;</span>
+    board.appendChild(<span class="hljs-name">square</span>)<span class="hljs-comment">;</span>
+}
+</code></pre>
+<p>Note: <code>clickedClass</code> may be extraneous for now, but we wanted to use the string <code>&quot;clicked&quot;</code> more than once and it often helps to set that with a constant to ensure they match (and to make changing it easier later). I have had plenty of projects get stalled for a little too long trying to find a typo in a string.</p>
+<p>And now that we are adding a &quot;clicked&quot; class to each square, let&#39;s change the color to see if our event handling works by adding this to our CSS:</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.clicked</span> {
+    <span class="hljs-attribute">background-color</span>: green;
+}
+</code></pre>
+<p>Refresh and check and click around the board. Any unclicked squares will change color now! However, as it&#39;s written above, we are only adding a class if it&#39;s not already there. If you&#39;d like it to change the color back on the second click instead, try <code>square.classList.toggle(clickedClass)</code></p>
+<img src="./assets/images/blog/minesweeper04.jpg" alt="Our board now with green squares indicating which have been clicked" />
+<h3 id="refactor-board-to-build-from-array-of-values">Refactor board to build from array of values</h3>
+<p>Now that we have a grid of 100 numbers ready to be built and clicked, let&#39;s add some mines to our minefield! In our javascript, let&#39;s create an array of 100 elements, with 20 bombs and 80 empties.</p>
+<p>But what data should we put in this array? We have a lot of options, but since we are developing this as a webpage, adding classes to our square elements gives us an easy way to check if that square is a bomb (and then style it) by checking <code>square.classList.contains()</code>.</p>
+<p>Note: For a savvy game player, this does expose the locations via the inspector if a player wanted to cheat. If we were building something that needed to be competitive, a better choice would be to refer back to our array and check the value there. While less likely, that savvy player could still have access to that array via the console. In that case, a backend server would probably be necessary to keep things competitive. This is certainly outside our scope here, but it&#39;s always worth thinking about security especially when practicing.</p>
+<p>So if we are going to use classes on each square, an array of strings would be a good choice. The strings in this case will be &quot;bomb&quot; and &quot;valid&quot;, as in: There is either a bomb in this square or this square is a valid place to click. Booleans like <code>true</code> and <code>false</code> could also work, however, with enough distance it may become muddy wondering if it&#39;s <code>true</code> this is a bomb or <code>true</code> that we can safely click it.</p>
+<p>Note: In this case I&#39;ve chosen the word &quot;bomb&quot; instead of &quot;mine&quot; since &quot;mine&quot; has a few common meanings (place to dig for ores, belonging to me, etc), but &quot;bomb&quot; commonly is just that (though I suppose it is also sometimes a cake). But the goal of naming like this is to choose something as clear as possible.</p>
+<p>In our <code>app.js</code> file let&#39;s add the following after the <code>boardSize</code> is declared but before the <code>board</code> is defined:</p>
+<pre><code class="lang-js">const <span class="hljs-keyword">bombCount </span>= <span class="hljs-number">20</span><span class="hljs-comment">;</span>
+const validCount = <span class="hljs-keyword">boardSize </span>- <span class="hljs-keyword">bombCount;
+</span>const squareValues = []<span class="hljs-comment">;</span>
+
+for (let i = <span class="hljs-number">0</span><span class="hljs-comment">; i &lt; boardSize; i++) {</span>
+    if (i &lt; <span class="hljs-keyword">bombCount) </span>{
+        squareValues.push(<span class="hljs-string">"bomb"</span>)<span class="hljs-comment">;</span>
+    } else {
+        squareValues.push(<span class="hljs-string">"valid"</span>)<span class="hljs-comment">;</span>
+    }
+}
+</code></pre>
+<p>Now we have an array of 20 bombs and 80 valids. We&#39;ll randomize that later so that the board is not just bombs at the top. But for now, let&#39;s use this array to create the board. So let&#39;s change our loop to live within a function (with a clear name) and use that array:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> createBoard = () =&gt; {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-keyword">value</span> of squareValues) {
+        <span class="hljs-keyword">const</span> clickedClass = <span class="hljs-string">"clicked"</span>;
+        <span class="hljs-keyword">const</span> square = document.createElement(<span class="hljs-string">"p"</span>);
+        square.innerHTML = <span class="hljs-keyword">value</span> === <span class="hljs-string">"bomb"</span> ? <span class="hljs-string">"💣"</span> : <span class="hljs-string">"😀"</span>;
+        square.classList.<span class="hljs-keyword">add</span>(<span class="hljs-keyword">value</span>);
+        square.addEventListener(<span class="hljs-string">"click"</span>, (e) =&gt; {
+            <span class="hljs-keyword">if</span> (!square.classList.contains(clickedClass)) {
+                square.classList.<span class="hljs-keyword">add</span>(clickedClass);
+            }
+        });
+        board.appendChild(square);
+    }
+};
+
+createBoard();
+</code></pre>
+<p>Note: If you&#39;re not familiar with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of">for...of loops</a>, they are very useful for iterating over every value in an array. Another option could be using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"><code>squareValues.forEach()</code></a>, but in this case I prefer how the for...of loop looks.</p>
+<p>Now when we refresh and check, we should see the 20 bomb icons in the top two rows of the board and the remaining of the board should be smiley faces.</p>
+<img src="./assets/images/blog/minesweeper05.jpg" alt="Our Minesweeper board with two rows of bombs and many others of smiley faces" />
+<h3 id="randomize-the-board-when-building">Randomize the board when building</h3>
+<p>Our minesweeper game is going to get very stale very fast if the board is always populated with all the bombs up at the very top. So let&#39;s randomize the array we are building the board from each time we build the board.</p>
+<p>Let&#39;s make a <code>shuffleValues</code> function and call it on the first line inside the <code>createBoard</code> function.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> shuffleValues = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; squareValues.length; i++) {
+        <span class="hljs-keyword">const</span> randomIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * squareValues.length);
+        <span class="hljs-keyword">let</span> temp = squareValues[i];
+        squareValues[i] = squareValues[randomIndex];
+        squareValues[randomIndex] = temp;
+    }
+};
+</code></pre>
+<p>This is a very simple method of scrambling our array, but it is pretty sufficient. Every element will switch with a random element, which could mean that an element will switch with itself, but that&#39;s okay since it&#39;s unlikely all 100 will switch with just themselves.</p>
+<p>There&#39;s two steps to this function, for every element:</p>
+<ul>
+<li>Choose a random index</li>
+<li>Switch the element&#39;s value with the value at that index</li>
+</ul>
+<p>Note: Instead of the temp switch method, another option with ES6 is to use destructuring: <code>[squareValues[i], squareValues[randomIndex]] = [squareValues[randomIndex], squareValues[i]]</code> to switch them in a single line. Both are valid, though neither are immediately better than the other so choose accordingly.</p>
+<p>Refresh and check and now our values should be randomized for every time we refresh the page.</p>
+<img src="./assets/images/blog/minesweeper06.jpg" alt="Our Minesweeper board with randomized bombs and smiley faces" />
+<h3>Part 2 out now! Part 3 coming soon!</h3>
+<p> Check out <a href="https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2">part 2</a> to build out most of the gameplay. Add the <a href="https://travissouthard.com/rss.xml" target="_blank">RSS feed</a> to your favorite RSS reader to get it as soon as it comes out</p>
+            
+        <p>
+            <em>
+                Thank you for reading! 
+                <a href="https://ko-fi.com/travissouthard" target="_blank">
+                    Please consider supporting this blog.
+                </a>
+            </em>
+        </p>
+    </article>
+    <ul class="blog-nav">
+        <a href="why-is-some-documentation-better-than-others.html"><li>&lt;&lt;</li></a>
+        <a href="september-updates-and-october-upcoming.html"><li>&lt;</li></a>
+        <a href="how-to-make-minesweeper-part-2.html"><li>&gt;</li></a>
+        <a href="new-year-new-job-new-habits.html"><li>&gt;&gt;</li></a>
+    </ul></div>
+    </main>
+    <script src="app.js"></script>
+    <footer><ul>
+            <a href="../index.html">
+                <li>Home</li>
+            </a>
+            <a href="../projects.html">
+                <li>Projects</li>
+            </a>
+            <a href="../art.html">
+                <li>Art</li>
+            </a>
+            <a href="../blog.html">
+                <li>Blog</li>
+            </a>
+            <a href="../about.html">
+                <li>About</li>
+            </a>
+            <a href="../resume.html">
+                <li>Resume</li>
+            </a>
+            <a href="../rss.xml">
+                <li>RSS Feed</li>
+            </a>
+            <a href="https://github.com/travissouthard">
+                <li>GitHub</li>
+            </a>
+            <a href="https://www.linkedin.com/in/southardtravis/">
+                <li>LinkedIn</li>
+            </a></ul></footer>
+</body>
+</html>
+    

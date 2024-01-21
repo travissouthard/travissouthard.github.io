@@ -9,7 +9,6 @@ const getDetailPageName = (title) => {
         projects: "projects",
         art: "art",
         blog: "blog",
-        resume: "resume",
     };
     for (let [key, arr] of Object.entries(data)) {
         for (let post of arr) {
@@ -267,22 +266,22 @@ const buildPage = (sectionData, slug) => {
     $body.append($footer);
 };
 
-$(() => {
-    const sortedData = sortArrayByDate([
-        ...data.projects,
-        ...data.art,
-        ...data.blog,
-    ]);
-    const sectionData = {
-        "#projects": data.projects,
-        "#art": data.art,
-        "#blog": data.blog,
-        "#most-recent": sortedData.slice(0, 6),
-        "#resume": data.resume,
-    };
+// $(() => {
+//     const sortedData = sortArrayByDate([
+//         ...data.projects,
+//         ...data.art,
+//         ...data.blog,
+//     ]);
+//     const sectionData = {
+//         "#projects": data.projects,
+//         "#art": data.art,
+//         "#blog": data.blog,
+//         "#most-recent": sortedData.slice(0, 6),
+//         "#resume": data.resume,
+//     };
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const postSlug = urlParams.get("post");
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const postSlug = urlParams.get("post");
 
-    buildPage(sectionData, postSlug);
-});
+//     buildPage(sectionData, postSlug);
+// });

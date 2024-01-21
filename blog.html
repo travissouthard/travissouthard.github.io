@@ -1,38 +1,233 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Travis Southard</title>
-    <meta property="og:title" content="Travis Southard's Blog">
+    <meta property="og:title" content="Blog | Travis Southard">
     <meta property="og:description"
-        content="Travis Southard is a Philadelphian queer software engineer blogging about web development tutorials, gardens, and bikes.">
+        content="Travis Southard's most recent blog posts'.">
     <meta property="og:image" content="assets/images/pixel-art-portrait.png" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
     <meta name="robots" content="noai, noimageai">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css">
-    <!-- For Devicon icons from https://devicons.github.io/devicon/ -->
     <link href="https://jawns.club/@travissouthard" rel="me">
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="constants.js"></script>
-    <script src="data.js"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon_io/site.webmanifest">
 </head>
-
 <body>
+    <header>
+        <h1>Travis Southard</h1>
+        <p>Philadelphian Software Engineer</p>
+    </header>
+    <nav><ul>
+            <a href="index.html">
+                <li>Home</li>
+            </a>
+            <a href="projects.html">
+                <li>Projects</li>
+            </a>
+            <a href="art.html">
+                <li>Art</li>
+            </a>
+            <a href="blog.html">
+                <li>Blog</li>
+            </a>
+            <a href="about.html">
+                <li>About</li>
+            </a>
+            <a href="resume.html">
+                <li>Resume</li>
+            </a></ul></nav>
     <main>
         <h2>Blog</h2>
-        <div id="blog"></div>
+        <div class="list-view"><article class="project-card">
+            <h3>New year. New job. New habits.</h3>
+            <a href="blog/new-year-new-job-new-habits.html">
+                <img src="./assets/images/blog/snowyard.jpg" alt="A dithered photo of our backyard lightly coated in snow, a rarity now in Philly. A mostly brown landscape features some orange pots, a blue umbrella, and white snow."/>
+            </a>
+            <p>
+            
+                New year. I am newly 35 years old and just came through a tough but still good year. Many
+                years have been tough for me, but in the grand scheme of tough years, 2023 was pretty easy on me. This y... <a href="blog/new-year-new-job-new-habits.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>A personal financial project</h3>
+            <a href="blog/a-personal-financial-project.html">
+                <img src="./assets/images/projects/debt-snowball.png" alt="A screenshot of the debt snowball chart showing the paydown of the debts compared to the traditional payment plan"/>
+            </a>
+            <p>
+            
+                Earlier this year I built a project
+                that came from a personal need. I have three student loans from my time at University of the Arts, my time at
+                Temple University, and my coding... <a href="blog/a-personal-financial-project.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Season of Change</h3>
+            <a href="blog/season-of-change.html">
+                <img src="./assets/images/blog/wiss-fall.jpg" alt="The Wissahickon Creek flowing from around the corner through orange leaved tees that have dropped about 20% of their leaves"/>
+            </a>
+            <p>
+            
+                Autumn is in full show here in Philadelphia, at least up in the Northwest of Philly where I now live. The colors
+                are a great time to reflect on the passage of time. It being the weekend daylight... <a href="blog/season-of-change.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Smaller code and bigger plans</h3>
+            <a href="blog/smaller-code-and-bigger-plans.html">
+                <img src="./assets/images/blog/ruby-beach.jpg" alt="Ruby standing on an autumn beach on her birthday weekend"/>
+            </a>
+            <p>
+            
+                Over the past few weeks I have released a tutorial to make the classic video game, Minesweeper, from scratch
+                using native web tools (being HTML, CSS, and Javascript). (Check out parts 1, 2, & 3!... <a href="blog/smaller-code-and-bigger-plans.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>How to make Minesweeper part 3</h3>
+            <a href="blog/how-to-make-minesweeper-part-3.html">
+                <img src="./assets/images/blog/minesweeper19.jpg" alt="Our fully done Minesweeper game with styling to make it look like cut stone."/>
+            </a>
+            <p>
+            How to make Minesweeper part 3
+    This is the final part of this 3-part series! I recommend starting with part 1 and also working through part 2 before moving on
+        to this one. If you have already worked through parts 1 ... <a href="blog/how-to-make-minesweeper-part-3.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>How to make Minesweeper part 2</h3>
+            <a href="blog/how-to-make-minesweeper-part-2.html">
+                <img src="./assets/images/blog/minesweeper12.jpg" alt="Our partially done Minesweeper game with blank squares, some pink ones, and an array of buttons reading 'reset', 'easy', 'medium', and 'hard'"/>
+            </a>
+            <p>
+            How to make Minesweeper part 2
+    This is part 2 of 3 and I recommend starting with part 1 before moving on
+        to this part. If you have already worked through part 1, welcome back! In the previous part, we built a board ... <a href="blog/how-to-make-minesweeper-part-2.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>How to make Minesweeper part 1</h3>
+            <a href="blog/how-to-make-minesweeper-part-1.html">
+                <img src="./assets/images/blog/minesweeper06.jpg" alt="Our partially done Minesweeper game with randomly placed bombs and safe squares"/>
+            </a>
+            <p>
+Overview
+Let’s make minesweeper with just native web tools! Using only native web components we can build this classic video game using some loops, array methods, and recursion. Specifically we&#39;ll be using HTML5, CSS3 with Flexbox, and... <a href="blog/how-to-make-minesweeper-part-1.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>September Updates and October Upcoming</h3>
+            <a href="blog/september-updates-and-october-upcoming.html">
+                <img src="./assets/images/blog/sunset-graveyard.jpg" alt="Sunset over a local church and graveyard"/>
+            </a>
+            <p>
+            
+                I have some updates from the past week and a content schedule for the next month!
+            
+            
+                Firstly I am honored that last Monday I was named one of Technical.ly's RealLIST
+     ... <a href="blog/september-updates-and-october-upcoming.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Web development streams coming soon!</h3>
+            <a href="blog/web-development-streams-coming-soon.html">
+                <img src="./assets/images/blog/travis-flowers.jpg" alt="Travis holding a bouquet of flowers in a field of flowers!"/>
+            </a>
+            <p>
+            
+                I have been working on personal projects in my spare time for a few weeks: stepping into a leadership role at Code for
+                    Philly, writing tutorials for upcoming streaming I'll be doing, and wor... <a href="blog/web-development-streams-coming-soon.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Cautiously considering creating content</h3>
+            <a href="blog/cautiously-considering-creating-content.html">
+                <img src="./assets/images/blog/cityview.jpg" alt="Gray buildings amongst green trees under a blue sky. A dithered pixel-art of a view of Fairmount, The Art Museum, the Schuylkill River, and the ridges beyond."/>
+            </a>
+            <p>
+      
+        I have been arguing with myself for a while now about getting back into content creation for the
+        past few years. I have started and abandoned moved on from so many projects over the years. None of them necessarily "g... <a href="blog/cautiously-considering-creating-content.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Now with permalinks!</h3>
+            <a href="blog/now-with-permalinks.html">
+                <img src="./assets/images/blog/permalink.png" alt="A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves."/>
+            </a>
+            <p>
+      I have been trying to keep this portfolio and its parts pretty simple
+        and lightweight. Part of this is wanting to
+        use free services as much as possible, but part of it is to keep my vanilla Javascript skills up to snu... <a href="blog/now-with-permalinks.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>I need a better routine</h3>
+            <a href="blog/i-need-a-better-routine.html">
+                <img src="./assets/images/blog/raystown-camp.jpg" alt="A dithered photo of our campsite from our recent vacation to Raystown Lake PA. Featureing our camp chairs in front of our campfire pizza, our borrowed tent and our two hammocks near the lake."/>
+            </a>
+            <p>
+      I am still very much on the job
+            search. I am actively seeking a full-time (though ideally 32-hours-a-week) software engineering position
+        in civic technology with geospatial work. I have had some great conversation... <a href="blog/i-need-a-better-routine.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Solved a tricky (for me) docker-compose error!</h3>
+            <a href="blog/solved-a-tricky-for-me-docker-compose-error.html">
+                <img src="./assets/images/art/headshot-32.png" alt=""/>
+            </a>
+            <p>
+      I am currently volunteering on a project as part of Code for
+            Philly's Launchpad 2023. I am working with a small team of developers and UXers to develop a project
+        that will seek to connect Philadelphians to comfort... <a href="blog/solved-a-tricky-for-me-docker-compose-error.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Brand new RSS feed!</h3>
+            <a href="blog/brand-new-rss-feed.html">
+                <img src="./assets/images/art/headshot-32.png" alt=""/>
+            </a>
+            <p>This is the first dedicated blog post as an attempt to 
+      make a blog from scratch that can be read by RSS readers. I have been 
+      wanting to make this for some time and finally made the time to figure 
+      out how to do this on a... <a href="blog/brand-new-rss-feed.html">Read more</a></p>
+        </article>
+    <article class="project-card">
+            <h3>Why is some documentation better than others?</h3>
+            <a href="https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/">
+                <img src="./assets/images/art/headshot-32.png" alt=""/>
+            </a>
+            <p>
+      In fall of 2022, I wrote a blog post for 
+      work on what makes for good documentation.
+      Documentation is vital for anything open source; from open 
+      hardware, to free recipes, to DIY repair tutorials, but it is especial... <a href="https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/">Read more</a></p>
+        </article>
+    </div>
     </main>
-
     <script src="app.js"></script>
+    <footer><ul>
+            <a href="index.html">
+                <li>Home</li>
+            </a>
+            <a href="projects.html">
+                <li>Projects</li>
+            </a>
+            <a href="art.html">
+                <li>Art</li>
+            </a>
+            <a href="blog.html">
+                <li>Blog</li>
+            </a>
+            <a href="about.html">
+                <li>About</li>
+            </a>
+            <a href="resume.html">
+                <li>Resume</li>
+            </a>
+            <a href="rss.xml">
+                <li>RSS Feed</li>
+            </a>
+            <a href="https://github.com/travissouthard">
+                <li>GitHub</li>
+            </a>
+            <a href="https://www.linkedin.com/in/southardtravis/">
+                <li>LinkedIn</li>
+            </a></ul></footer>
 </body>
-
 </html>
+    
