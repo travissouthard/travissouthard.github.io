@@ -1,10 +1,5 @@
-// Only runs in node in terminal
-// Run with `node generateRssXml.js > rss.xml`
-// data.json file is required
-// see comment at bottom of data.js to generate
-
 const fs = require("fs");
-const dataFile = fs.readFileSync("./data.json", "utf-8");
+const dataFile = fs.readFileSync("./data/data.json", "utf-8");
 const data = JSON.parse(dataFile);
 
 const createPostSlug = (title) => {
@@ -16,7 +11,7 @@ const createPostSlug = (title) => {
 const getDetailPageName = (title) => {
     const pageNames = {
         projects: "projects",
-        pixelArt: "pixelArt",
+        art: "art",
         blog: "blog",
     };
     for (let [key, arr] of Object.entries(data)) {
@@ -40,7 +35,7 @@ const documentStart = `<?xml version="1.0" encoding="UTF-8" ?>
         Travis Southard is a software engineer, cyclist, and artist living in Philadelphia, PA
     </description>
     <image>
-        <url>https://travissouthard.com/assets/images/pixelart/headshot-32.png</url>
+        <url>https://travissouthard.com/assets/images/art/headshot-32.png</url>
         <title>Travis Southard Blog</title>
         <link>https://travissouthard.com/</link>
         <width>144</width>
@@ -55,7 +50,7 @@ const documentEnd = `
 </channel>
 
 </rss>
-    `;
+`;
 
 const homeUrl = "https://travissouthard.com";
 
@@ -105,9 +100,9 @@ const createItemsFromPosts = (posts) => {
         const pubDate = new Date(post.lastUpdated);
         const link = post.siteLink
             ? fixLocalLink(post.siteLink)
-            : `${homeUrl}/${getDetailPageName(
+            : `${homeUrl}/${getDetailPageName(post.title)}/${createPostSlug(
                   post.title
-              )}.html?post=${createPostSlug(post.title)}`;
+              )}.html`;
         const item = `
         <item>
             <title>${post.title}</title>
@@ -125,10 +120,9 @@ const createItemsFromPosts = (posts) => {
 const sortArrayByDate = (arr) => {
     return arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
 };
-const posts = sortArrayByDate([
-    ...data.projects,
-    ...data.pixelArt,
-    ...data.blog,
-]);
+const posts = sortArrayByDate([...data.projects, ...data.art, ...data.blog]);
 
-console.log(`${documentStart}${createItemsFromPosts(posts)}${documentEnd}`);
+fs.writeFileSync(
+    "rss.xml",
+    `${documentStart}${createItemsFromPosts(posts)}${documentEnd}`
+);
