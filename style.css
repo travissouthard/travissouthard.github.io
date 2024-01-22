@@ -116,7 +116,7 @@ nav ul {
 footer {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 16px;
 }
 
@@ -281,6 +281,7 @@ summary {
     font-family: 'kghappy-solid', Arial, Helvetica, sans-serif;
     color: black;
     text-align: center;
+    width: 100%;
 }
 
 #print-resume:hover {

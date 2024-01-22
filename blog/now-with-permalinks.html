@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now with permalinks! | Travis Southard</title>
+    <meta property="og:title" content="Now with permalinks! | Travis Southard">
+    <meta property="og:description"
+        content="
+      I have been trying to keep this portfolio and its parts pretty simple
+        and lightweight. Part of this is wanting to
+        use free services as much as possible, but part of it is to keep my vanilla Javascript skills up to snu">
+    <meta property="og:image" content="./assets/images/blog/permalink.png" />
+    <meta name="robots" content="noai, noimageai">
+    <link href="https://jawns.club/@travissouthard" rel="me">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon_io/site.webmanifest">
+</head>
+<body>
+    <header>
+        <h1>Travis Southard</h1>
+        <p>Philadelphian Software Engineer</p>
+    </header>
+    <nav><ul>
+            <a href="../index.html">
+                <li>Home</li>
+            </a>
+            <a href="../projects.html">
+                <li>Projects</li>
+            </a>
+            <a href="../art.html">
+                <li>Art</li>
+            </a>
+            <a href="../blog.html">
+                <li>Blog</li>
+            </a>
+            <a href="../about.html">
+                <li>About</li>
+            </a>
+            <a href="../resume.html">
+                <li>Resume</li>
+            </a></ul></nav>
+    <main>
+        <h2>Now with permalinks!</h2>
+        <div class="detail-view"><ul class="blog-nav">
+        <a href="why-is-some-documentation-better-than-others.html"><li>&lt;&lt;</li></a>
+        <a href="i-need-a-better-routine.html"><li>&lt;</li></a>
+        <a href="cautiously-considering-creating-content.html"><li>&gt;</li></a>
+        <a href="new-year-new-job-new-habits.html"><li>&gt;&gt;</li></a>
+    </ul>
+    <article class="blog-post">
+        <h5>Last updated: Tue Jun 27 2023 | <a href="https://travissouthard.com/blog/now-with-permalinks.html">Permalink</a> | <a href="https://travissouthard.com/rss.xml" target="_blank">RSS</a></h5>
+        <img src=".././assets/images/blog/permalink.png" alt="A recursive screenshot of this blog post in tinier and tinier images as they recursively recede into themselves." width="100%">
+        
+      <p>I have been trying to keep <a href="https://travissouthard.com/">this portfolio</a> and its parts pretty simple
+        and lightweight. Part of this is wanting to
+        use free services as much as possible, but part of it is to keep my vanilla Javascript skills up to snuff. It
+        also may be my recent interest in <a href="https://permacomputing.net/" target="_blank"></a>permacomputing as
+        well as a great disdain for overcomplicated (and data-sucking) big tech products.</p>
+      <p>Sometimes though it means I miss out on some features that come a little more "out of the box." I met up with a
+          former colleague last week and we were talking about just this issue. He pointed out that while he has been
+          enjoying reading these, there was no way to link to a particular post. Well no more!</p>
+      <p>I did some work this morning to add support for permalinks with these posts despite not using a backend or
+          database. The solution I adopted here was to use query parameters from the url and a custom function to create
+          slugs from the post titles as unique-ish identifiers. This was pretty easy to set up, luckily, and you can look
+          at <a href="https://github.com/travissouthard/travissouthard.github.io/pull/23" target="_blank">what I did to
+              put this
+              together here</a>. This also gave the the ability to refactor some functions to better organize what is
+          happening where and add the navigation buttons to the top of <a href="https://travissouthard.com/blog.html">the
+              blog page</a> as well.</p>
+      <p>Granted, this current system using a javascript array in a <code>.js</code> file will only last so many more
+          posts before I want to convert this to using a database, but I have genuinely been enjoying this set up and <a
+              href="https://travissouthard.com/blog.html?post=brand-new-rss-feed">the custom RSS generator</a> to put
+          these together. My tolerance for a too-long file may grow as that file does.</p>
+      <p>There is something powerful about mastering the "simpler" or lower-level skills in coding. I felt this way when
+          digging more deeply into bash scripting, C, and SQL queries the last few years. But I think that since I am most
+          interested in building out things for the web, I will continue to work in vanilla (or close to) Javascript and
+          try to make things as lightweight as can also be readable (and maintainable).</p>
+      <p>Moreso than feeling more like a wizard with code, I am feeling good about having my own online space to put the
+          weird
+          things I am working on or just what is interesting me at any time. It is also nice to feel like I have more
+          control over the presentation of that space and its <em>content</em>. I am not necessarily interested in
+          becoming a <em>Content Creator&trade;</em>, I am interested in sharing what I make, how I make it, and
+          especially in helping others to learn how to create spaces like these for themselves.</p>
+      <p>These posts still feel good to write and especially to see them update in my RSS reader. These will likely
+          continue to be a mix of project updates and personal blogs. I got a lot of good feedback on <a
+              href="https://travissouthard.com/blog.html?post=i-need-a-better-routine"></a> and
+          have <em>somewhat</em> improved the way I am spending my days, but that is a whole other work in progress.</p>
+      <p>Thanks for reading!</p>
+      
+        <p>
+            <em>
+                Thank you for reading! 
+                <a href="https://ko-fi.com/travissouthard" target="_blank">
+                    Please consider supporting this blog.
+                </a>
+            </em>
+        </p>
+    </article>
+    <ul class="blog-nav">
+        <a href="why-is-some-documentation-better-than-others.html"><li>&lt;&lt;</li></a>
+        <a href="i-need-a-better-routine.html"><li>&lt;</li></a>
+        <a href="cautiously-considering-creating-content.html"><li>&gt;</li></a>
+        <a href="new-year-new-job-new-habits.html"><li>&gt;&gt;</li></a>
+    </ul></div>
+    </main>
+    <script src="app.js"></script>
+    <footer><ul>
+            <a href="../index.html">
+                <li>Home</li>
+            </a>
+            <a href="../projects.html">
+                <li>Projects</li>
+            </a>
+            <a href="../art.html">
+                <li>Art</li>
+            </a>
+            <a href="../blog.html">
+                <li>Blog</li>
+            </a>
+            <a href="../about.html">
+                <li>About</li>
+            </a>
+            <a href="../resume.html">
+                <li>Resume</li>
+            </a>
+            <a href="../rss.xml">
+                <li>RSS Feed</li>
+            </a>
+            <a href="https://github.com/travissouthard">
+                <li>GitHub</li>
+            </a>
+            <a href="https://www.linkedin.com/in/southardtravis/">
+                <li>LinkedIn</li>
+            </a></ul></footer>
+</body>
+</html>
+    

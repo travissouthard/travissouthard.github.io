@@ -8,15 +8,15 @@
         Travis Southard is a software engineer, cyclist, and artist living in Philadelphia, PA
     </description>
     <image>
-        <url>https://travissouthard.com/assets/images/pixelart/headshot-32.png</url>
+        <url>https://travissouthard.com/assets/images/art/headshot-32.png</url>
         <title>Travis Southard Blog</title>
         <link>https://travissouthard.com/</link>
         <width>144</width>
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 07 Jan 2024 05:00:00 GMT</pubDate>
-    <lastBuildDate>Sat, 06 Jan 2024 23:16:16 GMT</lastBuildDate>
+    <pubDate>Sun, 21 Jan 2024 22:57:28 GMT</pubDate>
+    <lastBuildDate>Sun, 21 Jan 2024 22:57:28 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
@@ -53,9 +53,9 @@
                 starting with winter (as Gregorian years typically do), but time with friends should at least make that easier.
             &lt;/p&gt;
             See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link>https://travissouthard.com/blog.html?post=new-year-new-job-new-habits</link>
+            <link>https://travissouthard.com/blog/new-year-new-job-new-habits.html</link>
             <pubDate>Sun, 07 Jan 2024 05:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=new-year-new-job-new-habits</guid>
+            <guid>https://travissouthard.com/blog/new-year-new-job-new-habits.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -145,9 +145,9 @@
                 forward to completing this plan.
             &lt;/p&gt;
             See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/tree/master/snowball&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link>https://travissouthard.com/blog.html?post=a-personal-financial-project</link>
+            <link>https://travissouthard.com/blog/a-personal-financial-project.html</link>
             <pubDate>Sun, 12 Nov 2023 05:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=a-personal-financial-project</guid>
+            <guid>https://travissouthard.com/blog/a-personal-financial-project.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -212,9 +212,9 @@
                 hibernating.
             &lt;/p&gt;
             </description>
-            <link>https://travissouthard.com/blog.html?post=season-of-change</link>
+            <link>https://travissouthard.com/blog/season-of-change.html</link>
             <pubDate>Sun, 05 Nov 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=season-of-change</guid>
+            <guid>https://travissouthard.com/blog/season-of-change.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -284,9 +284,9 @@
                 make more tutorials, blogs, pixel art, and everything.
             &lt;/p&gt;
             </description>
-            <link>https://travissouthard.com/blog.html?post=smaller-code-and-bigger-plans</link>
+            <link>https://travissouthard.com/blog/smaller-code-and-bigger-plans.html</link>
             <pubDate>Sun, 29 Oct 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=smaller-code-and-bigger-plans</guid>
+            <guid>https://travissouthard.com/blog/smaller-code-and-bigger-plans.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -675,9 +675,9 @@ alt=&quot;Our fully done Minesweeper game with styling to make it look like cut 
 &lt;p&gt;Thanks for following along with this tutorial! Find more of my projects and writing at &lt;a href=&quot;https://travissouthard.com/&quot;&gt;my portfolio&lt;/a&gt; and &lt;a href=&quot;https://travissouthard.com/blog/&quot;&gt;blog&lt;/a&gt;.&lt;/p&gt;
 
             </description>
-            <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-3</link>
+            <link>https://travissouthard.com/blog/how-to-make-minesweeper-part-3.html</link>
             <pubDate>Sun, 22 Oct 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-3</guid>
+            <guid>https://travissouthard.com/blog/how-to-make-minesweeper-part-3.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1098,9 +1098,9 @@ alt=&quot;Our fully done Minesweeper game with styling to make it look like cut 
         &lt;h3&gt;Finish your game!&lt;/h3&gt;
         &lt;p&gt;&lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-3&quot;&gt;Finish the gameplay and style the board in part 3&lt;/a&gt;! Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader for more tutorials and blogs every Sunday!&lt;/p&gt;
             </description>
-            <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2</link>
+            <link>https://travissouthard.com/blog/how-to-make-minesweeper-part-2.html</link>
             <pubDate>Sun, 15 Oct 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2</guid>
+            <guid>https://travissouthard.com/blog/how-to-make-minesweeper-part-2.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1305,9 +1305,9 @@ createBoard();
 &lt;h3&gt;Part 2 out now! Part 3 coming soon!&lt;/h3&gt;
 &lt;p&gt; Check out &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2&quot;&gt;part 2&lt;/a&gt; to build out most of the gameplay. Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader to get it as soon as it comes out&lt;/p&gt;
             </description>
-            <link>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1</link>
+            <link>https://travissouthard.com/blog/how-to-make-minesweeper-part-1.html</link>
             <pubDate>Sun, 08 Oct 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1</guid>
+            <guid>https://travissouthard.com/blog/how-to-make-minesweeper-part-1.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1378,9 +1378,9 @@ createBoard();
                 the test streams as they pop up.
             &lt;/p&gt;
             </description>
-            <link>https://travissouthard.com/blog.html?post=september-updates-and-october-upcoming</link>
+            <link>https://travissouthard.com/blog/september-updates-and-october-upcoming.html</link>
             <pubDate>Sun, 01 Oct 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=september-updates-and-october-upcoming</guid>
+            <guid>https://travissouthard.com/blog/september-updates-and-october-upcoming.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1443,9 +1443,9 @@ createBoard();
                     YouTube channel&lt;/a&gt; where I&apos;ll be streaming them.
             &lt;/p&gt;
       </description>
-            <link>https://travissouthard.com/blog.html?post=web-development-streams-coming-soon</link>
+            <link>https://travissouthard.com/blog/web-development-streams-coming-soon.html</link>
             <pubDate>Sun, 24 Sep 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=web-development-streams-coming-soon</guid>
+            <guid>https://travissouthard.com/blog/web-development-streams-coming-soon.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1516,9 +1516,9 @@ createBoard();
           &lt;/ul&gt;
       &lt;/p&gt;
       </description>
-            <link>https://travissouthard.com/blog.html?post=cautiously-considering-creating-content</link>
+            <link>https://travissouthard.com/blog/cautiously-considering-creating-content.html</link>
             <pubDate>Mon, 31 Jul 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=cautiously-considering-creating-content</guid>
+            <guid>https://travissouthard.com/blog/cautiously-considering-creating-content.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1563,9 +1563,9 @@ createBoard();
           have &lt;em&gt;somewhat&lt;/em&gt; improved the way I am spending my days, but that is a whole other work in progress.&lt;/p&gt;
       &lt;p&gt;Thanks for reading!&lt;/p&gt;
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/pull/23&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link>https://travissouthard.com/blog.html?post=now-with-permalinks</link>
+            <link>https://travissouthard.com/blog/now-with-permalinks.html</link>
             <pubDate>Tue, 27 Jun 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=now-with-permalinks</guid>
+            <guid>https://travissouthard.com/blog/now-with-permalinks.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1630,9 +1630,9 @@ createBoard();
         fulfilling and
         actually restful life. Building habits is very hard, but I have done it before and can do it again.&lt;/p&gt;
       </description>
-            <link>https://travissouthard.com/blog.html?post=i-need-a-better-routine</link>
+            <link>https://travissouthard.com/blog/i-need-a-better-routine.html</link>
             <pubDate>Fri, 16 Jun 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=i-need-a-better-routine</guid>
+            <guid>https://travissouthard.com/blog/i-need-a-better-routine.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1698,9 +1698,9 @@ createBoard();
           as we can in the next week!&lt;/p&gt;
       &lt;em&gt;&lt;p&gt;Edit: 6/16/23 - Fixed a tab error in the code portions.&lt;/p&gt;&lt;/em&gt;
       See the &lt;a href=&quot;https://github.com/CodeForPhilly/third-places/pull/10&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link>https://travissouthard.com/blog.html?post=solved-a-tricky-for-me-docker-compose-error</link>
+            <link>https://travissouthard.com/blog/solved-a-tricky-for-me-docker-compose-error.html</link>
             <pubDate>Thu, 15 Jun 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=solved-a-tricky-for-me-docker-compose-error</guid>
+            <guid>https://travissouthard.com/blog/solved-a-tricky-for-me-docker-compose-error.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1752,9 +1752,9 @@ createBoard();
       &lt;p&gt;&lt;em&gt;Edit: I cleaned up how the rss is generated and adding HTML tags 
       to actually show the images and organize my writing better.&lt;/em&gt;&lt;/p&gt;
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/blob/master/generateRssXml.js&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
-            <link>https://travissouthard.com/blog.html?post=brand-new-rss-feed</link>
+            <link>https://travissouthard.com/blog/brand-new-rss-feed.html</link>
             <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/blog.html?post=brand-new-rss-feed</guid>
+            <guid>https://travissouthard.com/blog/brand-new-rss-feed.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1771,23 +1771,23 @@ createBoard();
         <item>
             <title>1-Bit Beach Scene</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/art/beach.png&quot; alt=&quot;A 1-bit, low-res pixel art image of an outlet pipe and it protective beams on a beach&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://travissouthard.com/pixelArt.html?post=1-bit-beach-scene</link>
+            <link>https://travissouthard.com/art/1-bit-beach-scene.html</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-beach-scene</guid>
+            <guid>https://travissouthard.com/art/1-bit-beach-scene.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>32x32 Self Portrait</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/headshot-32.png&quot; alt=&quot;A low-color low-res pixel art portait of a man with a mustache&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/art/headshot-32.png&quot; alt=&quot;A low-color low-res pixel art portait of a man with a mustache&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://travissouthard.com/pixelArt.html?post=32x32-self-portrait</link>
+            <link>https://travissouthard.com/art/32x32-self-portrait.html</link>
             <pubDate>Sun, 26 Feb 2023 05:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/pixelArt.html?post=32x32-self-portrait</guid>
+            <guid>https://travissouthard.com/art/32x32-self-portrait.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1840,45 +1840,45 @@ createBoard();
         <item>
             <title>CRT Flower</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/art/crt-flower.png&quot; alt=&quot;A low-color pixel art image of a potted flowering plant growing inside of an empty CRT TV&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://travissouthard.com/pixelArt.html?post=crt-flower</link>
+            <link>https://travissouthard.com/art/crt-flower.html</link>
             <pubDate>Sun, 06 Nov 2022 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/pixelArt.html?post=crt-flower</guid>
+            <guid>https://travissouthard.com/art/crt-flower.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>House Portrait</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/house.png&quot; alt=&quot;A 4-color grayscale pixelart image of a rowhome&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/art/house.png&quot; alt=&quot;A 4-color grayscale art image of a rowhome&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://travissouthard.com/pixelArt.html?post=house-portrait</link>
+            <link>https://travissouthard.com/art/house-portrait.html</link>
             <pubDate>Sun, 30 Oct 2022 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/pixelArt.html?post=house-portrait</guid>
+            <guid>https://travissouthard.com/art/house-portrait.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Self Portrait</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/pixel-art-portrait.png&quot; alt=&quot;A 1-bit pixelart self portrait of a man using a keyboard&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/art/pixel-art-portrait.png&quot; alt=&quot;A 1-bit art self portrait of a man using a keyboard&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://travissouthard.com/pixelArt.html?post=1-bit-self-portrait</link>
+            <link>https://travissouthard.com/art/1-bit-self-portrait.html</link>
             <pubDate>Sun, 16 Oct 2022 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-self-portrait</guid>
+            <guid>https://travissouthard.com/art/1-bit-self-portrait.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
             <title>1-bit Mushroom</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;https://travissouthard.com/assets/images/pixelart/mushroom.png&quot; alt=&quot;A 1-bit pixelart closeup image of a whitecap mushroom&quot;/&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/art/mushroom.png&quot; alt=&quot;A 1-bit art closeup image of a whitecap mushroom&quot;/&gt;
       &lt;/a&gt;
   </description>
-            <link>https://travissouthard.com/pixelArt.html?post=1-bit-mushroom</link>
+            <link>https://travissouthard.com/art/1-bit-mushroom.html</link>
             <pubDate>Mon, 10 Oct 2022 04:00:00 GMT</pubDate>
-            <guid>https://travissouthard.com/pixelArt.html?post=1-bit-mushroom</guid>
+            <guid>https://travissouthard.com/art/1-bit-mushroom.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
@@ -1919,4 +1919,3 @@ createBoard();
 </channel>
 
 </rss>
-    
