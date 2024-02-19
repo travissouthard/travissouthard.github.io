@@ -8,16 +8,22 @@ const LOCALNAV = [
     { name: "Art", linkUrl: "art.html" },
     { name: "Blog", linkUrl: "blog.html" },
     { name: "About", linkUrl: "about.html" },
-    { name: "Resume", linkUrl: "resume.html" },
+    { name: "Resumé", linkUrl: "resume.html" },
 ];
 
-const EXTERIORLINKS = [
+const LOWERLINKS = [
     { name: "RSS Feed", linkUrl: "rss.xml" },
     { name: "GitHub", linkUrl: "https://github.com/travissouthard" },
+];
+
+const FRIENDLINKS = [
+    { name: "Spokes & Stitches", linkUrl: "https://spokesandstitches.com/" },
+    { name: "Code for Philly", linkUrl: "https://codeforphilly.org/" },
     {
-        name: "LinkedIn",
-        linkUrl: "https://www.linkedin.com/in/southardtravis/",
+        name: "Sydney Good Southard",
+        linkUrl: "https://sydneygoodsouthard.com/",
     },
+    { name: "", linkUrl: "" },
 ];
 
 const stripHTML = (html) => {
@@ -282,7 +288,10 @@ const createPage = (pageData, isPost = false) => {
         <div class="${className}">${buildMain(pageData, isPost)}</div>
     </main>
     <script src="app.js"></script>
-    <footer>${buildNav([...LOCALNAV, ...EXTERIORLINKS], isPost)}</footer>
+    <footer>${buildNav([...LOCALNAV, ...LOWERLINKS], isPost)}${buildNav(
+        [...FRIENDLINKS],
+        isPost
+    )}</footer>
 </body>
 </html>
     `;

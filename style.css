@@ -116,7 +116,7 @@ nav ul {
 footer {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 16px;
 }
 
@@ -124,6 +124,10 @@ footer ul {
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
+}
+
+footer ul:last-child {
+    text-align: right;
 }
 
 nav a {
