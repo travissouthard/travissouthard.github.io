@@ -87,12 +87,13 @@ const buildResumeCard = (entry) => {
     };
 
     return `<article class="resume-card">
-    <h3>${title}</h3>
-    <p>${companyLink(`<b>${company}</b>`)} | ${location} | <em>${formatDate(
+        <h3>${title}</h3>
+        <p>${companyLink(`<b>${company}</b>`)} | ${location} | <em>${formatDate(
         start
-    )}-${formatDate(end)}</em></p>
-    ${description ? `<p>${description}</p>` : ""}
-    </article>`;
+    )}-${formatDate(end)}</em></p>${
+        description ? `\n<p>${description}</p>\n` : ""
+    }
+    </article>\n`;
 };
 
 const buildPostCard = (post) => {
@@ -177,10 +178,11 @@ const buildMain = (page, isPost) => {
         <a href="./assets/travis_southard_software_engineer_resume.pdf">
             <p id="print-resume">Print resume</p>
         </a>
+        <div class="list-view">
         ${sortArrayByDate(data.resume)
             .map((job) => buildResumeCard(job))
             .join("")}
-        `;
+        </div>\n`;
     }
     if (page.name === "about") {
         return `<article id="about">
