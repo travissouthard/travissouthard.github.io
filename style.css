@@ -225,9 +225,9 @@ summary {
 }
 
 .project-card p {
-    margin: 0;
+    margin: 8px 0 0 0;
     color: black;
-    text-align: center;
+    text-align: justify;
 }
 
 .project-card img {
