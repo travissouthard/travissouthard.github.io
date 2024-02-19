@@ -254,10 +254,18 @@ const createPage = (pageData, isPost = false) => {
     <meta name="robots" content="noai, noimageai">
     <link href="https://jawns.club/@travissouthard" rel="me">
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="./assets/favicon_io/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="${
+        isPost ? "../" : "./"
+    }assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="${
+        isPost ? "../" : "./"
+    }assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="${
+        isPost ? "../" : "./"
+    }assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="${
+        isPost ? "../" : "./"
+    }assets/favicon_io/site.webmanifest">
 </head>
 <body>
     <header>
