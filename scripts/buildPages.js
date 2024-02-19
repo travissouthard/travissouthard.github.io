@@ -91,7 +91,7 @@ const buildResumeCard = (entry) => {
         <p>${companyLink(`<b>${company}</b>`)} | ${location} | <em>${formatDate(
         start
     )}-${formatDate(end)}</em></p>${
-        description ? `\n<p>${description}</p>\n` : ""
+        description ? `\n<p>${description}</p>` : ""
     }
     </article>\n`;
 };
