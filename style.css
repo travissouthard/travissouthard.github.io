@@ -292,11 +292,53 @@ summary {
     .project-card {
         width: 45%;
     }
+
+    .feature {
+        position: relative;
+        width: 95%;
+        height: 35vh;
+    }
+
+    .feature h3, .feature p {
+        display: inline-block;
+        position: absolute;
+        width: 45%;
+        right: 2.5vw;
+        padding: 8px;
+    }
+
+    .feature h3 {
+        text-align: left;
+    }
+
+    .feature p {
+        top: 60px;
+    }
+
+    .feature a {
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+    }
+
+    .feature a img {
+        object-position: center;
+        height: 100%;
+        max-width: 600px;
+    }
 }
 
 @media (min-width: 1000px) {
     .project-card {
         width: 28.33333%;
+    }
+
+    .feature {
+        width: 95%;
+    }
+
+    .feature p {
+        top: 72px;
     }
 
     .resume-card {
@@ -307,6 +349,12 @@ summary {
 @media (min-width: 1400px) {
     .project-card {
         width: 20%;
+    }
+
+    .feature {
+        width: 75%;
+        margin: 0 auto;
+        padding-bottom: 0;
     }
 }
 

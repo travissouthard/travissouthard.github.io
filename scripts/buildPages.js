@@ -96,7 +96,7 @@ const buildResumeCard = (entry) => {
     </article>\n`;
 };
 
-const buildPostCard = (post) => {
+const buildPostCard = (post, listIndex, isIndexPage) => {
     const postLink =
         post.siteLink ||
         `${getDetailPageName(post.title)[0]}/${createPostSlug(
@@ -105,7 +105,8 @@ const buildPostCard = (post) => {
     const imagePath = post.imagePath || "./assets/images/art/headshot-32.png";
     let descText = post.description || post.altText;
     descText = stripHTML(descText);
-    const previewLength = 240;
+    const shouldFeature = listIndex === 0 && isIndexPage;
+    const previewLength = shouldFeature ? 560 : 240;
     descText =
         descText.length > previewLength
             ? `${descText.slice(
@@ -113,13 +114,14 @@ const buildPostCard = (post) => {
                   previewLength
               )}... <a href="${postLink}">Read more</a>`
             : descText;
+    const pubDate = new Date(post.lastUpdated).toDateString();
 
-    return `<article class="project-card">
+    return `<article class="project-card${shouldFeature ? " feature" : ""}">
             <h3>${post.title}</h3>
             <a href="${postLink}">
                 <img src="${imagePath}" alt="${post.altText}"/>
             </a>
-            <p>${descText}</p>
+            <p>${shouldFeature ? `<b>${pubDate}:</b>` : ""}${descText}</p>
         </article>
     `;
 };
@@ -227,12 +229,14 @@ const buildMain = (page, isPost) => {
             ...data.art,
             ...data.blog,
             ...data.projects,
-        ]).slice(0, 6);
+        ]).slice(0, 7);
     } else {
         listData = sortArrayByDate(data[page.name]);
     }
 
-    return listData.map((post) => buildPostCard(post)).join("");
+    return listData
+        .map((post, index) => buildPostCard(post, index, page.name === "index"))
+        .join("");
 };
 
 const createPage = (pageData, isPost = false) => {
