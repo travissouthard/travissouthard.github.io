@@ -292,6 +292,15 @@ summary {
     text-decoration: underline;
 }
 
+@media (max-width: 344px) {
+    footer ul:last-child {
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid white;
+        text-align: left;
+    }
+}
+
 @media (min-width: 600px) {
     .project-card {
         width: 45%;

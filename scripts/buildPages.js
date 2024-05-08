@@ -8,22 +8,28 @@ const LOCALNAV = [
     { name: "Art", linkUrl: "art.html" },
     { name: "Blog", linkUrl: "blog.html" },
     { name: "About", linkUrl: "about.html" },
-    { name: "Resumé", linkUrl: "resume.html" },
 ];
 
 const LOWERLINKS = [
     { name: "RSS Feed", linkUrl: "rss.xml" },
     { name: "GitHub", linkUrl: "https://github.com/travissouthard" },
+    { name: "Resumé", linkUrl: "resume.html" },
 ];
 
 const FRIENDLINKS = [
-    { name: "Spokes & Stitches", linkUrl: "https://spokesandstitches.com/" },
     { name: "Code for Philly", linkUrl: "https://codeforphilly.org/" },
+    { name: "Iffy Books", linkUrl: "https://iffybooks.net/" },
+    {
+        name: "Philly Tech Calendar",
+        linkUrl: "https://phillytechcalendar.com/",
+    },
+    { name: "Spokes & Stitches", linkUrl: "https://spokesandstitches.com/" },
     {
         name: "Sydney Good Southard",
         linkUrl: "https://sydneygoodsouthard.com/",
     },
-    { name: "", linkUrl: "" },
+    { name: "Ben Wildflower", linkUrl: "https://benwildflower.com/" },
+    { name: "WC Pottery", linkUrl: "https://wc-pottery.square.site/" },
 ];
 
 const stripHTML = (html) => {
