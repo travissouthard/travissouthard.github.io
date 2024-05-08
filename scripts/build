@@ -1,0 +1,11 @@
+#!/bin/bash
+
+main() {
+    node data/data.js > data/data.json
+    node scripts/buildPages.js
+    node scripts/generateRssXml.js
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@"
+fi
