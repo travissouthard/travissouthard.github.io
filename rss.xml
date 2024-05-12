@@ -15,10 +15,68 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Sun, 24 Mar 2024 14:47:45 GMT</pubDate>
-    <lastBuildDate>Sun, 24 Mar 2024 14:47:45 GMT</lastBuildDate>
+    <pubDate>Sun, 12 May 2024 19:39:02 GMT</pubDate>
+    <lastBuildDate>Sun, 12 May 2024 19:39:02 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>Sketches of the Real</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/may-11-sketch.png&quot; alt=&quot;A dithered image of a spiral-bound sketchbook with a pen sketch of a Victorian house with a hoophouse in front of it and a tree branch ot the right&quot;/&gt;
+      &lt;/a&gt;
+  
+            &lt;p&gt;
+                I have been sketching lately. Mostly sitting in a place and drawing a building or plant within view. Some of
+                these sketches are better than others, but these sketches are mental exercise more than making final pieces. I
+                have been wanting to get back into making more art, whether pixel art like I have on this site already or more
+                algorithmically made works. So sketching in this case is to help me understand what shapes I am seeing and
+                thinking about them and what details to include and not include when trying to render something.
+            &lt;/p&gt;
+            &lt;p&gt;
+                These have been fun to work on and it has been serene just spending 30-60 minutes sitting and just observing the
+                details of one object in the same space as me. An object I might glance at regularly but not really take in
+                beyond a quick glance of &quot;That&apos;s pretty&quot; or &quot;Huh, neat&quot;. I have been trying to notice regular patterns in
+                texture and struggling to render irregular stone wall textures.
+            &lt;/p&gt;
+            &lt;p&gt;
+                A lot of this process is frustrating and hard, but I keep doing it because it is ultimately very satisfying to
+                see the drawings come together. A large part of that satisfaction comes from the drawings being tangible objects
+                with &lt;em&gt;many&lt;/em&gt; flaws and irregularities. I was &lt;a
+                    href=&quot;https://branch.climateaction.tech/issues/issue-8/the-wabi-sabi-web/&quot; target=&quot;_blank&quot;&gt;reading
+                    recently&lt;/a&gt; about adding more irregularity into our websites. As I mentioned before, rendering irregularity
+                into something you want to be clear and read well is very hard, and something I struggle with personally. All
+                the same, especially with appreciating these textures in the sketches and the subjects I&apos;m sketching, I want to
+                start trying to add these qualities to the sites I build. Especially this site, since ultimately this site is
+                meant to be a reflection of my current work and skills.
+            &lt;/p&gt;
+            &lt;p&gt;
+                A few months back I introduced new fonts to my portfolio site, something I chose for looking more like text
+                hand-written with markers or pens. I would like to add some more hand-drawn qualities to the site, but doing
+                this with CSS alone is tricky as far as I know now. I will try to do some research and see what I can find
+                because I think having a rougher, textured web with some human fingerprints on it will make it more friendly to
+                us, the humans.
+            &lt;/p&gt;
+            &lt;p&gt;
+                In the past years since going from working as a bicycle mechanic and working every day with my hands directly
+                touching the things I was working on to now, where I manipulate abstract, intangible things through a keyboard
+                and mouse, I have found a new desire to make tangible, physical things. The sketches are part of this, but I
+                also want to make some &quot;final works&quot; that can be touched, felt, heard. Some of this desire has gone into my
+                garden and the empty lot behind our house I have been caring for with some neighbors.
+            &lt;/p&gt;
+            &lt;p&gt;
+                Creating and working on tangible things is important to me and my wellbeing, especially as my professional and
+                volunteer work both involve manipulating digital objects. Wrenching, planting, drawing, watering, painting,
+                sculpting, sweeping, and pedaling will all be incredibly important in keeping me happy. One thought that comes
+                up is that my roles at work and at Code for Philly involve building community, connections, understanding, and
+                empathy; none of which are tanglible but all are vital in making our city a tangibly, perceptively better place.
+                Rough edges and all.
+            &lt;/p&gt;
+            </description>
+            <link>https://travissouthard.com/blog/sketches-of-the-real.html</link>
+            <pubDate>Sun, 12 May 2024 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog/sketches-of-the-real.html</guid>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>I am the hand, not the tool</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
