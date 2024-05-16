@@ -253,8 +253,8 @@ const buildMain = (page, isPost) => {
 
 const createPage = (pageData, isPost = false) => {
     const imageLink = isPost
-        ? pageData.imagePath
-        : "assets/images/pixel-art-portrait.png";
+        ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
+        : "https://travissouthard.com/assets/images/pixel-art-portrait.png";
     const className = isPost ? "detail-view" : "list-view";
     return `
 <!DOCTYPE html>
