@@ -255,6 +255,17 @@ const createPage = (pageData, isPost = false) => {
     const imageLink = isPost
         ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
         : "https://travissouthard.com/assets/images/pixel-art-portrait.png";
+    const imageType = (link) => {
+        const types = {
+            ".jpg": "jpeg",
+            jpeg: "jpeg",
+            ".png": "png",
+            ".gif": "gif",
+        };
+        const nameLength = link.length;
+        const fileExtension = link.slice(nameLength - 4).toLowerCase();
+        return types[fileExtension];
+    };
     const className = isPost ? "detail-view" : "list-view";
     return `
 <!DOCTYPE html>
@@ -266,7 +277,8 @@ const createPage = (pageData, isPost = false) => {
     <meta property="og:title" content="${pageData.title} | Travis Southard">
     <meta property="og:description"
         content="${stripHTML(pageData.description).slice(0, 240)}">
-    <meta property="og:image" content="${imageLink}" />
+    <meta property="og:image:secure_url" content="${imageLink}" />
+    <meta property="og:image:type" content="image/${imageType(imageLink)}" />
     <meta name="robots" content="noai, noimageai">
     <link href="https://jawns.club/@travissouthard" rel="me">
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
