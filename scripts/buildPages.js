@@ -255,6 +255,9 @@ const createPage = (pageData, isPost = false) => {
     const imageLink = isPost
         ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
         : "https://travissouthard.com/assets/images/pixel-art-portrait.png";
+    const [imgWidth, imgHeight] = pageData.imageSize
+        ? pageData.imageSize
+        : [1028, 1028];
     const imageType = (link) => {
         const types = {
             ".jpg": "jpeg",
@@ -279,6 +282,8 @@ const createPage = (pageData, isPost = false) => {
         content="${stripHTML(pageData.description).slice(0, 240)}">
     <meta property="og:image:secure_url" content="${imageLink}" />
     <meta property="og:image:type" content="image/${imageType(imageLink)}" />
+    <meta property="og:image:width" content="${imgWidth}" />
+    <meta property="og:image:height" content="${imgHeight}" />
     <meta name="robots" content="noai, noimageai">
     <link href="https://jawns.club/@travissouthard" rel="me">
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
