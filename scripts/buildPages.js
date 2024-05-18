@@ -252,14 +252,16 @@ const buildMain = (page, isPost) => {
 };
 
 const createPage = (pageData, isPost = false) => {
-    const imageLink =
-        isPost && pageData.imagePath
-            ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
-            : "https://travissouthard.com/assets/images/art/headshot-32.png";
-    let [imgWidth, imgHeight] = [1028, 1028];
-    if (isPost && pageData.imageSize.length > 0) {
-        [imgWidth, imgHeight] = pageData.imageSize;
-    }
+    const hasOwnImage = isPost && pageData.imagePath;
+    const imageLink = hasOwnImage
+        ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
+        : "https://travissouthard.com/assets/images/art/headshot-32.png";
+    const [imgWidth, imgHeight] = hasOwnImage
+        ? pageData.imageSize
+        : [1028, 1028];
+    const imgAlt = hasOwnImage
+        ? pageData.altText
+        : "A low-color low-res pixel art portait of a man with a mustache";
     const imageType = (link) => {
         const types = {
             ".jpg": "jpeg",
@@ -287,6 +289,7 @@ const createPage = (pageData, isPost = false) => {
     <meta property="og:image:type" content="image/${imageType(imageLink)}" />
     <meta property="og:image:width" content="${imgWidth}" />
     <meta property="og:image:height" content="${imgHeight}" />
+    <meta property="og:image:alt" content="${imgAlt}" />
     <meta name="robots" content="noai, noimageai">
     <link href="https://jawns.club/@travissouthard" rel="me">
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
