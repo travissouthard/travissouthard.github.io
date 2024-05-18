@@ -252,12 +252,14 @@ const buildMain = (page, isPost) => {
 };
 
 const createPage = (pageData, isPost = false) => {
-    const imageLink = isPost
-        ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
-        : "https://travissouthard.com/assets/images/pixel-art-portrait.png";
-    const [imgWidth, imgHeight] = pageData.imageSize
-        ? pageData.imageSize
-        : [1028, 1028];
+    const imageLink =
+        isPost && pageData.imagePath
+            ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
+            : "https://travissouthard.com/assets/images/pixel-art-portrait.png";
+    let [imgWidth, imgHeight] = [1028, 1028];
+    if (isPost && pageData.imageSize.length > 0) {
+        [imgWidth, imgHeight] = pageData.imageSize;
+    }
     const imageType = (link) => {
         const types = {
             ".jpg": "jpeg",
