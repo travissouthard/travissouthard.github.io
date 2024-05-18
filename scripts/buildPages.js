@@ -255,7 +255,7 @@ const createPage = (pageData, isPost = false) => {
     const imageLink =
         isPost && pageData.imagePath
             ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
-            : "https://travissouthard.com/assets/images/pixel-art-portrait.png";
+            : "https://travissouthard.com/assets/images/art/headshot-32.png";
     let [imgWidth, imgHeight] = [1028, 1028];
     if (isPost && pageData.imageSize.length > 0) {
         [imgWidth, imgHeight] = pageData.imageSize;
