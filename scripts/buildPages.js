@@ -280,6 +280,7 @@ const createPage = (pageData, isPost = false) => {
     <meta property="og:title" content="${pageData.title} | Travis Southard">
     <meta property="og:description"
         content="${stripHTML(pageData.description).slice(0, 240)}">
+    <meta property="og:image" content="${imageLink}" />
     <meta property="og:image:secure_url" content="${imageLink}" />
     <meta property="og:image:type" content="image/${imageType(imageLink)}" />
     <meta property="og:image:width" content="${imgWidth}" />
