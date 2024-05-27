@@ -164,7 +164,10 @@ const buildPostDetail = (post) => {
     </ul>`;
 
     const postImage = post.imagePath
-        ? `<img src="../${post.imagePath}" alt="${post.altText}" width="100%">`
+        ? `
+            <img src="../${post.imagePath}" alt="${post.altText}" width="100%">
+            <p class="image-desc"><em>${post.altText}</em></p>
+        `
         : "";
     return `${postNav}
     <article class="blog-post">

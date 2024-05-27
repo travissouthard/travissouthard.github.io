@@ -218,6 +218,10 @@ summary {
     font-family: 'kghappy-full', Arial, Helvetica, sans-serif;
 }
 
+.image-desc {
+    font-size: 0.8em;
+}
+
 .project-card {
     padding: 2.5%;
     width: 95%;
