@@ -258,13 +258,11 @@ const createPage = (pageData, isPost = false) => {
     const hasOwnImage = isPost && pageData.imagePath;
     const imageLink = hasOwnImage
         ? `https://travissouthard.com${pageData.imagePath.slice(1)}`
-        : "https://travissouthard.com/assets/images/art/headshot-32.png";
-    const [imgWidth, imgHeight] = hasOwnImage
-        ? pageData.imageSize
-        : [1028, 1028];
+        : "https://travissouthard.com/assets/images/blog/travis-flowers.jpg";
+    const [imgWidth, imgHeight] = hasOwnImage ? pageData.imageSize : [600, 450];
     const imgAlt = hasOwnImage
         ? pageData.altText
-        : "A low-color low-res pixel art portait of a man with a mustache";
+        : "Travis holding a bouquet of flowers in a field of flowers!";
     const imageType = (link) => {
         const types = {
             ".jpg": "jpeg",
