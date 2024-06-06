@@ -15,8 +15,8 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Thu, 06 Jun 2024 03:08:39 GMT</pubDate>
-    <lastBuildDate>Thu, 06 Jun 2024 03:08:39 GMT</lastBuildDate>
+    <pubDate>Thu, 06 Jun 2024 03:47:51 GMT</pubDate>
+    <lastBuildDate>Thu, 06 Jun 2024 03:47:51 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
@@ -85,7 +85,7 @@
                 same highway.
             &lt;/p&gt;
             &lt;p&gt;
-                In a &lt;a href=&quot;https://travissouthard.com./art/abolish-landlords.html&quot; target=&quot;_blank&quot;&gt;recent piece of art I made&lt;/a&gt;, I expressed
+                In a &lt;a href=&quot;https://travissouthard.com/art/abolish-landlords.html&quot; target=&quot;_blank&quot;&gt;recent piece of art I made&lt;/a&gt;, I expressed
                 that it will be better for everyone to own their own home, but with prospective homeowners in Philadelphia
                 &lt;a href=&quot;https://whyy.org/articles/philadelphia-real-estate-market-spring-prices-mortgage-rates/&quot;
                     target=&quot;_blank&quot;&gt;needing an annual income of $75,000 to be able to buy and keep a home&lt;/a&gt; (including
@@ -713,7 +713,7 @@
             &lt;/p&gt;
             &lt;p&gt;
                 I built this early on in my learnings about &lt;a href=&quot;http://permacomputing.net/&quot;
-                    target=&quot;_blank&quot;&gt;permacomputing&lt;/a&gt; and &lt;a href=&quot;https://travissouthard.com/blog.html?post=smaller-code-and-bigger-plans&quot;
+                    target=&quot;_blank&quot;&gt;permacomputing&lt;/a&gt; and &lt;a href=&quot;https://travissouthard.com/blog/smaller-code-and-bigger-plans.html
                     target=&quot;_blank&quot;&gt;building out smaller websites&lt;/a&gt; with just HTML, CSS, and JavaScript. I wanted to lean on
                 and design around the HTML tags as they exist. I think I did an okay job with this but some of the parts of how
                 this is built go against some of my better design sensibilities.
@@ -813,9 +813,9 @@
             &lt;p&gt;
                 Over the past few weeks I have released a tutorial to make the classic video game, Minesweeper, from scratch
                 using native web tools (being HTML, CSS, and Javascript). (Check out parts &lt;a 
-                    href=&quot;./blog.html?post=how-to-make-minesweeper-part-1&quot; target=&quot;_blank&quot;&gt;1&lt;/a&gt;, &lt;a 
-                    href=&quot;./blog.html?post=how-to-make-minesweeper-part-2&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;, &amp; &lt;a 
-                    href=&quot;./blog.html?post=how-to-make-minesweeper-part-3&quot; target=&quot;_blank&quot;&gt;3&lt;/a&gt;!) I was motivated to write tutorials in general to help
+                    href=&quot;./blog/how-to-make-minesweeper-part-1.html&quot; target=&quot;_blank&quot;&gt;1&lt;/a&gt;, &lt;a 
+                    href=&quot;./blog/how-to-make-minesweeper-part-2.html&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;, &amp; &lt;a 
+                    href=&quot;./blog/how-to-make-minesweeper-part-3.html&quot; target=&quot;_blank&quot;&gt;3&lt;/a&gt;!) I was motivated to write tutorials in general to help
                 new developers bridge the gap between what they currently know and what they need to know to get a job
                 developing code. The other half of that motivation is to help me become a better developer by teaching.
             &lt;/p&gt;
@@ -883,7 +883,7 @@
       &lt;/a&gt;
   
             &lt;h3 id=&quot;how-to-make-minesweeper-part-2&quot;&gt;How to make Minesweeper part 3&lt;/h3&gt;
-    &lt;p&gt;This is the final part of this 3-part series! I recommend starting with &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1&quot;&gt;part 1&lt;/a&gt; and also working through &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2&quot;&gt;part 2&lt;/a&gt; before moving on
+    &lt;p&gt;This is the final part of this 3-part series! I recommend starting with &lt;a href=&quot;https://travissouthard.com/blog/how-to-make-minesweeper-part-1&quot;&gt;part 1&lt;/a&gt; and also working through &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2.html&gt;part 2&lt;/a&gt; before moving on
         to this one. If you have already worked through parts 1 and 2, welcome back! In the previous parts, we built a board of
         100 squares with variable amount of bombs depending on the difficulty, randomized them around the board, and gave the player ways to find those bombs. In this part we will finish the gameplay, including adding the win condition and styling the board to look nice.&lt;/p&gt;
             &lt;h3 id=&quot;show-all-bombs-when-one-is-clicked&quot;&gt;Show all bombs when one is clicked&lt;/h3&gt;
@@ -1275,7 +1275,7 @@ alt=&quot;Our fully done Minesweeper game with styling to make it look like cut 
   
             &lt;h3 id=&quot;how-to-make-minesweeper-part-2&quot;&gt;How to make Minesweeper part 2&lt;/h3&gt;
     &lt;p&gt;This is part 2 of 3 and I recommend starting with &lt;a
-            href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-1&quot;&gt;part 1&lt;/a&gt; before moving on
+            href=&quot;https://travissouthard.com/blog/how-to-make-minesweeper-part-1.html&gt;part 1&lt;/a&gt; before moving on
         to this part. If you have already worked through part 1, welcome back! In the previous part, we built a board of
         100 squares with 20 bombs, and randomized them around the board. In this part we will build out most of the
         gameplay.&lt;/p&gt;
@@ -1683,7 +1683,7 @@ alt=&quot;Our fully done Minesweeper game with styling to make it look like cut 
     &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper12.jpg&quot;
         alt=&quot;Our Minesweeper board alongside the reset, easy, medium, and hard difficulty buttons&quot; /&gt;
         &lt;h3&gt;Finish your game!&lt;/h3&gt;
-        &lt;p&gt;&lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-3&quot;&gt;Finish the gameplay and style the board in part 3&lt;/a&gt;! Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader for more tutorials and blogs every Sunday!&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&quot;https://travissouthard.com/blog/how-to-make-minesweeper-part-3&quot;&gt;Finish the gameplay and style the board in part 3&lt;/a&gt;! Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank.html&gt;RSS feed&lt;/a&gt; to your favorite RSS reader for more tutorials and blogs every Sunday!&lt;/p&gt;
             </description>
             <link>https://travissouthard.com/blog/how-to-make-minesweeper-part-2.html</link>
             <pubDate>Sun, 15 Oct 2023 04:00:00 GMT</pubDate>
@@ -1890,7 +1890,7 @@ createBoard();
 &lt;p&gt;Refresh and check and now our values should be randomized for every time we refresh the page.&lt;/p&gt;
 &lt;img src=&quot;https://travissouthard.com/assets/images/blog/minesweeper06.jpg&quot; alt=&quot;Our Minesweeper board with randomized bombs and smiley faces&quot; /&gt;
 &lt;h3&gt;Part 2 out now! Part 3 coming soon!&lt;/h3&gt;
-&lt;p&gt; Check out &lt;a href=&quot;https://travissouthard.com/blog.html?post=how-to-make-minesweeper-part-2&quot;&gt;part 2&lt;/a&gt; to build out most of the gameplay. Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank&quot;&gt;RSS feed&lt;/a&gt; to your favorite RSS reader to get it as soon as it comes out&lt;/p&gt;
+&lt;p&gt; Check out &lt;a href=&quot;https://travissouthard.com/blog/how-to-make-minesweeper-part-2&quot;&gt;part 2&lt;/a&gt; to build out most of the gameplay. Add the &lt;a href=&quot;https://travissouthard.com/rss.xml&quot; target=&quot;_blank.html&gt;RSS feed&lt;/a&gt; to your favorite RSS reader to get it as soon as it comes out&lt;/p&gt;
             </description>
             <link>https://travissouthard.com/blog/how-to-make-minesweeper-part-1.html</link>
             <pubDate>Sun, 08 Oct 2023 04:00:00 GMT</pubDate>
@@ -2005,7 +2005,7 @@ createBoard();
             &lt;/p&gt;
             &lt;p&gt;
                 There&apos;s a few motivations for doing the streaming and content creation despite &lt;a
-                    href=&quot;https://travissouthard.com/blog.html?post=cautiously-considering-creating-content&quot;
+                    href=&quot;https://travissouthard.com/blog/cautiously-considering-creating-content.html
                     target=&quot;_blank&quot;&gt;being concerned about getting back into creating content&lt;/a&gt;. One is that I do like making
                 videos. I spent years growing my video production skills and genuinely love making them. Another is that with
                 the streaming, writing, and developing, I will become a better developer and
@@ -2147,7 +2147,7 @@ createBoard();
               blog page&lt;/a&gt; as well.&lt;/p&gt;
       &lt;p&gt;Granted, this current system using a javascript array in a &lt;code&gt;.js&lt;/code&gt; file will only last so many more
           posts before I want to convert this to using a database, but I have genuinely been enjoying this set up and &lt;a
-              href=&quot;https://travissouthard.com/blog.html?post=brand-new-rss-feed&quot;&gt;the custom RSS generator&lt;/a&gt; to put
+              href=&quot;https://travissouthard.com/blog/brand-new-rss-feed.html&gt;the custom RSS generator&lt;/a&gt; to put
           these together. My tolerance for a too-long file may grow as that file does.&lt;/p&gt;
       &lt;p&gt;There is something powerful about mastering the &quot;simpler&quot; or lower-level skills in coding. I felt this way when
           digging more deeply into bash scripting, C, and SQL queries the last few years. But I think that since I am most
@@ -2161,7 +2161,7 @@ createBoard();
           especially in helping others to learn how to create spaces like these for themselves.&lt;/p&gt;
       &lt;p&gt;These posts still feel good to write and especially to see them update in my RSS reader. These will likely
           continue to be a mix of project updates and personal blogs. I got a lot of good feedback on &lt;a
-              href=&quot;https://travissouthard.com/blog.html?post=i-need-a-better-routine&quot;&gt;&lt;/a&gt; and
+              href=&quot;https://travissouthard.com/blog/i-need-a-better-routine.html&gt;&lt;/a&gt; and
           have &lt;em&gt;somewhat&lt;/em&gt; improved the way I am spending my days, but that is a whole other work in progress.&lt;/p&gt;
       &lt;p&gt;Thanks for reading!&lt;/p&gt;
       See the &lt;a href=&quot;https://github.com/travissouthard/travissouthard.github.io/pull/23&quot; target=&quot;blank&quot;&gt;code here&lt;/a&gt;</description>
