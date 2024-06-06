@@ -15,8 +15,8 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Thu, 06 Jun 2024 03:47:51 GMT</pubDate>
-    <lastBuildDate>Thu, 06 Jun 2024 03:47:51 GMT</lastBuildDate>
+    <pubDate>Thu, 06 Jun 2024 04:00:44 GMT</pubDate>
+    <lastBuildDate>Thu, 06 Jun 2024 04:00:44 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
         <item>
@@ -240,7 +240,7 @@
             &lt;/p&gt;
             &lt;p&gt;
                 Like many things, living sustainably is an iterative process and we all learn more each day. Even as &lt;a
-                    href=&quot;./art/abolish-landlords.html&quot; target=&quot;_blank&quot;&gt;my own work&lt;/a&gt; is influenced by it, my interest in
+                    href=&quot;https://travissouthard.com/art/abolish-landlords.html&quot; target=&quot;_blank&quot;&gt;my own work&lt;/a&gt; is influenced by it, my interest in
                 Solarpunk is less trying to &lt;em&gt;look&lt;/em&gt; a certain way, but rather how to &lt;em&gt;behave&lt;/em&gt;. I certainly
                 don&apos;t claim to be doing this perfectly, but I aspire to it and am currently slowly transforming an empty lot
                 by our house into a garden/pocket-park, learning to repair electronics and clothes, and engaging my local
@@ -524,7 +524,7 @@
                 As spring creeps closer and snowdrops give way to daffodils over the next few weeks, I have a lot of work ahead
                 of me. Between the above hackathon, Code for Philly, and my work at Community Legal Services. But also I gotta
                 keep riding and exercising when I can because I am still planning to &lt;a
-                    href=&quot;./blog/back-in-the-saddle.html&quot;&gt;ride a 70-mile gravel ride in June&lt;/a&gt;. I promise I am not becoming
+                    href=&quot;https://travissouthard.com/blog/back-in-the-saddle.html&quot;&gt;ride a 70-mile gravel ride in June&lt;/a&gt;. I promise I am not becoming
                 one of those hustle-culture tech bros, I just have a busy March ahead of me. Just have to keep reminding myself
                 to keep it moving one day at a time.
             &lt;/p&gt;
@@ -813,9 +813,9 @@
             &lt;p&gt;
                 Over the past few weeks I have released a tutorial to make the classic video game, Minesweeper, from scratch
                 using native web tools (being HTML, CSS, and Javascript). (Check out parts &lt;a 
-                    href=&quot;./blog/how-to-make-minesweeper-part-1.html&quot; target=&quot;_blank&quot;&gt;1&lt;/a&gt;, &lt;a 
-                    href=&quot;./blog/how-to-make-minesweeper-part-2.html&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;, &amp; &lt;a 
-                    href=&quot;./blog/how-to-make-minesweeper-part-3.html&quot; target=&quot;_blank&quot;&gt;3&lt;/a&gt;!) I was motivated to write tutorials in general to help
+                    href=&quot;https://travissouthard.com/blog/how-to-make-minesweeper-part-1.html&quot; target=&quot;_blank&quot;&gt;1&lt;/a&gt;, &lt;a 
+                    href=&quot;https://travissouthard.com/blog/how-to-make-minesweeper-part-2.html&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;, &amp; &lt;a 
+                    href=&quot;https://travissouthard.com/blog/how-to-make-minesweeper-part-3.html&quot; target=&quot;_blank&quot;&gt;3&lt;/a&gt;!) I was motivated to write tutorials in general to help
                 new developers bridge the gap between what they currently know and what they need to know to get a job
                 developing code. The other half of that motivation is to help me become a better developer by teaching.
             &lt;/p&gt;
@@ -866,7 +866,7 @@
                 In the meantime, I am reasonably happy with this site. It serves my need of having a consistent site for software
                 projects, pixel art, and blog posts. One of my &lt;code&gt;TODOs&lt;/code&gt; is to create a &lt;code&gt;resume.html&lt;/code&gt; page
                 with a list of all my past jobs and download link for &lt;a
-                    href=&quot;./assets/travis_southard_software_engineer_resume.pdf&quot; target=&quot;_blank&quot;&gt;the PDF&lt;/a&gt;. If you enjoy what
+                    href=&quot;https://travissouthard.com/assets/travis_southard_software_engineer_resume.pdf&quot; target=&quot;_blank&quot;&gt;the PDF&lt;/a&gt;. If you enjoy what
                 I&apos;m building here, please consider &lt;a href=&quot;https://ko-fi.com/travissouthard&quot;&gt;supporting my work&lt;/a&gt; to help me
                 make more tutorials, blogs, pixel art, and everything.
             &lt;/p&gt;
@@ -2246,7 +2246,7 @@ createBoard();
             Philly&apos;s Launchpad 2023&lt;/a&gt;. I am working with a small team of developers and UXers to develop a project
         that will seek to connect Philadelphians to comfortable public spaces, with the focus being on finding places
         spontaneously.&lt;/p&gt;
-      &lt;a href=&quot;#solution&quot;&gt;
+      &lt;a href=&quot;https://travissouthard.com/blog/solved-a-tricky-for-me-docker-compose-error.html#solution&quot;&gt;
           &lt;p&gt;Jump to code solution.&lt;/p&gt;
       &lt;/a&gt;
       &lt;p&gt;We got started at the end of March this year and the launchpad demos will be &lt;a

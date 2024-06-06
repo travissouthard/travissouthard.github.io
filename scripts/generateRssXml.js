@@ -81,11 +81,12 @@ const encodeDescriptionFromPost = (post) => {
     let htmlString = `${createImageFromPost(post)}
   ${post.description}${codeLink}`;
     const encodeHtml = (html) => {
-        // Convert relative img sources to absolute links first
-        html = html.replace(
-            /((img src)|(a href))\=(\\)?\"\./g,
+        // Convert relative img sources and links to absolute links first
+        html = html.replaceAll(
+            /((img\s?(\n\s*)?src)|(a\s?(\n\s*)?href))="\.{1,2}/g,
             `$1="${homeUrl}`
         );
+
         for (let entity in htmlEntities) {
             html = html.replace(htmlEntities[entity], () => `&${entity};`);
         }
