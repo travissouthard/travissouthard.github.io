@@ -91,7 +91,8 @@ const encodeDescriptionFromPost = (post) => {
         }
         return html;
     };
-    return encodeHtml(htmlString);
+    return `<title>${encodeHtml(post.title)}</title>
+            <description>${encodeHtml(htmlString)}</description>`;
 };
 
 const createItemsFromPosts = (posts) => {
@@ -105,8 +106,7 @@ const createItemsFromPosts = (posts) => {
               )}.html`;
         const item = `
         <item>
-            <title>${post.title}</title>
-            <description>${encodeDescriptionFromPost(post)}</description>
+            ${encodeDescriptionFromPost(post)}
             <link>${link}</link>
             <pubDate>${pubDate.toUTCString()}</pubDate>
             <guid>${link}</guid>
