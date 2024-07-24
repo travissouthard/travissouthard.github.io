@@ -285,12 +285,13 @@ const createPage = (pageData, isPost = false) => {
     <meta property="og:title" content="${pageData.title} | Travis Southard">
     <meta property="og:description"
         content="${stripHTML(pageData.description).slice(0, 240)}">
-    <meta property="og:image" content="${imageLink}" />
-    <meta property="og:image:secure_url" content="${imageLink}" />
-    <meta property="og:image:type" content="image/${imageType(imageLink)}" />
-    <meta property="og:image:width" content="${imgWidth}" />
-    <meta property="og:image:height" content="${imgHeight}" />
-    <meta property="og:image:alt" content="${imgAlt}" />
+    <meta property="og:image" content="${imageLink}">
+    <meta property="og:image:secure_url" content="${imageLink}">
+    <meta property="og:image:type" content="image/${imageType(imageLink)}">
+    <meta property="og:image:width" content="${imgWidth}">
+    <meta property="og:image:height" content="${imgHeight}">
+    <meta property="og:image:alt" content="${imgAlt}">
+    <meta name="author" content="Travis Southard">
     <meta name="robots" content="noai, noimageai">
     <link href="https://jawns.club/@travissouthard" rel="me">
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">

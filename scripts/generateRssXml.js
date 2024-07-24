@@ -108,6 +108,7 @@ const createItemsFromPosts = (posts) => {
         const item = `
         <item>
             ${encodeDescriptionFromPost(post)}
+            <author>Travis Southard</author>
             <link>${link}</link>
             <pubDate>${pubDate.toUTCString()}</pubDate>
             <guid>${link}</guid>
