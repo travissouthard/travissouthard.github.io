@@ -15,10 +15,26 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Fri, 16 Aug 2024 02:26:08 GMT</pubDate>
-    <lastBuildDate>Fri, 16 Aug 2024 02:26:08 GMT</lastBuildDate>
+    <pubDate>Tue, 15 Oct 2024 04:07:27 GMT</pubDate>
+    <lastBuildDate>Tue, 15 Oct 2024 04:07:27 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>Over the Garden Wall poster</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/art/over_the_garden_wall_poster.png&quot; alt=&quot;A pixel art image of a pumpkin man, a horror creature, many cartoon faces including a frog, and two boys and a bird facing them all.&quot;/&gt;
+      &lt;/a&gt;
+  &lt;p&gt;Very excited to watch &lt;em&gt;Over the Garden Wall&lt;/em&gt; again with some friends! This is easily one of my favorite pieces of media in general.&lt;/p&gt;
+                &lt;p&gt;It is a wonderful piece of Americana and plays with nostalgia in a delightfully bittersweet way. Beware the beast!&lt;/p&gt;
+                &lt;p&gt;This piece was a little more of a challenge with wanting to use a 1-point perspective and shading, but I am happy with how it came out! I used a great  
+                    &lt;a href=&quot;https://lospec.com/palette-list/hidden-library&quot; target=&quot;_blank&quot;&gt;color palette by Pixel Hoo&lt;/a&gt;!
+                &lt;/p&gt;</description>
+            <author>Travis Southard</author>
+            <link>https://travissouthard.com/art/over-the-garden-wall-poster.html</link>
+            <pubDate>Tue, 15 Oct 2024 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/art/over-the-garden-wall-poster.html</guid>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>Underhill from Red Mars</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
@@ -2482,27 +2498,193 @@ createBoard();
         </item>
         <item>
             <title>Why is some documentation better than others?</title>
-            <description>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/azavea-blog-1.webp&quot; alt=&quot;Outline of a person holding a pen with screenshots of documentation text including &apos;README.md&apos;, &apos;Start Huddle in #CivicApps&apos;, &apos;Conversation (23)&apos;, &apos;Requirements&apos;, &apos;doc/arch&apos;,&apos;user merged 5 commits into develop&apos;, and the github logo&quot;/&gt;
+      &lt;/a&gt;
   
-      &lt;p&gt;In fall of 2022, I wrote a blog post for 
-      work on what makes for good documentation.&lt;/p&gt;
-      &lt;blockquote&gt;Documentation is vital for anything open source; from open 
-      hardware, to free recipes, to DIY repair tutorials, but it is especially 
-      vital when it comes to software. Whether you&apos;re a user or a developer, 
-      documentation provides the “how to” for interacting with any piece of 
-      software.&lt;br/&gt;
-      Since I first started getting into software development two years ago, 
-      I&apos;ve learned that documentation frequently assumes you already know how 
-      to use the item in question, and are using the docs as a reference. 
-      While acting as a reference material is one of documentation&apos;s important 
-      functions, it cannot be the only function...&lt;/blockquote&gt;
-      &lt;a href=&quot;https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/&quot; 
-      target=&quot;_blank&quot; &gt;&lt;p&gt;Read the full post here.&lt;/p&gt;&lt;/a&gt;
+    &lt;p&gt;
+        &lt;em&gt;Note: This was originally published on &lt;a
+                href=&quot;https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/&quot;
+                target=&quot;_blank&quot;&gt;the Azavea blog&lt;/a&gt;, but I wanted to put this here in case that blog
+            disappeared.&lt;/em&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;and_how_to_make_sure_your_documentation_is_the_best_of_the_best&quot;&gt;And how to
+        make sure your documentation is the best of the best&lt;/h3&gt;
+    &lt;p&gt;Documentation is vital for anything open source; from open hardware, to free recipes, to DIY repair
+        tutorials, but it is especially vital when it comes to software. Whether you’re a user or a developer,
+        documentation provides the “how to” for interacting with any piece of software.&lt;/p&gt;
+    &lt;p&gt;Since I first started getting into software development two years ago, I’ve learned that documentation
+        frequently assumes you already know how to use the item in question, and are using the docs as a reference.
+        While acting as a reference material is one of documentation’s important functions, it cannot be the only
+        function, but more on that later.&lt;/p&gt;
+
+    &lt;h3&gt;What is documentation?&lt;/h3&gt;
+    &lt;p&gt;First off, what counts as documentation? It’s not just the README.md in a project’s repository. Documentation
+        also includes websites, other files in a project repository, comments in your code, commits in your
+        codebase, and also chat app channels and threads. Developers also often look to Stack Overflow and GitHub
+        discussions when looking for existing solutions for a given problem.&lt;/p&gt;
+    &lt;p&gt;Having a single “source of truth” for documentation is ideal, but also largely impossible since there are so
+        many different places we talk about our projects. Even so, there are good ways to distill these
+        conversations into good documentation. At Azavea we are good at taking big architecture decisions and
+        recording them in our repos as Architectural Decision Records, also known as ADRs.&lt;/p&gt;
+    &lt;p&gt;ADRs are excellent for decisions with project-wide implications, but teams also make a lot of decisions in
+        seemingly innocuous conversations. Sometimes we have a conversation on Slack, a conference call, or even,
+        sometimes, in person. In many cases, any learnings from these conversations goes unrecorded. On the Civic
+        Applications team (my team), we try to remedy this issue by putting notes from these chats into a relevant
+        issue or pull request on the project’s Github repo.&lt;/p&gt;
+
+    &lt;h3&gt;Who is documentation for?&lt;/h3&gt;
+    &lt;p&gt;Knowing who you are writing your documentation for is key to recording the most important elements. When it
+        comes to software, there are two primary types of people trying to learn how it works: developers and users.
+    &lt;/p&gt;
+    &lt;p&gt;You want your users to know how to use the app, especially parts that they won’t need to touch often and
+        therefore won’t have as much practice and experience with. While it is important to do your best to design
+        the app itself to be intuitive and to be usable without explanation, there will always be users who need an
+        explicit explanation of how to use most features.&lt;/p&gt;
+    &lt;p&gt;In &lt;a href=&quot;https://www.azavea.com/blog/2022/08/17/1-for-open-source-financial-support-for-tools-we-use/&quot;
+            target=&quot;_blank&quot;&gt;open source&lt;/a&gt; spaces we also want to ensure our contributors
+        know how to develop the app. By writing our issues and documentation as clearly as possible, contributors
+        are more able to seamlessly jump into a project and follow the conventions of your project without issue.
+    &lt;/p&gt;
+    &lt;p&gt;Documentation is often frequently used as reference for developers who are experienced with this codebase.
+        Having a skimmable documentation that is clearly visually and logically broken up helps to improve
+        reference-ability so much.&amp;nbsp;&lt;/p&gt;
+    &lt;p&gt;Creating documentation that works for both users and developers is a mutually beneficial effort.&amp;nbsp; When
+        contributing developers know how to use the app in question, it is much easier to develop a smooth user
+        experience. This being said, users do not need to know how to develop the app. My colleague, Terence,
+        pointed out this is similar to a driver not needing to know how the car works to drive it; they just need to
+        understand how to use the pedals, wheel, and signals.&amp;nbsp;&lt;/p&gt;
+
+    &lt;h3&gt;How much does the reader know?&lt;/h3&gt;
+    &lt;p&gt;One question repeatedly surfaced during my discussions with colleagues about this topic: How much information
+        should the documentation assume the reader already has? According to &lt;a
+            href=&quot;https://www.freecodecamp.org/news/how-to-write-good-documentation/&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;existing&lt;/a&gt; &lt;a
+            href=&quot;https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;research&lt;/a&gt;, it’s &lt;a
+            href=&quot;https://www.oreilly.com/content/the-eight-rules-of-good-documentation/&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;important to assume nothing&lt;/a&gt; about the reader. Even though it’s important
+        to provide content that avoids leaving readers in the dark, it’s also crucial to avoid overwhelming the
+        reader with a giant wall of text or presenting the reader with extraneous, repetitive information.&lt;/p&gt;
+    &lt;p&gt;In order to prevent overwhelming the reader we recommend visually breaking up the documentation so that it is
+        easier to skim or scan through for important information.&amp;nbsp; Breaking up large documents into smaller
+        chunks is especially important while generating documentation for a library of components.&lt;/p&gt;
+
+    &lt;h3&gt;The shape of docs&lt;/h3&gt;
+    &lt;p&gt;In journalism, there is a concept called the “inverted pyramid of information” where the broadest, most
+        important concepts are at the top of the piece and smaller, less relevant details appear later in the
+        article. In talking with our User Experience Team Lead, &lt;a
+            href=&quot;https://www.azavea.com/about/teammate/catherine-oldershaw/&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;Catherine Oldershaw&lt;/a&gt;, she told me that in UX this concept is often
+        reversed, and instead manifests by managing the cognitive load of an application with a technique called
+        “bubble up; drill down”. In other words, more digestible pieces of information bubble to the top and the
+        author drills down to more complex details as the documentation is written.&amp;nbsp;&lt;/p&gt;
+    &lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+        &lt;p&gt;“A great way to check this is to see if the&amp;nbsp; information hierarchy matches the visual hierarchy. Key
+            information (high in the information hierarchy) should also be visually prominent (high in the visual
+            hierarchy), and more nuanced, detailed information should be lower in the information hierarchy and
+            visual hierarchy.”&lt;/p&gt;
+        &lt;p&gt;&lt;b&gt;Catherine Oldershaw&lt;/b&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/azavea-blog-2.webp&quot;
+        alt=&quot;An image with big text in the middle that says &amp;quot;you will read this first&amp;quot;, slightly smaller text below that reading &amp;quot;and then you will read this&amp;quot;, slightly smaller text below that readying &amp;quot;then this one&amp;quot;, and finally a line at the top in little print that says &amp;quot;And you will read this last&amp;quot;.&quot;&gt;
+
+    &lt;p&gt;During our conversation, Catherine also shared that developers tend to write documentation that follows the
+        structure of the project, instead of following a structure that would improve readability. In order to
+        maximize readability, it is much more helpful to structure the documentation in a manner that a developer
+        new to the project would expect (i.e. with clear and skimmable sections), but this is not the norm. There is
+        some serious discretion needed to determine this, but following an organization design the reader is
+        familiar with can lead to great success.&lt;/p&gt;
+    &lt;p&gt;Although it may seem counterintuitive to many developers, repeating important information while generating
+        documentation is crucial and doesn’t take away from the piece’s skimmability. As devs, we are taught to
+        write DRY code (Don’t Repeat Yourself) which certainly makes more maintainable code. This being
+        said,documentation is for teaching as much for reference, and in a previous career I was trained that
+        repetition is good for teaching. American reading teachers are trained with the idea that you begin to
+        understand a word after you have heard or read it seven times.&amp;nbsp;&lt;/p&gt;
+    &lt;p&gt;While repetition may seem tedious to read, good documentation will explain a concept or abstraction just
+        about any time it comes up. This reduces how much the reader needs to move back and forth to understand what
+        they are reading and helps to avoid splitting their attention while reading about how to use or develop the
+        app. Repetition also helps to make the documentation more skimmable, which is very desirable.&lt;/p&gt;
+
+    &lt;h3&gt;A Good Example:&lt;/h3&gt;
+    &lt;p&gt;&lt;a href=&quot;https://ant.design/docs/react/introduce&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Ant Design&lt;/a&gt; is
+        a library of React components and represents a great example of effective documentation. When looking
+        through their components pages, there is a consistent shape to each component’s write-up.&lt;/p&gt;
+    &lt;p&gt;There is a small description of what each component is and what it is for, followed by a more in-depth
+        description of the particulars of the components and why one may need those different settings. After these
+        descriptions, there are examples of variations on the component that show what the different settings and
+        props do.&lt;/p&gt;
+
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/azavea-blog-3.webp&quot;
+        alt=&quot;A screenshot of text that reads &amp;quot;Radio. When To Use: Used to select a single state from multiple options. The difference from Select is that Radio is visible to the user and can facilitate the comparison of choice, which means there shouldn&apos;t be too many of them.&amp;quot;&quot; /&gt;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/azavea-blog-4.webp&quot; alt=&quot;Screenshots of a variety of buttons &quot; /&gt;
+
+
+    &lt;p&gt;AntD’s component docs also have code examples and interactive sandboxes that are entirely either “opt-in” or
+        collapsed so as not to overwhelm the reader. The documentation finishes out with an API reference chart for
+        experienced developers to find the particular details like default values or the list of options for any
+        specific quality the dev is looking for.&lt;/p&gt;
+
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/azavea-blog-5.webp&quot;
+        alt=&quot;Interactive examples from Antd of buttons, with one code example open&quot;&gt;
+    &lt;img src=&quot;https://travissouthard.com/assets/images/blog/azavea-blog-6.webp&quot;
+        alt=&quot;A screenshot of an API reference example for Antd’s radio button&quot;&gt;
+
+    &lt;p&gt;The shape of these documents make it easy for devs new to AntD to easily get a descriptive walk through what
+        this component does and why its different pieces are useful. Having an API chart at the bottom is also great
+        for veteran AntD users to quickly look up specifics like default values, types, and a quick reminder. Having
+        benefits for both audiences doesn’t detract from either experience, and the consistency of this format
+        amongst all the different components means once you understand the pattern it’s very easy to look through
+        any component’s doc for the details of any specific needs.&lt;/p&gt;
+
+    &lt;h3&gt;A specific odd example&lt;/h3&gt;
+
+    &lt;p&gt;As said above, documentation is more than just README.md and /docs pages. One of the bits we do well at
+        Azavea, especially on the Civic Applications team, is using commit messages as documentation. This may seem
+        odd to some developers, since many do not consider this to be documentation.&lt;/p&gt;
+    &lt;p&gt;When looking at what may read at first as an odd piece of code, we check the git blame and see what commit
+        and PR this piece of code came from. Ideally this PR will say what was trying to be solved as a whole and
+        the commit will say what was specifically changed to do this.&lt;/p&gt;
+    &lt;p&gt;Our local master of this technique is Senior Software Engineer, &lt;a
+            href=&quot;https://www.azavea.com/about/teammate/terence-tuhinanshu/&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;Terence Tuhinanshu&lt;/a&gt; of the Climate Applications team, who gave some great
+        insight into this. At Azavea we try to write pull requests that address a particular issue and contain a
+        list of commits that each make one change and title that change clearly in less than 50 characters (the
+        limit to display in one line in GitHub), with optional details for further motivation. Each of these commits
+        should appear in order, start with a present tense verb, and ideally read like steps in a recipe for how to
+        make this PR.&lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://github.com/azavea/iow-boundary-tool/pull/50/commits&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;Here are&lt;/a&gt;
+        &lt;a href=&quot;https://github.com/WikiWatershed/model-my-watershed/pull/3432/commits&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;a few&lt;/a&gt;
+        &lt;a href=&quot;https://github.com/WikiWatershed/model-my-watershed/pull/3406/commits&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;examples&lt;/a&gt; of this that Terence has put together over the years, including
+        &lt;a href=&quot;https://github.com/WikiWatershed/model-my-watershed/pull/2527/commits&quot; target=&quot;_blank&quot;
+            rel=&quot;noreferrer noopener&quot;&gt;one&lt;/a&gt; while Terence was into
+        &lt;a href=&quot;https://gitmoji.dev/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Gitmoji&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p&gt;The recipe part here is a nice analogy since recipes often fit a clear format that we often skim through and
+        recheck each time we want to make a particular piece of craft. These steps should each be performed on their
+        own and written with simple language to describe the action taken. A developer looking through this should
+        be able to look through these steps and see how to recreate this themself or undo this work.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;So, what makes good documentation?&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;There are many things that contribute to quality of documentation but to boil it down to a referenceable list
+        we can say that good documentation is:&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Skimmable&lt;/li&gt;
+        &lt;li&gt;Centralized (as much as possible)&lt;/li&gt;
+        &lt;li&gt;Consistently shaped&lt;/li&gt;
+        &lt;li&gt;Structured to the needs of the reader&lt;/li&gt;
+        &lt;li&gt;Holistic&lt;/li&gt;
+        &lt;li&gt;But also referenceable&lt;/li&gt;
+    &lt;/ul&gt;
       </description>
             <author>Travis Southard</author>
-            <link>https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/</link>
+            <link>https://travissouthard.com/blog/why-is-some-documentation-better-than-others.html</link>
             <pubDate>Tue, 06 Dec 2022 05:00:00 GMT</pubDate>
-            <guid>https://www.azavea.com/blog/2022/12/06/why-is-some-documentation-better-than-others/</guid>
+            <guid>https://travissouthard.com/blog/why-is-some-documentation-better-than-others.html</guid>
             <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
         </item>
         <item>
