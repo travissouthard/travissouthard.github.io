@@ -15,10 +15,93 @@
         <height>144</height>
     </image>
     <language>en-us</language>
-    <pubDate>Tue, 15 Oct 2024 04:07:27 GMT</pubDate>
-    <lastBuildDate>Tue, 15 Oct 2024 04:07:27 GMT</lastBuildDate>
+    <pubDate>Mon, 21 Oct 2024 01:30:58 GMT</pubDate>
+    <lastBuildDate>Mon, 21 Oct 2024 01:30:58 GMT</lastBuildDate>
     <atom:link href="https://travissouthard.com/rss.xml" rel="self" type="application/rss+xml" />
     
+        <item>
+            <title>Building the web I want to see</title>
+            <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;https://travissouthard.com/assets/images/blog/webring.png&quot; alt=&quot;A brick-like pattern of white rectangles with blue outlines, blue names like Ruby Gertz, Clotheshorse, and many other names of people and projects, plus each rectangle has blue labels with the topics each person/project covers&quot;/&gt;
+      &lt;/a&gt;
+  
+        &lt;p&gt;
+            &lt;b&gt;I have made a webring!&lt;/b&gt; This feels important to me as I try (along with many others) to build a better
+            web. This was a project I have been meaning to take on for some time. I did start with a basic set of
+            links to friends in the footer of my website, but I wanted to use it more to show the web I usually interact
+            with.
+        &lt;/p&gt;
+        &lt;p&gt;
+            I would still like to add a little flair and some organization to the webring page, but I am trying to build
+            this website without delivering any JavaScript, if possible. I do think the current iteration could go into
+            a &lt;code&gt;noscript&lt;/code&gt; block and then go and implement the immediate method I am thinking of. I did spend
+            quite some time trying to use a &lt;a href=&quot;https://editor.p5js.org/travissouthard/sketches/RUw3LR7cIO&quot;
+                target=&quot;_blank&quot;&gt;force-directed graph&lt;/a&gt; to help me layout the Venn-diagram-like design I was
+            originally imagining. In this case, a &quot;Done is better than perfect&quot; approach had to be taken.
+        &lt;/p&gt;
+        &lt;p&gt;
+            The web has &lt;a href=&quot;https://xoxofest.com/2024/videos/molly-white/&quot; target=&quot;_blank&quot;&gt;become less magical&lt;/a&gt;.
+            There is &lt;a
+                href=&quot;https://doctorow.scribe.rip/the-specific-process-by-which-google-enshittified-its-search-1ffd3b02d205&quot;
+                target=&quot;_blank&quot;&gt;a lot of evidence&lt;/a&gt; pointing to search engines largely getting worse
+            and nigh unusable and the state of the web (as most people use it) has become &lt;a
+                href=&quot;https://twitter.com/tveastman/status/1069674780826071040&quot; target=&quot;_blank&quot;&gt;&quot;five websites, each
+                consisting of screenshots of text from the other four.&quot;&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            I remember the web feeling very magical and largely found the best websites from word of mouth from people I
+            knew. The exception to this largely was finding webcomics from the footers of &lt;a
+                href=&quot;https://rice-boy.com/&quot; target=&quot;_blank&quot;&gt;webcomics&lt;/a&gt; &lt;a href=&quot;https://www.nedroid.com/&quot;
+                target=&quot;_blank&quot;&gt;I&lt;/a&gt; &lt;a href=&quot;https://www.kcgportfolio.site/&quot; target=&quot;_blank&quot;&gt;was&lt;/a&gt; &lt;a
+                href=&quot;https://www.octopuspie.com/&quot; target=&quot;_blank&quot;&gt;already&lt;/a&gt; &lt;a href=&quot;https://www.smbc-comics.com/&quot;
+                target=&quot;_blank&quot;&gt;reading&lt;/a&gt;. Many of the comics I was reading would have a &quot;My friends&quot; section with
+            links to their comics. Even then that felt very powerful and community-oriented, but as discovery and
+            recommendation algorithms have dominated those five website we go to, that kind of list feels almost
+            transgressive.
+        &lt;/p&gt;
+        &lt;p&gt;
+            Facebook and Twitter both punish users for linking to anything that&apos;s outside their walled gardens.
+            Instagram only allows for one external link per account (the famous &quot;link in bio&quot;), which has led to
+            services like Linktree because of course we all have more than one link to share. But these are all
+            platforms where, if you were to be banned, you would lose access to everything if it was the only place you
+            kept your photos, videos, jokes, etc. Or &lt;a
+                href=&quot;https://www.nytimes.com/2019/03/19/business/myspace-user-data.html&quot; target=&quot;_blank&quot;&gt;the site may
+                have a catastrophic data failure&lt;/a&gt; and lose everything.
+        &lt;/p&gt;
+        &lt;p&gt;
+            The method I have appreciated for avoiding getting shut out by some billionaire has been &lt;a
+                href=&quot;https://indieweb.org/POSSE&quot; target=&quot;_blank&quot;&gt;POSSE&lt;/a&gt; (Publish (on your) Own Site; Syndicate
+            Elsewhere). I post blogs, art, and projects on my own site first, then share them to social media I use.
+            Having your own website is a way to have aesthetic control over your own space as well! Almost none of the
+            large platforms allow you to customize your page with more than a profile picture, banner, and
+            &lt;em&gt;MAYBE&lt;/em&gt; a highlight color. But those aeshetics matter. They help set us apart, express ourselves, and
+            signal to others that we may be aligned just on sight.
+        &lt;/p&gt;
+        &lt;p&gt;
+            Making a website can certainly seem daunting. You don&apos;t have to handcraft code for a website (though it is
+            fun, and I like it myself). There are many WYSIWYG (What You See Is What You Get (pronounced &lt;em&gt;wizzy
+                wig&lt;/em&gt;)) options out there from the big corporate spaces or more indie spaces like &lt;a
+                href=&quot;https://noblogs.org/&quot; target=&quot;_blank&quot;&gt;NoBlogs&lt;/a&gt; or &lt;a href=&quot;https://neocities.org/&quot;
+                target=&quot;_blank&quot;&gt;NeoCities&lt;/a&gt;. In an increasingly online space, having your own little place to call
+            your own feels more and more necessary. And if you want to jump into the deep end, you could learn to code
+            and also &lt;a href=&quot;https://github.com/iffybooks/host-a-website-at-home&quot; target=&quot;_blank&quot;&gt;how to self-host a
+                website in your own home&lt;/a&gt;.
+        &lt;/p&gt;
+        &lt;p&gt;
+            We all have cool businesses, practices, hobbies, and more that we would like to share with others, so we
+            should have control over how we present that, and how we connect to each other. So please, build your own
+            sites. Make them how you want them (which may include making something crazily maximalist, go for it), and
+            link to your friends and the people whose work you like most. The &lt;a href=&quot;https://indieweb.org/&quot;
+                target=&quot;_blank&quot;&gt;Indie Web&lt;/a&gt; is already a growing movement and there&apos;s some great things being built.
+            The future of the web is many more small connected sites each with cool, niche, resource-rich pages.
+        &lt;/p&gt;
+      </description>
+            <author>Travis Southard</author>
+            <link>https://travissouthard.com/blog/building-the-web-i-want-to-see.html</link>
+            <pubDate>Sun, 20 Oct 2024 04:00:00 GMT</pubDate>
+            <guid>https://travissouthard.com/blog/building-the-web-i-want-to-see.html</guid>
+            <source url="https://travissouthard.com/rss.xml">Travis Southard's Blog</source>
+        </item>
         <item>
             <title>Over the Garden Wall poster</title>
             <description>&lt;a href=&quot;https://travissouthard.com&quot; target=&quot;_blank&quot;&gt;
