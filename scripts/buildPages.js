@@ -11,25 +11,10 @@ const LOCALNAV = [
 ];
 
 const LOWERLINKS = [
+    { name: "Webring", linkUrl: "webring.html" },
     { name: "RSS Feed", linkUrl: "rss.xml" },
     { name: "GitHub", linkUrl: "https://github.com/travissouthard" },
     { name: "Resumé", linkUrl: "resume.html" },
-];
-
-const FRIENDLINKS = [
-    { name: "Code for Philly", linkUrl: "https://codeforphilly.org/" },
-    { name: "Iffy Books", linkUrl: "https://iffybooks.net/" },
-    {
-        name: "Philly Tech Calendar",
-        linkUrl: "https://phillytechcalendar.com/",
-    },
-    { name: "Spokes & Stitches", linkUrl: "https://spokesandstitches.com/" },
-    {
-        name: "Sydney Good Southard",
-        linkUrl: "https://sydneygoodsouthard.com/",
-    },
-    { name: "Ben Wildflower", linkUrl: "https://benwildflower.com/" },
-    { name: "WC Pottery", linkUrl: "https://wc-pottery.square.site/" },
 ];
 
 const stripHTML = (html) => {
@@ -188,6 +173,82 @@ const buildPostDetail = (post) => {
     ${postNav}`;
 };
 
+const buildWebring = () => {
+    class Node {
+        constructor(name, link) {
+            this.name = name;
+            this.link = link;
+            this.edges = [];
+        }
+
+        addEdge(neighbor) {
+            this.edges.push(neighbor);
+            neighbor.edges.push(this);
+        }
+
+        printNode() {
+            return `<article class="webring">
+                <p><a href="${this.link}" target="_blank">${this.name}</a></p>
+                <p>${this.edges
+                    .map((e) => `<span class="topic">${e.name}</span>`)
+                    .join(" ")}</p>
+            </article>`;
+        }
+    }
+
+    class Graph {
+        constructor() {
+            this.topics = {};
+            this.sites = {};
+        }
+
+        addNode(n) {
+            const key = n.link ? "sites" : "topics";
+            if (this.getNode(n.name) === null) {
+                this[key][n.name] = n;
+            }
+        }
+
+        getNode(name) {
+            let node = this.topics[name] || this.sites[name] || null;
+            return node;
+        }
+
+        printGraph() {
+            return `
+                <article style="width: 100%">
+                    <h3>What is a webring?</h3>
+                    <p>
+                        <a href="https://en.wikipedia.org/wiki/Webring" target="_blank">Webrings</a> are lists of websites that (ideally) link to each other creating a web of sites. This was a way to help people find good websites before search engines started to work well. The <a href="https://web.archive.org/web/19991013135810/http://webring.org/" target="_blank">classic web ring</a> was having a few websites that each linked to each other in series, but often also were lists of sites organized by topic or region. This webring is more like the latter and is a way for me to share the web I typically interact with.
+                    </p>
+                </article>
+                ${Object.values(this.sites)
+                    .map((node) => node.printNode())
+                    .join("\n")}`;
+        }
+    }
+
+    const graph = new Graph();
+
+    for (let site of data.webring) {
+        let sNode = graph.getNode(site.name);
+        if (sNode === null) {
+            sNode = new Node(site.name, site.link);
+            graph.addNode(sNode);
+        }
+        for (let topic of site.topics) {
+            let tNode = graph.getNode(topic);
+            if (tNode === null) {
+                tNode = new Node(topic, null);
+                graph.addNode(tNode);
+            }
+            tNode.addEdge(sNode);
+        }
+    }
+
+    return `${graph.printGraph()}`;
+};
+
 const buildMain = (page, isPost) => {
     if (isPost) return buildPostDetail(page);
     if (page.name === "resume") {
@@ -237,6 +298,9 @@ const buildMain = (page, isPost) => {
                 alt="Travis and Ruby standing in front of a castle in County Kerry, Ireland on their honeymoon bike tour"
                 style="width: 100%; height: 200px; object-fit: cover;" />
         </article>`;
+    }
+    if (page.name === "webring") {
+        return buildWebring();
     }
     let listData;
     if (page.name === "index") {
@@ -319,10 +383,7 @@ const createPage = (pageData, isPost = false) => {
         <div class="${className}">${buildMain(pageData, isPost)}</div>
     </main>
     <script src="app.js"></script>
-    <footer>${buildNav([...LOCALNAV, ...LOWERLINKS], isPost)}${buildNav(
-        [...FRIENDLINKS],
-        isPost
-    )}
+    <footer>${buildNav([...LOCALNAV, ...LOWERLINKS], isPost)}
     <div class="ml-embedded" data-form="5G9C2m"></div>
     </footer>
     <script>
@@ -340,6 +401,15 @@ const createPage = (pageData, isPost = false) => {
 data.pages.forEach((page) => {
     fs.writeFileSync(`${page.name}.html`, createPage(page));
 });
+fs.writeFileSync(
+    "webring.html",
+    createPage({
+        title: "Webring",
+        description:
+            "Travis Southard's webring of the sites he usually visits.",
+        name: "webring",
+    })
+);
 ["blog", "art", "projects"].forEach((type) => {
     data[type].forEach((page) => {
         fs.writeFileSync(
