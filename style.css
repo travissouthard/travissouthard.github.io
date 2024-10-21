@@ -271,6 +271,27 @@ summary {
     text-align: left;
 }
 
+.webring {
+    border: 1px solid var(--blue);
+    border-radius: 4px;
+    margin: 8px;
+    padding: 4px;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.webring p {
+    text-align: center;
+}
+
+.topic {
+    color: white;
+    background-color: var(--light-blue);
+    padding: 4px;
+    border-radius: 4px;
+    line-height: 2em;
+}
+
 #about {
     max-width: 632px;
     margin: 0 auto;
@@ -360,6 +381,10 @@ summary {
 
     .resume-card {
         width: 45%;
+    }
+
+    .webring {
+        max-width: 250px;
     }
 }
 
