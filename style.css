@@ -115,19 +115,20 @@ nav ul {
 
 footer {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: space-between;
     padding: 16px;
 }
 
 footer ul {
     display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 8px;
 }
 
-footer ul:last-child {
-    text-align: right;
+footer a {
+   align-self: end;
 }
 
 nav a {
@@ -290,6 +291,21 @@ summary {
     padding: 4px;
     border-radius: 4px;
     line-height: 2em;
+}
+
+.h-card {
+    display: flex;
+    align-items: end;
+}
+
+.h-card img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.h-card p {
+    margin: 0;
+    padding-right: 4px;
 }
 
 #about {
