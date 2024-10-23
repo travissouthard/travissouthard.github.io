@@ -389,7 +389,7 @@ const createPage = (pageData, isPost = false) => {
     </main>
     <script src="app.js"></script>
     <footer>${buildNav([...LOCALNAV, ...LOWERLINKS], isPost)}
-    <a class="h-card hcard u-url" href="travissouthard.com">
+    <a class="h-card hcard u-url u-uid" href="travissouthard.com">
         <div>
             <p class="p-name">Travis Southard</p>
             <p class="p-locality">Philadelphia, PA</p>
