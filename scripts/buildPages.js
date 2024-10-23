@@ -363,6 +363,7 @@ const createPage = (pageData, isPost = false) => {
     <link href="https://dev.to/travissouthard" rel="me">
     <link href="https://github.com/travissouthard" rel="me">
     <link href="https://www.reddit.com/user/travissouthard/" rel="me">
+    <link rel="webmention" href="https://webmention.io/travissouthard.com/webmention" />
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="${
         isPost ? "../" : "./"
