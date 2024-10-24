@@ -12,7 +12,12 @@ const LOCALNAV = [
 
 const LOWERLINKS = [
     { name: "Webring", linkUrl: "webring.html" },
-    { name: "RSS Feed", linkUrl: "rss.xml" },
+    {
+        name: "RSS Feed",
+        linkUrl: "rss.xml",
+        rel: "alternate",
+        mimeType: "application/rss+xml",
+    },
     { name: "GitHub", linkUrl: "https://github.com/travissouthard" },
     { name: "Resumé", linkUrl: "resume.html" },
 ];
@@ -58,10 +63,14 @@ const sortArrayByDate = (arr) => {
 
 const buildNav = (linkArr, isPost) => {
     let navList = [];
-    for (let { name, linkUrl } of linkArr) {
+    for (let { name, linkUrl, rel, mimeType } of linkArr) {
         const isLocal = linkUrl.slice(0, 4) !== "http";
         navList.push(`
-            <a href="${isPost && isLocal ? "../" : ""}${linkUrl.toLowerCase()}">
+            <a href="${
+                isPost && isLocal ? "../" : ""
+            }${linkUrl.toLowerCase()}"${rel ? ` rel="${rel}"` : ""}${
+            mimeType ? ` type="${mimeType}"` : ""
+        }>
                 <li>${name}</li>
             </a>`);
     }
