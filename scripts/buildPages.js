@@ -318,6 +318,20 @@ const buildMain = (page, isPost) => {
         .join("");
 };
 
+const buildHCard = (isPost) => {
+    return `<section class="h-card">
+                <div>
+                    <a class="u-url" rel="me" href="travissouthard.com">
+                        <p class="p-name">Travis Southard</p>
+                    </a>
+                    <p><span class="p-locality">Philadelphia</span>, <span class="p-region">PA</span></p>
+                </div>
+                <img class="u-photo" src="${
+                    isPost ? "../" : "./"
+                }/assets/images/profile.png">
+            </section>`;
+};
+
 const createPage = (pageData, isPost = false) => {
     const hasOwnImage = isPost && pageData.imagePath;
     const imageLink = hasOwnImage
@@ -362,7 +376,6 @@ const createPage = (pageData, isPost = false) => {
     <link href="https://codeforphilly.org/people/travissouthard" rel="me">
     <link href="https://dev.to/travissouthard" rel="me">
     <link href="https://github.com/travissouthard" rel="me">
-    <link href="https://www.reddit.com/user/travissouthard/" rel="me">
     <link rel="webmention" href="https://webmention.io/travissouthard.com/webmention" />
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="${
@@ -389,14 +402,9 @@ const createPage = (pageData, isPost = false) => {
         <div class="${className}">${buildMain(pageData, isPost)}</div>
     </main>
     <script src="app.js"></script>
-    <footer>${buildNav([...LOCALNAV, ...LOWERLINKS], isPost)}
-    <a class="h-card hcard u-url" rel="me" href="travissouthard.com">
-        <div>
-            <p class="p-name">Travis Southard</p>
-            <p class="p-locality">Philadelphia, PA</p>
-        </div>
-        <img class="u-photo" src="./assets/images/profile.png">
-    </a>
+    <footer>
+        ${buildNav([...LOCALNAV, ...LOWERLINKS], isPost)}
+        ${buildHCard(isPost)}
     </footer>
 </body>
 </html>
