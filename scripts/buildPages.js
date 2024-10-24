@@ -321,7 +321,7 @@ const buildMain = (page, isPost) => {
 const buildHCard = (isPost) => {
     return `<section class="h-card">
                 <div>
-                    <a class="u-url" rel="me" href="travissouthard.com">
+                    <a class="u-url" rel="me" href="https://travissouthard.com">
                         <p class="p-name">Travis Southard</p>
                     </a>
                     <p><span class="p-locality">Philadelphia</span>, <span class="p-region">PA</span></p>
