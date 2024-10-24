@@ -24,7 +24,7 @@
     <link href="https://codeforphilly.org/people/travissouthard" rel="me">
     <link href="https://dev.to/travissouthard" rel="me">
     <link href="https://github.com/travissouthard" rel="me">
-    <link href="https://www.reddit.com/user/travissouthard/" rel="me">
+    <link rel="webmention" href="https://webmention.io/travissouthard.com/webmention" />
     <link rel="stylesheet" href="../style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
@@ -138,7 +138,8 @@
     </ul></div>
     </main>
     <script src="app.js"></script>
-    <footer><ul>
+    <footer>
+        <ul>
             <a href="../index.html">
                 <li>Home</li>
             </a>
@@ -166,13 +167,15 @@
             <a href="../resume.html">
                 <li>Resumé</li>
             </a></ul>
-    <a class="h-card hcard u-url" href="travissouthard.com">
-        <div>
-            <p class="p-name">Travis Southard</p>
-            <p class="p-locality">Philadelphia, PA</p>
-        </div>
-        <img class="u-photo" src="./assets/images/profile.png">
-    </a>
+        <section class="h-card">
+                <div>
+                    <a class="u-url" rel="me" href="travissouthard.com">
+                        <p class="p-name">Travis Southard</p>
+                    </a>
+                    <p><span class="p-locality">Philadelphia</span>, <span class="p-region">PA</span></p>
+                </div>
+                <img class="u-photo" src="..//assets/images/profile.png">
+            </section>
     </footer>
 </body>
 </html>
