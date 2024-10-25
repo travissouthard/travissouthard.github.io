@@ -66,13 +66,13 @@ const buildNav = (linkArr, isPost) => {
     for (let { name, linkUrl, rel, mimeType } of linkArr) {
         const isLocal = linkUrl.slice(0, 4) !== "http";
         navList.push(`
-            <a href="${
-                isPost && isLocal ? "../" : ""
-            }${linkUrl.toLowerCase()}"${rel ? ` rel="${rel}"` : ""}${
+            <li>
+                <a href="${
+                    isPost && isLocal ? "../" : ""
+                }${linkUrl.toLowerCase()}"${rel ? ` rel="${rel}"` : ""}${
             mimeType ? ` type="${mimeType}"` : ""
-        }>
-                <li>${name}</li>
-            </a>`);
+        }>${name}</a
+            ></li>`);
     }
     return `<ul>${navList.join("")}</ul>`;
 };
@@ -125,7 +125,7 @@ const buildPostCard = (post, listIndex, isIndexPage) => {
     return `<article class="project-card${shouldFeature ? " feature" : ""}">
             <h3>${post.title}</h3>
             <a href="${postLink}">
-                <img src="${imagePath}" alt="${post.altText}"/>
+                <img src="${imagePath}" alt="${post.altText}">
             </a>
             <p>${shouldFeature ? `<b>${pubDate}:</b>` : ""}${descText}</p>
         </article>
@@ -275,7 +275,7 @@ const buildMain = (page, isPost) => {
         return `<article id="about">
             <img src="./assets/images/blog/travis-flowers.jpg"
                 alt="Travis and Ruby standing in front of a castle in County Kerry, Ireland on their honeymoon bike tour"
-                style="width: 100%; height: 200px; object-fit: cover;" />
+                style="width: 100%; height: 200px; object-fit: cover;">
             <p>
                 My name is Travis, and I am a software engineer living in Philadelphia with my spouse, <a
                     href="https://spokesandstitches.com/" target="_blank">Ruby</a>, and our two cats, Topaz and Basil. I
@@ -305,7 +305,7 @@ const buildMain = (page, isPost) => {
             </p>
             <img src="./assets/images/about2.jpg"
                 alt="Travis and Ruby standing in front of a castle in County Kerry, Ireland on their honeymoon bike tour"
-                style="width: 100%; height: 200px; object-fit: cover;" />
+                style="width: 100%; height: 200px; object-fit: cover;">
         </article>`;
     }
     if (page.name === "webring") {
@@ -328,7 +328,7 @@ const buildMain = (page, isPost) => {
 };
 
 const buildHCard = (isPost) => {
-    return `<section class="h-card">
+    return `<div class="h-card">
                 <div>
                     <a class="u-url" rel="me" href="https://travissouthard.com">
                         <p class="p-name">Travis Southard</p>
@@ -337,8 +337,8 @@ const buildHCard = (isPost) => {
                 </div>
                 <img class="u-photo" src="${
                     isPost ? "../" : "./"
-                }/assets/images/profile.png">
-            </section>`;
+                }assets/images/profile.png" alt="A stylized white on blue photo of Travis' face made of squares of various size.">
+            </div>`;
 };
 
 const createPage = (pageData, isPost = false) => {
@@ -385,7 +385,7 @@ const createPage = (pageData, isPost = false) => {
     <link href="https://codeforphilly.org/people/travissouthard" rel="me">
     <link href="https://dev.to/travissouthard" rel="me">
     <link href="https://github.com/travissouthard" rel="me">
-    <link rel="webmention" href="https://webmention.io/travissouthard.com/webmention" />
+    <link rel="webmention" href="https://webmention.io/travissouthard.com/webmention">
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="${
         isPost ? "../" : "./"
