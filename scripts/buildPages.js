@@ -196,8 +196,10 @@ const buildWebring = () => {
         }
 
         printNode() {
-            return `<article class="webring">
-                <p><a href="${this.link}" target="_blank">${this.name}</a></p>
+            return `<article class="webring h-card">
+                <p><a class="u-url p-name" href="${
+                    this.link
+                }" target="_blank">${this.name}</a></p>
                 <p>${this.edges
                     .map((e) => `<span class="topic">${e.name}</span>`)
                     .join(" ")}</p>
