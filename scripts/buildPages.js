@@ -386,6 +386,9 @@ const createPage = (pageData, isPost = false) => {
     <link href="https://dev.to/travissouthard" rel="me">
     <link href="https://github.com/travissouthard" rel="me">
     <link rel="webmention" href="https://webmention.io/travissouthard.com/webmention">
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="microsub" href="https://aperture.p3k.io/microsub/995">
     <link rel="stylesheet" href="${isPost ? "../" : ""}style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="${
         isPost ? "../" : "./"
