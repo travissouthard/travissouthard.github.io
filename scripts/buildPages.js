@@ -170,14 +170,6 @@ const buildPostDetail = (post) => {
     )}.html">Permalink</a> | <a href="https://travissouthard.com/rss.xml" target="_blank">RSS</a></h5>
         ${postImage}
         ${post.description}
-        <p>
-            <em>
-                Thank you for reading! 
-                <a href="https://ko-fi.com/travissouthard" target="_blank">
-                    Please consider supporting this blog.
-                </a>
-            </em>
-        </p>
     </article>
     ${postNav}`;
 };
